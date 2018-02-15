@@ -18,5 +18,15 @@
     <string name="PlantTree">Plant Tree</string>
     <string name="CutTree">Cut Tree</string>
     <string name="ListTrees">List Trees</string>
+
+
+    <string name="treespecies">Tree Species</string>
+    <string name="treemunicipality">Tree Municipality</string>
+    <string name="treelongitude">Tree Longitude</string>
+    <string name="treelatitude">Tree Latitude</string>
+    <string name="plant"> Plant!</string>
+    <string name="cancel"> Cancel</string>
+
+
 </resources>
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/plantimage"
+            android:layout_gravity="center"
+            android:background="#FFFFBB33"
+            android:contentDescription="@string/app_name"
+            android:scaleType="center"
+            android:src="@drawable/planttree" />
+
+        <EditText
+            android:id="@+id/treespecies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_below="@id/plantimage"
+            android:hint="@string/treespecies"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/treemunicipality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/treespecies"
+            android:fontFamily="sans-serif"
+            android:hint="@string/treemunicipality"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/treelongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/treemunicipality"
+            android:fontFamily="sans-serif"
+            android:hint="@string/treelongitude"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/treemlatitude"
+            android:layout_below="@+id/treelongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/treelatitude"
+            android:inputType="text" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

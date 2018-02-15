@@ -1,11 +1,14 @@
 package ca.mcgill.ecse321.TreePLESystem;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,17 +55,6 @@ public class MainActivity extends AppCompatActivity {
         });
         refreshErrorMessage();
 
-        Spinner participantSpinner = (Spinner) findViewById(R.id.participantspinner);
-        Spinner eventSpinner = (Spinner) findViewById(R.id.eventspinner);
-
-        participantAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, participantNames);
-        participantAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        participantSpinner.setAdapter(participantAdapter);
-
-        eventAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, eventNames);
-        eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        eventSpinner.setAdapter(eventAdapter);
-
         // Get initial content for spinners
         refreshLists(this.getCurrentFocus());
     }
@@ -91,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void refreshErrorMessage() {
         // set the error message
+        /*
         TextView tvError = (TextView) findViewById(R.id.error);
         tvError.setText(error);
 
@@ -99,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvError.setVisibility(View.VISIBLE);
         }
+        */
 
     }
 
@@ -205,6 +199,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void plantTree(View view) {
+
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        builder.setView(inflater.inflate(R.layout.planttree_dialog, null));
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
         error = "";
         /*final TextView tv = (TextView) findViewById(R.id.newtree_name);
