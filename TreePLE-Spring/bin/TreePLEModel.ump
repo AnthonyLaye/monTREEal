@@ -1,0 +1,38 @@
+namespace ca.mcgill.ecse321.treePLE.model;
+
+class Tree {
+  String species;
+  Float height;
+  Integer age;
+  Date date;
+  Float diameter;
+  Float longitude;
+  Float latitude;
+  
+  * owns -- 1 Municipality municipality;
+  * owns -- 1 Resident resident;
+  1 -- * Survey;
+}
+
+class Person{
+  String name;
+}
+
+class Municipality {
+ Integer biodiversityIndex;
+  1 -- * Person person;
+}
+
+class Scientist {
+  isA Person;
+  * -- * Survey surveys;
+}
+
+class Resident {
+  isA Person;
+
+}
+
+class Survey{
+  Date date;
+}
