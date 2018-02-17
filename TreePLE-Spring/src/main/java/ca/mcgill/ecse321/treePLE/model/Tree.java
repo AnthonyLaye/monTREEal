@@ -31,7 +31,7 @@ public class Tree
   // CONSTRUCTOR
   //------------------------
 
-  public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, float aLongitude, float aLatitude, Municipality aMunicipality, Resident aResident)
+  public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, float aLongitude, float aLatitude)
   {
     species = aSpecies;
     height = aHeight;
@@ -40,16 +40,16 @@ public class Tree
     diameter = aDiameter;
     longitude = aLongitude;
     latitude = aLatitude;
-    boolean didAddMunicipality = setMunicipality(aMunicipality);
-    if (!didAddMunicipality)
-    {
-      throw new RuntimeException("Unable to create own due to municipality");
-    }
-    boolean didAddResident = setResident(aResident);
-    if (!didAddResident)
-    {
-      throw new RuntimeException("Unable to create own due to resident");
-    }
+    //boolean didAddMunicipality = setMunicipality(aMunicipality);
+    //if (!didAddMunicipality)
+    //{
+    //  throw new RuntimeException("Unable to create own due to municipality");
+    //}
+    //boolean didAddResident = setResident(aResident);
+    //if (!didAddResident)
+    //{
+    //  throw new RuntimeException("Unable to create own due to resident");
+    //}
     surveies = new ArrayList<Survey>();
   }
 

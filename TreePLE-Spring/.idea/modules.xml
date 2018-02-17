@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TreePLE-Spring.iml" filepath="$PROJECT_DIR$/TreePLE-Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TreePLE-Spring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/TreePLE-Spring_main.iml" group="TreePLE-Spring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TreePLE-Spring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/TreePLE-Spring_test.iml" group="TreePLE-Spring" />
+    </modules>
+  </component>
+</project>
