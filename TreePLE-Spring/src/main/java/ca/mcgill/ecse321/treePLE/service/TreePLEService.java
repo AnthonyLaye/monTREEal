@@ -27,8 +27,8 @@ public class TreePLEService {
         }
 
         Tree tree= new Tree(aSpecies, aHeight, aAge, aDate, aDiameter, aId, aPerson, aTreePLEManager, aLocation);
-        //tm.addTree(tree);
-        //PersistenceXStream.saveToXMLwithXStream(tm);
+        tm.addTree(tree);
+        PersistenceXStream.saveToXMLwithXStream(tm);
         return tree;
     }
 

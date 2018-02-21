@@ -1,5 +1,7 @@
 package ca.mcgill.ecse321.treePLE;
 
+import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
+import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration.AccessLevel;
 import org.modelmapper.convention.NamingConventions;
@@ -31,11 +33,10 @@ public class TreePLESpringApplication {
 	
 	
 	// TODO add a Bean to provide a registration manager
-//		@Bean
-//		public RegistrationManager regMan() {
-//			return PersistenceXStream.initializeModelManager(PersistenceXStream.getFilename());
-//			return null;
-//		}
+		@Bean
+		public TreePLEManager treeMan() {
+			return PersistenceXStream.initializeModelManager(PersistenceXStream.getFilename());
+		}
 
 		// TODO add client configuration
 		@Autowired
