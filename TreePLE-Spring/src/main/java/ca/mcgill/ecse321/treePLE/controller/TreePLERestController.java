@@ -1,12 +1,12 @@
 package ca.mcgill.ecse321.treePLE.controller;
 
 import ca.mcgill.ecse321.treePLE.dto.MunicipalityDto;
+import ca.mcgill.ecse321.treePLE.dto.PersonDto;
 import ca.mcgill.ecse321.treePLE.dto.ResidentDto;
 import ca.mcgill.ecse321.treePLE.dto.ScientistDto;
 import ca.mcgill.ecse321.treePLE.dto.TreeDto;
-import ca.mcgill.ecse321.treePLE.model.Municipality;
-import ca.mcgill.ecse321.treePLE.model.Resident;
-import ca.mcgill.ecse321.treePLE.model.Scientist;
+import ca.mcgill.ecse321.treePLE.model.Person;
+
 import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
@@ -14,6 +14,10 @@ import com.google.common.collect.Lists;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+//import ca.mcgill.ecse321.treePLE.model.Municipality;
+//import ca.mcgill.ecse321.treePLE.model.Resident;
+//import ca.mcgill.ecse321.treePLE.model.Scientist;
 
 import java.util.List;
 
@@ -32,23 +36,28 @@ public class TreePLERestController {
         return "TreePLE application root. Web-based frontend is a TODO. Use the REST API to manage trees.\n";
     }
 
-    // Conversion methods (not part of the API)
-    private MunicipalityDto convertToDto(Municipality e) {
-        // In simple cases, the mapper service is convenient
-        return modelMapper.map(e, MunicipalityDto.class);
-    }
+//    // Conversion methods (not part of the API)
+//    private MunicipalityDto convertToDto(Municipality e) {
+//        // In simple cases, the mapper service is convenient
+//        return modelMapper.map(e, MunicipalityDto.class);
+//    }
 
-    private ResidentDto convertToDto(Resident p) {
-        ResidentDto residentDto = modelMapper.map(p, ResidentDto.class);
-        //residentDto.setEvents(createEventDtosForParticipant(p));
-        return residentDto;
+    private PersonDto convertToDto(Person p) {
+    	PersonDto personDto = modelMapper.map(p, PersonDto.class);
+    	return personDto;
     }
-
-    private ScientistDto convertToDto(Scientist p) {
-        ScientistDto scientistDto = modelMapper.map(p, ScientistDto.class);
-        //scientistDto.setEvents(createEventDtosForParticipant(p));
-        return scientistDto;
-    }
+    
+//    private ResidentDto convertToDto(Resident p) {
+//        ResidentDto residentDto = modelMapper.map(p, ResidentDto.class);
+//        //residentDto.setEvents(createEventDtosForParticipant(p));
+//        return residentDto;
+//    }
+//
+//    private ScientistDto convertToDto(Scientist p) {
+//        ScientistDto scientistDto = modelMapper.map(p, ScientistDto.class);
+//        //scientistDto.setEvents(createEventDtosForParticipant(p));
+//        return scientistDto;
+//    }
 
     private TreeDto convertToDto(Tree p) {
         TreeDto treeDto = modelMapper.map(p, TreeDto.class);
