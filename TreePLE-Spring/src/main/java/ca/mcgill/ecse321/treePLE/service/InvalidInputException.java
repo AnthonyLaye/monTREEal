@@ -4,7 +4,6 @@ public class InvalidInputException extends Throwable {
 	private static final long serialVersionUID = -5633915762703837868L;
 	
 	public InvalidInputException(String errorMessage) {
-		super();
-		//normally super(errorMessage);
+		super(errorMessage);
 	}
 }
