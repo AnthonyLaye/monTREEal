@@ -49,27 +49,27 @@ public class PersistenceXStream {
 		xstream.setMode(XStream.ID_REFERENCES);
 		String xml = xstream.toXML(obj); // save our xml file
 
-		try {
-			FileWriter writer = new FileWriter(filename);
-			writer.write(xml);
-			writer.close();
-			return true;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
+        try {
+            FileWriter writer = new FileWriter(filename);
+            writer.write(xml);
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
 	}
 
 	public static Object loadFromXMLwithXStream() {
 		xstream.setMode(XStream.ID_REFERENCES);
-		try {
-			FileReader fileReader = new FileReader(filename); // load our xml file
-			return xstream.fromXML(fileReader);
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
+        try {
+            FileReader fileReader = new FileReader(filename); // load our xml file
+            return xstream.fromXML(fileReader);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
 	}
 
 	public static void setAlias(String xmlTagName, Class<?> className) {

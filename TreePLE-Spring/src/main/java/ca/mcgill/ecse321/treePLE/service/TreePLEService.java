@@ -8,11 +8,16 @@ import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.List;
 
 @Service
 public class TreePLEService {
 
     private TreePLEManager tm;
+    
+    public TreePLEService(TreePLEManager tm) {
+    	this.tm = tm;
+    }
 
     public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
         throws InvalidInputException{
@@ -27,7 +32,7 @@ public class TreePLEService {
         return tree;
     }
 
-    public Tree[] findAllTrees() {
-        return null;
+    public List<Tree> findAllTrees() {
+        return tm.getTrees();
     }
 }
