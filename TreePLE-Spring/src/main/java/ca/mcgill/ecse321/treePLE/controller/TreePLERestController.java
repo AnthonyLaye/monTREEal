@@ -5,9 +5,11 @@ import ca.mcgill.ecse321.treePLE.dto.PersonDto;
 import ca.mcgill.ecse321.treePLE.dto.ResidentDto;
 import ca.mcgill.ecse321.treePLE.dto.ScientistDto;
 import ca.mcgill.ecse321.treePLE.dto.TreeDto;
+import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
 
 import ca.mcgill.ecse321.treePLE.model.Tree;
+import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 import com.google.common.collect.Lists;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.*;
 //import ca.mcgill.ecse321.treePLE.model.Resident;
 //import ca.mcgill.ecse321.treePLE.model.Scientist;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 public class TreePLERestController {
@@ -68,10 +72,23 @@ public class TreePLERestController {
     //For plant tree?
     @PostMapping(value = { "/trees/{species}", "/trees/{species}/" })
     public TreeDto createTree(
-            @PathVariable("species") String species) throws InvalidInputException {
-        //Tree tree = service.createTree(species);
-        //return convertToDto(tree);
-        return null;
+            @PathVariable("species") String species,
+            @RequestParam int height,
+            @RequestParam int age,
+            @RequestParam Date date,
+            @RequestParam int diameter,
+            @RequestParam String personName,
+            @RequestParam float longitude,
+            @RequestParam float latitude,
+            @RequestParam String municipality) throws InvalidInputException {
+
+        TreePLEManager tm = new TreePLEManager();
+        Person treeOwner = new Person(personName, tm);
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
+        Location location = new Location(longitude, latitude, municipality);
+
+        Tree tree = service.createTree(species, height, age, date, diameter, randomNum, treeOwner, tm, location);
+        return convertToDto(tree);
     }
 
     //For list all trees?
@@ -83,9 +100,4 @@ public class TreePLERestController {
         }
         return trees;
     }
-
-
-
-
-
 }
