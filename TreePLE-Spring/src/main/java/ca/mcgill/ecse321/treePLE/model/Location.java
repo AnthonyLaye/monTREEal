@@ -5,52 +5,75 @@ package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 import java.sql.Date;
 
-// line 15 "../../../../../TreePLEModel.ump"
-public class Person
+// line 36 "../../../../../TreePLEModel.ump"
+public class Location
 {
 
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //Person Attributes
-  private String name;
+  //Location Attributes
+  private float longitude;
+  private float latitude;
+  private String municipality;
 
-  //Person Associations
+  //Location Associations
   private List<Tree> tree;
-  private TreePLEManager treePLEManager;
-  private enum Role{Resident, Scientist}
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Person(String aName, TreePLEManager aTreePLEManager)
+  public Location(float aLongitude, float aLatitude, String aMunicipality)
   {
-    name = aName;
+    longitude = aLongitude;
+    latitude = aLatitude;
+    municipality = aMunicipality;
     tree = new ArrayList<Tree>();
-    boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
-    if (!didAddTreePLEManager)
-    {
-      throw new RuntimeException("Unable to create person due to treePLEManager");
-    }
   }
 
   //------------------------
   // INTERFACE
   //------------------------
 
-  public boolean setName(String aName)
+  public boolean setLongitude(float aLongitude)
   {
     boolean wasSet = false;
-    name = aName;
+    longitude = aLongitude;
     wasSet = true;
     return wasSet;
   }
 
-  public String getName()
+  public boolean setLatitude(float aLatitude)
   {
-    return name;
+    boolean wasSet = false;
+    latitude = aLatitude;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setMunicipality(String aMunicipality)
+  {
+    boolean wasSet = false;
+    municipality = aMunicipality;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public float getLongitude()
+  {
+    return longitude;
+  }
+
+  public float getLatitude()
+  {
+    return latitude;
+  }
+
+  public String getMunicipality()
+  {
+    return municipality;
   }
 
   public Tree getTree(int index)
@@ -83,30 +106,25 @@ public class Person
     return index;
   }
 
-  public TreePLEManager getTreePLEManager()
-  {
-    return treePLEManager;
-  }
-
   public static int minimumNumberOfTree()
   {
     return 0;
   }
 
-  public Tree addTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, TreePLEManager aTreePLEManager, Location aLocation)
+  public Tree addTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, TreePLEManager aTreePLEManager)
   {
-    return new Tree(aSpecies, aHeight, aAge, aDate, aDiameter, aId, this, aTreePLEManager, aLocation);
+    return new Tree(aSpecies, aHeight, aAge, aDate, aDiameter, aId, aPerson, aTreePLEManager, this);
   }
 
   public boolean addTree(Tree aTree)
   {
     boolean wasAdded = false;
     if (tree.contains(aTree)) { return false; }
-    Person existingPerson = aTree.getPerson();
-    boolean isNewPerson = existingPerson != null && !this.equals(existingPerson);
-    if (isNewPerson)
+    Location existingLocation = aTree.getLocation();
+    boolean isNewLocation = existingLocation != null && !this.equals(existingLocation);
+    if (isNewLocation)
     {
-      aTree.setPerson(this);
+      aTree.setLocation(this);
     }
     else
     {
@@ -119,8 +137,8 @@ public class Person
   public boolean removeTree(Tree aTree)
   {
     boolean wasRemoved = false;
-    //Unable to remove aTree, as it must always have a person
-    if (!this.equals(aTree.getPerson()))
+    //Unable to remove aTree, as it must always have a location
+    if (!this.equals(aTree.getLocation()))
     {
       tree.remove(aTree);
       wasRemoved = true;
@@ -160,25 +178,6 @@ public class Person
     return wasAdded;
   }
 
-  public boolean setTreePLEManager(TreePLEManager aTreePLEManager)
-  {
-    boolean wasSet = false;
-    if (aTreePLEManager == null)
-    {
-      return wasSet;
-    }
-
-    TreePLEManager existingTreePLEManager = treePLEManager;
-    treePLEManager = aTreePLEManager;
-    if (existingTreePLEManager != null && !existingTreePLEManager.equals(aTreePLEManager))
-    {
-      existingTreePLEManager.removePerson(this);
-    }
-    treePLEManager.addPerson(this);
-    wasSet = true;
-    return wasSet;
-  }
-
   public void delete()
   {
     for(int i=tree.size(); i > 0; i--)
@@ -186,16 +185,14 @@ public class Person
       Tree aTree = tree.get(i - 1);
       aTree.delete();
     }
-    TreePLEManager placeholderTreePLEManager = treePLEManager;
-    this.treePLEManager = null;
-    placeholderTreePLEManager.removePerson(this);
   }
 
 
   public String toString()
   {
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "treePLEManager = "+(getTreePLEManager()!=null?Integer.toHexString(System.identityHashCode(getTreePLEManager())):"null");
+            "longitude" + ":" + getLongitude()+ "," +
+            "latitude" + ":" + getLatitude()+ "," +
+            "municipality" + ":" + getMunicipality()+ "]";
   }
 }

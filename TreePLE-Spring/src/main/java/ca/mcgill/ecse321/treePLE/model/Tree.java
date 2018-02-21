@@ -19,38 +19,42 @@ public class Tree
   private int age;
   private Date date;
   private float diameter;
-  private float longitude;
-  private float latitude;
+  private int id;
 
   //Tree Associations
-  private Municipality municipality;
-  private Resident resident;
+  private Person person;
   private List<Survey> surveies;
+  private TreePLEManager treePLEManager;
+  private Location location;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, float aLongitude, float aLatitude)
+  public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
   {
     species = aSpecies;
     height = aHeight;
     age = aAge;
     date = aDate;
     diameter = aDiameter;
-    longitude = aLongitude;
-    latitude = aLatitude;
-    //boolean didAddMunicipality = setMunicipality(aMunicipality);
-    //if (!didAddMunicipality)
-    //{
-    //  throw new RuntimeException("Unable to create own due to municipality");
-    //}
-    //boolean didAddResident = setResident(aResident);
-    //if (!didAddResident)
-    //{
-    //  throw new RuntimeException("Unable to create own due to resident");
-    //}
+    id = aId;
+    boolean didAddPerson = setPerson(aPerson);
+    if (!didAddPerson)
+    {
+      throw new RuntimeException("Unable to create tree due to person");
+    }
     surveies = new ArrayList<Survey>();
+    boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
+    if (!didAddTreePLEManager)
+    {
+      throw new RuntimeException("Unable to create tree due to treePLEManager");
+    }
+    boolean didAddLocation = setLocation(aLocation);
+    if (!didAddLocation)
+    {
+      throw new RuntimeException("Unable to create tree due to location");
+    }
   }
 
   //------------------------
@@ -97,18 +101,10 @@ public class Tree
     return wasSet;
   }
 
-  public boolean setLongitude(float aLongitude)
+  public boolean setId(int aId)
   {
     boolean wasSet = false;
-    longitude = aLongitude;
-    wasSet = true;
-    return wasSet;
-  }
-
-  public boolean setLatitude(float aLatitude)
-  {
-    boolean wasSet = false;
-    latitude = aLatitude;
+    id = aId;
     wasSet = true;
     return wasSet;
   }
@@ -138,24 +134,14 @@ public class Tree
     return diameter;
   }
 
-  public float getLongitude()
+  public int getId()
   {
-    return longitude;
+    return id;
   }
 
-  public float getLatitude()
+  public Person getPerson()
   {
-    return latitude;
-  }
-
-  public Municipality getMunicipality()
-  {
-    return municipality;
-  }
-
-  public Resident getResident()
-  {
-    return resident;
+    return person;
   }
 
   public Survey getSurvey(int index)
@@ -188,40 +174,31 @@ public class Tree
     return index;
   }
 
-  public boolean setMunicipality(Municipality aMunicipality)
+  public TreePLEManager getTreePLEManager()
   {
-    boolean wasSet = false;
-    if (aMunicipality == null)
-    {
-      return wasSet;
-    }
-
-    Municipality existingMunicipality = municipality;
-    municipality = aMunicipality;
-    if (existingMunicipality != null && !existingMunicipality.equals(aMunicipality))
-    {
-      existingMunicipality.removeOwn(this);
-    }
-    municipality.addOwn(this);
-    wasSet = true;
-    return wasSet;
+    return treePLEManager;
   }
 
-  public boolean setResident(Resident aResident)
+  public Location getLocation()
+  {
+    return location;
+  }
+
+  public boolean setPerson(Person aPerson)
   {
     boolean wasSet = false;
-    if (aResident == null)
+    if (aPerson == null)
     {
       return wasSet;
     }
 
-    Resident existingResident = resident;
-    resident = aResident;
-    if (existingResident != null && !existingResident.equals(aResident))
+    Person existingPerson = person;
+    person = aPerson;
+    if (existingPerson != null && !existingPerson.equals(aPerson))
     {
-      existingResident.removeOwn(this);
+      existingPerson.removeTree(this);
     }
-    resident.addOwn(this);
+    person.addTree(this);
     wasSet = true;
     return wasSet;
   }
@@ -231,9 +208,9 @@ public class Tree
     return 0;
   }
 
-  public Survey addSurvey(Date aDate)
+  public Survey addSurvey(Date aDate, int aId, Person aObserver)
   {
-    return new Survey(aDate, this);
+    return new Survey(aDate, aId, aObserver, this);
   }
 
   public boolean addSurvey(Survey aSurvey)
@@ -298,19 +275,62 @@ public class Tree
     return wasAdded;
   }
 
+  public boolean setTreePLEManager(TreePLEManager aTreePLEManager)
+  {
+    boolean wasSet = false;
+    if (aTreePLEManager == null)
+    {
+      return wasSet;
+    }
+
+    TreePLEManager existingTreePLEManager = treePLEManager;
+    treePLEManager = aTreePLEManager;
+    if (existingTreePLEManager != null && !existingTreePLEManager.equals(aTreePLEManager))
+    {
+      existingTreePLEManager.removeTree(this);
+    }
+    treePLEManager.addTree(this);
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setLocation(Location aLocation)
+  {
+    boolean wasSet = false;
+    if (aLocation == null)
+    {
+      return wasSet;
+    }
+
+    Location existingLocation = location;
+    location = aLocation;
+    if (existingLocation != null && !existingLocation.equals(aLocation))
+    {
+      existingLocation.removeTree(this);
+    }
+    location.addTree(this);
+    wasSet = true;
+    return wasSet;
+  }
+
   public void delete()
   {
-    Municipality placeholderMunicipality = municipality;
-    this.municipality = null;
-    placeholderMunicipality.removeOwn(this);
-    Resident placeholderResident = resident;
-    this.resident = null;
-    placeholderResident.removeOwn(this);
-    for(int i=surveies.size(); i > 0; i--)
+    Person placeholderPerson = person;
+    this.person = null;
+    placeholderPerson.removeTree(this);
+    while (surveies.size() > 0)
     {
-      Survey aSurvey = surveies.get(i - 1);
+      Survey aSurvey = surveies.get(surveies.size() - 1);
       aSurvey.delete();
+      surveies.remove(aSurvey);
     }
+    
+    TreePLEManager placeholderTreePLEManager = treePLEManager;
+    this.treePLEManager = null;
+    placeholderTreePLEManager.removeTree(this);
+    Location placeholderLocation = location;
+    this.location = null;
+    placeholderLocation.removeTree(this);
   }
 
 
@@ -321,10 +341,10 @@ public class Tree
             "height" + ":" + getHeight()+ "," +
             "age" + ":" + getAge()+ "," +
             "diameter" + ":" + getDiameter()+ "," +
-            "longitude" + ":" + getLongitude()+ "," +
-            "latitude" + ":" + getLatitude()+ "]" + System.getProperties().getProperty("line.separator") +
+            "id" + ":" + getId()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "date" + "=" + (getDate() != null ? !getDate().equals(this)  ? getDate().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
-            "  " + "municipality = "+(getMunicipality()!=null?Integer.toHexString(System.identityHashCode(getMunicipality())):"null") + System.getProperties().getProperty("line.separator") +
-            "  " + "resident = "+(getResident()!=null?Integer.toHexString(System.identityHashCode(getResident())):"null");
+            "  " + "person = "+(getPerson()!=null?Integer.toHexString(System.identityHashCode(getPerson())):"null") + System.getProperties().getProperty("line.separator") +
+            "  " + "treePLEManager = "+(getTreePLEManager()!=null?Integer.toHexString(System.identityHashCode(getTreePLEManager())):"null") + System.getProperties().getProperty("line.separator") +
+            "  " + "location = "+(getLocation()!=null?Integer.toHexString(System.identityHashCode(getLocation())):"null");
   }
 }

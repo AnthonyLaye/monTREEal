@@ -6,33 +6,42 @@ class Tree {
   Integer age;
   Date date;
   Float diameter;
-  Float longitude;
-  Float latitude;
+  Integer id;
   
-  * owns -- 1 Municipality municipality;
-  * owns -- 1 Resident resident;
-  1 -- * Survey;
+  * tree -- 1 Person person;
+  1 <@>- * Survey;
 }
 
 class Person{
   String name;
 }
 
-class Municipality {
- Integer biodiversityIndex;
-  1 -- * Person person;
+class TreePLEManager{
+ 1 treePLEManager <@>- * Tree;
+ 1 treePLEManager -- * Person person;
 }
 
-class Scientist {
-  isA Person;
-  * -- * Survey surveys;
-}
-
-class Resident {
-  isA Person;
-
-}
 
 class Survey{
   Date date;
+  Integer id;
+  * -> 1 Person observer;
+}
+
+class Forecast{
+  Integer biodiversityIndex;
+    * forecast -- 1 TreePLEManager treePLEManager;
+}
+
+class Location{
+  Float longitude;
+  Float latitude;
+  1 location -- * Tree tree;
+  String municipality;
+  
+}
+
+class Biodiversity{
+  Integer biodiversityIndex;
+  *--* Forecast forecast;
 }
