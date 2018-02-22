@@ -1,14 +1,15 @@
 package ca.mcgill.ecse321.treePLE.service;
 
+import java.sql.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
 import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
 import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
-import org.springframework.stereotype.Service;
-
-import java.sql.Date;
-import java.util.List;
 
 @Service
 public class TreePLEService {
