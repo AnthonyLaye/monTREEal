@@ -23,20 +23,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
     private String error = null;
-    private List<String> participantNames = new ArrayList<>();
-    private ArrayAdapter<String> participantAdapter;
-    private List<String> eventNames = new ArrayList<>();
-    private ArrayAdapter<String> eventAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +45,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        refreshErrorMessage();
-
-        // Get initial content for spinners
-        refreshLists(this.getCurrentFocus());
     }
 
     @Override
@@ -79,21 +67,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void refreshErrorMessage() {
-        // set the error message
-        /*
-        TextView tvError = (TextView) findViewById(R.id.error);
-        tvError.setText(error);
-
-        if (error == null || error.length() == 0) {
-            tvError.setVisibility(View.GONE);
-        } else {
-            tvError.setVisibility(View.VISIBLE);
-        }
-        */
-
     }
 
     private Bundle getTimeFromLabel(String text) {
@@ -133,24 +106,17 @@ public class MainActivity extends AppCompatActivity {
         return rtn;
     }
 
-    public void showTimePickerDialog(View v) {
-        TextView tf = (TextView) v;
-        Bundle args = getTimeFromLabel(tf.getText().toString());
-        args.putInt("id", v.getId());
+    private void refreshErrorMessage() {
+        // set the error message
+        //TextView tvError = (TextView) findViewById(R.id.error);
+        //tvError.setText(error);
 
-        TimePickerFragment newFragment = new TimePickerFragment();
-        newFragment.setArguments(args);
-        newFragment.show(getSupportFragmentManager(), "timePicker");
-    }
+        //if (error == null || error.length() == 0) {
+        //    tvError.setVisibility(View.GONE);
+        //} else {
+        //    tvError.setVisibility(View.VISIBLE);
+        //}
 
-    public void showDatePickerDialog(View v) {
-        TextView tf = (TextView) v;
-        Bundle args = getDateFromLabel(tf.getText().toString());
-        args.putInt("id", v.getId());
-
-        DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.setArguments(args);
-        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
     public void setTime(int id, int h, int m) {
@@ -161,41 +127,6 @@ public class MainActivity extends AppCompatActivity {
     public void setDate(int id, int d, int m, int y) {
         TextView tv = (TextView) findViewById(id);
         tv.setText(String.format("%02d-%02d-%04d", d, m + 1, y));
-    }
-
-    public void refreshLists(View view) {
-        refreshList(participantAdapter ,participantNames, "participants");
-        refreshList(eventAdapter, eventNames, "events");
-    }
-
-    private void refreshList(final ArrayAdapter<String> adapter, final List<String> names, String restFunctionName) {
-        HttpUtils.get(restFunctionName, new RequestParams(), new JsonHttpResponseHandler() {
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                names.clear();
-                names.add("Please select...");
-                for( int i = 0; i < response.length(); i++){
-                    try {
-                        names.add(response.getJSONObject(i).getString("name"));
-                    } catch (Exception e) {
-                        error += e.getMessage();
-                    }
-                    refreshErrorMessage();
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
-                refreshErrorMessage();
-            }
-        });
     }
 
     public void plantTree(View view) {
@@ -209,6 +140,14 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                TextView ownerTextView = (TextView) findViewById(R.id.ownername);
+                TextView speciesTextView = (TextView) findViewById(R.id.treespecies);
+                TextView municipalityTextView = (TextView) findViewById(R.id.treemunicipality);
+                TextView longitudeTextView = (TextView) findViewById(R.id.treelongitude);
+                TextView latitudeTextView = (TextView) findViewById(R.id.treelatitude);
+
+                httpPostTree(ownerTextView.toString(), speciesTextView.toString(), municipalityTextView.toString(),
+                        longitudeTextView.toString(), latitudeTextView.toString());
                 dialog.cancel();
             }
         });
@@ -221,13 +160,77 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        error = "";
-        /*final TextView tv = (TextView) findViewById(R.id.newtree_name);
-        HttpUtils.post("trees/" + tv.getText().toString(), new RequestParams(), new JsonHttpResponseHandler() {
+    }
+
+    public void httpPostTree(String owner, String species, String municipality, String longitude, String latitude){
+
+        RequestParams rp = new RequestParams();
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
+        java.util.Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c);
+
+        rp.add("species", species);
+        rp.add("date", formattedDate);
+        rp.add("id", String.valueOf(randomNum));
+        rp.add("personName", owner);
+        rp.add("municipality", municipality);
+        rp.add("longitude", longitude);
+        rp.add("latitude", latitude);
+
+        HttpUtils.post("trees/", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 refreshErrorMessage();
-                tv.setText("");
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                refreshErrorMessage();
+            }
+        });
+    }
+
+    public void cutTree(View view) {
+
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        builder.setView(inflater.inflate(R.layout.cuttree_dialog, null));
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(R.string.cut, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                TextView idTextView = (TextView) findViewById(R.id.treeid);
+                httpRemoveTree(idTextView.toString());
+                dialog.cancel();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    public void httpRemoveTree(String id){
+
+        /*
+        error = "";
+        HttpUtils.("trees/", new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                refreshErrorMessage();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
@@ -240,9 +243,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         */
-    }
 
-    public void cutTree(View view) {
     }
 
     /*

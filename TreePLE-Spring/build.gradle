@@ -40,17 +40,16 @@ dependencies {
 	compile('org.springframework:spring-webmvc:4.2.6.RELEASE')
 	compile('com.google.guava:guava:23.5-jre')
 	compile('com.thoughtworks.xstream:xstream:1.4.7')
-	
+
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-        
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 eclipse {
-    classpath {
-         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
+	classpath {
+		containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
 }
-
