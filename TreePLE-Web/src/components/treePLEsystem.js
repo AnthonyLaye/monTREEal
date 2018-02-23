@@ -30,7 +30,7 @@ export default {
       errorTrees: ''
     }
   },
-  created: function () {
+  created: function() {
     AXIOS.get('/trees')
     .then(response => {
       this.trees = response.data
@@ -38,5 +38,21 @@ export default {
     .catch(e => {
       this.errorEvent = e;
     });
+  },
+
+  methods: {
+    listAllTrees: function() {
+      AXIOS.get('/trees')
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.trees = response.data
+        this.errorTrees = ''
+      })
+      .catch(e => {
+        var errorMsg = e.response.data.message
+        console.log(errorMsg)
+        this.errorTrees = errorMsg
+      })
+    }
   }
 }

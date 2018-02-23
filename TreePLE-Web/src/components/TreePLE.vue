@@ -1,14 +1,20 @@
 <template>
   <div id="treePLE">
-    <h2>Trees</h2>
+    <h1>Welcome to TreePLE! </h1>
     <table>
-      <tr>
-          <td>Fred</td>
-          <td>Location</td>
+      <tr v-for="tree in trees" >
+        <td>
+          ID:{{tree.id}}
+          Species:{{tree.species}}
+          Height:{{tree.height}}
+          Diameter:{{tree.diameter}}
+          Age:{{tree.age}}
+          DatePlanted:{{tree.date}}
+        </td>
       </tr>
       <tr>
           <td>
-              <button>List Trees</button>
+              <button @click="listAllTrees()">List All Trees</button>
           </td>
       </tr>
     </table>
@@ -19,6 +25,7 @@
 </template>
 <script src="./treePLEsystem.js">
 </script>
+
 <style>
   #treePLE {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
