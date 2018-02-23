@@ -1,5 +1,99 @@
 <manager id="1">
-  <trees id="2"/>
-  <person id="3"/>
-  <forecast id="4"/>
+  <trees id="2">
+    <tree id="3">
+      <species>SmartAss</species>
+      <height>11.0</height>
+      <age>200</age>
+      <date id="4">2018-02-21</date>
+      <diameter>22.0</diameter>
+      <id>71817432</id>
+      <person id="5">
+        <name>helloworld</name>
+        <tree id="6">
+          <tree reference="3"/>
+        </tree>
+        <treePLEManager id="7">
+          <trees id="8"/>
+          <person id="9">
+            <person reference="5"/>
+          </person>
+          <forecast id="10"/>
+        </treePLEManager>
+      </person>
+      <surveies id="11"/>
+      <treePLEManager reference="1"/>
+      <location id="12">
+        <longitude>221.0</longitude>
+        <latitude>333.0</latitude>
+        <municipality>McGill</municipality>
+        <tree id="13">
+          <tree reference="3"/>
+        </tree>
+      </location>
+    </tree>
+    <tree id="14">
+      <species>AAAAAAAA</species>
+      <height>11.0</height>
+      <age>100</age>
+      <date id="15">2018-02-21</date>
+      <diameter>55.0</diameter>
+      <id>47664590</id>
+      <person id="16">
+        <name>Yooooo</name>
+        <tree id="17">
+          <tree reference="14"/>
+        </tree>
+        <treePLEManager id="18">
+          <trees id="19"/>
+          <person id="20">
+            <person reference="16"/>
+          </person>
+          <forecast id="21"/>
+        </treePLEManager>
+      </person>
+      <surveies id="22"/>
+      <treePLEManager reference="1"/>
+      <location id="23">
+        <longitude>251.0</longitude>
+        <latitude>343.0</latitude>
+        <municipality>Concordia</municipality>
+        <tree id="24">
+          <tree reference="14"/>
+        </tree>
+      </location>
+    </tree>
+    <tree id="25">
+      <species>Hlloeoeoeo</species>
+      <height>11.0</height>
+      <age>100</age>
+      <date id="26">2018-02-21</date>
+      <diameter>55.0</diameter>
+      <id>14475954</id>
+      <person id="27">
+        <name>Yooooo</name>
+        <tree id="28">
+          <tree reference="25"/>
+        </tree>
+        <treePLEManager id="29">
+          <trees id="30"/>
+          <person id="31">
+            <person reference="27"/>
+          </person>
+          <forecast id="32"/>
+        </treePLEManager>
+      </person>
+      <surveies id="33"/>
+      <treePLEManager reference="1"/>
+      <location id="34">
+        <longitude>251.0</longitude>
+        <latitude>343.0</latitude>
+        <municipality>Concordia</municipality>
+        <tree id="35">
+          <tree reference="25"/>
+        </tree>
+      </location>
+    </tree>
+  </trees>
+  <person id="36"/>
+  <forecast id="37"/>
 </manager>
