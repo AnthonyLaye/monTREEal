@@ -26,6 +26,9 @@
     <string name="treelatitude">Tree Latitude</string>
     <string name="plant"> Plant!</string>
     <string name="cancel"> Cancel</string>
+    <string name="ownername">Owner Name</string>
+    <string name="treeid">Enter Tree ID</string>
+    <string name="cut">Request Cut!</string>
 
 
 </resources>

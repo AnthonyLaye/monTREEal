@@ -13,22 +13,46 @@
     tools:context="ca.mcgill.ecse321.TreePLESystem.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/treeple"
+            android:id="@+id/treepleimage"/>
+
+        <TextView
+            android:id="@+id/treepletext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/treepleimage"
+            android:gravity="center"
+            android:text="TreePLE"
+            android:textSize="30sp" />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/plantTreeBtn"
-            android:text="@string/PlantTree"
-            android:onClick="plantTree"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/treepletext"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/button_template"
+            android:onClick="plantTree"
+            android:text="@string/PlantTree" />
 
         <Button
             android:id="@+id/cutTreeBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/plantTreeBtn"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/button_template"
             android:onClick="cutTree"
             android:text="@string/CutTree" />
     <!--
@@ -40,7 +64,7 @@
             android:onClick="listTrees"/>
     -->
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
 
