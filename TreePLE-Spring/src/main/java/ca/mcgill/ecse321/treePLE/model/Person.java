@@ -5,7 +5,7 @@ package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 import java.sql.Date;
 
-// line 15 "../../../../../TreePLEModel.ump"
+// line 16 "../../../../../TreePLEModel.ump"
 public class Person
 {
 
@@ -19,7 +19,6 @@ public class Person
   //Person Associations
   private List<Tree> tree;
   private TreePLEManager treePLEManager;
-  private enum Role{Resident, Scientist}
 
   //------------------------
   // CONSTRUCTOR
