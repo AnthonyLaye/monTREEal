@@ -7,6 +7,7 @@ class Tree {
   Date date;
   Float diameter;
   Integer id;
+  enum status {Healthy, Diseased, MarkedForCutdown, CutDown}
   
   * tree -- 1 Person person;
   1 <@>- * Survey;

@@ -3,11 +3,19 @@
 
 package ca.mcgill.ecse321.treePLE.model;
 import java.sql.Date;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // line 3 "../../../../../TreePLEModel.ump"
 public class Tree
 {
+
+  //------------------------
+  // ENUMERATIONS
+  //------------------------
+
+  public enum Status { Healthy, Diseased, MarkedForCutdown, CutDown }
 
   //------------------------
   // MEMBER VARIABLES
@@ -20,6 +28,7 @@ public class Tree
   private Date date;
   private float diameter;
   private int id;
+  private Status status;
 
   //Tree Associations
   private Person person;
@@ -28,7 +37,7 @@ public class Tree
   private Location location;
 
   //------------------------
-  // CONSTRUCTOR
+  // CONSTRUCTORS
   //------------------------
 
   public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
@@ -39,6 +48,34 @@ public class Tree
     date = aDate;
     diameter = aDiameter;
     id = aId;
+    status = Status.Healthy;
+    boolean didAddPerson = setPerson(aPerson);
+    if (!didAddPerson)
+    {
+      throw new RuntimeException("Unable to create tree due to person");
+    }
+    surveies = new ArrayList<Survey>();
+    boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
+    if (!didAddTreePLEManager)
+    {
+      throw new RuntimeException("Unable to create tree due to treePLEManager");
+    }
+    boolean didAddLocation = setLocation(aLocation);
+    if (!didAddLocation)
+    {
+      throw new RuntimeException("Unable to create tree due to location");
+    }
+  }
+  
+  public Tree(String aSpecies, Date aDate, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
+  {
+    species = aSpecies;
+    date = aDate;
+    id = aId;
+    status = Status.Healthy;
+    height = (float) 10.0;
+    diameter = (float) 3.0;
+    age = 1;    
     boolean didAddPerson = setPerson(aPerson);
     if (!didAddPerson)
     {
@@ -107,6 +144,19 @@ public class Tree
     id = aId;
     wasSet = true;
     return wasSet;
+  }
+  
+  public void setStatus(Status aStatus) {
+	  status = aStatus;
+  }
+  
+  public Status getStatus() {
+	  return status;
+  }
+  
+  public String getStatusName() {
+	  String statusName = status.toString();
+	  return statusName;
   }
 
   public String getSpecies()
