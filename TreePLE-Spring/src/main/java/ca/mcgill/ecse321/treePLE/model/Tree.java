@@ -32,7 +32,7 @@ public class Tree
 
   //Tree Associations
   private Person person;
-  private List<Survey> surveys;
+  private List<Survey> surveies;
   private TreePLEManager treePLEManager;
   private Location location;
 
@@ -54,7 +54,7 @@ public class Tree
     {
       throw new RuntimeException("Unable to create tree due to person");
     }
-    surveys = new ArrayList<Survey>();
+    surveies = new ArrayList<Survey>();
     boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
     if (!didAddTreePLEManager)
     {
@@ -81,7 +81,7 @@ public class Tree
     {
       throw new RuntimeException("Unable to create tree due to person");
     }
-    surveys = new ArrayList<Survey>();
+    surveies = new ArrayList<Survey>();
     boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
     if (!didAddTreePLEManager)
     {
@@ -196,31 +196,31 @@ public class Tree
 
   public Survey getSurvey(int index)
   {
-    Survey aSurvey = surveys.get(index);
+    Survey aSurvey = surveies.get(index);
     return aSurvey;
   }
 
   public List<Survey> getsurveys()
   {
-    List<Survey> newsurveys = Collections.unmodifiableList(surveys);
+    List<Survey> newsurveys = Collections.unmodifiableList(surveies);
     return newsurveys;
   }
 
   public int numberOfsurveys()
   {
-    int number = surveys.size();
+    int number = surveies.size();
     return number;
   }
 
   public boolean hassurveys()
   {
-    boolean has = surveys.size() > 0;
+    boolean has = surveies.size() > 0;
     return has;
   }
 
   public int indexOfSurvey(Survey aSurvey)
   {
-    int index = surveys.indexOf(aSurvey);
+    int index = surveies.indexOf(aSurvey);
     return index;
   }
 
@@ -266,7 +266,7 @@ public class Tree
   public boolean addSurvey(Survey aSurvey)
   {
     boolean wasAdded = false;
-    if (surveys.contains(aSurvey)) { return false; }
+    if (surveies.contains(aSurvey)) { return false; }
     Tree existingTree = aSurvey.getTree();
     boolean isNewTree = existingTree != null && !this.equals(existingTree);
     if (isNewTree)
@@ -275,7 +275,7 @@ public class Tree
     }
     else
     {
-      surveys.add(aSurvey);
+      surveies.add(aSurvey);
     }
     wasAdded = true;
     return wasAdded;
@@ -287,7 +287,7 @@ public class Tree
     //Unable to remove aSurvey, as it must always have a tree
     if (!this.equals(aSurvey.getTree()))
     {
-      surveys.remove(aSurvey);
+      surveies.remove(aSurvey);
       wasRemoved = true;
     }
     return wasRemoved;
@@ -300,8 +300,8 @@ public class Tree
     {
       if(index < 0 ) { index = 0; }
       if(index > numberOfsurveys()) { index = numberOfsurveys() - 1; }
-      surveys.remove(aSurvey);
-      surveys.add(index, aSurvey);
+      surveies.remove(aSurvey);
+      surveies.add(index, aSurvey);
       wasAdded = true;
     }
     return wasAdded;
@@ -310,12 +310,12 @@ public class Tree
   public boolean addOrMoveSurveyAt(Survey aSurvey, int index)
   {
     boolean wasAdded = false;
-    if(surveys.contains(aSurvey))
+    if(surveies.contains(aSurvey))
     {
       if(index < 0 ) { index = 0; }
       if(index > numberOfsurveys()) { index = numberOfsurveys() - 1; }
-      surveys.remove(aSurvey);
-      surveys.add(index, aSurvey);
+      surveies.remove(aSurvey);
+      surveies.add(index, aSurvey);
       wasAdded = true;
     } 
     else 
@@ -368,11 +368,11 @@ public class Tree
     Person placeholderPerson = person;
     this.person = null;
     placeholderPerson.removeTree(this);
-    while (surveys.size() > 0)
+    while (surveies.size() > 0)
     {
-      Survey aSurvey = surveys.get(surveys.size() - 1);
+      Survey aSurvey = surveies.get(surveies.size() - 1);
       aSurvey.delete();
-      surveys.remove(aSurvey);
+      surveies.remove(aSurvey);
     }
     
     TreePLEManager placeholderTreePLEManager = treePLEManager;
