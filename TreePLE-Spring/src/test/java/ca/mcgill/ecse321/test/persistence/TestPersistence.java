@@ -20,10 +20,10 @@ import static org.junit.Assert.fail;
 public class TestPersistence {
 
 	private TreePLEManager tm;
-	
+
 	@Before
 	public void setUp() throws Exception {
-		tm = new TreePLEManager;
+		tm = new TreePLEManager();
 		
 		// plant trees
 				Tree t1 = new Tree("oak", Date(2018,02,04) ,21 , Person("Jeff",tm), Location(2.00,2.00,"NDG"));

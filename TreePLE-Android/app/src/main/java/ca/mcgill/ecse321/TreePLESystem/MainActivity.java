@@ -1,6 +1,7 @@
 package ca.mcgill.ecse321.TreePLESystem;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -196,8 +197,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void cutTree(View view) {
+    public void onMap(View view) {
 
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+
+        /*
         AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
@@ -220,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+        */
 
     }
 
