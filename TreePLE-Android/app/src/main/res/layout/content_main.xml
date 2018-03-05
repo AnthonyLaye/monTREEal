@@ -46,15 +46,15 @@
             android:text="@string/PlantTree" />
 
         <Button
-            android:id="@+id/cutTreeBtn"
+            android:id="@+id/mapBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/plantTreeBtn"
             android:layout_marginTop="18dp"
             android:background="@drawable/button_template"
-            android:onClick="cutTree"
-            android:text="@string/CutTree" />
+            android:onClick="onMap"
+            android:text="@string/Map" />
     <!--
         <Button
             android:layout_width="wrap_content"
