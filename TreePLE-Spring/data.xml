@@ -223,13 +223,40 @@
         </tree>
       </location>
     </tree>
+    <tree id="71">
+      <species>oake</species>
+      <height>1.0</height>
+      <age>1</age>
+      <date id="72">2018-02-02</date>
+      <diameter>1.0</diameter>
+      <id>46395115</id>
+      <status>Healthy</status>
+      <person id="73">
+        <name>Bob</name>
+        <tree id="74">
+          <tree reference="71"/>
+        </tree>
+        <treePLEManager reference="1"/>
+      </person>
+      <surveies id="75"/>
+      <treePLEManager reference="1"/>
+      <location id="76">
+        <longitude>1.23</longitude>
+        <latitude>4.56</latitude>
+        <municipality>NDG</municipality>
+        <tree id="77">
+          <tree reference="71"/>
+        </tree>
+      </location>
+    </tree>
   </trees>
-  <person id="71">
+  <person id="78">
     <person reference="38"/>
     <person reference="45"/>
     <person reference="52"/>
     <person reference="59"/>
     <person reference="66"/>
+    <person reference="73"/>
   </person>
-  <forecast id="72"/>
+  <forecast id="79"/>
 </manager>
