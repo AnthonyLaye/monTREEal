@@ -1,25 +1,28 @@
 <template>
   <div id="treePLE">
-    <h1>Welcome to TreePLE! </h1>
-    <table>
-      <tr v-for="tree in trees" >
-        <td>
-          ID:{{tree.id}}
-          Species:{{tree.species}}
-          Height:{{tree.height}}
-          Diameter:{{tree.diameter}}
-          Age:{{tree.age}}
-          DatePlanted:{{tree.date}}
-        </td>
-      </tr>
+    <h1><b>Welcome to TreePLE! </b></h1>
+    <button @click="listAllTrees()" style="margin:15px" >List All Trees
+    </button>
+    <table align = "center" style = "width:60%">
       <tr>
-          <td>
-              <button @click="listAllTrees()">List All Trees</button>
-          </td>
+      	<th> ID </th>
+      	<th> Species </th>
+      	<th> Height </th>
+      	<th> Diameter </th>
+      	<th> Age </th>
+      	<th> Date Planted </th>
+      <tr v-for="tree in trees" >
+        <td> {{tree.id}} </td>
+        <td> {{tree.species}} </td>
+        <td> {{tree.height}} </td>
+        <td> {{tree.diameter}} </td>
+        <td> {{tree.age}} </td>
+        <td> {{tree.date}} </td>
+        </td>
       </tr>
     </table>
     <p>
-      <span style="color:red">Error: Message text comes here</span>
+      <!-- <span style="color:red">Error: Message text comes here</span> -->
     </p>
   </div>
 </template>
@@ -28,9 +31,31 @@
 
 <style>
   #treePLE {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    color: #2c3e50;
-    background: #f2ece8;
+    background: #f4efeb;
+    font-family: 'Avenir', sans-serif;
+    color: #27472e;
+  }
+  h1 {
+  	font-size: 36px;
+  }
+  th{
+  	font-size: 18px;
+  }
+  td {
+  	font-size: 14px;
+  }
+  button {
+  	background-color:#27472e;
+  	color: white;
+  	border: 1px solid black;
+  	font-size: 16px;
+  	padding: 7px 15px;
+  	border-radius: 4px;
+  	transition-duration: 0.4s;
+  }
+  button:hover{
+  	background-color: #d7e8db;
+  	color: black;
   }
 </style>
 

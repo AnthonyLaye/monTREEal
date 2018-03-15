@@ -38,7 +38,9 @@ public class TreePLERestController {
         return "TreePLE application root. Web-based frontend is a TODO. Use the REST API to manage trees.\n";
     }
 
-    //Conversion Methods
+    //----------------------------------
+    //   Conversion Methods
+    //----------------------------------
     private PersonDto convertToDto(Person p) {
     	PersonDto personDto = modelMapper.map(p, PersonDto.class);
     	return personDto;
@@ -63,7 +65,9 @@ public class TreePLERestController {
         return treeDto;
     }
 
-    //POST Methods
+    //----------------------------------
+    //   POST Methods
+    //----------------------------------
     @PostMapping(value = { "/trees/{species}", "/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
@@ -107,8 +111,24 @@ public class TreePLERestController {
     	wasCutDown = service.cutDownTree(id);
     	return wasCutDown;
     }
+    
+    @PostMapping(value = { "/markCutDown/tree/{id}", "/markCutDown/tree/{id}/" })
+    public boolean markForCutDown(@PathVariable("id") int id) throws InvalidInputException {
+    	boolean markedForCutDown = false;
+    	markedForCutDown = service.markTreeForCutDown(id);
+    	return markedForCutDown;
+    }
+    
+    @PostMapping(value = { "/markDiseased/tree/{id}", "/markDiseased/tree/{id}/" })
+    public boolean markDiseased(@PathVariable("id") int id) throws InvalidInputException {
+    	boolean markedDiseased = false;
+    	markedDiseased = service.markTreeDiseased(id);
+    	return markedDiseased;
+    }
 
-    //GET Methods
+    //----------------------------------
+    //   GET Methods
+    //----------------------------------
     @GetMapping(value = { "/trees", "/trees/" })
     public List<TreeDto> findAllTrees() {
         List<TreeDto> trees = Lists.newArrayList();

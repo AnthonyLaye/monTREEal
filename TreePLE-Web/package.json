@@ -19,6 +19,7 @@
     "bootstrap-vue": "latest",
     "popper.js": "^1.12.9",
     "vue": "^2.5.2",
+    "vue-google-maps": "^0.1.21",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
