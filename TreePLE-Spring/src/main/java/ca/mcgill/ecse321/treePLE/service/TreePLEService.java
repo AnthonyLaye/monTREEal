@@ -66,4 +66,33 @@ public class TreePLEService {
     	PersistenceXStream.saveToXMLwithXStream(tm);
     	return wasCutDown;
     }
+    
+    public boolean markTreeForCutDown(int aId) {
+    	boolean markedForCutDown = false;
+    	for (Tree tree : tm.getTrees()) {
+    		int treeID = tree.getId();
+    		if (aId == treeID) {
+    			tree.setStatus(Status.MarkedForCutdown);
+    			markedForCutDown = true;
+    			break;
+    		}
+    	}
+    	PersistenceXStream.saveToXMLwithXStream(tm);
+    	return markedForCutDown;
+    }
+    
+    public boolean markTreeDiseased(int aId) {
+    	boolean markedDiseased = false;
+    	for (Tree tree : tm.getTrees()) {
+    		int treeID = tree.getId();
+    		if (aId == treeID) {
+    			tree.setStatus(Status.Diseased);
+    			markedDiseased = true;
+    			break;
+    		}
+    	}
+    	PersistenceXStream.saveToXMLwithXStream(tm);
+    	return markedDiseased;
+    }
+    
 }
