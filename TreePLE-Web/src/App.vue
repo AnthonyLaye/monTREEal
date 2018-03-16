@@ -2,13 +2,20 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view></router-view>
+    <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 100%; height: 500px">
+        <gmap-marker v-bind:key="index" v-for="(m, index) in markers" v-bind:position="m.position" v-bind:clickable="true" :draggable="true" @click="center=m.position"></gmap-marker>
+      </gmap-map>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    data () {
+      return {
+        center: {lat: 45.5017, lng: -73.5673}
+      }
+    }
+  }
 </script>
 
 <style>
