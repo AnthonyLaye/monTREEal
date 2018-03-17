@@ -91,7 +91,9 @@ public class TestListTreesForResident {
 		
 		int id = randomNum;
 		assertEquals(id, JoeTrees.get(0).getId());
-
+		
+		assertEquals("willow", JoeTrees.get(0).getSpecies());
+		assertEquals(p, JoeTrees.get(0).getPerson());
 		assertEquals(tm,JoeTrees.get(0).getTreePLEManager());
 	}
 	
@@ -154,6 +156,14 @@ public class TestListTreesForResident {
 		assertEquals(id1, JimTrees.get(0).getId());
 		assertEquals(id2, JimTrees.get(1).getId());
 		assertEquals(id3, JimTrees.get(2).getId());
+		
+		assertEquals("willow", JimTrees.get(0).getSpecies());
+		assertEquals("oak", JimTrees.get(1).getSpecies());
+		assertEquals("maple", JimTrees.get(2).getSpecies());
+		
+		assertEquals(p1, JimTrees.get(0).getPerson());
+		assertEquals(p2, JimTrees.get(1).getPerson());
+		assertEquals(p3, JimTrees.get(2).getPerson());
 
 		assertEquals(tm,JimTrees.get(0).getTreePLEManager());
 		assertEquals(tm,JimTrees.get(1).getTreePLEManager());
@@ -197,6 +207,7 @@ public class TestListTreesForResident {
 
 			
 		List<Tree> JillTrees = ts.findTreesForResident("Jill");
+		assertEquals(2, tm.getTrees().size());
 		assertEquals(0, JillTrees.size());
 	}
 	
