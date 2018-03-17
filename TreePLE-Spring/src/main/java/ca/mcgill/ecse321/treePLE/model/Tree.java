@@ -3,19 +3,11 @@
 
 package ca.mcgill.ecse321.treePLE.model;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // line 3 "../../../../../TreePLEModel.ump"
 public class Tree
 {
-
-  //------------------------
-  // ENUMERATIONS
-  //------------------------
-
-  public enum Status { Healthy, Diseased, MarkedForCutdown, CutDown }
 
   //------------------------
   // MEMBER VARIABLES
@@ -28,16 +20,22 @@ public class Tree
   private Date date;
   private float diameter;
   private int id;
-  private Status status;
 
   //Tree Associations
   private Person person;
   private List<Survey> surveies;
   private TreePLEManager treePLEManager;
   private Location location;
-
+  private Status status;
+  
   //------------------------
-  // CONSTRUCTORS
+  // ENUMERATION
+  //------------------------
+  
+  public enum Status { Healthy, Diseased, MarkedForCutdown, Cutdown }
+  
+  //------------------------
+  // CONSTRUCTOR
   //------------------------
 
   public Tree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
@@ -48,7 +46,6 @@ public class Tree
     date = aDate;
     diameter = aDiameter;
     id = aId;
-    status = Status.Healthy;
     boolean didAddPerson = setPerson(aPerson);
     if (!didAddPerson)
     {
@@ -66,7 +63,7 @@ public class Tree
       throw new RuntimeException("Unable to create tree due to location");
     }
   }
-  
+
   public Tree(String aSpecies, Date aDate, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
   {
     species = aSpecies;
@@ -93,10 +90,22 @@ public class Tree
       throw new RuntimeException("Unable to create tree due to location");
     }
   }
-
   //------------------------
   // INTERFACE
   //------------------------
+  
+  public void setStatus(Status aStatus) {
+	  status = aStatus;
+  }
+  
+  public Status getStatus() {
+	  return status;
+  }
+  
+  public String getStatusName() {
+	  String statusName = status.toString();
+	  return statusName;
+}
 
   public boolean setSpecies(String aSpecies)
   {
@@ -145,19 +154,6 @@ public class Tree
     wasSet = true;
     return wasSet;
   }
-  
-  public void setStatus(Status aStatus) {
-	  status = aStatus;
-  }
-  
-  public Status getStatus() {
-	  return status;
-  }
-  
-  public String getStatusName() {
-	  String statusName = status.toString();
-	  return statusName;
-  }
 
   public String getSpecies()
   {
@@ -200,19 +196,19 @@ public class Tree
     return aSurvey;
   }
 
-  public List<Survey> getsurveys()
+  public List<Survey> getSurveies()
   {
-    List<Survey> newsurveys = Collections.unmodifiableList(surveies);
-    return newsurveys;
+    List<Survey> newSurveies = Collections.unmodifiableList(surveies);
+    return newSurveies;
   }
 
-  public int numberOfsurveys()
+  public int numberOfSurveies()
   {
     int number = surveies.size();
     return number;
   }
 
-  public boolean hassurveys()
+  public boolean hasSurveies()
   {
     boolean has = surveies.size() > 0;
     return has;
@@ -253,7 +249,7 @@ public class Tree
     return wasSet;
   }
 
-  public static int minimumNumberOfsurveys()
+  public static int minimumNumberOfSurveies()
   {
     return 0;
   }
@@ -299,7 +295,7 @@ public class Tree
     if(addSurvey(aSurvey))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfsurveys()) { index = numberOfsurveys() - 1; }
+      if(index > numberOfSurveies()) { index = numberOfSurveies() - 1; }
       surveies.remove(aSurvey);
       surveies.add(index, aSurvey);
       wasAdded = true;
@@ -313,7 +309,7 @@ public class Tree
     if(surveies.contains(aSurvey))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfsurveys()) { index = numberOfsurveys() - 1; }
+      if(index > numberOfSurveies()) { index = numberOfSurveies() - 1; }
       surveies.remove(aSurvey);
       surveies.add(index, aSurvey);
       wasAdded = true;

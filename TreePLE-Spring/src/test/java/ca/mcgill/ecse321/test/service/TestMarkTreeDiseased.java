@@ -107,11 +107,11 @@ public class TestMarkTreeDiseased {
 		
 		ts.cutDownTree(8765211); //Cut down tree
 		
-		Assert.assertEquals(Status.CutDown, tm.getTree(0).getStatus()); //Make sure cut down status
+		Assert.assertEquals(Status.Cutdown, tm.getTree(0).getStatus()); //Make sure cut down status
 		
 		ts.markTreeDiseased(8765211);	//Attempt to mark tree as diseased
 		
-		Assert.assertEquals(Status.CutDown, tm.getTree(0).getStatus());	//Make sure tree is still marked as cut down
+		Assert.assertEquals(Status.Cutdown, tm.getTree(0).getStatus());	//Make sure tree is still marked as cut down
 		tm.delete();
 	}
 	

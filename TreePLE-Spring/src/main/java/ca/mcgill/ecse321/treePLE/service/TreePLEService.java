@@ -59,7 +59,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			tree.setStatus(Status.CutDown);
+    			tree.setStatus(Status.Cutdown);
     			wasCutDown = true;
     			break;
     		}
@@ -73,7 +73,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.MarkedForCutdown) {
+    			if(tree.getStatus() == Status.Cutdown || tree.getStatus() == Status.MarkedForCutdown) {
     				markedForCutDown = false;
     				break;
     			}
@@ -93,7 +93,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.Diseased || tree.getStatus() == Status.MarkedForCutdown) {
+    			if(tree.getStatus() == Status.Cutdown || tree.getStatus() == Status.Diseased || tree.getStatus() == Status.MarkedForCutdown) {
     				markedDiseased = false;
     				break;
     			}
