@@ -4,27 +4,27 @@
 package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 
-// line 43 "../../../../../TreePLEModel.ump"
-public class Biodiversity
+// line 48 "../../../../../TreePLEModel.ump"
+public class Canopy
 {
 
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //Biodiversity Attributes
-  private double biodiversityIndex;
+  //Canopy Attributes
+  private double canopyIndex;
 
-  //Biodiversity Associations
+  //Canopy Associations
   private List<Forecast> forecast;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Biodiversity(double aBiodiversityIndex)
+  public Canopy(double aCanopyIndex)
   {
-    biodiversityIndex = aBiodiversityIndex;
+    canopyIndex = aCanopyIndex;
     forecast = new ArrayList<Forecast>();
   }
 
@@ -32,17 +32,17 @@ public class Biodiversity
   // INTERFACE
   //------------------------
 
-  public boolean setBiodiversityIndex(double aBiodiversityIndex)
+  public boolean setCanopyIndex(double aCanopyIndex)
   {
     boolean wasSet = false;
-    biodiversityIndex = aBiodiversityIndex;
+    canopyIndex = aCanopyIndex;
     wasSet = true;
     return wasSet;
   }
 
-  public double getBiodiversityIndex()
+  public double getCanopyIndex()
   {
-    return biodiversityIndex;
+    return canopyIndex;
   }
 
   public Forecast getForecast(int index)
@@ -85,13 +85,13 @@ public class Biodiversity
     boolean wasAdded = false;
     if (forecast.contains(aForecast)) { return false; }
     forecast.add(aForecast);
-    if (aForecast.indexOfBiodiversity(this) != -1)
+    if (aForecast.indexOfCanopy(this) != -1)
     {
       wasAdded = true;
     }
     else
     {
-      wasAdded = aForecast.addBiodiversity(this);
+      wasAdded = aForecast.addCanopy(this);
       if (!wasAdded)
       {
         forecast.remove(aForecast);
@@ -110,13 +110,13 @@ public class Biodiversity
 
     int oldIndex = forecast.indexOf(aForecast);
     forecast.remove(oldIndex);
-    if (aForecast.indexOfBiodiversity(this) == -1)
+    if (aForecast.indexOfCanopy(this) == -1)
     {
       wasRemoved = true;
     }
     else
     {
-      wasRemoved = aForecast.removeBiodiversity(this);
+      wasRemoved = aForecast.removeCanopy(this);
       if (!wasRemoved)
       {
         forecast.add(oldIndex,aForecast);
@@ -163,7 +163,7 @@ public class Biodiversity
     forecast.clear();
     for(Forecast aForecast : copyOfForecast)
     {
-      aForecast.removeBiodiversity(this);
+      aForecast.removeCanopy(this);
     }
   }
 
@@ -171,6 +171,6 @@ public class Biodiversity
   public String toString()
   {
     return super.toString() + "["+
-            "biodiversityIndex" + ":" + getBiodiversityIndex()+ "]";
+            "canopyIndex" + ":" + getCanopyIndex()+ "]";
   }
 }

@@ -71,7 +71,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			tree.setStatus(Status.CutDown);
+    			tree.setStatus(Status.Cutdown);
     			wasCutDown = true;
     			break;
     		}
@@ -85,7 +85,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.MarkedForCutdown) {
+    			if(tree.getStatus() == Status.Cutdown || tree.getStatus() == Status.MarkedForCutdown) {
     				markedForCutDown = false;
     				break;
     			}
@@ -105,7 +105,7 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.Diseased || tree.getStatus() == Status.MarkedForCutdown) {
+    			if(tree.getStatus() == Status.Cutdown || tree.getStatus() == Status.Diseased || tree.getStatus() == Status.MarkedForCutdown) {
     				markedDiseased = false;
     				break;
     			}
@@ -117,5 +117,54 @@ public class TreePLEService {
     	PersistenceXStream.saveToXMLwithXStream(tm);
     	return markedDiseased;
     }
+    
+    	/**
+	 * This method is to calculate the biodiversity index of a list of given trees. 
+	 * the index is a sustainability attribute to see how many different species there is
+	 * relative to the number of individuals (trees)
+	 * @param a list of trees of type Tree
+	 * @return a double that is a ratio between the number of different species over the number
+	 * of trees
+	 */
+	public double calculateBiodiversityIndex(List<Tree> trees) {
+		double index=0;
+		double counterSpecies=0;
+		double nbTrees=0;
+		List<String> diffSpecies = new ArrayList<String>();		//initially empty and add elements
+		int i=0;
+		for(Tree t: trees) {
+			String speciesName=t.getSpecies();
+			nbTrees=nbTrees+1;
+
+			if(!(containsString(diffSpecies, speciesName))) {
+				diffSpecies.add(i, speciesName);
+				counterSpecies=counterSpecies+1;
+				i=i+1;		//increment the index to add elements
+			}
+		}
+		if(nbTrees==0) {
+			index=0;
+		}
+		else {
+			index=counterSpecies/nbTrees;
+		}
+		return index;
+	}
+	/**
+	 * The method containsString is to check if a string is present in a list of strings
+	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
+	 * @param a string name that needs to be compared to the ones inside the list
+	 * @return a boolean value
+	 * @return true, if the string passed is already in the list
+	 * @return false, if the string passed is NOT in the list
+	 */
+	public boolean containsString(List<String> diffSpecies, String name) {
+		for(String diffT: diffSpecies) {
+			if(diffT.equals(name)) {
+				return true;
+			}
+		}
+		return false;		//going through the whole list and no match
+	}
     
 }

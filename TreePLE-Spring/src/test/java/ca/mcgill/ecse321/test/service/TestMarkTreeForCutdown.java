@@ -98,11 +98,11 @@ public class TestMarkTreeForCutdown {
 
 		ts.cutDownTree(8765211);
 
-		Assert.assertEquals(Status.CutDown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
+		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
 		
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
 		
-		Assert.assertEquals(Status.CutDown,tm.getTree(0).getStatus());	//Make sure tree status not changed, because it is already cut down!
+		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure tree status not changed, because it is already cut down!
 		tm.delete();
 	}
 	
