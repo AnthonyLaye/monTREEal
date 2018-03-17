@@ -137,4 +137,13 @@ public class TreePLERestController {
         }
         return trees;
     }
+    
+    @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}" })
+    public List<TreeDto> findTreesForResident(@PathVariable ("name") String name) {
+        List<TreeDto> residentTrees = Lists.newArrayList();
+        for (Tree tree : service.findTreesForResident(name)) {
+            residentTrees.add(convertToDto(tree));
+        }
+        return residentTrees;
+    }
 }

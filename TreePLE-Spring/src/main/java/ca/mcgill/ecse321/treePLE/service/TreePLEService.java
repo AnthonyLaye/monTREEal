@@ -1,6 +1,7 @@
 package ca.mcgill.ecse321.treePLE.service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -51,6 +52,18 @@ public class TreePLEService {
 
     public List<Tree> findAllTrees() {
         return tm.getTrees();
+    }
+    
+    public List<Tree> findTreesForResident(String name) {
+		
+		List<Tree> residentTrees = new ArrayList<Tree>();
+		
+		for (Tree t: tm.getTrees()) {
+			if((t.getPerson().getName()).contentEquals(name)) {
+				residentTrees.add(t);
+			}
+		}
+        return residentTrees;
     }
     
     public boolean cutDownTree(int aId) {
