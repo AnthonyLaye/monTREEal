@@ -23,7 +23,7 @@ import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 
-public class TestMarkTreeForCutdown {
+public class TestMarkTreeDiseased {
 	
 	private TreePLEManager tm;
 	private TreePLEService ts;
@@ -49,11 +49,11 @@ public class TestMarkTreeForCutdown {
 		tm.delete();
 	}
 
-	/* This method creates a new healthy tree and marks it for cutdown. The test checks if the tree has succesfully
-	 * been marked for cutdown.
+	/* This method creates a new healthy tree and marks it as diseased. The test checks if the tree has succesfully
+	 * been marked as diseased.
 	 */
 	@Test
-	public void testMarkHealthyTreeForCutdown() {
+	public void testMarkHealthyTreeAsDiseased() {
 		
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -74,16 +74,17 @@ public class TestMarkTreeForCutdown {
 		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
 		
-		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
+		ts.markTreeDiseased(8765211);	//Atempt to mark tree as diseased
 		
-		Assert.assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());	//Make sure tree is marked for cutdown
+		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is marked as diseased
 		tm.delete();
 	}
 	
-	/* This method creates a new healthy tree and cuts it down. The method then tries to mark it for cutdown.
+	/* This method creates a new healthy tree and cuts it down. Then we test marking tree as diseased, to ensure status
+	 * stays as cutdown.
 	 */
 	@Test
-	public void testMarkRemovedTreeForCutdown() {
+	public void testMarkCutDownTreeAsDiseased() {
 		
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -95,21 +96,29 @@ public class TestMarkTreeForCutdown {
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
-
-		ts.cutDownTree(8765211);
-
-		Assert.assertEquals(Status.CutDown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
 		
-		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
+		try {
+			ts.createTree("oak", aDate, 8765211, p, l);
+		} catch (InvalidInputException e) {
+			fail("Error");
+		}
 		
-		Assert.assertEquals(Status.CutDown,tm.getTree(0).getStatus());	//Make sure tree status not changed, because it is already cut down!
+		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
+		
+		ts.cutDownTree(8765211); //Cut down tree
+		
+		Assert.assertEquals(Status.CutDown, tm.getTree(0).getStatus()); //Make sure cut down status
+		
+		ts.markTreeDiseased(8765211);	//Attempt to mark tree as diseased
+		
+		Assert.assertEquals(Status.CutDown, tm.getTree(0).getStatus());	//Make sure tree is still marked as cut down
 		tm.delete();
 	}
 	
-	/* This method creates a new healthy tree and marks it for cut down. The method then tries to mark it for cutdown again.
+	/* This method creates a new healthy tree and marks it as diseased. Then tries to mark it again as diseased!
 	 */
 	@Test
-	public void testMarkTreeForCutdownTwice() {
+	public void testMarkTreeAsDiseasedTwice() {
 		
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -121,13 +130,22 @@ public class TestMarkTreeForCutdown {
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
-
-		ts.markTreeForCutDown(8765211);	//Mark tree for cutdown
-
-		Assert.assertEquals(Status.MarkedForCutdown,tm.getTree(0).getStatus());	//Make sure newly added tree is marked for cutdown
 		
-		Assert.assertEquals(false ,ts.markTreeForCutDown(8765211)); //If you try to mark it for cutdown again, method should return false!
-		Assert.assertEquals(Status.MarkedForCutdown,tm.getTree(0).getStatus());	//Make sure nothing changed
+		try {
+			ts.createTree("oak", aDate, 8765211, p, l);
+		} catch (InvalidInputException e) {
+			fail("Error");
+		}
+		
+		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
+		
+		ts.markTreeDiseased(8765211);	//Attempt to mark tree as diseased
+		
+		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is marked as diseased
+		Assert.assertEquals(false ,ts.markTreeDiseased(8765211)); 	//If you try to mark it for diseased again, method should return false!
+		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is still marked as diseased
+		
 		tm.delete();
 	}
+
 }
