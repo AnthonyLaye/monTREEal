@@ -89,19 +89,19 @@ public class MapActivity extends AppCompatActivity{
                         String height = response.getJSONObject(i).getString("height");
                         String date = response.getJSONObject(i).getString("date");
                         String diameter = response.getJSONObject(i).getString("diameter");
-                        String personName = response.getJSONObject(i).getString("personName");
-                        String longitude = response.getJSONObject(i).getString("longitude");
-                        String latitude = response.getJSONObject(i).getString("latitude");
-                        String municipality = response.getJSONObject(i).getString("municipality");
+                        //String personName = response.getJSONObject(i).getString("personName");
+                        //String longitude = response.getJSONObject(i).getString("longitude");
+                        //String latitude = response.getJSONObject(i).getString("latitude");
+                        //String municipality = response.getJSONObject(i).getString("municipality");
 
                         treeInfo.add(species);
                         treeInfo.add(height);
                         treeInfo.add(date);
                         treeInfo.add(diameter);
-                        treeInfo.add(personName);
-                        treeInfo.add(longitude);
-                        treeInfo.add(latitude);
-                        treeInfo.add(municipality);
+                        //treeInfo.add(personName);
+                        //treeInfo.add(longitude);
+                        //treeInfo.add(latitude);
+                        //treeInfo.add(municipality);
 
                         myMap.put(i, treeInfo);
 
@@ -114,11 +114,12 @@ public class MapActivity extends AppCompatActivity{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
+                //try {
+                    //error += errorResponse.get("message").toString();
+                //} catch (JSONException e) {
+                    //error += e.getMessage();
+                //}
+                System.out.println("oops!");
                 //refreshErrorMessage();
             }
         });

@@ -2,3 +2,7 @@
 2018-03-05 16:19:04,708 [Worker-0] WARN  org.eclipse.jgit.util.FS_Win32 - null
 2018-03-05 16:32:03,815 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2018-03-05 16:32:05,547 [Worker-4] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2018-03-16 17:52:46,014 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-03-16 17:52:48,107 [Worker-8] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2018-03-16 18:27:05,796 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-03-16 18:27:10,186 [Worker-0] WARN  org.eclipse.jgit.util.FS_Win32 - null

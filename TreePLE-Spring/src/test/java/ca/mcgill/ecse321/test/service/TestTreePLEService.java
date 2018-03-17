@@ -3,11 +3,8 @@ package ca.mcgill.ecse321.test.service;
 import static org.junit.Assert.*;
 
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import ca.mcgill.ecse321.treePLE.model.Tree;
+import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -15,6 +12,7 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,6 +28,8 @@ import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 
 public class TestTreePLEService {
+
+	private TreePLEManager tm;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -55,7 +55,7 @@ public class TestTreePLEService {
 		TreePLEManager tm = new TreePLEManager();
 		assertEquals(0,tm.getTrees().size());
 		
-		String aSpecies = "willow"
+		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
 		Date aDate = new Date(c.getTimeInMillis());
@@ -90,7 +90,7 @@ public class TestTreePLEService {
 	public void testCutDownTree() {
 		TreePLEManager tm = new TreePLEManager();
 		TreePLEService ts = new TreePLEService(tm);
-		String aSpecies = "willow"
+		String aSpecies = "willow";
 				Calendar c = Calendar.getInstance();
 				c.set(2018, 02, 01);
 				Date aDate = new Date(c.getTimeInMillis());
@@ -101,9 +101,13 @@ public class TestTreePLEService {
 				String municipality = "NDG";
 				Person p = new Person(name, tm);
 				Location l = new Location(longitude,latitude,municipality);
-		
-		ts.createTree(aSpecies, aDate, randomNum, p, l);
-		
+
+		try {
+			ts.createTree(aSpecies, aDate, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+
 		assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
 		}
 	
@@ -113,7 +117,7 @@ public class TestTreePLEService {
 		assertEquals(0,tm.getTrees().size());
 		TreePLEService ts = new TreePLEService(tm);
 		
-			String aSpecies = "willow"
+			String aSpecies = "willow";
 				Calendar c = Calendar.getInstance();
 				c.set(2018, 02, 01);
 				Date aDate = new Date(c.getTimeInMillis());
@@ -125,7 +129,7 @@ public class TestTreePLEService {
 				Person p = new Person(name, tm);
 				Location l = new Location(longitude,latitude,municipality);
 				
-				String aSpecies1 = "oak"
+				String aSpecies1 = "oak";
 						c.set(2018, 02, 03);
 						Date aDate1 = new Date(c.getTimeInMillis());
 						Integer randomNum1 = 2;
@@ -135,35 +139,40 @@ public class TestTreePLEService {
 						String municipality1 = "Outremont";
 						Person p1 = new Person(name1, tm);
 						Location l1 = new Location(longitude1,latitude1,municipality1);
-						
+
+		try {
 			ts.createTree(aSpecies, aDate, randomNum, p, l);
 			ts.createTree(aSpecies1, aDate1, randomNum1, p1, l1);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+
 			
 			List<Tree> registeredTrees = ts.findAllTrees();
 			assertEquals(2,tm.getTrees().size());
 
 			
-			AssertEquals("willow",registeredTrees.get(0).getSpecies());
-		    AssertEquals("oak",registeredTrees.get(1).getSpecies());
+			Assert.assertEquals("willow",registeredTrees.get(0).getSpecies());
+			Assert.assertEquals("oak",registeredTrees.get(1).getSpecies());
 		    
-		    Calendar c = Calendar.getInstance();
-		    c.set(2018, 02, 01);
-		    
-		    AssertEquals(c,registeredTrees.get(0).getDate());
-		    c.set(2018, 02, 03);
-		    AssertEquals(c,registeredTrees.get(1).getDate());
-		    
-		    AssertEquals(1,registeredTrees.get(0).getId());
-		    AssertEquals(2,registeredTrees.get(1).getId());
-		    
-		    AssertEquals(Person("Joe",tm),registeredTrees.get(0).getPerson());
-		    AssertEquals(Person("Jack",tm),registeredTrees.get(1).getPerson());
-		    
-		    AssertEquals(tm,registeredTrees.get(0).getTreePLEManager());
-		    AssertEquals(tm,registeredTrees.get(1).getTreePLEManager());
-		    
-		    AssertEquals(Location(3f,4f, "NDG"),registeredTrees.get(0).getLocation());
-		    AssertEquals(Location(4f,5f, "Outremont"),registeredTrees.get(1).getLocation());
+		    Calendar ca = Calendar.getInstance();
+		    ca.set(2018, 02, 01);
+
+			Assert.assertEquals(c,registeredTrees.get(0).getDate());
+		    ca.set(2018, 02, 03);
+			Assert.assertEquals(c,registeredTrees.get(1).getDate());
+
+			Assert.assertEquals(1,registeredTrees.get(0).getId());
+			Assert.assertEquals(2,registeredTrees.get(1).getId());
+
+			Assert.assertEquals(new Person("Joe",tm),registeredTrees.get(0).getPerson());
+			Assert.assertEquals(new Person("Jack",tm),registeredTrees.get(1).getPerson());
+
+			Assert.assertEquals(tm,registeredTrees.get(0).getTreePLEManager());
+			Assert.assertEquals(tm,registeredTrees.get(1).getTreePLEManager());
+
+			Assert.assertEquals(new Location(3f,4f, "NDG"),registeredTrees.get(0).getLocation());
+			Assert.assertEquals(new Location(4f,5f, "Outremont"),registeredTrees.get(1).getLocation());
 	}
 
 }

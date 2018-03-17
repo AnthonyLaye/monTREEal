@@ -2,8 +2,9 @@ package ca.mcgill.ecse321.test.persistence;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
+import ca.mcgill.ecse321.treePLE.model.Location;
+import ca.mcgill.ecse321.treePLE.model.Person;
+import org.junit.*;
 import org.junit.Test;
 
 import ca.mcgill.ecse321.treePLE.model.Tree;
@@ -14,7 +15,6 @@ import java.sql.Date;
 import java.util.Calendar;
 
 import java.io.File;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class TestPersistence {
@@ -26,8 +26,8 @@ public class TestPersistence {
 		tm = new TreePLEManager();
 		
 		// plant trees
-				Tree t1 = new Tree("oak", Date(2018,02,04) ,21 , Person("Jeff",tm), Location(2.00,2.00,"NDG"));
-				Tree t2 = new Tree("maple", Date(2018,02,03) ,22 , Person("George",tm), Location(3.05,9.00,"Outremont"));
+				Tree t1 = new Tree("oak", new Date(2018,02,04) ,21 , new Person("Jeff",tm), tm, new Location(2.00f,2.00f,"NDG"));
+				Tree t2 = new Tree("maple", new Date(2018,02,03) ,22 , new Person("George",tm), tm, new Location(3.05f,9.00f,"Outremont"));
 
 			    tm.addTree(t1);
 			    tm.addTree(t2);
@@ -42,40 +42,40 @@ public class TestPersistence {
 	public void test() {
 		 PersistenceXStream.initializeModelManager("output"+File.separator+"data.xml");
 		    // save model that is loaded during test setup
-		    if (!PersistenceXStream.saveToXMLwithXStream(rm))
+		    if (!PersistenceXStream.saveToXMLwithXStream(tm))
 		    	fail("Could not save file.");
 		
 		    tm.delete();
 		    assertEquals(0, tm.getTrees().size());
 		    
-		    tm = (TreeManager) PersistenceXStream.loadFromXMLwithXStream();
+		    tm = (TreePLEManager) PersistenceXStream.loadFromXMLwithXStream();
 		    if(tm == null)
-		    	fail("Could not load file.")
+		    	fail("Could not load file.");
 		    	
 		    //check trees
 		    assertEquals(2, tm.getTrees().size());
-		    
-		    AssertEquals("oak",tm.getTree(0).getSpecies());
-		    AssertEquals("maple",tm.getTree(1).getSpecies());
+
+			Assert.assertEquals("oak",tm.getTree(0).getSpecies());
+			Assert.assertEquals("maple",tm.getTree(1).getSpecies());
 		    
 		    Calendar c = Calendar.getInstance();
 		    c.set(2018, 02, 04);
-		    
-		    AssertEquals(c,tm.getTree(0).getDate());
+
+			Assert.assertEquals(c,tm.getTree(0).getDate());
 		    c.set(2018, 02, 03);
-		    AssertEquals(c,tm.getTree(1).getDate());
+			Assert.assertEquals(c,tm.getTree(1).getDate());
+
+			Assert.assertEquals(21,tm.getTree(0).getId());
+			Assert.assertEquals(22,tm.getTree(1).getId());
 		    
-		    AssertEquals(21,tm.getTree(0).getId());
-		    AssertEquals(22,tm.getTree(1).getId());
-		    
-		    AssertEquals(Person("Jeff",tm),tm.getTree(0).getPerson());
-		    AssertEquals(Person("George",tm),tm.getTree(1).getPerson());
-		    
-		    AssertEquals(tm,tm.getTree(0).getTreePLEManager());
-		    AssertEquals(tm,tm.getTree(1).getTreePLEManager());
-		    
-		    AssertEquals(Location(2.00,2.00, "NDG"),tm.getTree(0).getLocation());
-		    AssertEquals(Location(3.05,9.00, "Outremont"),tm.getTree(1).getLocation());
+		    Assert.assertEquals(new Person("Jeff",tm),tm.getTree(0).getPerson());
+			Assert.assertEquals(new Person("George",tm),tm.getTree(1).getPerson());
+
+			Assert.assertEquals(tm,tm.getTree(0).getTreePLEManager());
+			Assert.assertEquals(tm,tm.getTree(1).getTreePLEManager());
+
+			Assert.assertEquals(new Location(2.00f,2.00f, "NDG"),tm.getTree(0).getLocation());
+			Assert.assertEquals(new Location(3.05f,9.00f, "Outremont"),tm.getTree(1).getLocation());
 	}
 
 }

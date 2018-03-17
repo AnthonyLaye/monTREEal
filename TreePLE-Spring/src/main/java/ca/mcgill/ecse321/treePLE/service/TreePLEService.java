@@ -72,9 +72,15 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
-    			tree.setStatus(Status.MarkedForCutdown);
-    			markedForCutDown = true;
-    			break;
+    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.MarkedForCutdown) {
+    				markedForCutDown = false;
+    				break;
+    			}
+    			else {
+    				tree.setStatus(Status.MarkedForCutdown);
+    				markedForCutDown = true;
+    				break;
+    			}
     		}
     	}
     	PersistenceXStream.saveToXMLwithXStream(tm);
@@ -86,6 +92,10 @@ public class TreePLEService {
     	for (Tree tree : tm.getTrees()) {
     		int treeID = tree.getId();
     		if (aId == treeID) {
+    			if(tree.getStatus() == Status.CutDown || tree.getStatus() == Status.Diseased || tree.getStatus() == Status.MarkedForCutdown) {
+    				markedDiseased = false;
+    				break;
+    			}
     			tree.setStatus(Status.Diseased);
     			markedDiseased = true;
     			break;
