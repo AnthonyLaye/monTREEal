@@ -111,7 +111,12 @@ import org.junit.Test;
 				fail("Error");
 			}
 			
-			List<Tree>selectedTrees=ts.findAllTrees();
+			List<Tree> selectedTrees = null;
+			try {
+				selectedTrees = ts.findAllTrees();
+			} catch (InvalidInputException e) {
+				fail("Error");
+			}
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
 			assertEquals(0.6, index, 0.0001);
 
@@ -171,7 +176,12 @@ import org.junit.Test;
 				fail("Error");
 			}
 
-			List<Tree>selectedTrees =ts.findAllTrees();
+			List<Tree> selectedTrees = null;
+			try {
+				selectedTrees = ts.findAllTrees();
+			} catch (InvalidInputException e) {
+				fail("Error");
+			}
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
 			assertEquals(1, index, 0.0001);
 			tm.delete();
@@ -184,7 +194,12 @@ import org.junit.Test;
 			TreePLEManager tm = new TreePLEManager();
 			TreePLEService ts = new TreePLEService(tm);
 
-			List<Tree>selectedTrees =ts.findAllTrees();
+			List<Tree> selectedTrees = null;
+			try {
+				selectedTrees = ts.findAllTrees();
+			} catch (InvalidInputException e) {
+				fail("Error");
+			}
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
 			assertEquals(0, index, 0.0001);
 			tm.delete();

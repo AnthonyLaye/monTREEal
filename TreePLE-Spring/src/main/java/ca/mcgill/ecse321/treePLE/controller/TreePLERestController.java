@@ -150,7 +150,7 @@ public class TreePLERestController {
     //   GET Methods
     //----------------------------------
     @GetMapping(value = { "/trees", "/trees/" })
-    public List<TreeDto> findAllTrees() {
+    public List<TreeDto> findAllTrees() throws InvalidInputException{
         List<TreeDto> trees = Lists.newArrayList();
         for (Tree tree : service.findAllTrees()) {
             trees.add(convertToDto(tree));

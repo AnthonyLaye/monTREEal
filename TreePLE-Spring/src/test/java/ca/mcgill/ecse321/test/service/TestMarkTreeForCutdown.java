@@ -96,7 +96,11 @@ public class TestMarkTreeForCutdown {
 		
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
 
-		ts.cutDownTree(8765211);
+		try {
+			ts.cutDownTree(8765211);
+		} catch (InvalidInputException e) {
+			fail("Error");
+		}
 
 		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
 		
