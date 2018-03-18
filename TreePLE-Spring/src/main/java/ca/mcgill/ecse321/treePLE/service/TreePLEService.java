@@ -2,6 +2,7 @@ package ca.mcgill.ecse321.treePLE.service;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -52,6 +53,98 @@ public class TreePLEService {
 
     public List<Tree> findAllTrees() {
         return tm.getTrees();
+    }
+    
+    /**
+     * This method searches for trees that is within a specified municipality
+     * @param a string a municipality
+     * @return a list of corresponding trees
+     * @throws InvalidInputException
+     */
+    public List<Tree> getTreesByMunicipality(String municipality) 
+    	throws InvalidInputException {
+    	
+    	if(municipality == null) {
+    		throw new InvalidInputException("municipality is empty!");
+    	}
+    	
+    	List<Tree> treesByMunicipality = new ArrayList<Tree>();
+    	for(Tree tree: tm.getTrees()) {
+    		if(tree.getLocation().getMunicipality().equalsIgnoreCase(municipality)) {
+    			treesByMunicipality.add(tree);
+    		}
+    	}
+    	return treesByMunicipality;
+    }
+    
+    /**
+     * This method searches for trees that is within a specific area (circular) with
+     * center at the location specified by longitude and latitude
+     * @param a float longitude
+     * @param a float latitude
+     * @param a float diagonal
+     * @return a list of corresponding trees
+     * @throws InvalidInputException
+     */
+    public List<Tree> getTreesByArea(float lat, float lon, float radius) 
+    	throws InvalidInputException {
+    	
+    	if(radius <= 0 ) {
+    		throw new InvalidInputException("Radius cannot be negative!");
+    	}
+    	
+    	if(-180<lat || lat>180 || -180<lon || lon>180) {
+    		throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
+    	}
+    	
+    	List<Tree> treesByArea = new ArrayList<Tree>();
+    	for(Tree tree: tm.getTrees()) {
+    		if(haversineKm(lat, lon, tree.getLocation().getLatitude(),tree.getLocation().getLongitude())<=radius) {
+    			treesByArea.add(tree);
+    		}
+    	}
+    	return treesByArea;
+    }
+    
+    /**
+     * This method is a helper method that returns distance between two points on geocoordinates
+     * This method is a simple implementation of Haversine's formula to calculate distance based on geocoordinates
+     * This method returns the distance in kilometer
+     * @param lat1
+     * @param long1
+     * @param lat2
+     * @param long2
+     * @return float distance of two coordinates
+     */
+    public float haversineKm(float lat1, float long1, float lat2, float long2) {
+    	float dr2 = (float)Math.PI / 180;
+    	float dlong = (long1 - long2) * dr2;
+    	float dlat = (lat1 - lat2) * dr2;
+    	float a = (float)Math.pow(Math.sin(dlat/2), 2) + (float)Math.cos(lat1*dr2)* (float)Math.cos(lat2*dr2) * (float)Math.pow(Math.sin(dlong/2.0), 2);
+        float c = 2 * (float)Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        float d = 3956 * c; 
+        return d;
+    }
+    
+    /**
+     * This method searches for trees that belongs to the same species
+     * @param a string species
+     * @return a list of trees belong to the species
+     */
+    public List<Tree> getAllTreesBySpecies(String species) 
+    	throws InvalidInputException {
+    	
+    	if(species == null) {
+    		throw new InvalidInputException("Species is empty!");
+    	}
+    	
+    	List<Tree> treesBySpecies = new ArrayList<Tree>();
+    	for(Tree tree: tm.getTrees()) {
+    		if(tree.getSpecies().equalsIgnoreCase(species)) {
+    			treesBySpecies.add(tree);
+    		}
+    	}
+    	return treesBySpecies;
     }
     
     public boolean cutDownTree(int aId) {
@@ -138,6 +231,8 @@ public class TreePLEService {
 		}
 		return index;
 	}
+	
+	
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
 	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
