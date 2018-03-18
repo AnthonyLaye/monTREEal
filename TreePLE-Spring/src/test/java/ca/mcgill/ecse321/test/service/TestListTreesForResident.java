@@ -10,12 +10,10 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ca.mcgill.ecse321.treePLE.controller.TreePLERestController;
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
 import ca.mcgill.ecse321.treePLE.model.Tree;
@@ -28,7 +26,6 @@ public class TestListTreesForResident {
 
 	private TreePLEManager tm;
 	private TreePLEService ts;
-	private TreePLERestController trc;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
