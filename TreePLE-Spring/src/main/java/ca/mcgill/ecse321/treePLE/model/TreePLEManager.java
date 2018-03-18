@@ -5,7 +5,7 @@ package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 import java.sql.Date;
 
-// line 20 "../../../../../TreePLEModel.ump"
+// line 19 "../../../../../TreePLEModel.ump"
 public class TreePLEManager
 {
 
@@ -272,9 +272,9 @@ public class TreePLEManager
     return 0;
   }
 
-  public Forecast addForecast(int aBiodiversityIndex)
+  public Forecast addForecast()
   {
-    return new Forecast(aBiodiversityIndex, this);
+    return new Forecast(this);
   }
 
   public boolean addForecast(Forecast aForecast)
