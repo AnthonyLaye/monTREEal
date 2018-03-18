@@ -49,11 +49,12 @@ public class TestTreePLEService {
 	public void tearDown() throws Exception {
 		tm.delete();
 	}
-
+    
+	//Test create tree
 	@Test
-	public void testPlantTree() {
+	public void testCreateTreeCorrectParameters() {
 		TreePLEManager tm = new TreePLEManager();
-		assertEquals(0,tm.getTrees().size());
+		Assert.assertEquals(0,tm.getTrees().size());
 		
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
@@ -72,20 +73,79 @@ public class TestTreePLEService {
 			ts.createTree(aSpecies, aDate, randomNum, p, l);
 		} catch (InvalidInputException e) {
 			fail("Error");
-		}
+		} 
+		
 		
 		checkResultTree(aSpecies, aDate, randomNum,p,l, tm);
 		TreePLEManager tm2 = (TreePLEManager) PersistenceXStream.loadFromXMLwithXStream();
 		checkResultTree(aSpecies, aDate, randomNum,p,l, tm2);
 		tm2.delete();
 		
+		try {
+			ts.createTree(aSpecies, 199f, 3, aDate, 3f, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			fail("Errors in the parameters of created tree");
+		}
+	}
+	
+	@Test
+	public void testHeightOutOfBounds() {
+		
+		TreePLEManager tm = new TreePLEManager();
+		Assert.assertEquals(0,tm.getTrees().size());
+		
+		String aSpecies = "willow";
+		Calendar c = Calendar.getInstance();
+		c.set(2018, 02, 01);
+		Date aDate = new Date(c.getTimeInMillis());
+		Integer randomNum = 1;
+		String name = "Joe";
+		Float longitude = 3f;
+		Float latitude = 4f;
+		String municipality = "NDG";
+		Person p = new Person(name, tm);
+		Location l = new Location(longitude,latitude,municipality);
+		
+		TreePLEService ts = new TreePLEService(tm);
+				try {
+					ts.createTree(aSpecies, 201f, 3, aDate, 3f, randomNum, p, l);
+				} catch (InvalidInputException e) {
+					fail("Incorrect height, tree height should be between (0,201) ");
+				}
+	}
+	
+	@Test
+	public void testSpeciesWithSpecialChars () {
+		TreePLEManager tm = new TreePLEManager();
+		Assert.assertEquals(0,tm.getTrees().size());
+		
+		String aSpecies = "W1llow$";
+		Calendar c = Calendar.getInstance();
+		c.set(2018, 02, 01);
+		Date aDate = new Date(c.getTimeInMillis());
+		Integer randomNum = 1;
+		String name = "Joe";
+		Float longitude = 3f;
+		Float latitude = 4f;
+		String municipality = "NDG";
+		Person p = new Person(name, tm);
+		Location l = new Location(longitude,latitude,municipality);
+		
+		TreePLEService ts = new TreePLEService(tm);
+		
+		try {
+			ts.createTree(aSpecies, aDate, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			fail("Error, species should be a string of alphabetical characters");
+		} 
 	}
 	
 	public void checkResultTree(String aSpecies, Date aDate, int aId, 
 			Person aPerson, Location aLocation, TreePLEManager tm) {
-		assertEquals(1, tm.getTrees().size());
+		Assert.assertEquals(1, tm.getTrees().size());
 	}
 	
+	//Cutting down tree
 	@Test
 	public void testCutDownTree() {
 		TreePLEManager tm = new TreePLEManager();
@@ -107,10 +167,96 @@ public class TestTreePLEService {
 		} catch (InvalidInputException e) {
 			e.printStackTrace();
 		}
-
-		assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
+		
+		ts.markTreeForCutDown(randomNum);
+		try {
+			assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
+		} catch (InvalidInputException e) {
+			fail("Error in cutting down tree");
+		}
+		
 		}
 	
+	@Test
+	public void testCutDownInexistentTree() {
+		TreePLEManager tm = new TreePLEManager();
+		TreePLEService ts = new TreePLEService(tm);
+		Integer randomNum = 1;
+		try {
+			Assert.assertFalse(ts.cutDownTree(randomNum));
+		} catch (InvalidInputException e) {
+			fail("Error in cutting down tree");
+		}
+	}
+	
+	@Test
+	public void testCutDownACutDownTree() {
+		TreePLEManager tm = new TreePLEManager();
+		TreePLEService ts = new TreePLEService(tm);
+		String aSpecies = "willow";
+				Calendar c = Calendar.getInstance();
+				c.set(2018, 02, 01);
+				Date aDate = new Date(c.getTimeInMillis());
+				Integer randomNum = 1;
+				String name = "Joe";
+				Float longitude = 3f;
+				Float latitude = 4f;
+				String municipality = "NDG";
+				Person p = new Person(name, tm);
+				Location l = new Location(longitude,latitude,municipality);
+
+		try {
+			ts.createTree(aSpecies, aDate, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+		
+		ts.markTreeForCutDown(randomNum);
+		try {
+			assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
+		} catch (InvalidInputException e) {
+			fail("Error in cutting down tree");
+		}
+		
+		try {
+			assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
+		} catch (InvalidInputException e) {
+			fail("The tree has already been cut down");
+		}
+	}
+	
+	@Test
+	public void testCutDownAHealthyTree() {
+		TreePLEManager tm = new TreePLEManager();
+		TreePLEService ts = new TreePLEService(tm);
+		String aSpecies = "willow";
+				Calendar c = Calendar.getInstance();
+				c.set(2018, 02, 01);
+				Date aDate = new Date(c.getTimeInMillis());
+				Integer randomNum = 1;
+				String name = "Joe";
+				Float longitude = 3f;
+				Float latitude = 4f;
+				String municipality = "NDG";
+				Person p = new Person(name, tm);
+				Location l = new Location(longitude,latitude,municipality);
+
+		try {
+			ts.createTree(aSpecies, aDate, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
+		} catch (InvalidInputException e) {
+			fail("The tree you are trying to cut down has not been marked for cutdown");
+		}
+		
+		
+	}
+	
+	//List all trees
 	@Test
 	public void testFindAllTrees() {
 		TreePLEManager tm = new TreePLEManager();
@@ -147,8 +293,9 @@ public class TestTreePLEService {
 			e.printStackTrace();
 		}
 
-			
+			try {
 			List<Tree> registeredTrees = ts.findAllTrees();
+			
 			assertEquals(2,tm.getTrees().size());
 
 			
@@ -158,21 +305,39 @@ public class TestTreePLEService {
 		    Calendar ca = Calendar.getInstance();
 		    ca.set(2018, 02, 01);
 
-			Assert.assertEquals(c,registeredTrees.get(0).getDate());
+			Assert.assertEquals(aDate,registeredTrees.get(0).getDate());
 		    ca.set(2018, 02, 03);
-			Assert.assertEquals(c,registeredTrees.get(1).getDate());
+			Assert.assertEquals(aDate1,registeredTrees.get(1).getDate());
 
 			Assert.assertEquals(1,registeredTrees.get(0).getId());
 			Assert.assertEquals(2,registeredTrees.get(1).getId());
 
-			Assert.assertEquals(new Person("Joe",tm),registeredTrees.get(0).getPerson());
-			Assert.assertEquals(new Person("Jack",tm),registeredTrees.get(1).getPerson());
+			Assert.assertEquals(p,registeredTrees.get(0).getPerson());
+			Assert.assertEquals(p1,registeredTrees.get(1).getPerson());
 
 			Assert.assertEquals(tm,registeredTrees.get(0).getTreePLEManager());
 			Assert.assertEquals(tm,registeredTrees.get(1).getTreePLEManager());
 
-			Assert.assertEquals(new Location(3f,4f, "NDG"),registeredTrees.get(0).getLocation());
-			Assert.assertEquals(new Location(4f,5f, "Outremont"),registeredTrees.get(1).getLocation());
+			Assert.assertEquals(l,registeredTrees.get(0).getLocation());
+			Assert.assertEquals(l1,registeredTrees.get(1).getLocation());
+			} catch (InvalidInputException e) {
+				fail("Empty list");
+			}
+			
+	}
+	
+	
+	@Test
+	public void testEmptyTreeListFindAllTrees() {
+		TreePLEManager tm = new TreePLEManager();
+		assertEquals(0,tm.getTrees().size());
+		TreePLEService ts = new TreePLEService(tm);
+		
+		try {
+			ts.findAllTrees();
+		} catch (InvalidInputException e) {
+			fail("There are no trees and the list is empty");
+		}
 	}
 
 }
