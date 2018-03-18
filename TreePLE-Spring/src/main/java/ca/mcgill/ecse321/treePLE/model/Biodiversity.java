@@ -4,7 +4,7 @@
 package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 
-// line 45 "../../../../../TreePLEModel.ump"
+// line 43 "../../../../../TreePLEModel.ump"
 public class Biodiversity
 {
 
@@ -13,7 +13,7 @@ public class Biodiversity
   //------------------------
 
   //Biodiversity Attributes
-  private int biodiversityIndex;
+  private double biodiversityIndex;
 
   //Biodiversity Associations
   private List<Forecast> forecast;
@@ -22,7 +22,7 @@ public class Biodiversity
   // CONSTRUCTOR
   //------------------------
 
-  public Biodiversity(int aBiodiversityIndex)
+  public Biodiversity(double aBiodiversityIndex)
   {
     biodiversityIndex = aBiodiversityIndex;
     forecast = new ArrayList<Forecast>();
@@ -32,7 +32,7 @@ public class Biodiversity
   // INTERFACE
   //------------------------
 
-  public boolean setBiodiversityIndex(int aBiodiversityIndex)
+  public boolean setBiodiversityIndex(double aBiodiversityIndex)
   {
     boolean wasSet = false;
     biodiversityIndex = aBiodiversityIndex;
@@ -40,7 +40,7 @@ public class Biodiversity
     return wasSet;
   }
 
-  public int getBiodiversityIndex()
+  public double getBiodiversityIndex()
   {
     return biodiversityIndex;
   }

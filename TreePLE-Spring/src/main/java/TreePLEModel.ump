@@ -7,7 +7,6 @@ class Tree {
   Date date;
   Float diameter;
   Integer id;
-  enum status {Healthy, Diseased, MarkedForCutdown, CutDown}
   
   * tree -- 1 Person person;
   1 <@>- * Survey;
@@ -30,7 +29,6 @@ class Survey{
 }
 
 class Forecast{
-  Integer biodiversityIndex;
     * forecast -- 1 TreePLEManager treePLEManager;
 }
 
@@ -43,6 +41,16 @@ class Location{
 }
 
 class Biodiversity{
-  Integer biodiversityIndex;
+  double biodiversityIndex;
+  *--* Forecast forecast;
+}
+
+class Canopy{
+  double canopyIndex;
+  *--* Forecast forecast;
+}
+
+class CarbonSequestration{
+  double carbonSequestrationIndex;
   *--* Forecast forecast;
 }
