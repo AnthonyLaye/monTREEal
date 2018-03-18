@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.Survey;
 import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
@@ -167,4 +168,22 @@ public class TreePLEService {
 		return false;		//going through the whole list and no match
 	}
     
+	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId) throws InvalidInputException {
+		
+		String personName = aObserver.getName().toString();
+		Survey survey = null;
+		
+		for(Tree t: tm.getTrees()) {
+			if(t.getId() == treeId) {
+				survey = new Survey(aDate, surveyId, aObserver, t);
+				boolean wasAdded = t.addSurvey(survey);
+				if(wasAdded) {
+					break;
+				}
+			}
+		}
+		
+		PersistenceXStream.saveToXMLwithXStream(tm);
+		return survey;
+	}
 }
