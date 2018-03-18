@@ -122,7 +122,7 @@ public class TreePLEService {
     		throw new InvalidInputException("Radius cannot be negative!");
     	}
     	
-    	if(-180<lat || lat>180 || -180<lon || lon>180) {
+    	if(-180>lat || lat>180 || -180>lon || lon>180) {
     		throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
     	}
     	
