@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.collect.Lists;
 
 import ca.mcgill.ecse321.treePLE.dto.PersonDto;
+import ca.mcgill.ecse321.treePLE.dto.SurveyDto;
 import ca.mcgill.ecse321.treePLE.dto.TreeDto;
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.Survey;
 import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
@@ -59,6 +61,11 @@ public class TreePLERestController {
 //        ScientistDto scientistDto = modelMapper.map(s, ScientistDto.class);
 //        return scientistDto;
 //    }
+    
+    private SurveyDto convertToDto(Survey s) {
+    	SurveyDto surveyDto = modelMapper.map(s, SurveyDto.class);
+    	return surveyDto;
+    }
 
     private TreeDto convertToDto(Tree t) {
         TreeDto treeDto = modelMapper.map(t, TreeDto.class);
@@ -125,6 +132,19 @@ public class TreePLERestController {
     	markedDiseased = service.markTreeDiseased(id);
     	return markedDiseased;
     }
+    
+    @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
+    public SurveyDto createSurvey(
+            @PathVariable("treeId") int treeId, 
+            @RequestParam Date date,
+            @RequestParam String personName) throws InvalidInputException {
+
+        Person observer = new Person(personName, service.tm);
+        int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
+       
+        Survey survey = service.createSurvey(date, randomNum, observer, treeId);
+        return convertToDto(survey);
+    }
 
     //----------------------------------
     //   GET Methods
@@ -136,5 +156,14 @@ public class TreePLERestController {
             trees.add(convertToDto(tree));
         }
         return trees;
+    }
+    
+    @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}" })
+    public List<TreeDto> findTreesForResident(@PathVariable ("name") String name) {
+        List<TreeDto> residentTrees = Lists.newArrayList();
+        for (Tree tree : service.findTreesForResident(name)) {
+            residentTrees.add(convertToDto(tree));
+        }
+        return residentTrees;
     }
 }
