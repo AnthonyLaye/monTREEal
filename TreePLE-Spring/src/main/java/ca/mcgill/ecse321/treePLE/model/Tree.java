@@ -71,8 +71,8 @@ public class Tree
     date = aDate;
     id = aId;
     status = Status.Healthy;
-    height = (float) 10.0;
-    diameter = (float) 3.0;
+    height = (float) 100.0;
+    diameter = (float) 10.0;
     age = 1;    
     boolean didAddPerson = setPerson(aPerson);
     if (!didAddPerson)
