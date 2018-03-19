@@ -105,6 +105,8 @@ public class TestMarkTreeDiseased {
 		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
 		
+		ts.markTreeForCutDown(8765211); //Must mark tree for cutdown before cutting it down!
+		
 		try {
 			ts.cutDownTree(8765211);
 		} catch (InvalidInputException e) {
