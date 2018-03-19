@@ -46,6 +46,7 @@ public class Tree
     date = aDate;
     diameter = aDiameter;
     id = aId;
+    status = Status.Healthy;
     boolean didAddPerson = setPerson(aPerson);
     if (!didAddPerson)
     {

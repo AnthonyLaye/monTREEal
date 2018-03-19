@@ -94,10 +94,12 @@ public class TestMarkTreeForCutdown {
 		Person p = new Person("jim", tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
-		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
+		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765212, p, tm, l);
+		
+		ts.markTreeForCutDown(8765212);	//Must mark tree for cutdown before cutting it down!
 
 		try {
-			ts.cutDownTree(8765211);
+			ts.cutDownTree(8765212);
 		} catch (InvalidInputException e) {
 			fail("Error");
 		}

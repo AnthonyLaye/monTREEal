@@ -2,20 +2,13 @@ package ca.mcgill.ecse321.test.service;
 
 import static org.junit.Assert.*;
 
-
-import ca.mcgill.ecse321.treePLE.model.Tree;
-import org.junit.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import java.io.File;
 import java.sql.Date;
 import java.util.Calendar;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,7 +20,7 @@ import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 
-public class TestTreePLEService {
+public class TestCreateTree {
 
 	private TreePLEManager tm;
 
@@ -144,9 +137,5 @@ public class TestTreePLEService {
 			Person aPerson, Location aLocation, TreePLEManager tm) {
 		Assert.assertEquals(1, tm.getTrees().size());
 	}
-	
-	
-	
-
 
 }
