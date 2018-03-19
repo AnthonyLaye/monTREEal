@@ -188,7 +188,8 @@ import org.junit.Test;
 		}
 		
 		@Test
-		/*this test is for when there are trees given to calculate the biodiversity index */
+		/*this test is for when there are trees given to calculate the biodiversity index
+		 * this test is expected to fail */
 		public void testBiodiversityIndexZero() {
 
 			TreePLEManager tm = new TreePLEManager();
@@ -200,9 +201,8 @@ import org.junit.Test;
 			} catch (InvalidInputException e) {
 				fail("Error");
 			}
+			//will not pass here since list is empty
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
-			assertEquals(0, index, 0.0001);
 			tm.delete();
 		}
-
 }

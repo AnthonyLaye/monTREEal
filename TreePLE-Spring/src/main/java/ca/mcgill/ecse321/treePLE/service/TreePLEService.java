@@ -256,7 +256,7 @@ public class TreePLEService {
 				i=i+1;		//increment the index to add elements
 			}
 		}
-		if(nbTrees==0) {
+		if(trees==null) {
 			index=0;
 		}
 		else {
