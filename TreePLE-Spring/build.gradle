@@ -37,15 +37,15 @@ dependencies {
 	compile('org.modelmapper:modelmapper:1.1.1')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile("org.springframework.boot:spring-boot-configuration-processor")
 	compile('org.springframework:spring-webmvc:4.2.6.RELEASE')
 	compile('com.google.guava:guava:23.5-jre')
 	compile('com.thoughtworks.xstream:xstream:1.4.7')
 
-	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
-
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+compileJava.dependsOn(processResources)
 
 eclipse {
 	classpath {
