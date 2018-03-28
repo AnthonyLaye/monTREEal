@@ -115,7 +115,6 @@ public class TestCreateSurvey {
 		
 	}
 	
-	/*
 	//@Test
 	public void testCreateSurveyNoObserver() {
 		
@@ -150,6 +149,4 @@ public class TestCreateSurvey {
 		assertEquals(0, tm.getTree(0).getSurveies().size());
 		
 	}
-	*/
-
 }
