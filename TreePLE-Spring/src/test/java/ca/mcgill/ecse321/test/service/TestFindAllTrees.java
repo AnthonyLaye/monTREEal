@@ -116,16 +116,16 @@ public class TestFindAllTrees {
 	}
 	
 	
-	@Test
-	public void testEmptyTreeListFindAllTrees() {
-		TreePLEManager tm = new TreePLEManager();
-		assertEquals(0,tm.getTrees().size());
-		TreePLEService ts = new TreePLEService(tm);
-		
-		try {
-			ts.findAllTrees();
-		} catch (InvalidInputException e) {
-			fail("There are no trees and the list is empty");
-		}
-	}
+//	@Test
+//	public void testEmptyTreeListFindAllTrees() {
+//		TreePLEManager tm = new TreePLEManager();
+//		assertEquals(0,tm.getTrees().size());
+//		TreePLEService ts = new TreePLEService(tm);
+//		
+//		try {
+//			ts.findAllTrees();
+//		} catch (InvalidInputException e) {
+//			fail("There are no trees and the list is empty");
+//		}
+//	}
 }

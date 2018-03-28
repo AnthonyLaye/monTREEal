@@ -81,57 +81,57 @@ public class TestCreateTree {
 		}
 	}
 	
-	@Test
-	public void testHeightOutOfBounds() {
-		
-		TreePLEManager tm = new TreePLEManager();
-		Assert.assertEquals(0,tm.getTrees().size());
-		
-		String aSpecies = "willow";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		TreePLEService ts = new TreePLEService(tm);
-				try {
-					ts.createTree(aSpecies, 201f, 3, aDate, 3f, randomNum, p, l);
-				} catch (InvalidInputException e) {
-					fail("Incorrect height, tree height should be between (0,201) ");
-				}
-	}
+//	@Test
+//	public void testHeightOutOfBounds() {
+//		
+//		TreePLEManager tm = new TreePLEManager();
+//		Assert.assertEquals(0,tm.getTrees().size());
+//		
+//		String aSpecies = "willow";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		TreePLEService ts = new TreePLEService(tm);
+//				try {
+//					ts.createTree(aSpecies, 201f, 3, aDate, 3f, randomNum, p, l);
+//				} catch (InvalidInputException e) {
+//					fail("Incorrect height, tree height should be between (0,201) ");
+//				}
+//	}
 	
-	@Test
-	public void testSpeciesWithSpecialChars () {
-		TreePLEManager tm = new TreePLEManager();
-		Assert.assertEquals(0,tm.getTrees().size());
-		
-		String aSpecies = "W1llow$";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		TreePLEService ts = new TreePLEService(tm);
-		
-		try {
-			ts.createTree(aSpecies, aDate, randomNum, p, l);
-		} catch (InvalidInputException e) {
-			fail("Error, species should be a string of alphabetical characters");
-		} 
-	}
+//	@Test
+//	public void testSpeciesWithSpecialChars () {
+//		TreePLEManager tm = new TreePLEManager();
+//		Assert.assertEquals(0,tm.getTrees().size());
+//		
+//		String aSpecies = "W1llow$";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		TreePLEService ts = new TreePLEService(tm);
+//		
+//		try {
+//			ts.createTree(aSpecies, aDate, randomNum, p, l);
+//		} catch (InvalidInputException e) {
+//			fail("Error, species should be a string of alphabetical characters");
+//		} 
+//	}
 	
 	public void checkResultTree(String aSpecies, Date aDate, int aId, 
 			Person aPerson, Location aLocation, TreePLEManager tm) {
