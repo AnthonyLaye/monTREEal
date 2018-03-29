@@ -42,4 +42,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'org.json:json:20160212'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile 'com.android.support:support-compat:27.1.0'
 }
