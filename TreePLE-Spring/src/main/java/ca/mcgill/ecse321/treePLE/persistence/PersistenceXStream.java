@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PersistenceXStream {
 	private static XStream xstream = new XStream();
-	private static String filename = "data.xml";
+	private static String filename = "/opt/tomcat/data/data.xml";
 
 	// TODO create the RegistrationManager instance here (replace the void return value as well)
 	public static TreePLEManager initializeModelManager(String fileName) {
