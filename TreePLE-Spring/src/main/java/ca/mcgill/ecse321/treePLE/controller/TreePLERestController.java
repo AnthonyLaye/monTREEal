@@ -83,13 +83,13 @@ public class TreePLERestController {
             @RequestParam Date date,
             @RequestParam float diameter,
             @RequestParam String personName,
-            @RequestParam float longitude,
-            @RequestParam float latitude,
+            @RequestParam double longitude,
+            @RequestParam double latitude,
             @RequestParam String municipality) throws InvalidInputException {
 
         Person treeOwner = new Person(personName, service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
-        Location location = new Location(longitude, latitude, municipality);
+        Location location = new Location((float) longitude, (float) latitude, municipality);
 
         Tree tree = service.createTree(species, height, age, date, diameter, randomNum, treeOwner, location);
         return convertToDto(tree);

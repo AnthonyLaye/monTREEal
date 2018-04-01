@@ -64,84 +64,85 @@
       <file leaf-file-name="TreePLESpringApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="439">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2019#2577#0" expanded="true" />
-                <element signature="e#2576#2577#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".project" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.project">
+      <file leaf-file-name="TreePLERestController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-1361">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreePLEService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersistenceXStream.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/data.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-111">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpringBootServletInitializer.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.9.RELEASE/dceed75443f662ced8d679fd368f314d584faa83/spring-boot-1.5.9.RELEASE-sources.jar!/org/springframework/boot/web/support/SpringBootServletInitializer.java">
+      <file leaf-file-name="TreeDto.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+            <state relative-caret-position="642">
+              <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
+                <element signature="e#1346#1347#0" expanded="true" />
+                <element signature="e#1376#1377#0" expanded="true" />
+                <element signature="e#1396#1397#0" expanded="true" />
+                <element signature="e#1428#1429#0" expanded="true" />
+                <element signature="e#1450#1451#0" expanded="true" />
+                <element signature="e#1560#1561#0" expanded="true" />
+                <element signature="e#1601#1602#0" expanded="true" />
+                <element signature="e#1633#1634#0" expanded="true" />
+                <element signature="e#1675#1676#0" expanded="true" />
+                <element signature="e#1702#1703#0" expanded="true" />
+                <element signature="e#1726#1727#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#647#648#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebFrontendProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#647#648#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="-840">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -150,9 +151,14 @@
       <file leaf-file-name="Location.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Location.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-1560">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="e#1365#1366#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1425#1426#0" expanded="true" />
+                <element signature="e#1450#1451#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,8 +166,8 @@
       <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="-8502">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -170,18 +176,8 @@
       <file leaf-file-name="data.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServletInitializer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/ServletInitializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            <state relative-caret-position="-20391">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -462,7 +458,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3041450362714" />
+        <entry key="$PROJECT_DIR$" value="3041871268272" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2537850329" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="3442123891" />
       </map>
@@ -663,6 +659,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java" />
       </list>
     </option>
   </component>
@@ -692,80 +692,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
-              <item name="model" type="cbb8eebc:String" user="model" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
-              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
-              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
-              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
-              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
-              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
-              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
-              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
-              <item name="treePLE" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -839,6 +765,116 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
+              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
+              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
+              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
+              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
+              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
+              <item name="test" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="TreePLE-Spring" type="58d84e3e:PackageViewProjectNode" />
+              <item name="TreePLE-Spring" type="616d4139:PackageViewModuleNode" />
+              <item name="ca.mcgill.ecse321" type="1f31426a:PackageElementNode" />
+              <item name="treePLE" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="controller" type="cbb8eebc:String" user="controller" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="dto" type="cbb8eebc:String" user="dto" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="model" type="cbb8eebc:String" user="model" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="persistence" type="cbb8eebc:String" user="persistence" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="service" type="cbb8eebc:String" user="service" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1181,6 +1217,7 @@
       <workItem from="1521911811180" duration="695000" />
       <workItem from="1521912536204" duration="2726000" />
       <workItem from="1522184493319" duration="3260000" />
+      <workItem from="1522599720492" duration="4130000" />
     </task>
     <servers />
   </component>
@@ -1193,7 +1230,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7486000" />
+    <option name="totallyTimeSpent" value="11616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1756" extended-state="6" />
@@ -1204,25 +1241,25 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998705" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1058164" sideWeight="0.49870467" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47722495" sideWeight="0.49870467" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2509715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25550517" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998705" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1232,9 +1269,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1245,7 +1282,37 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java</url>
+          <line>73</line>
+          <properties class="ca.mcgill.ecse321.treePLE.dto.TreeDto" method="getLatitude">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java</url>
+          <line>77</line>
+          <properties class="ca.mcgill.ecse321.treePLE.dto.TreeDto" method="getLongitude">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1254,24 +1321,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestTreePLEService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4400">
-          <caret line="135" column="13" lean-forward="false" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/persistence/TestPersistence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1285,7 +1334,7 @@
         <state relative-caret-position="640">
           <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1295,15 +1344,15 @@
         <state relative-caret-position="800">
           <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1313,15 +1362,15 @@
         <state relative-caret-position="360">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1356,8 +1405,6 @@
           <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1394,8 +1441,6 @@
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1405,15 +1450,15 @@
         <state relative-caret-position="240">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1439,15 +1484,15 @@
         <state relative-caret-position="240">
           <caret line="7" column="51" lean-forward="true" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1484,8 +1529,6 @@
           <caret line="20" column="66" lean-forward="true" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1522,8 +1565,6 @@
           <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1560,8 +1601,6 @@
           <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1590,8 +1629,6 @@
           <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1614,28 +1651,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1645,15 +1674,15 @@
         <state relative-caret-position="360">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#495#496#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#547#548#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1679,7 +1708,7 @@
         <state relative-caret-position="80">
           <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1692,47 +1721,121 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state relative-caret-position="439">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2019#2577#0" expanded="true" />
-            <element signature="e#2576#2577#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/data.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="-20391">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.modelmapper/modelmapper/1.1.1/8a8d93f64dddd72f71d778bd84834a248e0f3e7a/modelmapper-1.1.1-sources.jar!/org/modelmapper/ModelMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="525" column="16" lean-forward="false" selection-start-line="525" selection-start-column="16" selection-end-line="525" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="-8502">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-840">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Location.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-1560">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1425#1426#0" expanded="true" />
+            <element signature="e#1450#1451#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-1361">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="75" column="5" lean-forward="true" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <element signature="e#1328#1329#0" expanded="true" />
+            <element signature="e#1346#1347#0" expanded="true" />
+            <element signature="e#1376#1377#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1450#1451#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1726#1727#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
