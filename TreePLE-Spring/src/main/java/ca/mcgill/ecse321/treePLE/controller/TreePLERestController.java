@@ -210,7 +210,7 @@ public class TreePLERestController {
     	return treesInArea;
     }
     //status: 2018-04-02 6:15pm : functional, listArea not returning a large list
-  //status: in process, does this take in param Trees or TreeDto
+    //status: in process, does this take in param Trees or TreeDto
     //does this take in param Trees or TreeDto
     //rn this returns a string... makes absolutely no sense
     @GetMapping(value = {"/trees/forecast/biodiversity", "/trees/forecast/biodiversity/"})
@@ -229,7 +229,6 @@ public class TreePLERestController {
     public double getCarbonSequestrationIndex(@RequestParam float latitude, 
     		@RequestParam float longitude, @RequestParam float radius) 
     				throws InvalidInputException{
-    	
     	double carbonSequestration=0;
     	List<Tree> treesInArea;
     	treesInArea = service.getTreesByArea(latitude,longitude, radius);
