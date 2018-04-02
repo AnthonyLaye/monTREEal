@@ -10,6 +10,7 @@ import ca.mcgill.ecse321.test.service.TestCreateTree;
 import ca.mcgill.ecse321.test.service.TestCutdownTree;
 import ca.mcgill.ecse321.test.service.TestFindAllTrees;
 import ca.mcgill.ecse321.test.service.TestGetAllTreesByMunicipality;
+import ca.mcgill.ecse321.test.service.TestGetStatus;
 import ca.mcgill.ecse321.test.service.TestGetTreesByArea;
 import ca.mcgill.ecse321.test.service.TestListTreesForResident;
 import ca.mcgill.ecse321.test.service.TestMarkTreeDiseased;
@@ -20,6 +21,6 @@ import ca.mcgill.ecse321.test.service.TestMarkTreeForCutdown;
 	TestCreateTree.class, TestCutdownTree.class, TestFindAllTrees.class, 
 	TestGetAllTreesByMunicipality.class, TestGetTreesByArea.class, 
 	TestListTreesForResident.class,TestMarkTreeDiseased.class, 
-	TestMarkTreeForCutdown.class})
+	TestMarkTreeForCutdown.class, TestGetStatus.class})
 public class AllTests {
 }
