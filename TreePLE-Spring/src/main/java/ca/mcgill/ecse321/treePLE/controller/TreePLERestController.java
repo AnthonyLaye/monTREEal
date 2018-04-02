@@ -197,7 +197,7 @@ public class TreePLERestController {
     	return treesBySpecies;
     }
 
-//status: in process, not tested check for the value if this is correct?
+//status: successful
     @GetMapping(value = {"/trees/position/"})
     public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
     		@RequestParam float longitude, 
