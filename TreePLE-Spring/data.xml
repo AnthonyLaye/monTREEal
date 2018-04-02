@@ -1,97 +1,14 @@
 <manager id="1">
   <trees id="2">
-    <tree id="3">
-      <species>SmartAss</species>
-      <height>11.0</height>
-      <age>200</age>
-      <date id="4">2018-02-21</date>
-      <diameter>22.0</diameter>
-      <id>71817432</id>
-      <person id="5">
-        <name>helloworld</name>
-        <tree id="6">
-          <tree reference="3"/>
-        </tree>
-        <treePLEManager id="7">
-          <trees id="8"/>
-          <person id="9">
-            <person reference="5"/>
-          </person>
-          <forecast id="10"/>
-        </treePLEManager>
-      </person>
-      <surveies id="11">
-        <ca.mcgill.ecse321.treePLE.model.Survey id="12">
-          <date id="13">2018-05-04</date>
-          <id>2707442</id>
-          <observer id="14">
-            <name>Boop</name>
-            <tree id="15"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="3"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="16">
-          <date id="17">2018-05-04</date>
-          <id>4103829</id>
-          <observer id="18">
-            <name>Boop</name>
-            <tree id="19"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="3"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-      </surveies>
-      <treePLEManager reference="1"/>
-      <location id="20">
-        <longitude>221.0</longitude>
-        <latitude>333.0</latitude>
-        <municipality>McGill</municipality>
-        <tree id="21">
-          <tree reference="3"/>
-        </tree>
-      </location>
-    </tree>
-    <tree id="22">
-      <species>AAAAAAAA</species>
-      <height>11.0</height>
-      <age>100</age>
-      <date id="23">2018-02-21</date>
-      <diameter>55.0</diameter>
-      <id>47664590</id>
-      <person id="24">
-        <name>Yooooo</name>
-        <tree id="25">
-          <tree reference="22"/>
-        </tree>
-        <treePLEManager id="26">
-          <trees id="27"/>
-          <person id="28">
-            <person reference="24"/>
-          </person>
-          <forecast id="29"/>
-        </treePLEManager>
-      </person>
-      <surveies id="30"/>
-      <treePLEManager reference="1"/>
-      <location id="31">
-        <longitude>251.0</longitude>
-        <latitude>343.0</latitude>
-        <municipality>Concordia</municipality>
-        <tree id="32">
-          <tree reference="22"/>
-        </tree>
-      </location>
-    </tree>
     <tree id="33">
-      <species>Hlloeoeoeo</species>
+      <species>white oak</species>
       <height>11.0</height>
       <age>100</age>
       <date id="34">2018-02-21</date>
       <diameter>55.0</diameter>
       <id>14475954</id>
       <person id="35">
-        <name>Yooooo</name>
+        <name>Benoit</name>
         <tree id="36">
           <tree reference="33"/>
         </tree>
@@ -108,71 +25,14 @@
       <location id="42">
         <longitude>251.0</longitude>
         <latitude>343.0</latitude>
-        <municipality>Concordia</municipality>
+        <municipality>NDG</municipality>
         <tree id="43">
           <tree reference="33"/>
         </tree>
       </location>
     </tree>
-    <tree id="44">
-      <species>Real</species>
-      <height>21.0</height>
-      <age>6</age>
-      <date id="45">2012-12-12</date>
-      <diameter>12.0</diameter>
-      <id>91142430</id>
-      <person id="46">
-        <name>Pepe</name>
-        <tree id="47">
-          <tree reference="44"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="48">
-        <ca.mcgill.ecse321.treePLE.model.Survey id="49">
-          <date id="50">2018-02-02</date>
-          <id>6686954</id>
-          <observer id="51">
-            <name>Al</name>
-            <tree id="52"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="44"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="53">
-          <date id="54">2018-02-02</date>
-          <id>9218376</id>
-          <observer id="55">
-            <name>Hank</name>
-            <tree id="56"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="44"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="57">
-          <date id="58">2018-02-02</date>
-          <id>7478728</id>
-          <observer id="59">
-            <name>Hank</name>
-            <tree id="60"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="44"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-      </surveies>
-      <treePLEManager reference="1"/>
-      <location id="61">
-        <longitude>1.23</longitude>
-        <latitude>4.56</latitude>
-        <municipality>NDG</municipality>
-        <tree id="62">
-          <tree reference="44"/>
-        </tree>
-      </location>
-      <status>Cutdown</status>
-    </tree>
     <tree id="63">
-      <species>Real</species>
+      <species>Red maple</species>
       <height>0.0</height>
       <age>0</age>
       <date id="64">2012-12-12</date>
@@ -198,7 +58,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="70">
-      <species>Real</species>
+      <species>black walnut</species>
       <height>0.0</height>
       <age>0</age>
       <date id="71">2012-12-12</date>
@@ -235,7 +95,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="81">
-      <species>Fake</species>
+      <species>butternut</species>
       <height>10.0</height>
       <age>1</age>
       <date id="82">2015-09-21</date>
@@ -253,82 +113,15 @@
       <location id="86">
         <longitude>6.4372988E7</longitude>
         <latitude>2.0</latitude>
-        <municipality>Swagville</municipality>
+        <municipality>NDG</municipality>
         <tree id="87">
           <tree reference="81"/>
         </tree>
       </location>
       <status>Healthy</status>
     </tree>
-    <tree id="88">
-      <species>sample</species>
-      <height>10.0</height>
-      <age>1</age>
-      <date id="89">2015-09-21</date>
-      <diameter>3.0</diameter>
-      <id>74015238</id>
-      <person id="90">
-        <name>woot</name>
-        <tree id="91">
-          <tree reference="88"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="92">
-        <ca.mcgill.ecse321.treePLE.model.Survey id="93">
-          <date id="94">2018-02-02</date>
-          <id>990798667</id>
-          <observer id="95">
-            <name>Boop</name>
-            <tree id="96"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="88"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="97">
-          <date id="98">2018-02-02</date>
-          <id>291754204</id>
-          <observer id="99">
-            <name>Boop</name>
-            <tree id="100"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="88"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="101">
-          <date id="102">2018-02-02</date>
-          <id>611223612</id>
-          <observer id="103">
-            <name>Boop</name>
-            <tree id="104"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="88"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-        <ca.mcgill.ecse321.treePLE.model.Survey id="105">
-          <date id="106">2018-02-02</date>
-          <id>771861939</id>
-          <observer id="107">
-            <name>Boop</name>
-            <tree id="108"/>
-            <treePLEManager reference="1"/>
-          </observer>
-          <tree reference="88"/>
-        </ca.mcgill.ecse321.treePLE.model.Survey>
-      </surveies>
-      <treePLEManager reference="1"/>
-      <location id="109">
-        <longitude>524.0</longitude>
-        <latitude>-57829.0</latitude>
-        <municipality>yep</municipality>
-        <tree id="110">
-          <tree reference="88"/>
-        </tree>
-      </location>
-      <status>Healthy</status>
-    </tree>
     <tree id="111">
-      <species>oake</species>
+      <species>white oak</species>
       <height>1.0</height>
       <age>1</age>
       <date id="112">2018-02-02</date>
@@ -354,7 +147,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="118">
-      <species>macadamian</species>
+      <species>red maple</species>
       <height>1.0</height>
       <age>1</age>
       <date id="119">2018-02-02</date>
@@ -380,7 +173,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="125">
-      <species>oak</species>
+      <species>red oak</species>
       <height>1.0</height>
       <age>1</age>
       <date id="126">2018-02-02</date>
@@ -432,7 +225,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="139">
-      <species>willowsmith</species>
+      <species>willow</species>
       <height>1.0</height>
       <age>1</age>
       <date id="140">2018-02-02</date>
@@ -484,7 +277,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="153">
-      <species>whitepine</species>
+      <species>white pine</species>
       <height>1.0</height>
       <age>1</age>
       <date id="154">2018-02-02</date>
@@ -510,7 +303,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="160">
-      <species>redpine</species>
+      <species>red pine</species>
       <height>1.0</height>
       <age>1</age>
       <date id="161">2018-02-02</date>
@@ -536,7 +329,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="167">
-      <species>greenpine</species>
+      <species>green pine</species>
       <height>1.0</height>
       <age>1</age>
       <date id="168">2018-02-02</date>
@@ -562,7 +355,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="174">
-      <species>greenpine</species>
+      <species>green pine</species>
       <height>1.0</height>
       <age>1</age>
       <date id="175">2018-02-02</date>
@@ -588,7 +381,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="181">
-      <species>greenpinetall</species>
+      <species>green pine</species>
       <height>1.0</height>
       <age>1</age>
       <date id="182">2018-02-02</date>
@@ -614,7 +407,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="188">
-      <species>palmtree</species>
+      <species>maple</species>
       <height>1.0</height>
       <age>1</age>
       <date id="189">2018-02-02</date>
@@ -640,7 +433,7 @@
       <status>Healthy</status>
     </tree>
     <tree id="195">
-      <species>palmtreewhite</species>
+      <species>white oak</species>
       <height>1.0</height>
       <age>1</age>
       <date id="196">2018-02-02</date>
@@ -661,110 +454,6 @@
         <municipality>herman</municipality>
         <tree id="201">
           <tree reference="195"/>
-        </tree>
-      </location>
-      <status>Healthy</status>
-    </tree>
-    <tree id="202">
-      <species>macadamian</species>
-      <height>1.0</height>
-      <age>1</age>
-      <date id="203">2018-02-02</date>
-      <diameter>1.0</diameter>
-      <id>77207863</id>
-      <person id="204">
-        <name>Bob</name>
-        <tree id="205">
-          <tree reference="202"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="206"/>
-      <treePLEManager reference="1"/>
-      <location id="207">
-        <longitude>1.23</longitude>
-        <latitude>4.56</latitude>
-        <municipality>NDG</municipality>
-        <tree id="208">
-          <tree reference="202"/>
-        </tree>
-      </location>
-      <status>Healthy</status>
-    </tree>
-    <tree id="209">
-      <species>macadamiantree</species>
-      <height>1.0</height>
-      <age>1</age>
-      <date id="210">2018-02-02</date>
-      <diameter>1.0</diameter>
-      <id>78571555</id>
-      <person id="211">
-        <name>Bob</name>
-        <tree id="212">
-          <tree reference="209"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="213"/>
-      <treePLEManager reference="1"/>
-      <location id="214">
-        <longitude>1.23</longitude>
-        <latitude>4.56</latitude>
-        <municipality>NDG</municipality>
-        <tree id="215">
-          <tree reference="209"/>
-        </tree>
-      </location>
-      <status>Healthy</status>
-    </tree>
-    <tree id="216">
-      <species>macadamiantree</species>
-      <height>1.0</height>
-      <age>1</age>
-      <date id="217">2018-02-02</date>
-      <diameter>1.0</diameter>
-      <id>86676494</id>
-      <person id="218">
-        <name>Bob</name>
-        <tree id="219">
-          <tree reference="216"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="220"/>
-      <treePLEManager reference="1"/>
-      <location id="221">
-        <longitude>1.23</longitude>
-        <latitude>4.56</latitude>
-        <municipality>NDG</municipality>
-        <tree id="222">
-          <tree reference="216"/>
-        </tree>
-      </location>
-      <status>Healthy</status>
-    </tree>
-    <tree id="223">
-      <species>barch</species>
-      <height>1.0</height>
-      <age>1</age>
-      <date id="224">2018-02-02</date>
-      <diameter>1.0</diameter>
-      <id>85969677</id>
-      <person id="225">
-        <name>Bob</name>
-        <tree id="226">
-          <tree reference="223"/>
-        </tree>
-        <treePLEManager reference="1"/>
-      </person>
-      <surveies id="227"/>
-      <treePLEManager reference="1"/>
-      <location id="228">
-        <longitude>1.23</longitude>
-        <latitude>4.56</latitude>
-        <municipality>NDG</municipality>
-        <tree id="229">
-          <tree reference="223"/>
         </tree>
       </location>
       <status>Healthy</status>

@@ -50,7 +50,16 @@ class Canopy{
   *--* Forecast forecast;
 }
 
+class CarbonSequestrationManager {
+  *--* CarbonSequestration carbonSequestration;
+   1 CarbonSequestrationManager <@>- *SpeciesDensities;
+}
 class CarbonSequestration{
   double carbonSequestrationIndex;
   *--* Forecast forecast;
+}
+
+class SpeciesDensities {
+  String species;
+  Integer density;
 }

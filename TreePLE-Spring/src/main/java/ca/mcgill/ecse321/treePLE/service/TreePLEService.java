@@ -5,20 +5,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.stereotype.Service;
 
+import ca.mcgill.ecse321.treePLE.model.CarbonSequestrationManager;
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
 import ca.mcgill.ecse321.treePLE.model.Survey;
 import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
+import ca.mcgill.ecse321.treePLE.persistence.PersistenceDensity;
 import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 
 @Service
 public class TreePLEService {
 
 	public TreePLEManager tm;
+	public CarbonSequestrationManager csm;
 
 	public TreePLEService(TreePLEManager tm) {
 		this.tm = tm;
@@ -276,6 +281,35 @@ public class TreePLEService {
 		return markedDiseased;
 	}
 
+	public double calculateCarbonSequestration(List<Tree> trees) {
+		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
+		int density=0;
+		double index=0;
+		double volume=0;
+		double biomass=0;
+		double result=0;
+		List<SpeciesDensities> listSpeciesDensities=null;
+		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+		for (Tree t: trees) {
+			String speciesName=t.getSpecies();
+			//compare the speciesName with the file to get the density
+			listSpeciesDensities = csm.getSpeciesDensities();
+			for(SpeciesDensities sd: listSpeciesDensities) {
+				String species= sd.getSpecies();
+				if(speciesName.equalsIgnoreCase(species)) {
+					density=sd.getDensity();
+					break;
+				}
+			}
+			//calculate the volume occupied by the tree
+			volume= (double)Math.PI*((t.getDiameter()/2)/100)*((t.getDiameter()/2)/100)*(t.getHeight()/3)/100;
+			//biomass in kilograms
+			biomass = density*volume;
+			index=biomass*tonneOfCO2/1000;
+			result=result+index;
+		}
+		return result;
+	}
 	/**
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is
@@ -356,6 +390,7 @@ public class TreePLEService {
 		PersistenceXStream.saveToXMLwithXStream(tm);
 		return survey;
 	}
+	
 
 	//needs testing
 	public String getStatus(int id) throws InvalidInputException {

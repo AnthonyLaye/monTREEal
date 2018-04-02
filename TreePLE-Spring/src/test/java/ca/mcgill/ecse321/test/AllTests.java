@@ -4,7 +4,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import ca.mcgill.ecse321.test.persistence.TestPersistenceDensity;
 import ca.mcgill.ecse321.test.service.TestBiodiversityIndex;
+import ca.mcgill.ecse321.test.service.TestCarbonSequestration;
 import ca.mcgill.ecse321.test.service.TestCreateSurvey;
 import ca.mcgill.ecse321.test.service.TestCreateTree;
 import ca.mcgill.ecse321.test.service.TestCutdownTree;
@@ -21,6 +23,7 @@ import ca.mcgill.ecse321.test.service.TestMarkTreeForCutdown;
 	TestCreateTree.class, TestCutdownTree.class, TestFindAllTrees.class, 
 	TestGetAllTreesByMunicipality.class, TestGetTreesByArea.class, 
 	TestListTreesForResident.class,TestMarkTreeDiseased.class, 
-	TestMarkTreeForCutdown.class, TestGetStatus.class})
+	TestMarkTreeForCutdown.class, TestGetStatus.class, TestPersistenceDensity.class, 
+	TestCarbonSequestration.class})
 public class AllTests {
 }
