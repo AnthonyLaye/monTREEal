@@ -45,6 +45,18 @@ public class TreePLEService {
         }
     }
     
+    /**
+     * This method is the short version for adding a tree in the system when it has been planted
+     * If the person who is adding the tree does not know the measurements for the age, the height or the diameter
+     * he/she can still plant the tree, and these data will eventually be filled by a scientist
+     * @param aSpecies, the species of tree planted
+     * @param aDate, the current date it has been planted
+     * @param aId, the random id number to track the tree
+     * @param aPerson, the person it belongs too
+     * @param aLocation, its position on the map
+     * @return A tree, as it has been added to the system
+     * @throws InvalidInputException when the species entered contains characters that are not letters
+     */
     public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
     	throws InvalidInputException{
     	
@@ -63,6 +75,11 @@ public class TreePLEService {
     	}
     }
 
+    /**
+     * This method lists ALL the trees registered in the TreePLE System
+     * @return a list of trees (all the trees registered)
+     * @throws InvalidInputException, when no trees are registered
+     */
     public List<Tree> findAllTrees() throws InvalidInputException {
     	List<Tree> treelist = tm.getTrees();
     	if (treelist.isEmpty()) {
@@ -72,6 +89,11 @@ public class TreePLEService {
     	}
     }
     
+    /**
+     * This method returns the list of trees that belong to a specific resident
+     * @param The name of the resident is passed as argument, the name is of type String
+     * @return a list of all the trees that belong to this resident
+     */
     public List<Tree> findTreesForResident(String name) {
 		
 		List<Tree> residentTrees = new ArrayList<Tree>();
@@ -136,7 +158,7 @@ public class TreePLEService {
     }
     
     /**
-     * This method is a helper method that returns distance between two points on geocoordinates
+     * This method is a helper method that returns distance between two points on GeoCoordinates
      * This method is a simple implementation of Haversine's formula to calculate distance based on geocoordinates
      * This method returns the distance in kilometer
      * @param lat1
@@ -176,6 +198,14 @@ public class TreePLEService {
     	return treesBySpecies;
     }
     
+    /**
+     * Method that tells if the tree specified by ID is cutdown
+     * @param aId, the id of the tree we want information on his status
+     * @return A boolean value
+     * true, if the status of the tree was cut down, does not exist in reality
+     * false, if the tree is not cut down, exist in reality
+     * @throws InvalidInputException
+     */
     public boolean cutDownTree(int aId) throws InvalidInputException{
     	boolean wasCutDown = false;
     	for (Tree tree : tm.getTrees()) {
@@ -194,6 +224,13 @@ public class TreePLEService {
     	return wasCutDown;
     }
     
+    /**
+     * Method that tells if the tree specified by ID is marked as cutdown
+     * @param aId, the id of the tree we want information on his status
+     * @return a boolean value
+     * true, if the tree is marked for cut down
+     * false, if the tree is not marked for cut down
+     */
     public boolean markTreeForCutDown(int aId) {
     	boolean markedForCutDown = false;
     	for (Tree tree : tm.getTrees()) {
@@ -214,6 +251,13 @@ public class TreePLEService {
     	return markedForCutDown;
     }
     
+    /**
+     * Method that tells if the tree specified by ID is marked as diseased
+     * @param aId, the id of the tree we want information on his status
+     * @return A boolean value
+     * true, if the tree is marked as diseased
+     * false, if the tree is not marked as diseased
+     */
     public boolean markTreeDiseased(int aId) {
     	boolean markedDiseased = false;
     	for (Tree tree : tm.getTrees()) {
@@ -282,8 +326,18 @@ public class TreePLEService {
 		}
 		return false;		//going through the whole list and no match
 	}
-    
-	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId) throws InvalidInputException {
+    /**
+     * Method to create a survey on a tree, this will permit to change data of a current tree 
+     * in the system
+     * @param aDate, the date when the survey has been conducted
+     * @param surveyId, the id to trace the survey
+     * @param aObserver, the name of the scientist conducting the survey
+     * @param treeId, the tree the survey is done on
+     * @return return a survey of type Survey with all the information 
+     * @throws InvalidInputException
+     */
+	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId) 
+			throws InvalidInputException {
 		
 		String personName = aObserver.getName().toString();
 		Survey survey = null;

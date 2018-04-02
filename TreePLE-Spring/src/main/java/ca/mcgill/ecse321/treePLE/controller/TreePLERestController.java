@@ -75,6 +75,7 @@ public class TreePLERestController {
     //----------------------------------
     //   POST Methods
     //----------------------------------
+//status: successful
     @PostMapping(value = { "/trees/{species}", "/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
@@ -95,6 +96,7 @@ public class TreePLERestController {
         return convertToDto(tree);
     }
     
+  //status: successful    
     @PostMapping(value = { "/base/trees/{species}", "/base/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
@@ -112,6 +114,7 @@ public class TreePLERestController {
         return convertToDto(tree);
     }
     
+  //status: successful    
     @PostMapping(value = { "/tree/{id}", "/tree/{id}/" })
     public boolean cutDownTree(@PathVariable("id") int id) throws InvalidInputException {
     	boolean wasCutDown = false;
@@ -119,6 +122,7 @@ public class TreePLERestController {
     	return wasCutDown;
     }
     
+  //status: successful
     @PostMapping(value = { "/markCutDown/tree/{id}", "/markCutDown/tree/{id}/" })
     public boolean markForCutDown(@PathVariable("id") int id) throws InvalidInputException {
     	boolean markedForCutDown = false;
@@ -126,13 +130,15 @@ public class TreePLERestController {
     	return markedForCutDown;
     }
     
+  //status: successful
     @PostMapping(value = { "/markDiseased/tree/{id}", "/markDiseased/tree/{id}/" })
     public boolean markDiseased(@PathVariable("id") int id) throws InvalidInputException {
     	boolean markedDiseased = false;
     	markedDiseased = service.markTreeDiseased(id);
     	return markedDiseased;
     }
-    
+
+  //status: not tested    
     @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
     public SurveyDto createSurvey(
             @PathVariable("treeId") int treeId, 
@@ -149,6 +155,8 @@ public class TreePLERestController {
     //----------------------------------
     //   GET Methods
     //----------------------------------
+    
+//status: not tested    
     @GetMapping(value = { "/trees", "/trees/" })
     public List<TreeDto> findAllTrees() throws InvalidInputException{
         List<TreeDto> trees = Lists.newArrayList();
@@ -157,7 +165,8 @@ public class TreePLERestController {
         }
         return trees;
     }
-    
+
+    //status: successful    
     @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}" })
     public List<TreeDto> findTreesForResident(@PathVariable ("name") String name) {
         List<TreeDto> residentTrees = Lists.newArrayList();
@@ -166,4 +175,39 @@ public class TreePLERestController {
         }
         return residentTrees;
     }
+    
+//status: not tested    
+    @GetMapping(value = {"/trees/municipality/{municipality}", "/trees/municipality/{municipality}/" })
+    public List<TreeDto> findTreesByMunicipality(@PathVariable("municipality")String municipality)
+    		throws InvalidInputException{
+    	List<TreeDto> treesOfMuniciplity = Lists.newArrayList();
+    	for (Tree tree: service.getTreesByMunicipality(municipality)) {
+    		treesOfMuniciplity.add(convertToDto(tree));
+    	}
+    	return treesOfMuniciplity;
+    }
+
+  //status: not tested     
+    @GetMapping(value = {"/trees/species/{name}", "/trees/species/{name}/"})
+    public List<TreeDto> findTreesBySpecies(@PathVariable("name")String species) throws InvalidInputException {
+    	List<TreeDto> treesBySpecies = Lists.newArrayList();
+    	for (Tree tree: service.getAllTreesBySpecies(species)){
+    		treesBySpecies.add(convertToDto(tree));
+    	}
+    	return treesBySpecies;
+    }
+    
+//status: not tested    
+    @GetMapping(value = {"/trees/position/"})
+    public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
+    		@RequestParam float longitude, 
+    		@RequestParam float radius) throws InvalidInputException{
+    	List<TreeDto> treesInArea = Lists.newArrayList();
+    	for (Tree tree: service.getTreesByArea(latitude, longitude, radius)) {
+    		treesInArea.add(convertToDto(tree));
+    	}
+    	return treesInArea;
+    }
+
+
 }
