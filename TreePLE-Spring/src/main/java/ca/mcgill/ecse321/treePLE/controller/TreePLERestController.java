@@ -210,11 +210,10 @@ public class TreePLERestController {
     }
 
     //does this take in param Trees or TreeDto
-    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}" })
+    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}/"})
     public double getBiodiversityIndex(@PathVariable("forecast") List<Tree> trees) {
     	double biodiversityIndex=0;
-    	
+    	biodiversityIndex=service.calculateBiodiversityIndex(trees);
     	return biodiversityIndex;
     }
-
 }
