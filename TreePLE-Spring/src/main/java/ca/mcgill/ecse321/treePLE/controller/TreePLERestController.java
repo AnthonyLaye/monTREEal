@@ -208,13 +208,12 @@ public class TreePLERestController {
     	}
     	return treesInArea;
     }
-
-    //status: in process, does this take in param Trees or TreeDto
-    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}" })
+  //status: in process, does this take in param Trees or TreeDto
+    //does this take in param Trees or TreeDto
+    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}/"})
     public double getBiodiversityIndex(@PathVariable("forecast") List<Tree> trees) {
     	double biodiversityIndex=0;
-    	
+    	biodiversityIndex=service.calculateBiodiversityIndex(trees);
     	return biodiversityIndex;
     }
-
 }
