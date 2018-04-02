@@ -122,7 +122,7 @@ public class TreePLERestController {
     	return wasCutDown;
     }
     
-  //status: successful
+  //status: incorrect, gives true the first time, then correct...
     @PostMapping(value = { "/markCutDown/tree/{id}", "/markCutDown/tree/{id}/" })
     public boolean markForCutDown(@PathVariable("id") int id) throws InvalidInputException {
     	boolean markedForCutDown = false;
@@ -130,7 +130,7 @@ public class TreePLERestController {
     	return markedForCutDown;
     }
     
-  //status: successful
+  //status: incorrect, gives true the first time, then correct...
     @PostMapping(value = { "/markDiseased/tree/{id}", "/markDiseased/tree/{id}/" })
     public boolean markDiseased(@PathVariable("id") int id) throws InvalidInputException {
     	boolean markedDiseased = false;
@@ -138,7 +138,7 @@ public class TreePLERestController {
     	return markedDiseased;
     }
 
-  //status: not tested    
+  //status: tested, rn gives something empty since none are create... and cant be changed...
     @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
     public SurveyDto createSurvey(
             @PathVariable("treeId") int treeId, 
@@ -156,7 +156,7 @@ public class TreePLERestController {
     //   GET Methods
     //----------------------------------
     
-//status: not tested    
+//status: successful    
     @GetMapping(value = { "/trees", "/trees/" })
     public List<TreeDto> findAllTrees() throws InvalidInputException{
         List<TreeDto> trees = Lists.newArrayList();
@@ -176,7 +176,7 @@ public class TreePLERestController {
         return residentTrees;
     }
     
-//status: not tested    
+//status: successful   
     @GetMapping(value = {"/trees/municipality/{municipality}", "/trees/municipality/{municipality}/" })
     public List<TreeDto> findTreesByMunicipality(@PathVariable("municipality")String municipality)
     		throws InvalidInputException{
@@ -187,7 +187,7 @@ public class TreePLERestController {
     	return treesOfMuniciplity;
     }
 
-  //status: not tested     
+  //status: successful     
     @GetMapping(value = {"/trees/species/{name}", "/trees/species/{name}/"})
     public List<TreeDto> findTreesBySpecies(@PathVariable("name")String species) throws InvalidInputException {
     	List<TreeDto> treesBySpecies = Lists.newArrayList();
@@ -196,8 +196,8 @@ public class TreePLERestController {
     	}
     	return treesBySpecies;
     }
-    
-//status: not tested check for the value if this is correct?
+
+//status: in process, not tested check for the value if this is correct?
     @GetMapping(value = {"/trees/position/"})
     public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
     		@RequestParam float longitude, 
@@ -209,7 +209,7 @@ public class TreePLERestController {
     	return treesInArea;
     }
 
-    //does this take in param Trees or TreeDto
+    //status: in process, does this take in param Trees or TreeDto
     @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}" })
     public double getBiodiversityIndex(@PathVariable("forecast") List<Tree> trees) {
     	double biodiversityIndex=0;
