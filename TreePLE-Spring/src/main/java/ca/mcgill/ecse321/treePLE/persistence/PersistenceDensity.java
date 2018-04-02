@@ -5,32 +5,26 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import ca.mcgill.ecse321.treePLE.model.Location;
-import ca.mcgill.ecse321.treePLE.model.Person;
-import ca.mcgill.ecse321.treePLE.model.Tree;
-import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
 import com.thoughtworks.xstream.XStream;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public class PersistenceXStream {
+import ca.mcgill.ecse321.treePLE.model.CarbonSequestrationManager;
+import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
+
+public class PersistenceDensity {
 	private static XStream xstream = new XStream();
-	private static String filename = "/opt/tomcat/data/data.xml";
-
-	// TODO create the RegistrationManager instance here (replace the void return value as well)
-	public static TreePLEManager initializeModelManager(String fileName) {
+	private static String filename = "/tmp/Density.xml";
+	
+	public static CarbonSequestrationManager initializeModelManager(String fileName) {
 		// Initialization for persistence
-		TreePLEManager tm;
+		CarbonSequestrationManager csm;
 		setFilename(fileName);
-		setAlias("tree", Tree.class);
-		setAlias("person", Person.class);
-		setAlias("location", Location.class);
-		setAlias("manager", TreePLEManager.class);
+		setAlias("manager", CarbonSequestrationManager.class);
+		setAlias("speciesDensities", SpeciesDensities.class);
 
 		// load model if exists, create otherwise
 		File file = new File(fileName);
 		if (file.exists()) {
-			tm = (TreePLEManager) loadFromXMLwithXStream();
+			csm = (CarbonSequestrationManager) loadFromXMLwithXStream();
 		} else {
 			try {
 				file.createNewFile();
@@ -38,10 +32,17 @@ public class PersistenceXStream {
 				e.printStackTrace();
 				System.exit(1);
 			}
-			tm = new TreePLEManager();
-			saveToXMLwithXStream(tm);
+			//the values here are the values added 
+			csm = new CarbonSequestrationManager();
+			SpeciesDensities sd1 = new SpeciesDensities("maple", 200, csm);
+			SpeciesDensities sd2 = new SpeciesDensities("black walnut", 626, csm);
+			SpeciesDensities sd3 = new SpeciesDensities("butternut", 368, csm);
+			csm.addSpeciesDensity(sd1);
+			csm.addSpeciesDensity(sd2);
+			csm.addSpeciesDensity(sd3);
+			saveToXMLwithXStream(csm);
 		}
-		return tm;
+		return csm;
 	}
 
 	public static boolean saveToXMLwithXStream(Object obj) {
@@ -58,7 +59,7 @@ public class PersistenceXStream {
             return false;
         }
 	}
-
+	
 	public static Object loadFromXMLwithXStream() {
 		xstream.setMode(XStream.ID_REFERENCES);
         try {

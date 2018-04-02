@@ -198,7 +198,8 @@ public class TreePLERestController {
     }
 
 //status: in process, not tested check for the value if this is correct?
-    @GetMapping(value = {"/trees/position/"})
+    //seem to not take into consideration the radius
+    @GetMapping(value = {"/trees/position/", "/trees/position"})
     public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
     		@RequestParam float longitude, 
     		@RequestParam float radius) throws InvalidInputException{
@@ -208,12 +209,31 @@ public class TreePLERestController {
     	}
     	return treesInArea;
     }
+    //status: 2018-04-02 6:15pm : functional, listArea not returning a large list
   //status: in process, does this take in param Trees or TreeDto
     //does this take in param Trees or TreeDto
-    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}/"})
-    public double getBiodiversityIndex(@PathVariable("forecast") List<Tree> trees) {
+    //rn this returns a string... makes absolutely no sense
+    @GetMapping(value = {"/trees/forecast/biodiversity", "/trees/forecast/biodiversity/"})
+    public double getBiodiversityIndex(@RequestParam float latitude, 
+    		@RequestParam float longitude, @RequestParam float radius) 
+    				throws InvalidInputException{
     	double biodiversityIndex=0;
-    	biodiversityIndex=service.calculateBiodiversityIndex(trees);
+    	List<Tree> treesInArea;
+    	treesInArea = service.getTreesByArea(latitude,longitude, radius);
+    	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
+    }
+    
+    //status: needs testing, because affected by getTreesByArea
+    @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
+    public double getCarbonSequestrationIndex(@RequestParam float latitude, 
+    		@RequestParam float longitude, @RequestParam float radius) 
+    				throws InvalidInputException{
+    	
+    	double carbonSequestration=0;
+    	List<Tree> treesInArea;
+    	treesInArea = service.getTreesByArea(latitude,longitude, radius);
+    	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
+    	return carbonSequestration;
     }
 }
