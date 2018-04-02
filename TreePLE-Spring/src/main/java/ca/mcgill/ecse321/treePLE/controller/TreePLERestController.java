@@ -197,7 +197,7 @@ public class TreePLERestController {
     	return treesBySpecies;
     }
     
-//status: not tested    
+//status: not tested check for the value if this is correct?
     @GetMapping(value = {"/trees/position/"})
     public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
     		@RequestParam float longitude, 
@@ -209,5 +209,12 @@ public class TreePLERestController {
     	return treesInArea;
     }
 
+    //does this take in param Trees or TreeDto
+    @GetMapping(value = {"/trees/biodiversity/{forecast}", "/trees/biodiversity/{forecast}" })
+    public double getBiodiversityIndex(@PathVariable("forecast") List<Tree> trees) {
+    	double biodiversityIndex=0;
+    	
+    	return biodiversityIndex;
+    }
 
 }
