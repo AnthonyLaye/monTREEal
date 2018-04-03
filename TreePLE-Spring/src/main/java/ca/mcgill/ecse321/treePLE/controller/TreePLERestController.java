@@ -211,7 +211,8 @@ public class TreePLERestController {
     		@RequestParam float longitude, 
     		@RequestParam float distance) throws InvalidInputException{
     	List<TreeDto> treesInArea = Lists.newArrayList();
-    	for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
+    	//for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
+    	for (Tree tree: service.getTreesByArea(latitude, longitude, distance)) {
     		treesInArea.add(convertToDto(tree));
     	}
     	return treesInArea;
