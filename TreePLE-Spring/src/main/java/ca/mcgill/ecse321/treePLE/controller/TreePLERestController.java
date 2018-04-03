@@ -80,7 +80,7 @@ public class TreePLERestController {
     @PostMapping(value = { "/trees/{species}", "/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
-            @RequestParam int height,
+            @RequestParam float height,
             @RequestParam int age,
             @RequestParam Date date,
             @RequestParam float diameter,
@@ -151,12 +151,15 @@ public class TreePLERestController {
     public SurveyDto createSurvey(
             @PathVariable("treeId") int treeId, 
             @RequestParam Date date,
-            @RequestParam String personName) throws InvalidInputException {
+            @RequestParam String personName,
+            @RequestParam float height,
+            @RequestParam float diameter,
+            @RequestParam String status) throws InvalidInputException {
 
         Person observer = new Person(personName, service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
        
-        Survey survey = service.createSurvey(date, randomNum, observer, treeId);
+        Survey survey = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
         return convertToDto(survey);
     }
 

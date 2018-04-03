@@ -489,17 +489,32 @@ public class TreePLEService {
 	 * @return return a survey of type Survey with all the information 
 	 * @throws InvalidInputException
 	 */
-	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId) 
+	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId, float height, float diameter, String status) 
 			throws InvalidInputException {
 
 		String personName = aObserver.getName().toString();
 		Survey survey = null;
+		Status s = Status.Healthy;
+		if (status.contentEquals("Healthy")) {
+			s = Status.Healthy;
+		} else if (status.contentEquals("CutDown")) {
+			s = Status.Cutdown;
+		} else if (status.contentEquals("MarkedForCutDown")) {
+			s = Status.MarkedForCutdown;
+		} else if (status.contentEquals("Diseased")) {
+			s = Status.Diseased;
+		} else {
+			throw new InvalidInputException("The status you have inputted does not exist!");
+		}
 
 		for(Tree t: tm.getTrees()) {
 			if(t.getId() == treeId) {
 				survey = new Survey(aDate, surveyId, aObserver, t);
 				boolean wasAdded = t.addSurvey(survey);
 				if(wasAdded) {
+					t.setHeight(height);
+					t.setDiameter(diameter);
+					t.setStatus(s);
 					break;
 				}
 			}
