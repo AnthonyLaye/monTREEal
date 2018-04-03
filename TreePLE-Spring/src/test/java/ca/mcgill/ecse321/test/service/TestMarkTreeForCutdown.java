@@ -98,11 +98,11 @@ public class TestMarkTreeForCutdown {
 		
 		ts.markTreeForCutDown(8765212);	//Must mark tree for cutdown before cutting it down!
 
-		try {
+		//try {
 			ts.cutDownTree(8765212);
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
+		//} catch (InvalidInputException e) {
+		//	fail("Error");
+		//}
 
 		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
 		

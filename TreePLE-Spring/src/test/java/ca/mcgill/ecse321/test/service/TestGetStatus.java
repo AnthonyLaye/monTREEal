@@ -60,13 +60,9 @@ public class TestGetStatus {
 		catch(InvalidInputException e) {
 			fail("error");
 		}
-		try {
-		String status = ts.getStatus(1);
+		
+		Status status = ts.getStatus(1);
 		assertEquals(status, "Healthy");
-		}
-		catch(InvalidInputException e) {
-			fail("Species is empty");
-		}
 	}
 
 	@Test

@@ -68,11 +68,11 @@ public class TestCutdownTree {
 			}
 			
 			ts.markTreeForCutDown(randomNum);
-			try {
+			//try {
 				assertTrue("Tree with the given ID could not be found",ts.cutDownTree(randomNum));
-			} catch (InvalidInputException e) {
-				fail("Error in cutting down tree");
-			}
+			//} catch (InvalidInputException e) {
+			//	fail("Error in cutting down tree");
+			//}
 			
 			}
 		
@@ -81,11 +81,11 @@ public class TestCutdownTree {
 			TreePLEManager tm = new TreePLEManager();
 			TreePLEService ts = new TreePLEService(tm);
 			Integer randomNum = 1;
-			try {
+			//try {
 				Assert.assertFalse(ts.cutDownTree(randomNum));
-			} catch (InvalidInputException e) {
-				fail("Error in cutting down tree");
-			}
+			//} catch (InvalidInputException e) {
+			//	fail("Error in cutting down tree");
+			//}
 		}
 		
 //		@Test
