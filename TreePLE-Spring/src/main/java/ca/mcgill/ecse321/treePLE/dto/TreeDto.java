@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 
 public class TreeDto {
 
@@ -18,28 +19,30 @@ public class TreeDto {
 	private Location location;
 	private double latitude;
 	private double longitude;
+	private Status status;
 
 	public TreeDto() {
 	}
 
-	public TreeDto(String species, double height, int age, Date date, double diameter, int id, Person person, Location location) {
-		this.species = species;
-		this.height = height;
-		this.age = age;
-		this.date = date;
-		this.diameter = diameter;
+	public TreeDto(String species, double height, int age, Date date, double diameter, int id, Person person, Location location, Status status) {
 		this.id = id;
-		//this.person = person;
+		this.species = species;
+		this.status = status;
+		this.date = date;
+		this.age = age;
+		this.height = height;
+		this.diameter = diameter;
 		this.personName = person.getName();
 		this.location = location;
 		latitude = this.location.getLatitude();
 		longitude = this.location.getLongitude();
 	}
 
-	public TreeDto(String species, Date date, int id, Person person, Location location) {
-		this.species = species;
-		this.date = date;
+	public TreeDto(String species, Date date, int id, Person person, Location location, Status status) {
 		this.id = id;
+		this.species = species;
+		this.status = status;
+		this.date = date;
 		this.person = person;
 		this.personName = person.getName();
 		this.location = location;
@@ -81,5 +84,9 @@ public class TreeDto {
 
 	public String getName(){
 		return personName;
+	}
+	
+	public Status getStatus() {
+		return status;
 	}
 }

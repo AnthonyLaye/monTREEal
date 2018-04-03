@@ -257,8 +257,8 @@ public class TreePLEService {
 
 	/**
 	 * Method that tells if the tree specified by ID is cutdown
-	 * @param aId, the id of the tree we want information on his status
-	 * @return A boolean value
+	 * @param aId the id of the tree we want information on his status
+	 * @return  wasCutDown 
 	 * true, if the status of the tree was cut down, does not exist in reality
 	 * false, if the tree is not cut down, exist in reality
 	 * @throws InvalidInputException
@@ -268,11 +268,11 @@ public class TreePLEService {
 		for (Tree tree : tm.getTrees()) {
 			int treeID = tree.getId();
 			if (aId == treeID) {
-				if(tree.getStatus() == Status.MarkedForCutdown) {
+				if(tree.getStatus().equals(Status.MarkedForCutdown)) {
 					tree.setStatus(Status.Cutdown);
 					wasCutDown = true;
 				} else {
-					throw new InvalidInputException("The tree cannot be cut down since it is not marked for cutdown");
+					throw new InvalidInputException("The tree cannot be cut down since it is not marked for cutdown!");
 				}
 				break;
 			}
@@ -283,8 +283,8 @@ public class TreePLEService {
 
 	/**
 	 * Method that tells if the tree specified by ID is marked as cutdown
-	 * @param aId, the id of the tree we want information on his status
-	 * @return a boolean value
+	 * @param aId the id of the tree we want information on his status
+	 * @return markedForCutDown
 	 * true, if the tree is marked for cut down
 	 * false, if the tree is not marked for cut down
 	 */
@@ -293,7 +293,7 @@ public class TreePLEService {
 		for (Tree tree : tm.getTrees()) {
 			int treeID = tree.getId();
 			if (aId == treeID) {
-				if(tree.getStatus() == Status.Cutdown || tree.getStatus() == Status.MarkedForCutdown) {
+				if(tree.getStatus().equals(Status.Cutdown) || tree.getStatus().equals(Status.MarkedForCutdown)) {
 					markedForCutDown = false;
 					break;
 				}
@@ -310,8 +310,8 @@ public class TreePLEService {
 
 	/**
 	 * Method that tells if the tree specified by ID is marked as diseased
-	 * @param aId, the id of the tree we want information on his status
-	 * @return A boolean value
+	 * @param aId the id of the tree we want information on his status
+	 * @return markedDiseased 
 	 * true, if the tree is marked as diseased
 	 * false, if the tree is not marked as diseased
 	 */
