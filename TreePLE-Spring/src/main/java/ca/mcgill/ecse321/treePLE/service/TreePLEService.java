@@ -64,6 +64,54 @@ public class TreePLEService {
 	 */
 	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
+		String name = "";
+		String personName = aPerson.getName().toString();
+
+		if(aSpecies == null || aDate == null || personName == null || personName == " "){
+			throw new InvalidInputException("Something is empty!");
+		}
+		if (aSpecies.chars().allMatch(Character::isLetter)) {
+			String nameWithout = aSpecies.replace("\\s", "");
+			String speciesReadable = nameWithout.toLowerCase();
+			csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+			List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
+			sd = csm.getSpeciesDensities();
+			for (SpeciesDensities s: sd) {
+				name = s.getSpecies();
+				if(name.equals(speciesReadable)) {
+					Tree tree= new Tree(speciesReadable, aDate, aId, aPerson, tm, aLocation);
+					tm.addTree(tree);
+					PersistenceXStream.saveToXMLwithXStream(tm);
+					return tree;
+				}
+			}	
+		} else {
+			throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
+		}
+		return null;
+	}
+
+	public String checkSpecies(String aSpecies) throws InvalidInputException{
+		String name = null;
+		String nameWithout = aSpecies.replace("\\s", "");
+		String speciesReadable = nameWithout.toLowerCase();
+		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+		List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
+		sd = csm.getSpeciesDensities();
+		for (SpeciesDensities s: sd) {
+			name = s.getSpecies();
+			if(name.equals(speciesReadable)) {
+				return speciesReadable;
+			}
+		}
+		//not found in the Density.xml file
+		throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
+
+	}
+	
+	
+/*	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
+			throws InvalidInputException{
 
 		String personName = aPerson.getName().toString();
 
@@ -79,7 +127,7 @@ public class TreePLEService {
 			throw new InvalidInputException("The tree species should only contain letter characters");
 		}
 	}
-
+*/
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
 	 * @return a list of trees (all the trees registered)
