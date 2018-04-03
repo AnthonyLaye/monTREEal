@@ -332,6 +332,24 @@ public class TreePLEService {
 		PersistenceXStream.saveToXMLwithXStream(tm);
 		return markedDiseased;
 	}
+	
+	public boolean markTreeHealthy(int aId) {
+		boolean markedHealthy = false;
+		for (Tree tree : tm.getTrees()) {
+			int treeID = tree.getId();
+			if (aId == treeID) {
+				if (tree.getStatus() == Status.Cutdown) {
+					markedHealthy = false;
+					break;
+				}
+				tree.setStatus(Status.Healthy);
+				markedHealthy = true;
+				break;
+			}
+		}
+		PersistenceXStream.saveToXMLwithXStream(tm);
+		return markedHealthy;
+	}
 
 	public double calculateCarbonSequestration(List<Tree> trees) {
 		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon

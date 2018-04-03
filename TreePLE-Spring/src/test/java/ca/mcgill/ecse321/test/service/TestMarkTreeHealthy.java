@@ -23,8 +23,8 @@ import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 
-public class TestMarkTreeForCutdown {
-	
+public class TestMarkTreeHealthy {
+
 	private TreePLEManager tm;
 	private TreePLEService ts;
 	private TreePLERestController trc;
@@ -49,12 +49,8 @@ public class TestMarkTreeForCutdown {
 		tm.delete();
 	}
 
-	/* This method creates a new healthy tree and marks it for cutdown. The test checks if the tree has succesfully
-	 * been marked for cutdown.
-	 */
 	@Test
-	public void testMarkHealthyTreeForCutdown() {
-		
+	public void testMarkTreeHealthy() {
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
 		Date aDate = new Date(c.getTimeInMillis());
@@ -72,47 +68,19 @@ public class TestMarkTreeForCutdown {
 			fail("Error");
 		}
 		
-		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
+		assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
 		
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
 		
-		Assert.assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());	//Make sure tree is marked for cutdown
-		tm.delete();
+		assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());
+		
+		ts.markTreeHealthy(8765211);
+		
+		assertEquals(Status.Healthy, tm.getTree(0).getStatus());
 	}
 	
-	/* This method creates a new healthy tree and cuts it down. The method then tries to mark it for cutdown.
-	 */
 	@Test
-	public void testMarkRemovedTreeForCutdown() {
-		
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person("jim", tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765212, p, tm, l);
-		
-		ts.markTreeForCutDown(8765212);	//Must mark tree for cutdown before cutting it down!
-
-		ts.cutDownTree(8765212);
-
-		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure newly added tree cut down
-		
-		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
-		
-		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure tree status not changed, because it is already cut down!
-		tm.delete();
-	}
-	
-	/* This method creates a new healthy tree and marks it for cut down. The method then tries to mark it for cutdown again.
-	 */
-	@Test
-	public void testMarkTreeForCutdownTwice() {
-		
+	public void testMarkCutDownTreeHealthy() {
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
 		Date aDate = new Date(c.getTimeInMillis());
@@ -123,13 +91,23 @@ public class TestMarkTreeForCutdown {
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
-
-		ts.markTreeForCutDown(8765211);	//Mark tree for cutdown
-
-		Assert.assertEquals(Status.MarkedForCutdown,tm.getTree(0).getStatus());	//Make sure newly added tree is marked for cutdown
 		
-		Assert.assertEquals(false ,ts.markTreeForCutDown(8765211)); //If you try to mark it for cutdown again, method should return false!
-		Assert.assertEquals(Status.MarkedForCutdown,tm.getTree(0).getStatus());	//Make sure nothing changed
-		tm.delete();
+		try {
+			ts.createTree("oak", aDate, 8765211, p, l);
+		} catch (InvalidInputException e) {
+			fail("Error");
+		}
+		
+		assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
+		
+		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
+		assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());
+		
+		ts.cutDownTree(8765211);
+		assertEquals(Status.Cutdown, tm.getTree(0).getStatus());
+		
+		assertEquals(false, ts.markTreeHealthy(8765211));
 	}
+
+
 }
