@@ -81,7 +81,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Double longitude = Double.valueOf(treeinfo.get(5));
             Double latitude = Double.valueOf(treeinfo.get(6));
 
-            LatLng location = new LatLng(longitude, latitude);
+            LatLng location = new LatLng(latitude, longitude);
 
             treeMarker.position(location);
 
