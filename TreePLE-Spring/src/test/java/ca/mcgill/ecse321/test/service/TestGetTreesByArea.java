@@ -122,7 +122,8 @@ public class TestGetTreesByArea {
 		List<Tree> TreesByArea = new ArrayList<Tree>();
 		
 		try {
-			TreesByArea = ts.getTreesByArea(44.01f, 44.01f, 1f);
+			TreesByArea = ts.getTreesByAreaRevised(42.01f, 42.01f, 5f);
+			//TreesByArea = ts.getTreesByArea(42.01f, 42.01f, 5f);
 		} catch (InvalidInputException e) {
 			e.printStackTrace();
 		}

@@ -156,7 +156,7 @@ public class TreePLERestController {
     //   GET Methods
     //----------------------------------
     
-//status: successful    
+    //status: successful    
     @GetMapping(value = { "/trees", "/trees/" })
     public List<TreeDto> findAllTrees() throws InvalidInputException{
         List<TreeDto> trees = Lists.newArrayList();
@@ -176,7 +176,7 @@ public class TreePLERestController {
         return residentTrees;
     }
     
-//status: successful   
+    //status: successful   
     @GetMapping(value = {"/trees/municipality/{municipality}", "/trees/municipality/{municipality}/" })
     public List<TreeDto> findTreesByMunicipality(@PathVariable("municipality")String municipality)
     		throws InvalidInputException{
@@ -187,7 +187,7 @@ public class TreePLERestController {
     	return treesOfMuniciplity;
     }
 
-  //status: successful     
+    //status: successful     
     @GetMapping(value = {"/trees/species/{name}", "/trees/species/{name}/"})
     public List<TreeDto> findTreesBySpecies(@PathVariable("name")String species) throws InvalidInputException {
     	List<TreeDto> treesBySpecies = Lists.newArrayList();
@@ -197,41 +197,38 @@ public class TreePLERestController {
     	return treesBySpecies;
     }
 
-//status: in process, not tested check for the value if this is correct?
-    //seem to not take into consideration the radius
+    //status: successful
     @GetMapping(value = {"/trees/position/", "/trees/position"})
     public List<TreeDto> findTreesByArea(@RequestParam float latitude, 
     		@RequestParam float longitude, 
-    		@RequestParam float radius) throws InvalidInputException{
+    		@RequestParam float distance) throws InvalidInputException{
     	List<TreeDto> treesInArea = Lists.newArrayList();
-    	for (Tree tree: service.getTreesByArea(latitude, longitude, radius)) {
+    	for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
     		treesInArea.add(convertToDto(tree));
     	}
     	return treesInArea;
     }
-    //status: 2018-04-02 6:15pm : functional, listArea not returning a large list
-    //status: in process, does this take in param Trees or TreeDto
-    //does this take in param Trees or TreeDto
-    //rn this returns a string... makes absolutely no sense
+    
+    //status: successful
     @GetMapping(value = {"/trees/forecast/biodiversity", "/trees/forecast/biodiversity/"})
     public double getBiodiversityIndex(@RequestParam float latitude, 
-    		@RequestParam float longitude, @RequestParam float radius) 
+    		@RequestParam float longitude, @RequestParam float distance) 
     				throws InvalidInputException{
     	double biodiversityIndex=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByArea(latitude,longitude, radius);
+    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance); 
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }
     
-    //status: needs testing, because affected by getTreesByArea
+    //status: successful
     @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
     public double getCarbonSequestrationIndex(@RequestParam float latitude, 
-    		@RequestParam float longitude, @RequestParam float radius) 
+    		@RequestParam float longitude, @RequestParam float distance) 
     				throws InvalidInputException{
     	double carbonSequestration=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByArea(latitude,longitude, radius);
+    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
     }

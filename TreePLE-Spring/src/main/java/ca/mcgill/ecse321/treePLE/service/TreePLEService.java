@@ -132,6 +132,49 @@ public class TreePLEService {
 		}
 		return treesByMunicipality;
 	}
+	
+	/**
+	 * This is a revised method for getTreesByArea that will list all the trees 
+	 * in a given area, specified by the parameters in entry
+	 * @param lat, this is the position of the latitude we want to look around
+	 * @param lon, this is the position of the longitude we want to look around
+	 * @param distance, this is how far on each side of the point (latitude, longitude) 
+	 * we want to cover up. It is important to note that the area will be a square
+	 * with that specified point at its center
+	 * @return a list of trees that are contained inside this area
+	 * @throws InvalidInputException, when 
+	 */
+	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
+			throws InvalidInputException  {
+		List<Tree> treesByArea=new ArrayList<Tree>();
+		float latitude, longitude;
+		float lowerlat, lowerlon, higherlat, higherlon;
+		if(distance <= 0 ) {
+			throw new InvalidInputException("Distance cannot be negative!");
+		}
+
+		if(-180>lat || lat>180 || -180>lon || lon>180) {
+			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
+		}
+		
+		higherlat = lat+distance;
+		higherlon = lon+distance;
+		lowerlat = lat-distance;
+		lowerlon = lat-distance;
+		
+		for(Tree t: tm.getTrees()) {
+			Location location = t.getLocation();
+			latitude = location.getLatitude();
+			longitude = location.getLongitude();
+
+			if((lowerlat<latitude) && (higherlat>latitude)) {
+				if((lowerlon<longitude) && (higherlon>longitude)) {
+					treesByArea.add(t);
+				}
+			}
+		}
+		return treesByArea;
+	}
 
 	/**
 	 * This method searches for trees that is within a specific area (circular) with
@@ -161,7 +204,7 @@ public class TreePLEService {
 		}
 		return treesByArea;
 	}
-
+	
 	/**
 	 * This method is a helper method that returns distance between two points on GeoCoordinates
 	 * This method is a simple implementation of Haversine's formula to calculate distance based on geocoordinates
@@ -344,7 +387,6 @@ public class TreePLEService {
 		return index;
 	}
 
-	
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
 	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
