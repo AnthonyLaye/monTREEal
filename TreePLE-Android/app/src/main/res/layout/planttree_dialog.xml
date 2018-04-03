@@ -43,19 +43,10 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/treemunicipality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/treespecies"
-            android:fontFamily="sans-serif"
-            android:hint="@string/treemunicipality"
-            android:inputType="text" />
-
-        <EditText
             android:id="@+id/treelongitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/treemunicipality"
+            android:layout_below="@+id/treespecies"
             android:fontFamily="sans-serif"
             android:hint="@string/treelongitude"
             android:inputType="text" />
@@ -67,6 +58,24 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:hint="@string/treelatitude"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/treeheight"
+            android:layout_below="@+id/treelatitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/treeheight"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/treediameter"
+            android:layout_below="@+id/treeheight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/treediameter"
             android:inputType="text" />
 
     </RelativeLayout>

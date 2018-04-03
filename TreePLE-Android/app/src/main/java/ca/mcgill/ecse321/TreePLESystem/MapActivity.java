@@ -100,9 +100,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             CustomInfoWindowAdapter adapter = new CustomInfoWindowAdapter(MapActivity.this);
             mMap.setInfoWindowAdapter(adapter);
         }
-
-
-
     }
 
     private void refreshLists(final HashMap<Integer, ArrayList<String>> myMap, String restFunctionName) {
