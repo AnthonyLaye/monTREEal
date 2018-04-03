@@ -86,17 +86,11 @@ public class TreePLEService {
 	 * @throws InvalidInputException, when no trees are registered
 	 */
 	public List<Tree> findAllTrees() throws InvalidInputException {
-		List<Tree> treeList = null;
-		for(Tree t: tm.getTrees()) {
-			if(t.getStatus() != Status.Cutdown) {
-				treeList.add(t);
-			}
-		}
-		
-		if (treeList.isEmpty()) {
+		List<Tree> treelist = tm.getTrees();
+		if (treelist.isEmpty()) {
 			throw new InvalidInputException("There are not trees to get from the manager");
 		} else {
-			return treeList;
+			return treelist;
 		}
 	}
 
