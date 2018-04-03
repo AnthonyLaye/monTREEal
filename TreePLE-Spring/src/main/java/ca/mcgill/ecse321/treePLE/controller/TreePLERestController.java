@@ -138,6 +138,13 @@ public class TreePLERestController {
     	markedDiseased = service.markTreeDiseased(id);
     	return markedDiseased;
     }
+    
+    @PostMapping(value = { "/markHealthy/tree/{id}", "/markHealthy/tree/{id}/" })
+    public boolean markHealthy(@PathVariable("id") int id) throws InvalidInputException {
+    	boolean markedHealthy= false;
+    	markedHealthy = service.markTreeHealthy(id);
+    	return markedHealthy;
+    }
 
   //status: tested, rn gives something empty since none are create... and cant be changed...
     @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
