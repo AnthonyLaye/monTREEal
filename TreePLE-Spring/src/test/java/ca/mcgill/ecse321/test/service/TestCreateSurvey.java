@@ -53,7 +53,7 @@ public class TestCreateSurvey {
 		
 		assertEquals(0,tm.getTrees().size());
 
-		String aSpecies = "Willow";
+		String aSpecies = "butternut";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
 		Date aDate = new Date(c.getTimeInMillis());
@@ -68,15 +68,15 @@ public class TestCreateSurvey {
 		Calendar cSurvey = Calendar.getInstance();
 		cSurvey.set(2018, 05, 01);
 		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
-		float height = (float) 5.0;
-		float diameter = (float) 2.0;
+		float height = (float) 52.0;
+		float diameter = (float) 22.0;
 		String status = "Healthy";
 		Integer idSurvey = 123;
 		String observerName = "Carlito";
 		Person observer = new Person(observerName, tm);
 
 		try {
-			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
+			Tree t = ts.createTree(aSpecies, height, 1, aDate, diameter, randomNum, p, l);
 			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId(), height, diameter, status);
 		} catch (InvalidInputException e) {
 			fail("Error");
@@ -85,8 +85,8 @@ public class TestCreateSurvey {
 		assertEquals(1, tm.getTree(0).getSurveies().size());
 		assertEquals(123, tm.getTree(0).getSurvey(0).getId());
 		assertEquals(Status.Healthy, tm.getTree(0).getStatus());
-		assertEquals(5.0, tm.getTree(0).getHeight(), 0.0);
-		assertEquals(2.0, tm.getTree(0).getDiameter(), 0.0);
+		assertEquals(52.0, tm.getTree(0).getHeight(), 0.0);
+		assertEquals(22.0, tm.getTree(0).getDiameter(), 0.0);
 	}
 
 //	@Test
