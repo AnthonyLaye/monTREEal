@@ -28,8 +28,8 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8087,
-    host:  '192.168.56.50',
-    backendHost: '172.16.32.14',
+    host:  'ecse321-13.ece.mcgill.ca',
+    backendHost: 'ecse321-13.ece.mcgill.ca',
 	  //192.168.56.50
     backendPort: 8080,
     autoOpenBrowser: true,
