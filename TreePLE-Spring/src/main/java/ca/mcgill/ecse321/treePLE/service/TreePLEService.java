@@ -310,6 +310,7 @@ public class TreePLEService {
 		}
 		return result;
 	}
+	
 	/**
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is
