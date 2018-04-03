@@ -115,7 +115,7 @@ public class TreePLERestController {
     }
     
   //status: successful    
-    @PostMapping(value = { "/tree/{id}", "/tree/{id}/" })
+    @PostMapping(value = { "cutDown/tree/{id}", "/tree/{id}/" })
     public boolean cutDownTree(@PathVariable("id") int id) throws InvalidInputException {
     	boolean wasCutDown = false;
     	wasCutDown = service.cutDownTree(id);
