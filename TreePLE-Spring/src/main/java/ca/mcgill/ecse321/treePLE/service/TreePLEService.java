@@ -447,13 +447,13 @@ public class TreePLEService {
 		String personName = aObserver.getName().toString();
 		Survey survey = null;
 		Status s = Status.Healthy;
-		if (status.contentEquals("Healthy")) {
+		if (status == "Healthy") {
 			s = Status.Healthy;
-		} else if (status.contentEquals("CutDown")) {
+		} else if (status == "CutDown") {
 			s = Status.Cutdown;
-		} else if (status.contentEquals("MarkedForCutDown")) {
+		} else if (status == "MarkedForCutDown") {
 			s = Status.MarkedForCutdown;
-		} else if (status.contentEquals("Diseased")) {
+		} else if (status == "Diseased") {
 			s = Status.Diseased;
 		} else {
 			throw new InvalidInputException("The status you have inputted does not exist!");
@@ -463,11 +463,11 @@ public class TreePLEService {
 			if(t.getId() == treeId) {
 				survey = new Survey(aDate, surveyId, aObserver, t);
 				boolean wasAdded = t.addSurvey(survey);
+				t.setHeight(height);
+				t.setDiameter(diameter);
+				t.setStatus(s);
 				if(wasAdded) {
-					t.setHeight(height);
-					t.setDiameter(diameter);
-					t.setStatus(s);
-					break;
+					break; 
 				}
 			}
 		}
