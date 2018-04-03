@@ -46,7 +46,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         TextView speciestv = (TextView) view.findViewById(R.id.speciesName);
         TextView  ownertv= (TextView) view.findViewById(R.id.ownername);
         ImageView ivIcon = (ImageView) view.findViewById(R.id.treeIcon);
-        TextView heighttv = (TextView) view.findViewById(R.id.height);
+        TextView heighttv = (TextView) view.findViewById(R.id.treeheight);
 
         speciestv.setTypeface(quickRegular);
         speciestv.setText(species);

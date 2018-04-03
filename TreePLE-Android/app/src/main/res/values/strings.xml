@@ -17,6 +17,10 @@
     <string name="cut">Request Cut!</string>
     <string name="Map">Map</string>
     <string name="refresh">Refresh</string>
+    <string name="treeheight">Tree Height</string>
+    <string name="treediameter">Tree Diameter</string>
+    <string name="cutdown">Cut!</string>
+    <string name="areyousure">Are you sure you want to cut tree?</string>
 
 
 </resources>

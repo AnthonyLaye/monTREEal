@@ -14,8 +14,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -27,10 +29,12 @@ import org.json.JSONObject;
 import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 import cz.msebera.android.httpclient.Header;
@@ -135,20 +139,22 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
-        builder.setView(inflater.inflate(R.layout.planttree_dialog, null));
+        final View mView = inflater.inflate(R.layout.planttree_dialog, null);
+        builder.setView(mView);
 
         builder.setCancelable(true);
 
         builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                TextView ownerTextView = (TextView) findViewById(R.id.ownername);
-                TextView speciesTextView = (TextView) findViewById(R.id.treespecies);
-                TextView municipalityTextView = (TextView) findViewById(R.id.treemunicipality);
-                TextView longitudeTextView = (TextView) findViewById(R.id.treelongitude);
-                TextView latitudeTextView = (TextView) findViewById(R.id.treelatitude);
+                EditText ownerTextView = (EditText) mView.findViewById(R.id.ownername);
+                EditText speciesTextView = (EditText) mView.findViewById(R.id.treespecies);
+                EditText longitudeTextView = (EditText) mView.findViewById(R.id.treelongitude);
+                EditText latitudeTextView = (EditText) mView.findViewById(R.id.treelatitude);
+                EditText heightTextView = (EditText) mView.findViewById(R.id.treeheight);
+                EditText diameterTextiew = (EditText) mView.findViewById(R.id.treediameter);
 
-                httpPostTree(ownerTextView.toString(), speciesTextView.toString(), municipalityTextView.toString(),
-                        longitudeTextView.toString(), latitudeTextView.toString());
+                httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
+                        String.valueOf(longitudeTextView.getText()), String.valueOf(latitudeTextView.getText()));
                 dialog.cancel();
             }
         });
@@ -163,27 +169,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void httpPostTree(String owner, String species, String municipality, String longitude, String latitude){
+    public void httpPostTree(String owner, String species, String height, String diameter,  String longitude, String latitude){
 
         RequestParams rp = new RequestParams();
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         java.util.Date c = Calendar.getInstance().getTime();
+        java.sql.Date sqlDate = new java.sql.Date(c.getTime());
 
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        String formattedDate = df.format(c);
-
-        rp.add("species", species);
-        rp.add("date", formattedDate);
-        rp.add("id", String.valueOf(randomNum));
-        rp.add("personName", owner);
-        rp.add("municipality", municipality);
-        rp.add("longitude", longitude);
-        rp.add("latitude", latitude);
-
-        HttpUtils.post("trees/", new RequestParams(), new JsonHttpResponseHandler() {
+        HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
+                + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)
+                + "&longitude=" + Float.valueOf(longitude) + "&municipality=NDG" , new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 refreshErrorMessage();
+                Toast.makeText(getApplicationContext(), "Your tree has been Planted!",
+                        Toast.LENGTH_LONG).show();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {

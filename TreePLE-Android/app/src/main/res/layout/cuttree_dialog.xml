@@ -24,12 +24,14 @@
             android:scaleType="center"
             android:src="@drawable/planttree" />
 
-        <EditText
+        <TextView
             android:id="@+id/treeid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="@string/treeid"
+            android:hint="@string/areyousure"
+            android:textAlignment="center"
+            android:textSize="20sp"
             android:layout_below="@id/plantimage"
             android:inputType="text" />
 
