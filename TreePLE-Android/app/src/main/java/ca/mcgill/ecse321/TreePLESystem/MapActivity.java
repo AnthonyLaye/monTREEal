@@ -3,11 +3,16 @@ package ca.mcgill.ecse321.TreePLESystem;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -31,22 +36,38 @@ import cz.msebera.android.httpclient.Header;
  * Created by antho on 2018-03-05.
  */
 
-public class MapActivity extends AppCompatActivity{
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private String error;
+    private HashMap<Integer, ArrayList<String>> treeMap;
+    public Bitmap imageBitmap;
+    public static Bitmap resizedBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        HashMap<Integer, ArrayList<String>> treeMap = new HashMap<>();
+        treeMap = new HashMap<>();
+
+        MapFragment mapFragment = (MapFragment)
+                getFragmentManager().findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(MapActivity.this);
+
+        //showTrees(treeMap);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
         refreshLists(treeMap, "trees");
 
+    }
+
+    public void onRefresh(View v){
         showTrees(treeMap);
-
-
     }
 
     private void showTrees(HashMap<Integer, ArrayList<String>> treeMap) {
@@ -66,10 +87,18 @@ public class MapActivity extends AppCompatActivity{
 
             treeMarker.title(treeinfo.get(0));  //Display species as title for now
 
-            Bitmap bit = BitmapFactory.decodeFile(String.valueOf(R.drawable.treemapicon));
-            treeMarker.icon(BitmapDescriptorFactory.fromBitmap(bit));
+            treeMarker.snippet(treeinfo.get(4) + "^" + treeinfo.get(1));
+
+            //Bitmap bit = BitmapFactory.decodeFile(String.valueOf(R.drawable.treemapicon));
+            imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.treemapicon);
+            resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, 100, 100, false);
+            //BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.treemapicon);
+            treeMarker.icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap));
 
             mMap.addMarker(treeMarker);
+
+            CustomInfoWindowAdapter adapter = new CustomInfoWindowAdapter(MapActivity.this);
+            mMap.setInfoWindowAdapter(adapter);
         }
 
 
@@ -89,18 +118,18 @@ public class MapActivity extends AppCompatActivity{
                         String height = response.getJSONObject(i).getString("height");
                         String date = response.getJSONObject(i).getString("date");
                         String diameter = response.getJSONObject(i).getString("diameter");
-                        //String personName = response.getJSONObject(i).getString("personName");
-                        //String longitude = response.getJSONObject(i).getString("longitude");
-                        //String latitude = response.getJSONObject(i).getString("latitude");
+                        String personName = response.getJSONObject(i).getString("name");
+                        String longitude = response.getJSONObject(i).getString("longitude");
+                        String latitude = response.getJSONObject(i).getString("latitude");
                         //String municipality = response.getJSONObject(i).getString("municipality");
 
                         treeInfo.add(species);
                         treeInfo.add(height);
                         treeInfo.add(date);
                         treeInfo.add(diameter);
-                        //treeInfo.add(personName);
-                        //treeInfo.add(longitude);
-                        //treeInfo.add(latitude);
+                        treeInfo.add(personName);
+                        treeInfo.add(longitude);
+                        treeInfo.add(latitude);
                         //treeInfo.add(municipality);
 
                         myMap.put(i, treeInfo);
