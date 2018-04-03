@@ -22,6 +22,7 @@ import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
 import ca.mcgill.ecse321.treePLE.model.Survey;
 import ca.mcgill.ecse321.treePLE.model.Tree;
+import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 
@@ -167,7 +168,7 @@ public class TreePLERestController {
     }
 
     //status: successful    
-    @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}" })
+    @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}/" })
     public List<TreeDto> findTreesForResident(@PathVariable ("name") String name) {
         List<TreeDto> residentTrees = Lists.newArrayList();
         for (Tree tree : service.findTreesForResident(name)) {
@@ -231,5 +232,11 @@ public class TreePLERestController {
     	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
+    }
+    
+    @GetMapping(value = {"/status/tree/{id}", "/status/tree"})
+    public Status getTreeStatus(@PathVariable ("id") int id) {
+        Status treeStatus = service.getStatus(id);
+        return treeStatus;
     }
 }
