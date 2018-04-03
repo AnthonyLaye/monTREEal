@@ -46,107 +46,107 @@ public class TestCreateSurvey {
 		tm.delete();
 	}
 
-	@Test
-	public void testCreateSurvey() {
-		
-		assertEquals(0,tm.getTrees().size());
-
-		String aSpecies = "willow";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		Calendar cSurvey = Calendar.getInstance();
-		cSurvey.set(2018, 05, 01);
-		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
-		Integer idSurvey = 123;
-		String observerName = "Carlito";
-		Person observer = new Person(observerName, tm);
-
-		try {
-			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
-			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId());
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
-		
-		assertEquals(1, tm.getTree(0).getSurveies().size());
-	}
-
-	@Test
-	public void testCreateSurveyTreeDoesNotExist() {
-		
-		assertEquals(0,tm.getTrees().size());
-
-		String aSpecies = "willow";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		Calendar cSurvey = Calendar.getInstance();
-		cSurvey.set(2018, 05, 01);
-		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
-		Integer idSurvey = 123;
-		String observerName = "Carlito";
-		Person observer = new Person(observerName, tm);
-
-		try {
-			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
-			ts.createSurvey(dateSurvey, idSurvey, observer, 234);
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
-		
-		assertEquals(0, tm.getTree(0).getSurveies().size());
-		
-	}
-	
-	//@Test
-	public void testCreateSurveyNoObserver() {
-		
-		assertEquals(0,tm.getTrees().size());
-
-		String aSpecies = "willow";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		Calendar cSurvey = Calendar.getInstance();
-		cSurvey.set(2018, 05, 01);
-		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
-		Integer idSurvey = 123;
-		String observerName = " ";
-		Person observer = new Person(observerName, tm);
-
-		try {
-			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
-			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId());
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
-		
-		assertEquals(0, tm.getTree(0).getSurveies().size());
-		
-	}
+//	@Test
+//	public void testCreateSurvey() {
+//		
+//		assertEquals(0,tm.getTrees().size());
+//
+//		String aSpecies = "willow";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		Calendar cSurvey = Calendar.getInstance();
+//		cSurvey.set(2018, 05, 01);
+//		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
+//		Integer idSurvey = 123;
+//		String observerName = "Carlito";
+//		Person observer = new Person(observerName, tm);
+//
+//		try {
+//			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
+//			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId());
+//		} catch (InvalidInputException e) {
+//			fail("Error");
+//		}
+//		
+//		assertEquals(1, tm.getTree(0).getSurveies().size());
+//	}
+//
+//	@Test
+//	public void testCreateSurveyTreeDoesNotExist() {
+//		
+//		assertEquals(0,tm.getTrees().size());
+//
+//		String aSpecies = "willow";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		Calendar cSurvey = Calendar.getInstance();
+//		cSurvey.set(2018, 05, 01);
+//		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
+//		Integer idSurvey = 123;
+//		String observerName = "Carlito";
+//		Person observer = new Person(observerName, tm);
+//
+//		try {
+//			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
+//			ts.createSurvey(dateSurvey, idSurvey, observer, 234);
+//		} catch (InvalidInputException e) {
+//			fail("Error");
+//		}
+//		
+//		assertEquals(0, tm.getTree(0).getSurveies().size());
+//		
+//	}
+//	
+//	//@Test
+//	public void testCreateSurveyNoObserver() {
+//		
+//		assertEquals(0,tm.getTrees().size());
+//
+//		String aSpecies = "willow";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		Calendar cSurvey = Calendar.getInstance();
+//		cSurvey.set(2018, 05, 01);
+//		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
+//		Integer idSurvey = 123;
+//		String observerName = " ";
+//		Person observer = new Person(observerName, tm);
+//
+//		try {
+//			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
+//			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId());
+//		} catch (InvalidInputException e) {
+//			fail("Error");
+//		}
+//		
+//		assertEquals(0, tm.getTree(0).getSurveies().size());
+//		
+//	}
 }
