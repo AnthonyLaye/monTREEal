@@ -263,7 +263,7 @@ public class TreePLEService {
 	 * false, if the tree is not cut down, exist in reality
 	 * @throws InvalidInputException
 	 */
-	public boolean cutDownTree(int aId) throws InvalidInputException{
+	public boolean cutDownTree(int aId) {
 		boolean wasCutDown = false;
 		for (Tree tree : tm.getTrees()) {
 			int treeID = tree.getId();
@@ -272,7 +272,7 @@ public class TreePLEService {
 					tree.setStatus(Status.Cutdown);
 					wasCutDown = true;
 				} else {
-					throw new InvalidInputException("The tree cannot be cut down since it is not marked for cutdown!");
+					wasCutDown = false;
 				}
 				break;
 			}
@@ -445,18 +445,15 @@ public class TreePLEService {
 	
 
 	//needs testing
-	public String getStatus(int id) throws InvalidInputException {
-		String statusName="";
+	public Status getStatus(int id) {//throws InvalidInputException {
+		Status treeStatus = Status.Healthy;
 		for (Tree tree : tm.getTrees()) {
 			int treeID = tree.getId();
 			if (id == treeID) {
-				statusName=tree.getStatusName();
+				treeStatus = tree.getStatus();
 				break;
 			}
 		}
-		if(statusName == "") {
-			throw new InvalidInputException("the id passed doesnt have a species associated with.");
-		}
-		return statusName;
+		return treeStatus;
 	}
 }
