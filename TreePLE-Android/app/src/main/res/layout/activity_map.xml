@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,32 +9,47 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cutdown"
+        android:layout_alignBottom="@+id/cutdown"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="67dp"
         android:background="@drawable/button_template"
         android:gravity="center_vertical"
+        android:onClick="onRefresh"
         android:text="@string/refresh"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:onClick="onRefresh"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="405dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/cutdown"
+        app:layout_constraintEnd_toStartOf="@+id/cutdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cutdown" />
 
     <Button
         android:id="@+id/cutdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="63dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/button_template"
         android:gravity="center_vertical"
+        android:onClick="requestCutTree"
         android:text="@string/cutdown"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:onClick="onCut"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="405dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/refresh" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

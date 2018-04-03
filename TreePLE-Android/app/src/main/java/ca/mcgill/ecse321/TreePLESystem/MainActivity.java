@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -174,13 +175,15 @@ public class MainActivity extends AppCompatActivity {
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         java.util.Date c = Calendar.getInstance().getTime();
         java.sql.Date sqlDate = new java.sql.Date(c.getTime());
-        
+
         HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
                 + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)
                 + "&longitude=" + Float.valueOf(longitude) + "&municipality=NDG" , new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 refreshErrorMessage();
+                Toast.makeText(getApplicationContext(), "Your tree has been Planted!",
+                        Toast.LENGTH_LONG).show();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {

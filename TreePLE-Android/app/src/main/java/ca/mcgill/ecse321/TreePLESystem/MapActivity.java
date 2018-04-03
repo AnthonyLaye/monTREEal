@@ -1,12 +1,18 @@
 package ca.mcgill.ecse321.TreePLESystem;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -43,6 +49,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private HashMap<Integer, ArrayList<String>> treeMap;
     public Bitmap imageBitmap;
     public static Bitmap resizedBitmap;
+    private Button cutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 getFragmentManager().findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(MapActivity.this);
+        cutButton = (Button) findViewById(R.id.cutdown);
+        cutButton.setVisibility(View.INVISIBLE);
 
         //showTrees(treeMap);
     }
@@ -63,6 +72,26 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         refreshLists(treeMap, "trees");
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+
+                cutButton.setClickable(true);
+                cutButton.setVisibility(View.VISIBLE);
+                //recent = marker.getTitle();
+                return false;
+            }
+        });
+
+        mMap.setOnInfoWindowCloseListener(new GoogleMap.OnInfoWindowCloseListener() {
+            @Override
+            public void onInfoWindowClose(Marker marker) {
+
+                cutButton.setClickable(false);
+                cutButton.setVisibility(View.INVISIBLE);
+            }
+        });
 
     }
 
@@ -151,5 +180,59 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         });
     }
 
+    public void requestCutTree(View v){
 
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View mView = inflater.inflate(R.layout.cuttree_dialog, null);
+        builder.setView(mView);
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(R.string.cut, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                Toast.makeText(getApplicationContext(), "Your tree has been marked for cutdown",
+                        Toast.LENGTH_LONG).show();
+                //httpMarkCutDownTree();
+                dialog.cancel();
+
+                //httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
+                  //      String.valueOf(longitudeTextView.getText()), String.valueOf(latitudeTextView.getText()));
+                //dialog.cancel();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void httpMarkCutDownTree(){
+        HttpUtils.get("E", new RequestParams(), new JsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                //try {
+                //error += errorResponse.get("message").toString();
+                //} catch (JSONException e) {
+                //error += e.getMessage();
+                //}
+                System.out.println("oops!");
+                //refreshErrorMessage();
+            }
+        });
+
+    }
 }
