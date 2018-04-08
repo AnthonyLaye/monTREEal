@@ -1,6 +1,6 @@
 <template>
-  <div id="treePLE">
-    <h1><b>Welcome to TreePLE! </b></h1>
+  <div id="TreePLE">
+    <h1><b>Welcome to monTREEal! </b></h1>
     <button @click="listAllTrees()" style="margin:15px" >List All Trees
     </button>
     <table align = "center" style = "width:60%">
@@ -58,4 +58,3 @@
   	color: black;
   }
 </style>
-
