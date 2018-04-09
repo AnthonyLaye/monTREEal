@@ -4,6 +4,10 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import TreePLE from '@/components/TreePLE'
 import Forecast from '@/components/Forecast'
+import BioIndex from '@/components/BioIndex'
+
+import CarbonSequestration from '@/components/CarbonSequestration'
+import Canopy from '@/components/Canopy'
 
 Vue.use(Router)
 
@@ -28,6 +32,21 @@ export default new Router({
       path: '/forecast',
       name: 'Forecast',
       component: Forecast
+    },
+    {
+      path: '/bioindex',
+      name: 'BioIndex',
+      component: BioIndex
+    },
+    {
+      path: '/carbonsequestration',
+      name: 'CarbonSequestration',
+      component: CarbonSequestration
+    },
+    {
+      path: '/canopy',
+      name: 'Canopy',
+      component: Canopy
     }
   ]
 })
