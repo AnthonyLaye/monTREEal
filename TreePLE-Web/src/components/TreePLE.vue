@@ -21,6 +21,12 @@
         </td>
       </tr>
     </table>
+
+    <br> </br>
+
+    <button @click="startForecastPage()" style="margin:15px" >Forecasting
+    </button>
+
     <p>
       <!-- <span style="color:red">Error: Message text comes here</span> -->
     </p>
