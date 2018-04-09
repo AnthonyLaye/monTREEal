@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import TreePLE from '@/components/TreePLE'
+import Forecast from '@/components/Forecast'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/forecast',
+      name: 'Forecast',
+      component: Forecast
     }
   ]
 })

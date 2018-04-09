@@ -53,6 +53,10 @@ export default {
         console.log(errorMsg)
         this.errorTrees = errorMsg
       })
+    },
+    startForecastPage: function(){
+
+      this.$router.push('forecast')
     }
   }
 }
