@@ -17,7 +17,7 @@
 
     <br> </br>
 
-    <span> {{biodiversityindex}} </span>
+    <span> Biodiversity Index = {{biodiversityindex}} </span>
 
     <table>
       <tr>
@@ -51,7 +51,7 @@
 
     <br> </br>
 
-    <button @click="startForecast()" style="margin:15px" >Calculate!
+    <button @click="calculateIndex()" style="margin:15px" >Calculate!
     </button>
 
   </div>

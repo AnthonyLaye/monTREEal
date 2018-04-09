@@ -5,7 +5,6 @@ import Register from '@/components/Register'
 import TreePLE from '@/components/TreePLE'
 import Forecast from '@/components/Forecast'
 import BioIndex from '@/components/BioIndex'
-
 import CarbonSequestration from '@/components/CarbonSequestration'
 import Canopy from '@/components/Canopy'
 

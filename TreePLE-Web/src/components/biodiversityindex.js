@@ -14,6 +14,12 @@ export default {
     },
     startCanopy: function () {
       this.$router.push('canopy')
+    },
+    calculateIndex: function(){
+
+    },
+    addToForecast: function(){
+      
     }
   }
 }

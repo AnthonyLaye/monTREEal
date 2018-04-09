@@ -1,5 +1,5 @@
 <template>
-  <div id="canopy">
+  <div id="Canopy">
     <h1><b>monTREEal Forecasting </b></h1>
 
     <br> </br>
@@ -17,7 +17,7 @@
 
     <br> </br>
 
-    <span> {{biodiversityindex}} </span>
+    <span> </span>
 
     <table>
       <tr>
