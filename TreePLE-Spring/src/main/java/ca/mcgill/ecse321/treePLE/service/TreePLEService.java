@@ -509,11 +509,14 @@ public class TreePLEService {
 
 		for(Tree t: tm.getTrees()) {
 			if(t.getId() == treeId) {
-				survey = new Survey(aDate, surveyId, aObserver, t);
-				boolean wasAdded = t.addSurvey(survey);
+				
 				t.setHeight(height);
 				t.setDiameter(diameter);
 				t.setStatus(s);
+				
+				survey = new Survey(aDate, surveyId, aObserver, t);
+				boolean wasAdded = t.addSurvey(survey);
+				
 				if(wasAdded) {
 					break; 
 				}
