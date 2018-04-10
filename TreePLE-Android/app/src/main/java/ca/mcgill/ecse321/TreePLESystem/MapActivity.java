@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,8 +34,10 @@ import org.json.JSONObject;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -50,6 +53,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public Bitmap imageBitmap;
     public static Bitmap resizedBitmap;
     private Button cutButton;
+    private int mapClickCtr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
 
         treeMap = new HashMap<>();
+        mapClickCtr = 0;
 
         MapFragment mapFragment = (MapFragment)
                 getFragmentManager().findFragmentById(R.id.map);
@@ -92,10 +97,22 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 cutButton.setVisibility(View.INVISIBLE);
             }
         });
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                if (mapClickCtr == 1) {
+                    plantTree(latLng);  //Only show plant tree dialog if map is clicked twice, otherwise its annoying
+                    mapClickCtr = 0;
+                }
+                else
+                    mapClickCtr++;
+            }
+        });
 
     }
 
     public void onRefresh(View v){
+        refreshLists(treeMap, "trees");
         showTrees(treeMap);
     }
 
@@ -116,12 +133,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
             treeMarker.title(treeinfo.get(0));  //Display species as title for now
 
-            treeMarker.snippet(treeinfo.get(4) + "^" + treeinfo.get(1));
+            treeMarker.snippet(treeinfo.get(4) + "^" + treeinfo.get(1) + "^" + treeinfo.get(7));
 
-            //Bitmap bit = BitmapFactory.decodeFile(String.valueOf(R.drawable.treemapicon));
+
             imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.treemapicon);
             resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, 100, 100, false);
-            //BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.treemapicon);
             treeMarker.icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap));
 
             mMap.addMarker(treeMarker);
@@ -147,6 +163,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         String personName = response.getJSONObject(i).getString("name");
                         String longitude = response.getJSONObject(i).getString("longitude");
                         String latitude = response.getJSONObject(i).getString("latitude");
+                        String status = response.getJSONObject(i).getString("status");
                         //String municipality = response.getJSONObject(i).getString("municipality");
 
                         treeInfo.add(species);
@@ -156,6 +173,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         treeInfo.add(personName);
                         treeInfo.add(longitude);
                         treeInfo.add(latitude);
+                        treeInfo.add(status);
                         //treeInfo.add(municipality);
 
                         myMap.put(i, treeInfo);
@@ -234,5 +252,78 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
         });
 
+    }
+
+    public void plantTree(final LatLng latLng) {
+
+        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View mView = inflater.inflate(R.layout.planttree_dialog, null);
+        builder.setView(mView);
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                EditText ownerTextView = (EditText) mView.findViewById(R.id.ownername);
+                EditText speciesTextView = (EditText) mView.findViewById(R.id.treespecies);
+                EditText heightTextView = (EditText) mView.findViewById(R.id.treeheight);
+                EditText diameterTextiew = (EditText) mView.findViewById(R.id.treediameter);
+                EditText longitudeTextView = (EditText) mView.findViewById(R.id.treelongitude);
+                EditText latitudeTextView = (EditText) mView.findViewById(R.id.treelatitude);
+
+                longitudeTextView.setText(String.valueOf(latLng.longitude), TextView.BufferType.EDITABLE);
+                longitudeTextView.setText(String.valueOf(latLng.latitude), TextView.BufferType.EDITABLE);
+
+                longitudeTextView.setHint(String.valueOf(latLng.longitude));
+                latitudeTextView.setHint(String.valueOf(latLng.latitude));
+
+                longitudeTextView.setEnabled(false);
+                latitudeTextView.setEnabled(false);
+
+                httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
+                        String.valueOf(latLng.longitude), String.valueOf(latLng.latitude));
+                refreshLists(treeMap, "trees");
+                dialog.cancel();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
+    public void httpPostTree(String owner, String species, String height, String diameter,  String longitude, String latitude){
+
+        RequestParams rp = new RequestParams();
+        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
+        java.util.Date c = Calendar.getInstance().getTime();
+        java.sql.Date sqlDate = new java.sql.Date(c.getTime());
+
+        HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
+                + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)
+                + "&longitude=" + Float.valueOf(longitude) + "&municipality=NDG" , new RequestParams(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                //refreshErrorMessage();
+                Toast.makeText(getApplicationContext(), "Your tree has been Planted!",
+                        Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                try {
+                    error += errorResponse.get("message").toString();
+                } catch (JSONException e) {
+                    error += e.getMessage();
+                }
+                //refreshErrorMessage();
+            }
+        });
     }
 }

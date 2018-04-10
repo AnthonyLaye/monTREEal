@@ -44,6 +44,17 @@
             android:layout_height="wrap_content"
             android:textSize = "14sp"
             android:layout_marginTop="5dp"
+            android:textColor="#F1C40F"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="175dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:textSize = "14sp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:textColor="#F1C40F"
             android:gravity="center"

@@ -41,12 +41,14 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         String snippetInfo[] = splitSnippets(marker.getSnippet());
         String ownername = snippetInfo[0];
         String height = snippetInfo[1];
+        String status = snippetInfo[2];
 
 
         TextView speciestv = (TextView) view.findViewById(R.id.speciesName);
         TextView  ownertv= (TextView) view.findViewById(R.id.ownername);
         ImageView ivIcon = (ImageView) view.findViewById(R.id.treeIcon);
         TextView heighttv = (TextView) view.findViewById(R.id.treeheight);
+        TextView statustv = (TextView) view.findViewById(R.id.status);
 
         speciestv.setTypeface(quickRegular);
         speciestv.setText(species);
@@ -56,6 +58,9 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
         heighttv.setTypeface(quickRegular);
         heighttv.setText(height + "meters");
+
+        statustv.setTypeface(quickRegular);
+        statustv.setText(status);
 
         imageBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.treemapicon);
         resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, 100, 100, false);
