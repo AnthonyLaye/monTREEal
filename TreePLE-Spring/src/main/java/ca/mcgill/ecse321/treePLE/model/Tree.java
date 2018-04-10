@@ -263,7 +263,7 @@ public class Tree
   public boolean addSurvey(Survey aSurvey)
   {
     boolean wasAdded = false;
-    if (surveies.contains(aSurvey)) { return false; }
+    //if (surveies.contains(aSurvey)) { return false; }
     Tree existingTree = aSurvey.getTree();
     boolean isNewTree = existingTree != null && !this.equals(existingTree);
     if (isNewTree)

@@ -158,7 +158,7 @@ public class TreePLERestController {
 
         Person observer = new Person(personName, service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
-       
+        
         Survey survey = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
         return convertToDto(survey);
     }
