@@ -6,8 +6,8 @@
 import axios from 'axios'
 var config = require('../../config')
 
-var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
-var backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort
+var frontendUrl = 'http://ecse321-13.ece.mcgill.ca:8087'
+var backendUrl = 'http://ecse321-13.ece.mcgill.ca:8080'
 
 var AXIOS = axios.create({
   baseURL: backendUrl,
