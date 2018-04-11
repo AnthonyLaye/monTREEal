@@ -216,7 +216,7 @@ public class TreePLERestController {
     				throws InvalidInputException{
     	double biodiversityIndex=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance); 
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance); 
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }
@@ -227,9 +227,21 @@ public class TreePLERestController {
     				throws InvalidInputException{
     	double carbonSequestration=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
+    }
+    
+        //status: not tested
+    @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
+    public double getWaterNeeded(@RequestParam float latitude, 
+    		@RequestParam float longitude, 
+    		@RequestParam float distance) throws InvalidInputException{
+    	double water;
+    	List<Tree> treesInArea;
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
+    	water= service.calculateWaterNeeded(treesInArea);
+    	return water;	
     }
     
     @GetMapping(value = {"/status/tree/{id}", "/status/tree"})
