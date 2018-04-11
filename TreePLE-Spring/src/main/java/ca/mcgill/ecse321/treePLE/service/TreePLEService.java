@@ -462,6 +462,25 @@ public class TreePLEService {
 		return index;
 	}
 
+		/**
+	 * This method is a sustainability attribute to know what is the required amount of water we should
+	 * water the trees in a specific area each month. 
+	 * @param Takes in a list of trees, to be able to get the diameters in cm of each tree to make 
+	 * the calculations on it
+	 * @return water, which is a double that is the amount of water required in Liters
+	 */
+	public double calculateWaterNeeded(List<Tree> trees) {
+		double water=0;
+		double diameter;
+		double totalDiameter=0;
+		for(Tree t:trees) {
+			diameter = t.getDiameter();
+			totalDiameter = totalDiameter+diameter;
+		}
+		water = totalDiameter/2.54*10*3.78541;
+		return water;
+	}
+	
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
 	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
