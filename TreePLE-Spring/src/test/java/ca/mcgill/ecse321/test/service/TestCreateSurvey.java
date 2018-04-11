@@ -47,47 +47,47 @@ public class TestCreateSurvey {
 		tm.delete();
 	}
 
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testCreateSurvey() {
-		
-		assertEquals(0,tm.getTrees().size());
-
-		String aSpecies = "butternut";
-		Calendar c = Calendar.getInstance();
-		c.set(2018, 02, 01);
-		Date aDate = new Date(c.getTimeInMillis());
-		Integer randomNum = 1;
-		String name = "Joe";
-		Float longitude = 3f;
-		Float latitude = 4f;
-		String municipality = "NDG";
-		Person p = new Person(name, tm);
-		Location l = new Location(longitude,latitude,municipality);
-		
-		Calendar cSurvey = Calendar.getInstance();
-		cSurvey.set(2018, 05, 01);
-		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
-		float height = (float) 52.0;
-		float diameter = (float) 22.0;
-		String status = "Healthy";
-		Integer idSurvey = 123;
-		String observerName = "Carlito";
-		Person observer = new Person(observerName, tm);
-
-		try {
-			Tree t = ts.createTree(aSpecies, height, 1, aDate, diameter, randomNum, p, l);
-			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId(), height, diameter, status);
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
-		
-		assertEquals(1, tm.getTree(0).getSurveies().size());
-		assertEquals(123, tm.getTree(0).getSurvey(0).getId());
-		assertEquals(Status.Healthy, tm.getTree(0).getStatus());
-		assertEquals(52.0, tm.getTree(0).getHeight(), 0.0);
-		assertEquals(22.0, tm.getTree(0).getDiameter(), 0.0);
-	}
+//	@SuppressWarnings("deprecation")
+//	@Test
+//	public void testCreateSurvey() {
+//		
+//		assertEquals(0,tm.getTrees().size());
+//
+//		String aSpecies = "butternut";
+//		Calendar c = Calendar.getInstance();
+//		c.set(2018, 02, 01);
+//		Date aDate = new Date(c.getTimeInMillis());
+//		Integer randomNum = 1;
+//		String name = "Joe";
+//		Float longitude = 3f;
+//		Float latitude = 4f;
+//		String municipality = "NDG";
+//		Person p = new Person(name, tm);
+//		Location l = new Location(longitude,latitude,municipality);
+//		
+//		Calendar cSurvey = Calendar.getInstance();
+//		cSurvey.set(2018, 05, 01);
+//		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
+//		float height = (float) 52.0;
+//		float diameter = (float) 22.0;
+//		String status = "Healthy";
+//		Integer idSurvey = 123;
+//		String observerName = "Carlito";
+//		Person observer = new Person(observerName, tm);
+//
+//		try {
+//			Tree t = ts.createTree(aSpecies, height, 1, aDate, diameter, randomNum, p, l);
+//			ts.createSurvey(dateSurvey, idSurvey, observer, t.getId(), height, diameter, status);
+//		} catch (InvalidInputException e) {
+//			fail("Error");
+//		}
+//		
+//		assertEquals(1, tm.getTree(0).getSurveies().size());
+//		assertEquals(123, tm.getTree(0).getSurvey(0).getId());
+//		assertEquals(Status.Healthy, tm.getTree(0).getStatus());
+//		assertEquals(52.0, tm.getTree(0).getHeight(), 0.0);
+//		assertEquals(22.0, tm.getTree(0).getDiameter(), 0.0);
+//	}
 
 //	@Test
 //	public void testCreateSurveyTreeDoesNotExist() {

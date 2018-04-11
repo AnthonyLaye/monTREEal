@@ -21,12 +21,11 @@ public class TreeDto {
 	private double latitude;
 	private double longitude;
 	private Status status;
-	private Survey survey;
 
 	public TreeDto() {
 	}
 
-	public TreeDto(String species, double height, int age, Date date, double diameter, int id, Person person, Location location, Status status, Survey survey) {
+	public TreeDto(String species, double height, int age, Date date, double diameter, int id, Person person, Location location, Status status) {
 		this.id = id;
 		this.species = species;
 		this.status = status;
@@ -38,10 +37,9 @@ public class TreeDto {
 		this.location = location;
 		latitude = this.location.getLatitude();
 		longitude = this.location.getLongitude();
-		this.survey = survey;
 	}
 
-	public TreeDto(String species, Date date, int id, Person person, Location location, Status status, Survey survey) {
+	public TreeDto(String species, Date date, int id, Person person, Location location, Status status) {
 		this.id = id;
 		this.species = species;
 		this.status = status;
@@ -51,7 +49,6 @@ public class TreeDto {
 		this.location = location;
 		this.latitude = this.location.getLatitude();
 		this.longitude = this.location.getLongitude();
-		this.survey = survey;
 	}
 
 	public String getSpecies() {
