@@ -32,7 +32,7 @@ export default {
     },
     calculateIndex: function(latitude, longitude, radius){
 
-      AXIOS.get('/treePLE/trees/forecast/biodiversity' + '?latitude=' + latitude + '&longitude=' + longitude, + '&distance=' +radius, {}, {})
+      AXIOS.get('/treePLE/trees/forecast/biodiversity' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.biodiversityindex.push(response.data)
