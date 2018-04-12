@@ -27,8 +27,8 @@ export default {
     startCarbonSequestration: function () {
       this.$router.push('carbonsequestration')
     },
-    startCanopy: function () {
-      this.$router.push('canopy')
+    startWaterIndex: function () {
+      this.$router.push('waterindex')
     },
     calculateIndex: function(latitude, longitude, radius){
 
