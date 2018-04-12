@@ -64,7 +64,7 @@
       <file leaf-file-name="TreePLESpringApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
+            <state relative-caret-position="-1158">
               <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -72,6 +72,7 @@
                 <element signature="e#1466#1467#0" expanded="true" />
                 <element signature="e#1972#1973#0" expanded="true" />
                 <element signature="e#2061#2062#0" expanded="true" />
+                <element signature="e#2292#2931#0" expanded="true" />
                 <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
               </folding>
             </state>
@@ -81,7 +82,7 @@
       <file leaf-file-name="AndroidProperties.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
+            <state relative-caret-position="-221">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
@@ -98,31 +99,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MethodProxy.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.13.RELEASE/eea18d7f4d01f1baa1b6728b678b5a6fe23c61f6/spring-core-4.3.13.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="35" column="115" lean-forward="false" selection-start-line="35" selection-start-column="115" selection-end-line="35" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersistenceDensity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PersistenceDensity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceDensity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="160">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreePLERestController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TreePLERestController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="1957">
+              <caret line="241" column="52" lean-forward="false" selection-start-line="241" selection-start-column="52" selection-end-line="241" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -131,8 +122,40 @@
       <file leaf-file-name="TreePLEService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            <state relative-caret-position="329">
+              <caret line="199" column="46" lean-forward="true" selection-start-line="199" selection-start-column="46" selection-end-line="199" selection-end-column="46" />
+              <folding>
+                <element signature="e#14857#14865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AllTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/AllTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestBiodiversityIndex.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestBiodiversityIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-213">
+              <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestGetTreesByArea.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestGetTreesByArea.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3520">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -141,32 +164,12 @@
       <file leaf-file-name="PersistenceXStream.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+            <state relative-caret-position="560">
+              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding>
                 <element signature="e#2273#2274#0" expanded="true" />
                 <element signature="e#2293#2294#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -649,10 +652,10 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/dto/TreeDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceDensity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java" />
       </list>
     </option>
   </component>
@@ -682,6 +685,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TreePLE-Spring" type="1abcf292:AndroidViewProjectNode" />
+              <item name="TreePLE-Spring" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="TreePLE-Spring" type="1abcf292:AndroidViewProjectNode" />
+              <item name="TreePLE-Spring" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -728,63 +747,30 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
-              <item name="controller" type="cbb8eebc:String" user="controller" />
-              <item name="configuration" type="cbb8eebc:String" user="configuration" />
+              <item name="test/java" type="cbb8eebc:String" user="test/java" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
-              <item name="dto" type="cbb8eebc:String" user="dto" />
+              <item name="test/java" type="cbb8eebc:String" user="test/java" />
+              <item name="ca/mcgill/ecse321/test" type="cbb8eebc:String" user="ca/mcgill/ecse321/test" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
-              <item name="model" type="cbb8eebc:String" user="model" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="test/java" type="cbb8eebc:String" user="test/java" />
+              <item name="ca/mcgill/ecse321/test" type="cbb8eebc:String" user="ca/mcgill/ecse321/test" />
               <item name="persistence" type="cbb8eebc:String" user="persistence" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="main" type="cbb8eebc:String" user="main" />
-              <item name="java" type="cbb8eebc:String" user="java" />
-              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="test/java" type="cbb8eebc:String" user="test/java" />
+              <item name="ca/mcgill/ecse321/test" type="cbb8eebc:String" user="ca/mcgill/ecse321/test" />
               <item name="service" type="cbb8eebc:String" user="service" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TreePLE-Spring" type="1abcf292:AndroidViewProjectNode" />
-              <item name="TreePLE-Spring" type="1039202d:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="TreePLE-Spring" type="1abcf292:AndroidViewProjectNode" />
-              <item name="TreePLE-Spring" type="1039202d:NonAndroidModuleNode" />
-              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
             </path>
           </expand>
           <select />
@@ -1224,6 +1210,7 @@
       <workItem from="1522787123148" duration="827000" />
       <workItem from="1523029936744" duration="1436000" />
       <workItem from="1523312257591" duration="1059000" />
+      <workItem from="1523562763216" duration="2357000" />
     </task>
     <servers />
   </component>
@@ -1236,7 +1223,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17534000" />
+    <option name="totallyTimeSpent" value="19891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1756" extended-state="6" />
@@ -1253,7 +1240,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1262,9 +1248,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44569024" sideWeight="0.49870467" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28367877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20725389" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998705" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1275,9 +1262,9 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796076" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1317,28 +1304,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/ServletInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1357,6 +1322,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1381,33 +1347,33 @@
         <state relative-caret-position="3080">
           <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2820#2821#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3918#3919#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#5221#5222#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2765#2766#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3787#3788#0" expanded="false" />
+            <element signature="e#3819#3820#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3869#3870#0" expanded="false" />
+            <element signature="e#3889#3890#0" expanded="false" />
+            <element signature="e#3918#3919#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3973#3974#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4024#4025#0" expanded="false" />
+            <element signature="e#4043#4044#0" expanded="false" />
+            <element signature="e#4076#4077#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4688#4689#0" expanded="false" />
+            <element signature="e#4719#4720#0" expanded="false" />
+            <element signature="e#4756#4757#0" expanded="false" />
+            <element signature="e#4781#4782#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
+            <element signature="e#5298#5299#0" expanded="false" />
+            <element signature="e#5354#5355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1422,6 +1388,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1475,33 +1442,33 @@
         <state relative-caret-position="3000">
           <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2820#2821#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3918#3919#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#5221#5222#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2765#2766#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3787#3788#0" expanded="false" />
+            <element signature="e#3819#3820#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3869#3870#0" expanded="false" />
+            <element signature="e#3889#3890#0" expanded="false" />
+            <element signature="e#3918#3919#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3973#3974#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4024#4025#0" expanded="false" />
+            <element signature="e#4043#4044#0" expanded="false" />
+            <element signature="e#4076#4077#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4688#4689#0" expanded="false" />
+            <element signature="e#4719#4720#0" expanded="false" />
+            <element signature="e#4756#4757#0" expanded="false" />
+            <element signature="e#4781#4782#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
+            <element signature="e#5298#5299#0" expanded="false" />
+            <element signature="e#5354#5355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1516,6 +1483,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1540,33 +1508,33 @@
         <state relative-caret-position="3000">
           <caret line="77" column="22" lean-forward="false" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2820#2821#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3918#3919#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#5221#5222#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2765#2766#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3787#3788#0" expanded="false" />
+            <element signature="e#3819#3820#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3869#3870#0" expanded="false" />
+            <element signature="e#3889#3890#0" expanded="false" />
+            <element signature="e#3918#3919#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3973#3974#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4024#4025#0" expanded="false" />
+            <element signature="e#4043#4044#0" expanded="false" />
+            <element signature="e#4076#4077#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4688#4689#0" expanded="false" />
+            <element signature="e#4719#4720#0" expanded="false" />
+            <element signature="e#4756#4757#0" expanded="false" />
+            <element signature="e#4781#4782#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
+            <element signature="e#5298#5299#0" expanded="false" />
+            <element signature="e#5354#5355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1581,6 +1549,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1605,33 +1574,33 @@
         <state relative-caret-position="3000">
           <caret line="79" column="22" lean-forward="true" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2820#2821#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3918#3919#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#5221#5222#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2765#2766#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3787#3788#0" expanded="false" />
+            <element signature="e#3819#3820#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3869#3870#0" expanded="false" />
+            <element signature="e#3889#3890#0" expanded="false" />
+            <element signature="e#3918#3919#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3973#3974#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4024#4025#0" expanded="false" />
+            <element signature="e#4043#4044#0" expanded="false" />
+            <element signature="e#4076#4077#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4688#4689#0" expanded="false" />
+            <element signature="e#4719#4720#0" expanded="false" />
+            <element signature="e#4756#4757#0" expanded="false" />
+            <element signature="e#4781#4782#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
+            <element signature="e#5298#5299#0" expanded="false" />
+            <element signature="e#5354#5355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1646,6 +1615,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1675,6 +1645,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1735,7 +1706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1766,10 +1736,10 @@
         <state relative-caret-position="240">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-            <element signature="e#1425#1426#0" expanded="true" />
-            <element signature="e#1450#1451#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="false" />
+            <element signature="e#1391#1392#0" expanded="false" />
+            <element signature="e#1425#1426#0" expanded="false" />
+            <element signature="e#1450#1451#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1779,33 +1749,33 @@
         <state relative-caret-position="160">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
-            <element signature="e#2820#2821#0" expanded="true" />
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3819#3820#0" expanded="true" />
-            <element signature="e#3842#3843#0" expanded="true" />
-            <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#3889#3890#0" expanded="true" />
-            <element signature="e#3918#3919#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3973#3974#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#4099#4100#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#5221#5222#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2765#2766#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2820#2821#0" expanded="false" />
+            <element signature="e#3763#3764#0" expanded="false" />
+            <element signature="e#3787#3788#0" expanded="false" />
+            <element signature="e#3819#3820#0" expanded="false" />
+            <element signature="e#3842#3843#0" expanded="false" />
+            <element signature="e#3869#3870#0" expanded="false" />
+            <element signature="e#3889#3890#0" expanded="false" />
+            <element signature="e#3918#3919#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3973#3974#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4024#4025#0" expanded="false" />
+            <element signature="e#4043#4044#0" expanded="false" />
+            <element signature="e#4076#4077#0" expanded="false" />
+            <element signature="e#4099#4100#0" expanded="false" />
+            <element signature="e#4688#4689#0" expanded="false" />
+            <element signature="e#4719#4720#0" expanded="false" />
+            <element signature="e#4756#4757#0" expanded="false" />
+            <element signature="e#4781#4782#0" expanded="false" />
+            <element signature="e#5210#5211#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
+            <element signature="e#5298#5299#0" expanded="false" />
+            <element signature="e#5354#5355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1814,22 +1784,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1523548364833" expanded="true" signature="1422:1426" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.13.RELEASE/eea18d7f4d01f1baa1b6728b678b5a6fe23c61f6/spring-core-4.3.13.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="35" column="115" lean-forward="false" selection-start-line="35" selection-start-column="115" selection-end-line="35" selection-end-column="115" />
+        <state relative-caret-position="4640">
+          <caret line="116" column="75" lean-forward="false" selection-start-line="116" selection-start-column="75" selection-end-line="116" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1844,31 +1816,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
+        <state relative-caret-position="-221">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
+        <state relative-caret-position="-1158">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1876,6 +1832,7 @@
             <element signature="e#1466#1467#0" expanded="true" />
             <element signature="e#1972#1973#0" expanded="true" />
             <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2292#2931#0" expanded="true" />
             <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
@@ -1883,8 +1840,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+        <state relative-caret-position="560">
+          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
             <element signature="e#2273#2274#0" expanded="true" />
             <element signature="e#2293#2294#0" expanded="true" />
@@ -1894,8 +1851,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceDensity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="160">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/AllTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestBiodiversityIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213">
+          <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestGetTreesByArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3520">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="199" column="46" lean-forward="true" selection-start-line="199" selection-start-column="46" selection-end-line="199" selection-end-column="46" />
+          <folding>
+            <element signature="e#14857#14865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1957">
+          <caret line="241" column="52" lean-forward="false" selection-start-line="241" selection-start-column="52" selection-end-line="241" selection-end-column="52" />
           <folding />
         </state>
       </provider>

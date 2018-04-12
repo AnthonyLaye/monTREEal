@@ -16,8 +16,25 @@
     </button>
 
     <br> </br>
+    <table align="center">
+      <th> Biodiversity Index = {{biodiversityindex}} </th>
+    </table>
 
-    <span> Biodiversity Index = {{biodiversityindex}} </span>
+    <table align="center">
+      <tr>
+        <th> Set Range for Calculation: </th>
+        <br> </br>
+        <td>
+          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+        </td>
+        <td>
+          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+        </td>
+        <td>
+          <input type="text" v-model="radius" placeholder = "Radius:">
+        </td>
+      </tr>
+    </table>
 
     <table>
       <tr>
@@ -51,7 +68,7 @@
 
     <br> </br>
 
-    <button @click="calculateIndex()" style="margin:15px" >Calculate!
+    <button @click="calculateIndex(latitude, longitude, radius)" style="margin:15px" > Calculate!
     </button>
 
   </div>
