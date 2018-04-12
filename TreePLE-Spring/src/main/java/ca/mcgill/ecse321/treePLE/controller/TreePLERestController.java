@@ -204,7 +204,7 @@ public class TreePLERestController {
     		@RequestParam float distance) throws InvalidInputException{
     	List<TreeDto> treesInArea = Lists.newArrayList();
     	//for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
-    	for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
+    	for (Tree tree: service.getTreesByArea(latitude, longitude, distance)) {
     		treesInArea.add(convertToDto(tree));
     	}
     	return treesInArea;
@@ -216,7 +216,7 @@ public class TreePLERestController {
     				throws InvalidInputException{
     	double biodiversityIndex=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }
@@ -227,7 +227,7 @@ public class TreePLERestController {
     				throws InvalidInputException{
     	double carbonSequestration=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
     }
@@ -239,7 +239,7 @@ public class TreePLERestController {
     		@RequestParam float distance) throws InvalidInputException{
     	double water;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByAreaRevised(latitude, longitude, distance);
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	water= service.calculateWaterNeeded(treesInArea);
     	return water;	
     }

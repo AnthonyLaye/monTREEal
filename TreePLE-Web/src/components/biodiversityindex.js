@@ -1,3 +1,14 @@
+import axios from 'axios'
+var config = require('../../config')
+
+var frontendUrl = 'http://ecse321-13.ece.mcgill.ca:8087'
+var backendUrl = 'http://ecse321-13.ece.mcgill.ca:8080'
+
+var AXIOS = axios.create({
+  baseURL: backendUrl,
+  headers: { 'Access-Control-Allow-Origin': frontendUrl }
+})
+
 export default {
   name: 'BiodiversityIndex',
   data () {
