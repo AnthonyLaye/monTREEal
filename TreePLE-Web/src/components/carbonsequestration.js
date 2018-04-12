@@ -10,10 +10,10 @@ var AXIOS = axios.create({
 })
 
 export default {
-  name: 'BiodiversityIndex',
+  name: 'CarbonSequestration',
   data () {
     return {
-      biodiversityindex: 0,
+      carbonsequestration: 0,
       latitude: 0,
       longitude: 0,
       radius: 0
@@ -30,20 +30,18 @@ export default {
     startCanopy: function () {
       this.$router.push('canopy')
     },
-    calculateIndex: function(latitude, longitude, radius){
-
-      AXIOS.get('/treePLE/trees/forecast/biodiversity' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
+    calculateSequestration: function (latitude, longitude, radius) {
+      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
-        this.biodiversityindex = response.data
+        this.carbonsequestration = response.data
       })
       .catch(e => {
         var errorMsg = e.message
         console.log(errorMsg)
-      });
+      })
     },
-    addToForecast: function(){
-
+    addToForecast: function () {
     }
   }
 }
