@@ -30,7 +30,7 @@ export default {
     startCanopy: function () {
       this.$router.push('canopy')
     },
-    calculateIndex: function(){
+    calculateIndex: function(latitude, longitude, radius){
 
       AXIOS.get('/treePLE/trees/forecast/biodiversity' + '?latitude=' + latitude + '&longitude=' + longitude, + '&distance=' +distance, {}, {})
       .then(response => {
