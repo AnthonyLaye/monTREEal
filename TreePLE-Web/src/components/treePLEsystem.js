@@ -29,17 +29,7 @@ export default {
       trees: [],
       errorTrees: ''
     }
-  },
-  created: function() {
-    AXIOS.get('/treePLE/trees')
-    .then(response => {
-      this.trees = response.data
-    })
-    .catch(e => {
-      this.errorEvent = e;
-    });
-  },
-
+  }
   methods: {
     listAllTrees: function() {
       AXIOS.get('/treePLE/trees')
