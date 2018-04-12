@@ -14,9 +14,9 @@ export default {
 
       this.$router.push('carbonsequestration');
     },
-    startCanopy: function() {
+    startWaterIndex: function() {
 
-      this.$router.push('canopy');
+      this.$router.push('waterindex');
     }
   }
 }

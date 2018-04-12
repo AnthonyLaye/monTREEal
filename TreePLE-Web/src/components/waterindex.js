@@ -8,10 +8,10 @@ var AXIOS = axios.create({
 })
 
 export default {
-  name: 'CarbonSequestration',
+  name: 'WaterIndex',
   data () {
     return {
-      carbonsequestration: 0,
+      waterindex: 0,
       latitude: 0,
       longitude: 0,
       radius: 0
@@ -28,18 +28,16 @@ export default {
     startWaterIndex: function () {
       this.$router.push('waterindex')
     },
-    calculateSequestration: function (latitude, longitude, radius) {
-      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
+    calculateWaterIndex: function (latitude, longitude, radius) {
+      AXIOS.get('/treePLE/trees/forecast/water' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
-        this.carbonsequestration = response.data
+        this.waterindex = response.data
       })
       .catch(e => {
         var errorMsg = e.message
         console.log(errorMsg)
       })
-    },
-    addToForecast: function () {
     }
   }
 }

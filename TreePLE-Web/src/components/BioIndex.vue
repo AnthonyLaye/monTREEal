@@ -12,7 +12,7 @@
     <button @click="startCarbonSequestration" style="margin:15px" >Carbon Sequestration
     </button>
 
-    <button @click="startCanopy" style="margin:15px" >Canopy
+    <button @click="startWaterIndex" style="margin:15px" >WaterIndex
     </button>
 
     <br> </br>
