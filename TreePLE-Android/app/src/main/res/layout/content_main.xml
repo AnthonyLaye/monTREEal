@@ -19,10 +19,13 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/treepleimage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/treeple"
-            android:id="@+id/treepleimage"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="53dp"
+            android:background="@drawable/logo" />
 
         <TextView
             android:id="@+id/treepletext"
@@ -31,7 +34,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/treepleimage"
             android:gravity="center"
-            android:text="TreePLE"
+            android:text="monTREEal"
             android:textSize="30sp" />
 
         <Button
@@ -55,14 +58,6 @@
             android:background="@drawable/button_template"
             android:onClick="onMap"
             android:text="@string/Map" />
-    <!--
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listTreesBtn"
-            android:text="@string/ListTrees"
-            android:onClick="listTrees"/>
-    -->
 
     </RelativeLayout>
 

@@ -31,7 +31,7 @@ export default {
     }
   },
   created: function() {
-    AXIOS.get('/trees')
+    AXIOS.get('/treePLE/trees')
     .then(response => {
       this.trees = response.data
     })
@@ -42,7 +42,7 @@ export default {
 
   methods: {
     listAllTrees: function() {
-      AXIOS.get('/trees')
+      AXIOS.get('/treePLE/trees')
       .then(response => {
         // JSON responses are automatically parsed.
         this.trees = response.data
