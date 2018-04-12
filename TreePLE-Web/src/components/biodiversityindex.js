@@ -35,10 +35,7 @@ export default {
       AXIOS.get('/treePLE/trees/forecast/biodiversity' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
-        this.biodiversityindex.push(response.data)
-        this.latitude = 0
-        this.longitude = 0
-        this.radius = 0
+        this.biodiversityindex = response.data
       })
       .catch(e => {
         var errorMsg = e.message
