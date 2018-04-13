@@ -275,7 +275,7 @@ public class TreePLEService {
 		float dlat = (lat1 - lat2) * dr2;
 		float a = (float)Math.pow(Math.sin(dlat/2), 2) + (float)Math.cos(lat1*dr2)* (float)Math.cos(lat2*dr2) * (float)Math.pow(Math.sin(dlong/2.0), 2);
 		float c = 2 * (float)Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		float d = 3956 * c; 
+		float d = 6371 * c;
 		return d;
 	}
 
@@ -451,6 +451,31 @@ public class TreePLEService {
 			}
 		}
 		if(trees==null) {
+			index=0;
+		}
+		else {
+			index=counterSpecies/nbTrees;
+		}
+		return index;
+	}
+
+	public double calculateBiodiversityIndexFromTrees(List<String> treesInArea) {
+		double index=0;
+		double counterSpecies=0;
+		double nbTrees=0;
+		List<String> diffSpecies = new ArrayList<String>();		//initially empty and add elements
+		int i=0;
+		for(String t: treesInArea) {
+			String speciesName= t;
+			nbTrees=nbTrees+1;
+
+			if(!(containsString(diffSpecies, speciesName))) {
+				diffSpecies.add(i, speciesName);
+				counterSpecies=counterSpecies+1;
+				i=i+1;		//increment the index to add elements
+			}
+		}
+		if(treesInArea==null) {
 			index=0;
 		}
 		else {
