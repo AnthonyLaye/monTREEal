@@ -30,7 +30,7 @@ public class TestPersistenceDensity {
 
 	@Test
 	public void test() {
-		PersistenceDensity.initializeModelManager("output"+File.separator+"Density.xml");
+		PersistenceDensity.initializeModelManager("output"+File.separator+"Density3.xml");
 		CarbonSequestrationManager csm = new CarbonSequestrationManager();
 		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
 

@@ -34,9 +34,9 @@ public class PersistenceDensity {
 			}
 			//the values here are the values added 
 			csm = new CarbonSequestrationManager();
-			SpeciesDensities sd1 = new SpeciesDensities("maple", 200, csm);
-			SpeciesDensities sd2 = new SpeciesDensities("black walnut", 626, csm);
-			SpeciesDensities sd3 = new SpeciesDensities("butternut", 368, csm);
+			SpeciesDensities sd1 = new SpeciesDensities("maple", 200, "Maple", csm);
+			SpeciesDensities sd2 = new SpeciesDensities("blackwalnut", 626, "Black Walnut", csm);
+			SpeciesDensities sd3 = new SpeciesDensities("butternut", 368, "Butternut", csm);
 			csm.addSpeciesDensity(sd1);
 			csm.addSpeciesDensity(sd2);
 			csm.addSpeciesDensity(sd3);
