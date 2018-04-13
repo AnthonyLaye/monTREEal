@@ -530,10 +530,11 @@ public class TreePLEService {
 	 * @return return a survey of type Survey with all the information 
 	 * @throws InvalidInputException
 	 */
-	public boolean createSurvey(Date aDate, int surveyId, Person aObserver, int treeId, float height, float diameter, String status) 
+	public Survey createSurvey(Date aDate, int surveyId, Person aObserver, int treeId, float height, float diameter, String status) 
 	{	//throws InvalidInputException {
+		Survey surv = null;
 
-		boolean surveyWasAdded = false;
+		//boolean surveyWasAdded = false;
 		Status s = Status.Healthy;
 		
 		if (status.contentEquals("Healthy")){
@@ -556,13 +557,14 @@ public class TreePLEService {
 				t.setDiameter(diameter);
 				t.setStatus(s);
 				
-				t.addSurvey(aDate, surveyId, aObserver);
-				surveyWasAdded = true;
+				surv = t.addSurvey(aDate, surveyId, aObserver);
+				//surveyWasAdded = true;
+				break;
 			}
 		}
 
 		PersistenceXStream.saveToXMLwithXStream(tm);
-		return surveyWasAdded;
+		return surv;
 	}
 	
 
