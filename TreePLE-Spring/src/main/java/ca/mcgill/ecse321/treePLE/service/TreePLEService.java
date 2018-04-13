@@ -54,6 +54,8 @@ public class TreePLEService {
 	 * This method is the short version for adding a tree in the system when it has been planted
 	 * If the person who is adding the tree does not know the measurements for the age, the height or the diameter
 	 * he/she can still plant the tree, and these data will eventually be filled by a scientist
+	 * One feature of this method, is that a client can write a species name with Capitals or spaces
+	 * and will look into the file if this trees can grow on the lands of Canada
 	 * @param aSpecies, the species of tree planted
 	 * @param aDate, the current date it has been planted
 	 * @param aId, the random id number to track the tree
@@ -79,7 +81,8 @@ public class TreePLEService {
 			for (SpeciesDensities s: sd) {
 				name = s.getSpecies();
 				if(name.equals(speciesReadable)) {
-					Tree tree= new Tree(speciesReadable, aDate, aId, aPerson, tm, aLocation);
+					String nameOut = s.getUISpecies();
+					Tree tree= new Tree(nameOut, aDate, aId, aPerson, tm, aLocation);
 					tm.addTree(tree);
 					PersistenceXStream.saveToXMLwithXStream(tm);
 					return tree;
