@@ -90,10 +90,11 @@ export default {
         }
     },
     calculateIndex: function (){
-      for(var i = 0; i < Objects.keys(this.treesinArea).length; i++){
-        this.treeSpecies[i] = this.treesinArea[i].species
+      var treeSpecies = []
+      for(var i = 0; i < Object.keys(this.treesinArea).length; i++){
+        treeSpecies.push(this.treesinArea[i].species)
       }
-      AXIOS.get('/treePLE/trees/forecast/biodiversityindex' + '?trees' + this.treeSpecies, {}, {})
+      AXIOS.get('/treePLE/trees/forecast/biodiversityindex' + '?trees=' + treeSpecies, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.biodiversityindex = response.data
