@@ -42,7 +42,32 @@ public class TestGetStatus {
 
 	@Test
 	public void testGetStatusHealthy() {
-		//create Tree1
+		//create Tree
+		String aSpecies = "willow";
+		Calendar c = Calendar.getInstance();
+		c.set(2018, 02, 01);
+		Date aDate = new Date(c.getTimeInMillis());
+		Integer randomNum = 1;
+		String name = "Joe";
+		Float longitude = 3f;
+		Float latitude = 4f;
+		String municipality = "NDG";
+		Person p = new Person(name, tm);
+		Location l = new Location(longitude,latitude,municipality);
+
+		try {
+			Tree t1 = ts.createTree(aSpecies, aDate, randomNum, p, l);}
+		catch(InvalidInputException e) {
+			e.printStackTrace();
+		}
+
+		Status status = ts.getStatus(1);
+		assertEquals(status, "Healthy");
+	}
+
+	@Test
+	public void testGetStatusChanged() {
+		//create Tree
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -55,18 +80,19 @@ public class TestGetStatus {
 		Person p = new Person(name, tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
+		Tree t1;
+
 		try {
-			Tree t1 = ts.createTree(aSpecies, aDate, randomNum, p, l);}
+			t1 = ts.createTree(aSpecies, aDate, randomNum, p, l);}
 		catch(InvalidInputException e) {
-			fail("error");
+			e.printStackTrace();
 		}
-		
+
 		Status status = ts.getStatus(1);
 		assertEquals(status, "Healthy");
-	}
-
-	@Test
-	public void testGetStatusChanged() {
+		
+		boolean statusWasChanged = ts.markTreeForCutDown(1);
+		assertEquals(true, statusWasChanged);
 		
 	}
 }

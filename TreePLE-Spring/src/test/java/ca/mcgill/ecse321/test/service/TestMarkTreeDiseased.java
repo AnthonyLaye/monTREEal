@@ -69,7 +69,7 @@ public class TestMarkTreeDiseased {
 		try {
 			ts.createTree("oak", aDate, 8765211, p, l);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			e.getStackTrace();
 		}
 		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
@@ -77,7 +77,6 @@ public class TestMarkTreeDiseased {
 		ts.markTreeDiseased(8765211);	//Atempt to mark tree as diseased
 		
 		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is marked as diseased
-		tm.delete();
 	}
 	
 	/* This method creates a new healthy tree and cuts it down. Then we test marking tree as diseased, to ensure status
@@ -100,7 +99,7 @@ public class TestMarkTreeDiseased {
 		try {
 			ts.createTree("oak", aDate, 8765211, p, l);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			e.getStackTrace();
 		}
 		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
@@ -114,7 +113,6 @@ public class TestMarkTreeDiseased {
 		ts.markTreeDiseased(8765211);	//Attempt to mark tree as diseased
 		
 		Assert.assertEquals(Status.Cutdown, tm.getTree(0).getStatus());	//Make sure tree is still marked as cut down
-		tm.delete();
 	}
 	
 	/* This method creates a new healthy tree and marks it as diseased. Then tries to mark it again as diseased!
@@ -136,7 +134,7 @@ public class TestMarkTreeDiseased {
 		try {
 			ts.createTree("oak", aDate, 8765211, p, l);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			e.getStackTrace();
 		}
 		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
@@ -144,7 +142,7 @@ public class TestMarkTreeDiseased {
 		ts.markTreeDiseased(8765211);	//Attempt to mark tree as diseased
 		
 		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is marked as diseased
-		Assert.assertEquals(false ,ts.markTreeDiseased(8765211)); 	//If you try to mark it for diseased again, method should return false!
+		Assert.assertEquals(false ,ts.markTreeDiseased(8765211)); 			//If you try to mark it for diseased again, method should return false!
 		Assert.assertEquals(Status.Diseased, tm.getTree(0).getStatus());	//Make sure tree is still marked as diseased
 		
 		tm.delete();

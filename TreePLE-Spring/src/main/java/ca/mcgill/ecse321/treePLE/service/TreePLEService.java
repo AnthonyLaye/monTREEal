@@ -141,7 +141,7 @@ public class TreePLEService {
 		}
 		
 		if (treelist.isEmpty()) {
-			throw new InvalidInputException("There are not trees to get from the manager");
+			throw new InvalidInputException("There are no trees to get from the manager");
 		}
 		
 		return treelist;
