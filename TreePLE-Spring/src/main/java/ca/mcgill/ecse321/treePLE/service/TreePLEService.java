@@ -275,7 +275,7 @@ public class TreePLEService {
 		float dlat = (lat1 - lat2) * dr2;
 		float a = (float)Math.pow(Math.sin(dlat/2), 2) + (float)Math.cos(lat1*dr2)* (float)Math.cos(lat2*dr2) * (float)Math.pow(Math.sin(dlong/2.0), 2);
 		float c = 2 * (float)Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		float d = 3956 * c; 
+		float d = 6371 * c;
 		return d;
 	}
 
