@@ -61,16 +61,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="TreePLERestController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TreePLERestController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="840">
+              <caret line="219" column="4" lean-forward="true" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="4" />
+           <state relative-caret-position="200">
               <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WebFrontendProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
       <file leaf-file-name="TreePLEService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,11 +88,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestTreePLEService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestTreePLEService.java">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreePLESpringApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreePLEService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
+          <provider selected="true" editor-type-id="text-editor">
               <folding />
             </state>
           </provider>
@@ -101,39 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCreateTree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestCreateTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestGetTreesByArea.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestGetTreesByArea.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
               <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/data.xml">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2360">
               <caret line="59" column="21" lean-forward="false" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
               <folding />
@@ -145,6 +147,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/persistence/TestPersistenceDensity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="680">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
@@ -713,6 +716,11 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="bin" type="cbb8eebc:String" user="bin" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
               <item name="output" type="cbb8eebc:String" user="output" />
             </path>
             <path>
@@ -749,6 +757,16 @@
               <item name="java" type="cbb8eebc:String" user="java" />
               <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
               <item name="controller" type="cbb8eebc:String" user="controller" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="TreePLE-Spring" type="cbb8eebc:String" user="TreePLE-Spring" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="main" type="cbb8eebc:String" user="main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="ca/mcgill/ecse321/treePLE" type="cbb8eebc:String" user="ca/mcgill/ecse321/treePLE" />
+              <item name="controller" type="cbb8eebc:String" user="controller" />
+              <item name="configuration" type="cbb8eebc:String" user="configuration" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
@@ -1272,6 +1290,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="25108000" />
     <option name="totallyTimeSpent" value="21940000" />
   </component>
   <component name="ToolWindowManager">
@@ -1380,6 +1399,11 @@
         <state relative-caret-position="200">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1972#1973#0" expanded="true" />
+            <element signature="e#2061#2062#0" expanded="true" />
             <element signature="imports" expanded="false" />
             <element signature="e#1400#1401#0" expanded="false" />
             <element signature="e#1466#1467#0" expanded="false" />
@@ -1447,6 +1471,11 @@
         <state relative-caret-position="200">
           <caret line="20" column="66" lean-forward="true" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="e#1972#1973#0" expanded="true" />
+            <element signature="e#2061#2062#0" expanded="true" />
             <element signature="imports" expanded="false" />
             <element signature="e#1400#1401#0" expanded="false" />
             <element signature="e#1466#1467#0" expanded="false" />
@@ -1485,13 +1514,6 @@
         <state relative-caret-position="320">
           <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1400#1401#0" expanded="false" />
-            <element signature="e#1466#1467#0" expanded="false" />
-            <element signature="e#1972#1973#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2292#2931#0" expanded="false" />
-            <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1523,13 +1545,6 @@
         <state relative-caret-position="480">
           <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1400#1401#0" expanded="false" />
-            <element signature="e#1466#1467#0" expanded="false" />
-            <element signature="e#1972#1973#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2292#2931#0" expanded="false" />
-            <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1553,13 +1568,6 @@
         <state relative-caret-position="480">
           <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1400#1401#0" expanded="false" />
-            <element signature="e#1466#1467#0" expanded="false" />
-            <element signature="e#1972#1973#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2292#2931#0" expanded="false" />
-            <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1665,27 +1673,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/persistence/PersistenceXStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
-            <element signature="e#2273#2274#0" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2273#2274#0" expanded="false" />
+            <element signature="e#2293#2294#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1721,22 +1715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1400#1401#0" expanded="false" />
-            <element signature="e#1466#1467#0" expanded="false" />
-            <element signature="e#1972#1973#0" expanded="false" />
-            <element signature="e#2061#2062#0" expanded="false" />
-            <element signature="e#2292#2931#0" expanded="false" />
-            <marker date="1522959885652" expanded="true" signature="2919:2927" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/model/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -1761,18 +1739,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/service/TreePLEService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="467" column="11" lean-forward="false" selection-start-line="467" selection-start-column="11" selection-end-line="467" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1780,7 +1748,52 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/persistence/TestPersistenceDensity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ca/mcgill/ecse321/test/service/TestCreateTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/AndroidProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/configuration/WebFrontendProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/mcgill/ecse321/treePLE/controller/TreePLERestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="219" column="4" lean-forward="true" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="4" />
           <folding />
         </state>
       </provider>

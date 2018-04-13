@@ -12,7 +12,7 @@
     <button @click="startCarbonSequestration" style="margin:15px" >Carbon Sequestration
     </button>
 
-    <button @click="startWaterIndex" style="margin:15px" >WaterIndex
+    <button @click="startWaterIndex" style="margin:15px" >Water Index
     </button>
 
     <br> </br>
@@ -36,7 +36,7 @@
       </tr>
     </table>
 
-    <table>
+    <table align="center">
       <tr>
         <td>
           <input type="text" v-model="treeSpecies" placeholder = "Tree Species">

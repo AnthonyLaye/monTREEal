@@ -209,6 +209,14 @@ public class TreePLERestController {
     	}
     	return treesInArea;
     }
+
+    @GetMapping(value = {"/trees/forecast/biodiversityindex", "/trees/forecast/biodiversityindex/"})
+    public double getBiodiversityIndexFromTrees(@RequestParam List<Tree> treesInArea)
+            throws InvalidInputException{
+        double biodiversityIndex=0;
+        biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
+        return biodiversityIndex;
+    }
     
     @GetMapping(value = {"/trees/forecast/biodiversity", "/trees/forecast/biodiversity/"})
     public double getBiodiversityIndex(@RequestParam float latitude, 
