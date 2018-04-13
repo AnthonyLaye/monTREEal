@@ -12,7 +12,7 @@ import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
 
 public class PersistenceDensity {
 	private static XStream xstream = new XStream();
-	private static String filename = "/tmp/Density.xml";
+	private static String filename = "/tmp/Density2.xml";
 	
 	public static CarbonSequestrationManager initializeModelManager(String fileName) {
 		// Initialization for persistence
@@ -35,7 +35,7 @@ public class PersistenceDensity {
 			//the values here are the values added 
 			csm = new CarbonSequestrationManager();
 			SpeciesDensities sd1 = new SpeciesDensities("maple", 200, "Maple", csm);
-			SpeciesDensities sd2 = new SpeciesDensities("black walnut", 626, "Black Walnut", csm);
+			SpeciesDensities sd2 = new SpeciesDensities("blackwalnut", 626, "Black Walnut", csm);
 			SpeciesDensities sd3 = new SpeciesDensities("butternut", 368, "Butternut", csm);
 			csm.addSpeciesDensity(sd1);
 			csm.addSpeciesDensity(sd2);
