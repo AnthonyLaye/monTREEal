@@ -66,18 +66,11 @@ public class TestMarkTreeForCutdown {
 		
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
 		
-		try {
-			ts.createTree("oak", aDate, 8765211, p, l);
-		} catch (InvalidInputException e) {
-			fail("Error");
-		}
-		
 		Assert.assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
 		
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
 		
 		Assert.assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());	//Make sure tree is marked for cutdown
-		tm.delete();
 	}
 	
 	/* This method creates a new healthy tree and cuts it down. The method then tries to mark it for cutdown.
@@ -105,7 +98,6 @@ public class TestMarkTreeForCutdown {
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
 		
 		Assert.assertEquals(Status.Cutdown,tm.getTree(0).getStatus());	//Make sure tree status not changed, because it is already cut down!
-		tm.delete();
 	}
 	
 	/* This method creates a new healthy tree and marks it for cut down. The method then tries to mark it for cutdown again.
@@ -130,6 +122,5 @@ public class TestMarkTreeForCutdown {
 		
 		Assert.assertEquals(false ,ts.markTreeForCutDown(8765211)); //If you try to mark it for cutdown again, method should return false!
 		Assert.assertEquals(Status.MarkedForCutdown,tm.getTree(0).getStatus());	//Make sure nothing changed
-		tm.delete();
 	}
 }
