@@ -89,7 +89,7 @@ export default {
           }
         }
     },
-    calculate: function (){
+    calculateIndex: function (){
       for(var i = 0; i < Objects.keys(this.treesinArea).length; i++){
         this.treeSpecies[i] = this.treesinArea[i].species
       }

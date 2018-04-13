@@ -88,7 +88,7 @@
 
     <br> </br>
 
-    <button @click="calculateIndex(latitude, longitude, radius)" style="margin:15px" > Calculate!
+    <button @click="calculateIndex()" style="margin:15px" > Calculate!
     </button>
 
     <button @click="getAllTrees()" style="margin:15px" > Refresh Tree List
