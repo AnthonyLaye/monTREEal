@@ -459,6 +459,31 @@ public class TreePLEService {
 		return index;
 	}
 
+	public double calculateBiodiversityIndexFromTrees(List<String> treesInArea) {
+		double index=0;
+		double counterSpecies=0;
+		double nbTrees=0;
+		List<String> diffSpecies = new ArrayList<String>();		//initially empty and add elements
+		int i=0;
+		for(String t: treesInArea) {
+			String speciesName= t;
+			nbTrees=nbTrees+1;
+
+			if(!(containsString(diffSpecies, speciesName))) {
+				diffSpecies.add(i, speciesName);
+				counterSpecies=counterSpecies+1;
+				i=i+1;		//increment the index to add elements
+			}
+		}
+		if(treesInArea==null) {
+			index=0;
+		}
+		else {
+			index=counterSpecies/nbTrees;
+		}
+		return index;
+	}
+
 		/**
 	 * This method is a sustainability attribute to know what is the required amount of water we should
 	 * water the trees in a specific area each month. 
