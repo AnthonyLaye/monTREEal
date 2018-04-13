@@ -1,13 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.27.0.3860.40605acef modeling language!*/
+/*This code was generated using the UMPLE 1.27.1.3862.7e232c4b4 modeling language!*/
 
 package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
 
-import ca.mcgill.ecse321.treePLE.persistence.PersistenceDensity;
-
-// line 54 "../../../../../../../../ump/180117838895/model.ump"
-// line 124 "../../../../../../../../ump/180117838895/model.ump"
+// line 54 "../../../../../../../../ump/tmp859800/model.ump"
+// line 109 "../../../../../../../../ump/tmp859800/model.ump"
 public class CarbonSequestrationManager
 {
 
@@ -33,7 +31,6 @@ public class CarbonSequestrationManager
   // INTERFACE
   //------------------------
   /* Code from template association_GetMany */
-  
   public CarbonSequestration getCarbonSequestration(int index)
   {
     CarbonSequestration aCarbonSequestration = carbonSequestration.get(index);
@@ -181,9 +178,9 @@ public class CarbonSequestrationManager
     return 0;
   }
   /* Code from template association_AddManyToOne */
-  public SpeciesDensities addSpeciesDensity(String aSpecies, int aDensity)
+  public SpeciesDensities addSpeciesDensity(String aSpecies, int aDensity, String aUISpecies)
   {
-    return new SpeciesDensities(aSpecies, aDensity, this);
+    return new SpeciesDensities(aSpecies, aDensity, aUISpecies, this);
   }
 
   public boolean addSpeciesDensity(SpeciesDensities aSpeciesDensity)
@@ -261,8 +258,7 @@ public class CarbonSequestrationManager
       SpeciesDensities aSpeciesDensity = speciesDensities.get(speciesDensities.size() - 1);
       aSpeciesDensity.delete();
       speciesDensities.remove(aSpeciesDensity);
-    }
-    
+    } 
   }
 
 }

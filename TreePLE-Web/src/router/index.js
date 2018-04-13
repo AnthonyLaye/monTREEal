@@ -6,7 +6,7 @@ import TreePLE from '@/components/TreePLE'
 import Forecast from '@/components/Forecast'
 import BioIndex from '@/components/BioIndex'
 import CarbonSequestration from '@/components/CarbonSequestration'
-import Canopy from '@/components/Canopy'
+import WaterIndex from '@/components/WaterIndex'
 
 Vue.use(Router)
 
@@ -43,9 +43,9 @@ export default new Router({
       component: CarbonSequestration
     },
     {
-      path: '/canopy',
-      name: 'Canopy',
-      component: Canopy
+      path: '/waterindex',
+      name: 'WaterIndex',
+      component: WaterIndex
     }
   ]
 })

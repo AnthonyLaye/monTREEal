@@ -59,26 +59,26 @@ public class TestMarkTreeHealthy {
 		String municipality = "NDG";
 		Person p = new Person("jim", tm);
 		Location l = new Location(longitude,latitude,municipality);
-		
+
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
-		
+
 		try {
 			ts.createTree("oak", aDate, 8765211, p, l);
 		} catch (InvalidInputException e) {
 			fail("Error");
 		}
-		
+
 		assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
-		
+
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
-		
+
 		assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());
-		
+
 		ts.markTreeHealthy(8765211);
-		
+
 		assertEquals(Status.Healthy, tm.getTree(0).getStatus());
 	}
-	
+
 	@Test
 	public void testMarkCutDownTreeHealthy() {
 		Calendar c = Calendar.getInstance();
@@ -89,23 +89,23 @@ public class TestMarkTreeHealthy {
 		String municipality = "NDG";
 		Person p = new Person("jim", tm);
 		Location l = new Location(longitude,latitude,municipality);
-		
+
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
-		
+
 		try {
 			ts.createTree("oak", aDate, 8765211, p, l);
 		} catch (InvalidInputException e) {
 			fail("Error");
 		}
-		
+
 		assertEquals(Status.Healthy,tm.getTree(0).getStatus());	//Make sure newly added tree is healthy!
-		
+
 		ts.markTreeForCutDown(8765211);	//Mark it for cutdown!
 		assertEquals(Status.MarkedForCutdown, tm.getTree(0).getStatus());
-		
+
 		ts.cutDownTree(8765211);
 		assertEquals(Status.Cutdown, tm.getTree(0).getStatus());
-		
+
 		assertEquals(false, ts.markTreeHealthy(8765211));
 	}
 

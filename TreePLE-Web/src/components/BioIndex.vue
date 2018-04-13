@@ -12,14 +12,60 @@
     <button @click="startCarbonSequestration" style="margin:15px" >Carbon Sequestration
     </button>
 
-    <button @click="startCanopy" style="margin:15px" >Canopy
+    <button @click="startWaterIndex" style="margin:15px" >Water Index
     </button>
 
     <br> </br>
+    <table align="center">
+      <th> Biodiversity Index = {{biodiversityindex}} </th>
+    </table>
 
-    <span> Biodiversity Index = {{biodiversityindex}} </span>
+    <table align="center">
+      <tr>
+        <th> Set Range for Calculation: </th>
+        <br> </br>
+        <td>
+          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+        </td>
+        <td>
+          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+        </td>
+        <td>
+          <input type="text" v-model="radius" placeholder = "Radius(km):">
+        </td>
+        <td>
+          <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
+          </button>
+        </td>
+      </tr>
+    </table>
 
-    <table>
+    <table align = "center" style = "width:60%">
+      <tr>
+        <th> ID </th>
+        <th> Species </th>
+        <th> Height </th>
+        <th> Diameter </th>
+        <th> Age </th>
+        <th> Date Planted </th>
+      <tr v-for="tree in treesinArea" >
+        <td> {{tree.id}} </td>
+        <td> {{tree.species}} </td>
+        <td> {{tree.height}} </td>
+        <td> {{tree.diameter}} </td>
+        <td> {{tree.age}} </td>
+        <td> {{tree.date}} </td>
+        </td>
+        <button @click="removeFromForecast(tree.id)" style="margin:15px" >Remove Tree from Forecast
+        </button>
+      </tr>
+    </table>
+
+    <br> </br>
+
+    <br> </br>
+
+    <table align="center">
       <tr>
         <td>
           <input type="text" v-model="treeSpecies" placeholder = "Tree Species">
@@ -30,28 +76,22 @@
         </td>
       </tr>
     </table>
-
+<!--
     <table>
       <tr>
-        <th> Species </th>
-      <tr v-for="tree in newForecastTrees" >
+      <tr v-for="tree in trees" >
         <td> {{tree}} </td>
         </td>
       </tr>
     </table>
-
-    <select v-model="removedTreesFromForecast">
-        <option disabled value="">Please select a Tree to remove</option>
-        <option v-for="tree in totalTrees">
-          {{tree}} </option>
-      </select>
-
-    <button @click="removeFromForecast(removedTreesFromForecast)" style="margin:15px" >Remove Tree From Forecast
-    </button>
+-->
 
     <br> </br>
 
-    <button @click="calculateIndex()" style="margin:15px" >Calculate!
+    <button @click="calculateIndex()" style="margin:15px" > Calculate!
+    </button>
+
+    <button @click="getAllTrees()" style="margin:15px" > Refresh Tree List
     </button>
 
   </div>

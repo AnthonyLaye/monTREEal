@@ -209,6 +209,14 @@ public class TreePLERestController {
     	}
     	return treesInArea;
     }
+
+    @GetMapping(value = {"/trees/forecast/biodiversityindex/{treesInArea}", "/trees/forecast/biodiversityindex/{treesInArea}"})
+    public double getBiodiversityIndexFromTrees(@PathVariable ("treesInArea") List<String> treesInArea)
+            throws InvalidInputException{
+        double biodiversityIndex=0;
+        biodiversityIndex=service.calculateBiodiversityIndexFromTrees(treesInArea);
+        return biodiversityIndex;
+    }
     
     @GetMapping(value = {"/trees/forecast/biodiversity", "/trees/forecast/biodiversity/"})
     public double getBiodiversityIndex(@RequestParam float latitude, 
@@ -216,7 +224,7 @@ public class TreePLERestController {
     				throws InvalidInputException{
     	double biodiversityIndex=0;
     	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByArea(latitude, longitude, distance); 
+    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }

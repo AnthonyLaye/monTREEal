@@ -1,10 +1,10 @@
 <template>
-  <div id="Canopy">
+  <div id="WaterIndex">
     <h1><b>monTREEal Forecasting </b></h1>
 
     <br> </br>
 
-    <h2><b>Canopy </b></h2>
+    <h2><b>Water Index </b></h2>
 
     <button @click="startBiodiversityIndex" style="margin:15px" >Biodiversity Index
     </button>
@@ -12,12 +12,29 @@
     <button @click="startCarbonSequestration" style="margin:15px" >Carbon Sequestration
     </button>
 
-    <button @click="startCanopy" style="margin:15px" >Canopy
+    <button @click="startWaterIndex" style="margin:15px" >Water Index
     </button>
 
     <br> </br>
+    <table align="center">
+      <th> Water Index = {{waterindex}} </th>
+    </table>
 
-    <span> </span>
+    <table align="center">
+      <tr>
+        <th> Set Range for Calculation: </th>
+        <br> </br>
+        <td>
+          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+        </td>
+        <td>
+          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+        </td>
+        <td>
+          <input type="text" v-model="radius" placeholder = "Radius:">
+        </td>
+      </tr>
+    </table>
 
     <table>
       <tr>
@@ -51,13 +68,13 @@
 
     <br> </br>
 
-    <button @click="startForecast()" style="margin:15px" >Calculate!
+    <button @click="calculateWaterIndex(latitude, longitude, radius)" style="margin:15px" > Calculate!
     </button>
 
   </div>
 </template>
 
-<script src="./canopy.js">
+<script src="./waterindex.js">
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 package ca.mcgill.ecse321.test.persistence;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 
@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import ca.mcgill.ecse321.treePLE.model.CarbonSequestrationManager;
 import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
-import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
 import ca.mcgill.ecse321.treePLE.persistence.PersistenceDensity;
 
 public class TestPersistenceDensity {
@@ -30,7 +29,7 @@ public class TestPersistenceDensity {
 
 	@Test
 	public void test() {
-		PersistenceDensity.initializeModelManager("output"+File.separator+"Density.xml");
+		PersistenceDensity.initializeModelManager("output"+File.separator+"Density3.xml");
 		CarbonSequestrationManager csm = new CarbonSequestrationManager();
 		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
 
@@ -40,7 +39,7 @@ public class TestPersistenceDensity {
 		System.out.println(name);
 		String species = "butternut";
 
-		
+
 		boolean saved = PersistenceDensity.saveToXMLwithXStream(csm);
 		assertEquals(true, saved);
 	}
