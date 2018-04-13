@@ -178,7 +178,7 @@ public class CarbonSequestrationManager
     return 0;
   }
   /* Code from template association_AddManyToOne */
-  public SpeciesDensities addSpeciesDensity(String aSpecies, int aDensity, String aSpecies)
+  public SpeciesDensities addSpeciesDensity(String aSpecies, int aDensity, String aUISpecies)
   {
     return new SpeciesDensities(aSpecies, aDensity, aUISpecies, this);
   }
