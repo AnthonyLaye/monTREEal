@@ -31,23 +31,36 @@ public class TreePLEService {
 
 	public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
-
+		String name="";
 		if(aSpecies == null || aHeight == 0 || aAge == 0 || aDate == null || aDiameter == 0){
 			throw new InvalidInputException("Something is empty!");
 		}
 
 		if(aHeight<201 && aHeight>0) {
+			
 			if (aSpecies.chars().allMatch(Character::isLetter)) {
-				Tree tree= new Tree(aSpecies, aHeight, aAge, aDate, aDiameter, aId, aPerson, tm, aLocation);
-				tm.addTree(tree);
-				PersistenceXStream.saveToXMLwithXStream(tm);
-				return tree;
+				String nameWithout = aSpecies.replace("\\s", "");
+				String speciesReadable = nameWithout.toLowerCase();
+				csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+				List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
+				sd = csm.getSpeciesDensities();
+				for (SpeciesDensities s: sd) {
+					name = s.getSpecies();
+					if(name.equals(speciesReadable)) {
+						String nameOut = s.getUISpecies();
+						Tree tree= new Tree(nameOut, aDate, aId, aPerson, tm, aLocation);
+						tm.addTree(tree);
+						PersistenceXStream.saveToXMLwithXStream(tm);
+						return tree;
+					}
+				}	
 			} else {
-				throw new InvalidInputException("The tree species should only contain letter characters");
+				throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
 			}
 		} else {
 			throw new InvalidInputException("Enter a height between 1 and 200 meters");
 		}
+		return null;
 	}
 
 	/**
@@ -111,26 +124,7 @@ public class TreePLEService {
 		throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
 
 	}
-	
-	
-/*	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
-			throws InvalidInputException{
 
-		String personName = aPerson.getName().toString();
-
-		if(aSpecies == null || aDate == null || personName == null || personName == " "){
-			throw new InvalidInputException("Something is empty!");
-		}
-		if (aSpecies.chars().allMatch(Character::isLetter)) {
-			Tree tree= new Tree(aSpecies, aDate, aId, aPerson, tm, aLocation);
-			tm.addTree(tree);
-			PersistenceXStream.saveToXMLwithXStream(tm);
-			return tree;
-		} else {
-			throw new InvalidInputException("The tree species should only contain letter characters");
-		}
-	}
-*/
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
 	 * @return a list of trees (all the trees registered)
