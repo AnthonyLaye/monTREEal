@@ -61,7 +61,7 @@ public class TestCreateSurvey {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"student@mail.ca","the321", tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Calendar cSurvey = Calendar.getInstance();
@@ -72,7 +72,7 @@ public class TestCreateSurvey {
 		String status = "Healthy";
 		Integer idSurvey = 123;
 		String observerName = "Carlito";
-		Person observer = new Person(observerName, tm);
+		Person observer = new Person(observerName, "student@mail.ca","the321",tm);
 
 		try {
 			Tree t = ts.createTree(aSpecies, height, 1, aDate, diameter, randomNum, p, l);
@@ -104,7 +104,7 @@ public class TestCreateSurvey {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"student@mail.ca","the321", tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Calendar cSurvey = Calendar.getInstance();
@@ -112,7 +112,7 @@ public class TestCreateSurvey {
 		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
 		Integer idSurvey = 123;
 		String observerName = "Carlito";
-		Person observer = new Person(observerName, tm);
+		Person observer = new Person(observerName, "student@mail.ca","the321",tm);
 
 		try {
 			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);
@@ -139,7 +139,7 @@ public class TestCreateSurvey {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name, "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Calendar cSurvey = Calendar.getInstance();
@@ -147,7 +147,7 @@ public class TestCreateSurvey {
 		Date dateSurvey = new Date(cSurvey.getTimeInMillis());
 		Integer idSurvey = 123;
 		String observerName = " ";
-		Person observer = new Person(observerName, tm);
+		Person observer = new Person(observerName,"student@mail.ca","the321", tm);
 
 		try {
 			Tree t = ts.createTree(aSpecies, aDate, randomNum, p, l);

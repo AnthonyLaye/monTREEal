@@ -200,11 +200,6 @@ public class TreePLEManager
     return 0;
   }
 
-  public Person addPerson(String aName)
-  {
-    return new Person(aName, this);
-  }
-
   public boolean addPerson(Person aPerson)
   {
     boolean wasAdded = false;
@@ -338,7 +333,13 @@ public class TreePLEManager
     }
     return wasAdded;
   }
-
+  
+  /* Code from template association_AddManyToOne */
+  public Person addPerson(String aName, String aEmail, String aPassword)
+  {
+    return new Person(aName, aEmail, aPassword, this);
+  }
+  
   public void delete()
   {
     while (trees.size() > 0)

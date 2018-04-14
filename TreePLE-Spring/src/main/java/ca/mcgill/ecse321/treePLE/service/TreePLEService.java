@@ -29,6 +29,55 @@ public class TreePLEService {
 		this.tm = tm;
 	}
 
+	/**
+	 * This method that checks if a user is already registered in the system
+	 * and can access by logging in the system. This will eventually be used to let
+	 * different access depending on the user. If it is either a Resident or a Scientist
+	 * @param email, Is a string value that needs to contain the specific character "@" and
+	 * one of the following extension .ca, .com, .org, .fr
+	 * @param password, is an input string chosen by the user
+	 * @return a user of type Person with its attribute for name, email address, password, and role
+	 * @throws InvalidInputException if there is no @ in the email, if the email does not end with one of the following extension
+	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
+	 * does not exist in the system.
+	 */
+	public Person login(String email, String password) throws InvalidInputException{
+
+		List<Person> AllUsers=tm.getPerson();
+
+		if(email.isEmpty() || password.isEmpty()) {
+			throw new InvalidInputException("Nothing is entered. You may want to register below");
+		}
+
+		else if(email.contains("@")) {
+			if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
+				for (Person user: AllUsers) {
+					String userEmail = user.getEmail();
+					if(userEmail.contentEquals(email)) {
+						String userPassword = user.getPassword();
+						if(userPassword.contentEquals(password)) {
+							return user;
+						}
+						else {
+							throw new InvalidInputException ("incorrect password");
+						}
+					}
+					else {
+						throw new InvalidInputException("This email address is not registered in the system. You may want to register below.");
+					}
+				}
+			}
+			else {
+				throw new InvalidInputException("The email address passed does not have the correct extension. Ex: .com, .ca, .org or .fr");
+			}
+		}
+		else {
+			throw new InvalidInputException("The email passed is not an email, does not contain @. You may want to register below.");
+		}
+		return null;
+	}
+
+
 	public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name="";
@@ -37,25 +86,29 @@ public class TreePLEService {
 		}
 
 		if(aHeight<20001 && aHeight>0) {
-			
-			if (aSpecies.chars().allMatch(Character::isLetter)) {
-				String nameWithout = aSpecies.replace("\\s", "");
-				String speciesReadable = nameWithout.toLowerCase();
-				csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
-				List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
-				sd = csm.getSpeciesDensities();
-				for (SpeciesDensities s: sd) {
-					name = s.getSpecies();
-					if(name.equals(speciesReadable)) {
-						String nameOut = s.getUISpecies();
-						Tree tree= new Tree(nameOut, aDate, aId, aPerson, tm, aLocation);
-						tm.addTree(tree);
-						PersistenceXStream.saveToXMLwithXStream(tm);
-						return tree;
-					}
-				}	
-			} else {
-				throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
+			if(aHeight<35001 && aHeight>0) {
+
+				if (aSpecies.chars().allMatch(Character::isLetter)) {
+					String nameWithout = aSpecies.replace("\\s", "");
+					String speciesReadable = nameWithout.toLowerCase();
+					csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+					List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
+					sd = csm.getSpeciesDensities();
+					for (SpeciesDensities s: sd) {
+						name = s.getSpecies();
+						if(name.equals(speciesReadable)) {
+							String nameOut = s.getUISpecies();
+							Tree tree= new Tree(nameOut, aDate, aId, aPerson, tm, aLocation);
+							tm.addTree(tree);
+							PersistenceXStream.saveToXMLwithXStream(tm);
+							return tree;
+						}
+					}	
+				} else {
+					throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
+				}
+			}else {
+				throw new InvalidInputException("The diameter is not between 1 cm and 35 000 cm");
 			}
 		} else {
 			throw new InvalidInputException("Enter a height between 1 and 200 meters");
@@ -107,31 +160,13 @@ public class TreePLEService {
 		return null;
 	}
 
-	public String checkSpecies(String aSpecies) throws InvalidInputException{
-		String name = null;
-		String nameWithout = aSpecies.replace("\\s", "");
-		String speciesReadable = nameWithout.toLowerCase();
-		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
-		List<SpeciesDensities> sd =new ArrayList<SpeciesDensities>();
-		sd = csm.getSpeciesDensities();
-		for (SpeciesDensities s: sd) {
-			name = s.getSpecies();
-			if(name.equals(speciesReadable)) {
-				return speciesReadable;
-			}
-		}
-		//not found in the Density.xml file
-		throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
-
-	}
-
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
 	 * @return a list of trees (all the trees registered)
 	 * @throws InvalidInputException, when no trees are registered
 	 */
 	public List<Tree> findAllTrees() throws InvalidInputException {
-		
+
 		List<Tree> treelist = new ArrayList<Tree>();
 
 		for (Tree t: tm.getTrees()) {
@@ -139,13 +174,10 @@ public class TreePLEService {
 				treelist.add(t);
 			}
 		}
-		
 		if (treelist.isEmpty()) {
 			throw new InvalidInputException("There are no trees to get from the manager");
 		}
-		
 		return treelist;
-		
 	}
 
 	/**
@@ -186,7 +218,7 @@ public class TreePLEService {
 		}
 		return treesByMunicipality;
 	}
-	
+
 	/**
 	 * This is a revised method for getTreesByArea that will list all the trees 
 	 * in a given area, specified by the parameters in entry
@@ -210,12 +242,12 @@ public class TreePLEService {
 		if(-90>lat || lat>90 || -180>lon || lon>180) {
 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
 		}
-		
+
 		higherlat = lat+distance;
 		higherlon = lon+distance;
 		lowerlat = lat-distance;
 		lowerlon = lat-distance;
-		
+
 		for(Tree t: tm.getTrees()) {
 			Location location = t.getLocation();
 			latitude = location.getLatitude();
@@ -258,7 +290,7 @@ public class TreePLEService {
 		}
 		return treesByArea;
 	}
-	
+
 	/**
 	 * This method is a helper method that returns distance between two points on GeoCoordinates
 	 * This method is a simple implementation of Haversine's formula to calculate distance based on geocoordinates
@@ -377,7 +409,7 @@ public class TreePLEService {
 		PersistenceXStream.saveToXMLwithXStream(tm);
 		return markedDiseased;
 	}
-	
+
 	public boolean markTreeHealthy(int aId) {
 		boolean markedHealthy = false;
 		for (Tree tree : tm.getTrees()) {
@@ -425,7 +457,7 @@ public class TreePLEService {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is
@@ -484,7 +516,7 @@ public class TreePLEService {
 		return index;
 	}
 
-		/**
+	/**
 	 * This method is a sustainability attribute to know what is the required amount of water we should
 	 * water the trees in a specific area each month. 
 	 * @param Takes in a list of trees, to be able to get the diameters in cm of each tree to make 
@@ -502,7 +534,7 @@ public class TreePLEService {
 		water = totalDiameter/2.54*10*3.78541;
 		return water;
 	}
-	
+
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
 	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
@@ -536,7 +568,7 @@ public class TreePLEService {
 
 		//boolean surveyWasAdded = false;
 		Status s = Status.Healthy;
-		
+
 		if (status.contentEquals("Healthy")){
 			s = Status.Healthy;
 		} else if (status.contentEquals("CutDown")){
@@ -552,7 +584,7 @@ public class TreePLEService {
 
 		for(Tree t: tm.getTrees()) {
 			if(t.getId() == treeId) {
-				
+
 				t.setHeight(height);
 				t.setDiameter(diameter);
 				t.setStatus(s);
@@ -566,7 +598,7 @@ public class TreePLEService {
 		PersistenceXStream.saveToXMLwithXStream(tm);
 		return t1;
 	}
-	
+
 
 	//needs testing
 	public Status getStatus(int id) {//throws InvalidInputException {

@@ -57,7 +57,7 @@ public class TestMarkTreeHealthy {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person("jim", tm);
+		Person p = new Person("jim", "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
@@ -87,7 +87,7 @@ public class TestMarkTreeHealthy {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person("jim", tm);
+		Person p = new Person("jim", "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		Tree tree= new Tree("oak", 12, 4, aDate, 13, 8765211, p, tm, l);
