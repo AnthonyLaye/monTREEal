@@ -14,7 +14,7 @@ var AXIOS = axios.create({
   headers: { 'Access-Control-Allow-Origin': frontendUrl }
 })
 
-function TreeDto(species, height, age, date, diameter, id, status, latitude, longitude) {
+function TreeDto(species, height, age, date, diameter, id, status, location, latitude, longitude) {
   this.species = species;
   this.height = height;
   this.age = age;
@@ -33,6 +33,7 @@ export default {
       center: {lat: 45.5017, lng: -73.5673},
       trees: [],
       errorTrees: '',
+      location: []
     }
   },
 
@@ -60,7 +61,16 @@ export default {
         console.log(errorMsg)
         this.errorTrees = errorMsg
       })
+ 
     },
+
+    getLocation: function (tree) {
+      return {
+        lat: tree.latitude,
+        lng: tree.longitude
+      }
+    },
+
     startForecastPage: function () {
       this.$router.push('forecast')
     }

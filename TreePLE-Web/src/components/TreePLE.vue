@@ -31,6 +31,9 @@
     <br> </br>
 
     <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 1000px; height: 500px">
+
+      <gmap-marker v-for="tree in trees" :key="tree.id" :position="getLocation(tree)">
+      </gmap-marker>
     </gmap-map>
 
     <button @click="startForecastPage()" style="margin:15px" >Forecasting
