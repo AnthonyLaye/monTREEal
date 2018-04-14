@@ -15,8 +15,17 @@ export default {
 
       this.$router.push('register');
     },
-    login: function() {
+    login: function(email, password) {
+      /*AXIOS.get('/treePLE/trees/login' + '?email=' + email + '&password=' + password, {}, {})
+      .then(response => {
+        // JSON responses are automatically parsed.
 
+        this.$router.push('trep');
+      })
+      .catch(e => {
+        var errorMsg = e.message
+        console.log(errorMsg)
+      })*/
       this.$router.push('trep');
     },
   }

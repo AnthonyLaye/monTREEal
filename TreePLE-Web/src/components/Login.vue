@@ -22,7 +22,7 @@
 
       <br> </br>
 
-      <button @click="login()">Login</button>
+      <button @click="login(email,psw)">Login</button>
       <br> </br>
 
     </table>

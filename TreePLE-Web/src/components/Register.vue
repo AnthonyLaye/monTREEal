@@ -25,11 +25,14 @@
 
     <br> </br>
 
-    <button type="submit">Register</button>
+    <button type="submit">register(uname, email, pwd, usertype)</button>
     <br> </br>
 
   </div>
 </template>
+
+<script src="./register.js">
+</script>
 
 <style>
   #treePLE{
