@@ -33,41 +33,20 @@
             android:layout_below="@id/plantimage"
             android:inputType="text" />
 
-        <EditText
-            android:id="@+id/treespecies"
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_below="@id/ownername"
-            android:hint="@string/treespecies"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/treelongitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/treespecies"
-            android:fontFamily="sans-serif"
-            android:hint="@string/treelongitude"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/treelatitude"
-            android:layout_below="@+id/treelongitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:hint="@string/treelatitude"
-            android:inputType="text" />
+            android:id="@+id/speciesSpinner"/>
 
         <EditText
             android:id="@+id/treeheight"
-            android:layout_below="@+id/treelatitude"
+            android:layout_below="@+id/speciesSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:hint="@string/treeheight"
-            android:inputType="text" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/treediameter"
@@ -76,7 +55,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:hint="@string/treediameter"
-            android:inputType="text" />
+            android:inputType="number" />
 
     </RelativeLayout>
 
