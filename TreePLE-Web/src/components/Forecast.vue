@@ -15,6 +15,11 @@
     <button @click="startWaterIndex" style="margin:15px" >WaterIndex
     </button>
 
+    <br> </br>
+
+    <button @click="exitForecasting" style="margin:15px" >Exit Forecasting
+    </button>
+
   </div>
 </template>
 
