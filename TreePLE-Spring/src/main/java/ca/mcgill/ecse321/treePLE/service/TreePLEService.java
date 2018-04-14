@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import ca.mcgill.ecse321.treePLE.model.CarbonSequestrationManager;
 import ca.mcgill.ecse321.treePLE.model.Location;
 import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.Person.Role;
 import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
 import ca.mcgill.ecse321.treePLE.model.Survey;
 import ca.mcgill.ecse321.treePLE.model.Tree;
@@ -41,14 +42,13 @@ public class TreePLEService {
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
 	 */
-	public Person login(String email, String password) throws InvalidInputException{
+	public String login(String email, String password) throws InvalidInputException{
 
 		List<Person> AllUsers=tm.getPerson();
 
 		if(email.isEmpty() || password.isEmpty()) {
 			throw new InvalidInputException("Nothing is entered. You may want to register below");
 		}
-
 		else if(email.contains("@")) {
 			if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
 				for (Person user: AllUsers) {
@@ -56,7 +56,8 @@ public class TreePLEService {
 					if(userEmail.contentEquals(email)) {
 						String userPassword = user.getPassword();
 						if(userPassword.contentEquals(password)) {
-							return user;
+							String role =user.getRoleName();
+							return role;
 						}
 						else {
 							throw new InvalidInputException ("incorrect password");
@@ -77,6 +78,29 @@ public class TreePLEService {
 		return null;
 	}
 
+	
+	public Person register(String name, String email, String password, String role) throws InvalidInputException {
+		Person p=null;
+		if(!email.contains("@")) {
+			throw new InvalidInputException("This is not a valid email address. It does not contain an asperand (@)");
+		}
+		if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
+		
+	    p = new Person(name,email,password,tm);
+		tm.addPerson(p);
+		
+		if(role == "Resident") {
+			p.setRole(Role.Resident);
+		}
+		else if(role=="Scientist") {
+			p.setRole(Role.Scientist);
+		}
+		}else {
+			throw new InvalidInputException("Does not contain a valid extension supported by this country. Valid: .com, .ca, .org, .fr");
+		}
+		
+		return p;
+	}
 
 	public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
