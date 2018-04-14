@@ -1,30 +1,24 @@
 package ca.mcgill.ecse321.test.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
+import java.io.File;
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.List;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-
-	import java.io.File;
-	import java.sql.Date;
-	import java.util.ArrayList;
-	import java.util.Calendar;
-	import java.util.List;
-
-	import org.junit.After;
-	import org.junit.Before;
-	import org.junit.BeforeClass;
-	import org.junit.Ignore;
-	import org.junit.Test;
-
-	import ca.mcgill.ecse321.treePLE.model.Location;
-	import ca.mcgill.ecse321.treePLE.model.Person;
-	import ca.mcgill.ecse321.treePLE.model.Tree;
-	import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
-	import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
-	import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
-	import ca.mcgill.ecse321.treePLE.service.TreePLEService;
+import ca.mcgill.ecse321.treePLE.model.Location;
+import ca.mcgill.ecse321.treePLE.model.Person;
+import ca.mcgill.ecse321.treePLE.model.Tree;
+import ca.mcgill.ecse321.treePLE.model.TreePLEManager;
+import ca.mcgill.ecse321.treePLE.persistence.PersistenceXStream;
+import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
+import ca.mcgill.ecse321.treePLE.service.TreePLEService;
+import junit.framework.Assert;
 
 	public class TestBiodiversityIndex {
 
@@ -34,8 +28,8 @@ import org.junit.Test;
 		}
 
 		@Test
-		/*  this test is the ideal test, where there is a collection of trees, that contain trees that 
-			that both have repetitive species' name and different ones */
+		// this test is the ideal test, where there is a collection of trees, that contain trees that 
+		// that both have repetitive species' name and different ones
 		public void testBiodiversityIndex() {
 			TreePLEManager tm = new TreePLEManager();
 			TreePLEService ts = new TreePLEService(tm);
@@ -87,7 +81,7 @@ import org.junit.Test;
 			String municipality3 = "DT";
 			Person p3 = new Person(name, tm);
 			Location l3 = new Location(longitude,latitude,municipality);
-			
+
 			//create Tree5
 			String aSpecies4 = "oak";
 			c.set(2018, 02, 01);
@@ -108,14 +102,14 @@ import org.junit.Test;
 				ts.createTree(aSpecies4, aDate4, randomNum4, p4, l4);
 
 			} catch (InvalidInputException e) {
-				fail("Error");
+				e.printStackTrace();
 			}
-			
+
 			List<Tree> selectedTrees = null;
 			try {
 				selectedTrees = ts.findAllTrees();
 			} catch (InvalidInputException e) {
-				fail("Error");
+				e.printStackTrace();
 			}
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
 			assertEquals(0.6, index, 0.0001);
@@ -124,15 +118,15 @@ import org.junit.Test;
 		}
 
 		@Test
-		/*  This test is for when the species of a list of trees are all different
-			therefore the expected index should be at its max, thus equal to 1 */
+		// This test is for when the species of a list of trees are all different
+		// therefore the expected index should be at its max, thus equal to 1
 		public void testBiodiversityIndexAllDiff() {
 
 			TreePLEManager tm = new TreePLEManager();
 			TreePLEService ts = new TreePLEService(tm);
 
 			//create Tree1
-			String aSpecies = "willow";
+			String aSpecies = "pine";
 			Calendar c = Calendar.getInstance();
 			c.set(2018, 02, 01);
 			Date aDate = new Date(c.getTimeInMillis());
@@ -166,45 +160,46 @@ import org.junit.Test;
 			Float latitude2 = 5f;
 			String municipality2 = "MontRoyal";
 			Person p2 = new Person(name1, tm);
-			Location l2 = new Location(longitude1,latitude1,municipality1);
-			
+			Location l2 = new Location(longitude2,latitude2,municipality2);
+
 			try {
 				ts.createTree(aSpecies, aDate, randomNum, p, l);
 				ts.createTree(aSpecies1, aDate1, randomNum1, p1, l1);
 				ts.createTree(aSpecies2, aDate2, randomNum2, p2, l2);
 			} catch (InvalidInputException e){
-				fail("Error");
+				e.printStackTrace();
 			}
 
 			List<Tree> selectedTrees = null;
 			try {
 				selectedTrees = ts.findAllTrees();
 			} catch (InvalidInputException e) {
-				fail("Error");
+				e.printStackTrace();
 			}
 			double index=ts.calculateBiodiversityIndex(selectedTrees);
 			assertEquals(1, index, 0.0001);
 			tm.delete();
 		}
-		
-		
-//		@Test
-//		/*this test is for when there are trees given to calculate the biodiversity index
-//		 * this test is expected to fail */
-//		public void testBiodiversityIndexZero() {
-//
-//			TreePLEManager tm = new TreePLEManager();
-//			TreePLEService ts = new TreePLEService(tm);
-//
-//			List<Tree> selectedTrees = null;
-//			try {
-//				selectedTrees = ts.findAllTrees();
-//			} catch (InvalidInputException e) {
-//				fail("Error");
-//			}
-//			//will not pass here since list is empty
-//			double index=ts.calculateBiodiversityIndex(selectedTrees);
-//			tm.delete();
-//		}
-		
-}
+
+
+		@Test
+		// this test is for when there are trees given to calculate the biodiversity index
+		// this test is expected to fail
+		public void testBiodiversityIndexZero() {
+
+			TreePLEManager tm = new TreePLEManager();
+			TreePLEService ts = new TreePLEService(tm);
+			String error = null;
+
+			List<Tree> selectedTrees = null;
+			try {
+				selectedTrees = ts.findAllTrees();
+			} catch (InvalidInputException e) {
+				error = e.getMessage();
+			}
+			
+			assertEquals("There are not trees to get from the manager", error);
+			tm.delete();
+		}
+
+	}

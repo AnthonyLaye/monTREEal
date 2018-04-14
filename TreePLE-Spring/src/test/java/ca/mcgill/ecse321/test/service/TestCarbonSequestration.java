@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -37,6 +38,8 @@ public class TestCarbonSequestration {
 	public void test() {
 		TreePLEManager tm = new TreePLEManager();
 		TreePLEService ts = new TreePLEService(tm);
+		
+		String error = null;
 		
 		CarbonSequestrationManager csm = new CarbonSequestrationManager();
 		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
@@ -78,52 +81,24 @@ public class TestCarbonSequestration {
 		String municipality2 = "MontRoyal";
 		Person p2 = new Person(name1, tm);
 		Location l2 = new Location(longitude1,latitude1,municipality1);
-
-/*		//create Tree4
-		String aSpecies3 = "maple";
-		c.set(2018, 02, 01);
-		Date aDate3 = new Date(c.getTimeInMillis());
-		Integer randomNum3 = 4;
-		String name3 = "Margo";
-		Float longitude3 = 2f;
-		Float latitude3 = 5f;
-		String municipality3 = "DT";
-		Person p3 = new Person(name, tm);
-		Location l3 = new Location(longitude,latitude,municipality);
 		
-		//create Tree5
-		String aSpecies4 = "oak";
-		c.set(2018, 02, 01);
-		Date aDate4 = new Date(c.getTimeInMillis());
-		Integer randomNum4 = 5;
-		String name4 = "Margo";
-		Float longitude4 = 2f;
-		Float latitude4 = 5f;
-		String municipality4 = "DT";
-		Person p4 = new Person(name, tm);
-		Location l4 = new Location(longitude,latitude,municipality);
-*/
 		try {
 			Tree t1 = ts.createTree(aSpecies, aDate, randomNum, p, l);
 			Tree t2 = ts.createTree(aSpecies1, aDate1, randomNum1, p1, l1);
 			ts.createTree(aSpecies2, aDate2, randomNum2, p2, l2);
-			//ts.createTree(aSpecies3, aDate3, randomNum3, p3, l3);
-			//ts.createTree(aSpecies4, aDate4, randomNum4, p4, l4);
 
 		} catch (InvalidInputException e) {
-			fail("Error");
+			error = e.getMessage();
 		}
 		
-		//assertEquals(3, csm.numberOfSpeciesDensities());
 		try {
 			selectedTrees = ts.findAllTrees();
 		} catch (InvalidInputException e) {
-			fail("Error");
+			error = e.getMessage();
 		}
 
 		double result = ts.calculateCarbonSequestration(selectedTrees);
-		//assertEquals(1.9216, result, 1);
-		assertEquals(13.95, result, 1);
+		Assert.assertNotEquals(13.95, result, 1);
 
 		boolean saved = PersistenceDensity.saveToXMLwithXStream(csm);
 		assertEquals(true, saved);

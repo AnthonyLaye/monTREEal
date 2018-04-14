@@ -142,7 +142,7 @@ public class TreePLERestController {
     }
 
     @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
-    public boolean createSurvey(
+    public SurveyDto createSurvey(
             @PathVariable("treeId") int treeId, 
             @RequestParam Date date,
             @RequestParam String personName,
@@ -153,9 +153,9 @@ public class TreePLERestController {
         Person observer = new Person(personName, service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
         
-        boolean wasAdded = false;
-        wasAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
-        return wasAdded;
+        //boolean wasAdded = false;
+        Survey wasAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
+        return convertToDto(wasAdded);
     }
 
     //----------------------------------
@@ -210,8 +210,8 @@ public class TreePLERestController {
     	return treesInArea;
     }
 
-    @GetMapping(value = {"/trees/forecast/biodiversityindex", "/trees/forecast/biodiversityindex/"})
-    public double getBiodiversityIndexFromTrees(@RequestParam List<String> treesInArea)
+    @GetMapping(value = {"/trees/forecast/biodiversityindex/{treesInArea}", "/trees/forecast/biodiversityindex/{treesInArea}"})
+    public double getBiodiversityIndexFromTrees(@PathVariable ("treesInArea") List<String> treesInArea)
             throws InvalidInputException{
         double biodiversityIndex=0;
         biodiversityIndex=service.calculateBiodiversityIndexFromTrees(treesInArea);

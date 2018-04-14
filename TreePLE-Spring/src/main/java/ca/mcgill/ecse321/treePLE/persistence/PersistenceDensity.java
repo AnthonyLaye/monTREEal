@@ -12,7 +12,7 @@ import ca.mcgill.ecse321.treePLE.model.SpeciesDensities;
 
 public class PersistenceDensity {
 	private static XStream xstream = new XStream();
-	private static String filename = "/tmp/Density.xml";
+	private static String filename = "/tmp/Density3.xml";
 	
 	public static CarbonSequestrationManager initializeModelManager(String fileName) {
 		// Initialization for persistence

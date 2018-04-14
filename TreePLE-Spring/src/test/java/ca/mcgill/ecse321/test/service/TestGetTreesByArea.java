@@ -29,7 +29,7 @@ import ca.mcgill.ecse321.treePLE.service.TreePLEService;
 public class TestGetTreesByArea {
 	private TreePLEManager tm;
 	private TreePLEService ts;
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		PersistenceXStream.initializeModelManager("output"+File.separator+"data.xml");
@@ -49,7 +49,7 @@ public class TestGetTreesByArea {
 	public void tearDown() throws Exception {
 		tm.delete();
 	}
-	
+
 	@Test
 	public void testGetTreesByAreaNegativeInputRadius() {
 		TreePLEManager tm = new TreePLEManager();
@@ -60,7 +60,7 @@ public class TestGetTreesByArea {
 			assertEquals(e.getMessage(), "Radius cannot be negative!");
 		}
 	}
-	
+
 	@Test
 	public void testGetTreesByAreaLocationParameterOutOfLowerBound() {
 		TreePLEManager tm = new TreePLEManager();
@@ -71,7 +71,7 @@ public class TestGetTreesByArea {
 			assertEquals(e.getMessage(), "Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
 		}
 	}
-	
+
 	@Test
 	public void testGetTreesByAreaLocationParameterOutOfUpperBound() {
 		TreePLEManager tm = new TreePLEManager();
@@ -82,13 +82,13 @@ public class TestGetTreesByArea {
 			assertEquals(e.getMessage(), "Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
 		}
 	}
-	
+
 	@Test
 	public void TestGetAllTreesByAreaMultiple() {
 		TreePLEManager tm = new TreePLEManager();
 		TreePLEService ts = new TreePLEService(tm);
 		assertEquals(0, tm.getTrees().size());
-		
+
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 03, 10);
@@ -100,7 +100,7 @@ public class TestGetTreesByArea {
 		String municipality = "NDG";
 		Person p = new Person(name, tm);
 		Location l = new Location(longitude,latitude,municipality);
-		
+
 		String aSpecies1 = "oak";
 		c.set(2018, 03, 11);
 		Date aDate1 = new Date(c.getTimeInMillis());
@@ -118,21 +118,20 @@ public class TestGetTreesByArea {
 		} catch (InvalidInputException e) {
 			e.printStackTrace();
 		}
-		
+
 		List<Tree> TreesByArea = new ArrayList<Tree>();
-		
+
 		try {
 			TreesByArea = ts.getTreesByAreaRevised(42.01f, 42.01f, 5f);
-			//TreesByArea = ts.getTreesByArea(42.01f, 42.01f, 5f);
 		} catch (InvalidInputException e) {
 			e.printStackTrace();
 		}
 
 		Assert.assertEquals(2,TreesByArea.size());
-		
+
 		Assert.assertEquals("willow",TreesByArea.get(0).getSpecies());
 		Assert.assertEquals("oak", TreesByArea.get(1).getSpecies());
-    
+
 		Assert.assertEquals(1,TreesByArea.get(0).getId());
 		Assert.assertEquals(2,TreesByArea.get(1).getId());
 
@@ -145,13 +144,13 @@ public class TestGetTreesByArea {
 		Assert.assertEquals(l,TreesByArea.get(0).getLocation());
 		Assert.assertEquals(l1,TreesByArea.get(1).getLocation());
 	}
-	
+
 	@Test
 	public void TestGetAllTreesByAreaEmpty() {
 		TreePLEManager tm = new TreePLEManager();
 		TreePLEService ts = new TreePLEService(tm);
 		assertEquals(0, tm.getTrees().size());
-		
+
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 03, 10);
@@ -163,7 +162,7 @@ public class TestGetTreesByArea {
 		String municipality = "NDG";
 		Person p = new Person(name, tm);
 		Location l = new Location(longitude,latitude,municipality);
-		
+
 		String aSpecies1 = "oak";
 		c.set(2018, 03, 11);
 		Date aDate1 = new Date(c.getTimeInMillis());
@@ -181,9 +180,9 @@ public class TestGetTreesByArea {
 		} catch (InvalidInputException e) {
 			e.printStackTrace();
 		}
-		
+
 		List<Tree> TreesByArea = new ArrayList<Tree>();
-		
+
 		try {
 			TreesByArea = ts.getTreesByArea(45.01f, 45.01f, 1f);
 		} catch (InvalidInputException e) {

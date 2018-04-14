@@ -46,12 +46,12 @@ public class TestListTreesForResident {
 	public void tearDown() throws Exception {
 		tm.delete();
 	}
-	
+
 	@Test
 	public void testFindTreesForResidentExists() {
-		
+
 		assertEquals(0, tm.getTrees().size());
-		
+
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -79,26 +79,26 @@ public class TestListTreesForResident {
 			ts.createTree(aSpecies, aDate, randomNum, p, l);
 			ts.createTree(aSpecies1, aDate1, randomNum1, p1, l1);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			e.printStackTrace();
 		}
 
-			
+
 		List<Tree> JoeTrees = ts.findTreesForResident("Joe");
 		assertEquals(1, JoeTrees.size());
-		
+
 		int id = randomNum;
 		assertEquals(id, JoeTrees.get(0).getId());
-		
+
 		assertEquals("willow", JoeTrees.get(0).getSpecies());
 		assertEquals(p, JoeTrees.get(0).getPerson());
 		assertEquals(tm,JoeTrees.get(0).getTreePLEManager());
 	}
-	
+
 	@Test
 	public void testFindTreesForResidentMultiple() {
-		
+
 		assertEquals(0, tm.getTrees().size());
-		
+
 		String aSpecies1 = "willow";
 		Calendar c1 = Calendar.getInstance();
 		c1.set(2018, 02, 01);
@@ -122,7 +122,7 @@ public class TestListTreesForResident {
 		String municipality2 = "Outremont";
 		Person p2 = new Person(name2, tm);
 		Location l2 = new Location(longitude2,latitude2,municipality2);
-		
+
 		String aSpecies3 = "maple";
 		Calendar c3 = Calendar.getInstance();
 		c3.set(2018, 01, 05);
@@ -143,21 +143,21 @@ public class TestListTreesForResident {
 			fail("Error");
 		}
 
-			
+
 		List<Tree> JimTrees = ts.findTreesForResident("Jim");
 		assertEquals(3, JimTrees.size());
-		
+
 		int id1 = randomNum1;
 		int id2 = randomNum2;
 		int id3 = randomNum3;
 		assertEquals(id1, JimTrees.get(0).getId());
 		assertEquals(id2, JimTrees.get(1).getId());
 		assertEquals(id3, JimTrees.get(2).getId());
-		
+
 		assertEquals("willow", JimTrees.get(0).getSpecies());
 		assertEquals("oak", JimTrees.get(1).getSpecies());
 		assertEquals("maple", JimTrees.get(2).getSpecies());
-		
+
 		assertEquals(p1, JimTrees.get(0).getPerson());
 		assertEquals(p2, JimTrees.get(1).getPerson());
 		assertEquals(p3, JimTrees.get(2).getPerson());
@@ -166,12 +166,12 @@ public class TestListTreesForResident {
 		assertEquals(tm,JimTrees.get(1).getTreePLEManager());
 		assertEquals(tm,JimTrees.get(2).getTreePLEManager());
 	}
-	
+
 	@Test
 	public void testFindTreesForResidentDoesNotExists() {
-		
+
 		assertEquals(0, tm.getTrees().size());
-		
+
 		String aSpecies = "willow";
 		Calendar c = Calendar.getInstance();
 		c.set(2018, 02, 01);
@@ -199,20 +199,20 @@ public class TestListTreesForResident {
 			ts.createTree(aSpecies, aDate, randomNum, p, l);
 			ts.createTree(aSpecies1, aDate1, randomNum1, p1, l1);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			e.printStackTrace();
 		}
 
-			
+
 		List<Tree> JillTrees = ts.findTreesForResident("Jill");
 		assertEquals(2, tm.getTrees().size());
 		assertEquals(0, JillTrees.size());
 	}
-	
+
 	@Test
 	public void testFindTreesForResidentEmpty() {
-		
+
 		assertEquals(0, tm.getTrees().size());
-					
+
 		List<Tree> trees = ts.findTreesForResident("Joe");
 		assertEquals(0, trees.size());
 	}

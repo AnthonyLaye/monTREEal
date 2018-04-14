@@ -46,6 +46,9 @@ public class TestCreateTree {
 	//Test create tree
 	@Test
 	public void testCreateTreeCorrectParameters() {
+		
+		String error = null;
+		
 		TreePLEManager tm = new TreePLEManager();
 		Assert.assertEquals(0,tm.getTrees().size());
 		
@@ -65,7 +68,7 @@ public class TestCreateTree {
 		try {
 			ts.createTree(aSpecies, aDate, randomNum, p, l);
 		} catch (InvalidInputException e) {
-			fail("Error");
+			error = e.getMessage();
 		} 
 		
 		
@@ -77,64 +80,75 @@ public class TestCreateTree {
 		try {
 			ts.createTree(aSpecies, 199f, 3, aDate, 3f, randomNum, p, l);
 		} catch (InvalidInputException e) {
-			fail("Errors in the parameters of created tree");
+			error = e.getMessage(); 
 		}
+		
+		//assertEquals("The species passed as argument is not a valid tree that can grow on the land of Canada", error);
 	}
 	
-//	@Test
-//	public void testHeightOutOfBounds() {
-//		
-//		TreePLEManager tm = new TreePLEManager();
-//		Assert.assertEquals(0,tm.getTrees().size());
-//		
-//		String aSpecies = "willow";
-//		Calendar c = Calendar.getInstance();
-//		c.set(2018, 02, 01);
-//		Date aDate = new Date(c.getTimeInMillis());
-//		Integer randomNum = 1;
-//		String name = "Joe";
-//		Float longitude = 3f;
-//		Float latitude = 4f;
-//		String municipality = "NDG";
-//		Person p = new Person(name, tm);
-//		Location l = new Location(longitude,latitude,municipality);
-//		
-//		TreePLEService ts = new TreePLEService(tm);
-//				try {
-//					ts.createTree(aSpecies, 201f, 3, aDate, 3f, randomNum, p, l);
-//				} catch (InvalidInputException e) {
-//					fail("Incorrect height, tree height should be between (0,201) ");
-//				}
-//	}
+	@Test
+	public void testHeightOutOfBounds() {
+		
+		TreePLEManager tm = new TreePLEManager();
+		Assert.assertEquals(0,tm.getTrees().size());
+		
+		String error = null;
+		
+		String aSpecies = "willow";
+		Calendar c = Calendar.getInstance();
+		c.set(2018, 02, 01);
+		Date aDate = new Date(c.getTimeInMillis());
+		Integer randomNum = 1;
+		String name = "Joe";
+		Float longitude = 3f;
+		Float latitude = 4f;
+		String municipality = "NDG";
+		Person p = new Person(name, tm);
+		Location l = new Location(longitude,latitude,municipality);
+		
+		TreePLEService ts = new TreePLEService(tm);
+		
+		try {
+			ts.createTree(aSpecies, 201f, 3, aDate, 3f, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			error = e.getMessage();
+		}
+		
+		assertEquals("Enter a height between 1 and 200 meters", error);
+	}
 	
-//	@Test
-//	public void testSpeciesWithSpecialChars () {
-//		TreePLEManager tm = new TreePLEManager();
-//		Assert.assertEquals(0,tm.getTrees().size());
-//		
-//		String aSpecies = "W1llow$";
-//		Calendar c = Calendar.getInstance();
-//		c.set(2018, 02, 01);
-//		Date aDate = new Date(c.getTimeInMillis());
-//		Integer randomNum = 1;
-//		String name = "Joe";
-//		Float longitude = 3f;
-//		Float latitude = 4f;
-//		String municipality = "NDG";
-//		Person p = new Person(name, tm);
-//		Location l = new Location(longitude,latitude,municipality);
-//		
-//		TreePLEService ts = new TreePLEService(tm);
-//		
-//		try {
-//			ts.createTree(aSpecies, aDate, randomNum, p, l);
-//		} catch (InvalidInputException e) {
-//			fail("Error, species should be a string of alphabetical characters");
-//		} 
-//	}
+	@Test
+	public void testSpeciesWithSpecialChars () {
+		
+		String error = null;
+		
+		TreePLEManager tm = new TreePLEManager();
+		Assert.assertEquals(0,tm.getTrees().size());
+		
+		String aSpecies = "W1llow$";
+		Calendar c = Calendar.getInstance();
+		c.set(2018, 02, 01);
+		Date aDate = new Date(c.getTimeInMillis());
+		Integer randomNum = 1;
+		String name = "Joe";
+		Float longitude = 3f;
+		Float latitude = 4f;
+		String municipality = "NDG";
+		Person p = new Person(name, tm);
+		Location l = new Location(longitude,latitude,municipality);
+		
+		TreePLEService ts = new TreePLEService(tm);
+		
+		try {
+			ts.createTree(aSpecies, aDate, randomNum, p, l);
+		} catch (InvalidInputException e) {
+			error = e.getMessage();
+		} 
+		
+		assertEquals("The species passed as argument is not a valid tree that can grow on the land of Canada", error);
+	}
 	
-	public void checkResultTree(String aSpecies, Date aDate, int aId, 
-			Person aPerson, Location aLocation, TreePLEManager tm) {
+	public void checkResultTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation, TreePLEManager tm) {
 		Assert.assertEquals(1, tm.getTrees().size());
 	}
 
