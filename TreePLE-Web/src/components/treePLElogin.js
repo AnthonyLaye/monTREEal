@@ -1,12 +1,17 @@
-// 1. Create constructor methods (Dtos)
-// 2. Add data variables to the export declaration of the component
-// 3. Add an initialization function below the data part
-// 4. Add methods
+import axios from 'axios'
+var frontendUrl = 'http://ecse321-13.ece.mcgill.ca:8087'
+var backendUrl = 'http://ecse321-13.ece.mcgill.ca:8080'
+
+var AXIOS = axios.create({
+  baseURL: backendUrl,
+  headers: { 'Access-Control-Allow-Origin': frontendUrl }
+})
 
 export default {
   name: 'treePLElogin',
   data () {
     return {
+      status: 'Null'
     }
   },
 
@@ -16,17 +21,22 @@ export default {
       this.$router.push('register');
     },
     login: function(email, password) {
-      /*AXIOS.get('/treePLE/trees/login' + '?email=' + email + '&password=' + password, {}, {})
+      AXIOS.get('/treePLE/login' + '?email=' + email + '&password=' + password, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
-
-        this.$router.push('trep');
+        this.status = response.data
+        if(this.status === 'Resident'){
+          this.$router.push('residentdashboard')
+        }
+        else if(this.status === 'Scientist'){
+          this.$router.push('dashboard')
+        }
       })
       .catch(e => {
         var errorMsg = e.message
         console.log(errorMsg)
-      })*/
-      this.$router.push('trep');
+      })
+    //  this.$router.push('trep');
     },
   }
 }
