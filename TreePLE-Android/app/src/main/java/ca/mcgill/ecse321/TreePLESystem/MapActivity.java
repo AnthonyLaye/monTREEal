@@ -323,6 +323,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         java.util.Date c = Calendar.getInstance().getTime();
         java.sql.Date sqlDate = new java.sql.Date(c.getTime());
 
+        if(Double.parseDouble(height) > 20000 && !(Double.parseDouble(height) > 0)){
+            Toast.makeText(getApplicationContext(),  "Height must be between 0 and 20000 cm",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+
         HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
                 + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)
                 + "&longitude=" + Float.valueOf(longitude) + "&municipality=NDG" , new RequestParams(), new JsonHttpResponseHandler() {
@@ -339,7 +345,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 } catch (JSONException e) {
                     error += e.getMessage();
                 }
-                //refreshErrorMessage();
             }
         });
     }
