@@ -14,8 +14,10 @@
     tools:showIn="@layout/activity_main">
 
     <RelativeLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <ImageView
@@ -38,22 +40,11 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/plantTreeBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/treepletext"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/button_template"
-            android:onClick="plantTree"
-            android:text="@string/PlantTree" />
-
-        <Button
             android:id="@+id/mapBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/plantTreeBtn"
+            android:layout_below="@+id/treepletext"
             android:layout_marginTop="18dp"
             android:background="@drawable/button_template"
             android:onClick="onMap"

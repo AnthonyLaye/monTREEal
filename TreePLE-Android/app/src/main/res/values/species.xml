@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="spinnerItems">
+        <item>blackwalnut</item>
+        <item>butternut</item>
+        <item>redmaple</item>
+        <item>westernredcedar</item>
+        <item>whitecedar</item>
+        <item>easternredcedar</item>
+        <item>douglasfir</item>
+        <item>fir</item>
+        <item>amabilisfir</item>
+        <item>balsamfir</item>
+        <item>subalpinefir</item>
+        <item>grandfir</item>
+        <item>easternhemlock</item>
+        <item>westernhemlock</item>
+        <item>hemlock</item>
+        <item>tamarack</item>
+        <item>larch</item>
+        <item>westernlarch</item>
+        <item>whitepine</item>
+        <item>jackpine</item>
+        <item>lodgepolepine</item>
+        <item>redpine</item>
+        <item>pine</item>
+        <item>maple</item>
+        <item>blackspruce</item>
+        <item>redspruce</item>
+        <item>sitkaspruce</item>
+        <item>whitespruce</item>
+        <item>spruce</item>
+        <item>redalder</item>
+        <item>blackash</item>
+        <item>whiteash</item>
+        <item>redash</item>
+        <item>greenash</item>
+        <item>ash</item>
+        <item>basswood</item>
+        <item>beech</item>
+        <item>whitebirch</item>
+        <item>yellowbirch</item>
+        <item>birch</item>
+        <item>blackcherry</item>
+        <item>whiteelm</item>
+        <item>elm</item>
+        <item>hickory</item>
+        <item>silvermaple</item>
+        <item>sugarmaple</item>
+    </string-array>
+</resources>

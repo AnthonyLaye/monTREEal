@@ -142,7 +142,7 @@ public class TreePLERestController {
     }
 
     @PostMapping(value = { "/survey/tree/{treeId}", "/survey/tree/{treeId}/" })
-    public SurveyDto createSurvey(
+    public TreeDto createSurvey(
             @PathVariable("treeId") int treeId, 
             @RequestParam Date date,
             @RequestParam String personName,
@@ -154,8 +154,8 @@ public class TreePLERestController {
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
         
         //boolean wasAdded = false;
-        Survey wasAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
-        return convertToDto(wasAdded);
+        Tree treeAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
+        return convertToDto(treeAdded);
     }
 
     //----------------------------------

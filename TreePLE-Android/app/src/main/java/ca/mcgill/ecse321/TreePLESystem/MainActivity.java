@@ -134,41 +134,6 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(String.format("%02d-%02d-%04d", d, m + 1, y));
     }
 
-    public void plantTree(View view) {
-
-        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-
-        final View mView = inflater.inflate(R.layout.planttree_dialog, null);
-        builder.setView(mView);
-
-        builder.setCancelable(true);
-
-        builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                EditText ownerTextView = (EditText) mView.findViewById(R.id.ownername);
-                EditText speciesTextView = (EditText) mView.findViewById(R.id.treespecies);
-                EditText longitudeTextView = (EditText) mView.findViewById(R.id.treelongitude);
-                EditText latitudeTextView = (EditText) mView.findViewById(R.id.treelatitude);
-                EditText heightTextView = (EditText) mView.findViewById(R.id.treeheight);
-                EditText diameterTextiew = (EditText) mView.findViewById(R.id.treediameter);
-
-                httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
-                        String.valueOf(longitudeTextView.getText()), String.valueOf(latitudeTextView.getText()));
-                dialog.cancel();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-
-    }
-
     public void httpPostTree(String owner, String species, String height, String diameter,  String longitude, String latitude){
 
         RequestParams rp = new RequestParams();
