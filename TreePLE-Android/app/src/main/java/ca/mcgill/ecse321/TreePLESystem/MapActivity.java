@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,9 @@ import org.json.JSONObject;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -54,6 +57,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public static Bitmap resizedBitmap;
     private Button cutButton;
     private int mapClickCtr;
+    private Marker lastMarkerClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                 cutButton.setClickable(true);
                 cutButton.setVisibility(View.VISIBLE);
-                //recent = marker.getTitle();
+                lastMarkerClicked = marker;
                 return false;
             }
         });
@@ -120,30 +124,36 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         for(int i = 0; i < treeMap.size(); i++){
 
-            MarkerOptions treeMarker = new MarkerOptions();
 
             ArrayList<String> treeinfo = treeMap.get(i);
+            String status = treeinfo.get(8);
 
-            Double longitude = Double.valueOf(treeinfo.get(5));
-            Double latitude = Double.valueOf(treeinfo.get(6));
+            if(!status.equals("CutDown")) {
 
-            LatLng location = new LatLng(latitude, longitude);
+                MarkerOptions treeMarker = new MarkerOptions();
 
-            treeMarker.position(location);
-
-            treeMarker.title(treeinfo.get(0));  //Display species as title for now
-
-            treeMarker.snippet(treeinfo.get(4) + "^" + treeinfo.get(1) + "^" + treeinfo.get(7));
+                Double longitude = Double.valueOf(treeinfo.get(5));
+                Double latitude = Double.valueOf(treeinfo.get(6));
 
 
-            imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.treemapicon);
-            resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, 100, 100, false);
-            treeMarker.icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap));
+                LatLng location = new LatLng(latitude, longitude);
 
-            mMap.addMarker(treeMarker);
+                treeMarker.position(location);
 
-            CustomInfoWindowAdapter adapter = new CustomInfoWindowAdapter(MapActivity.this);
-            mMap.setInfoWindowAdapter(adapter);
+                treeMarker.title(treeinfo.get(0));  //Display species as title for now
+
+                treeMarker.snippet(treeinfo.get(4) + "^" + treeinfo.get(1) + "^" + treeinfo.get(7) + "^" + treeinfo.get(8));
+
+
+                imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.treemapicon);
+                resizedBitmap = Bitmap.createScaledBitmap(imageBitmap, 100, 100, false);
+                treeMarker.icon(BitmapDescriptorFactory.fromBitmap(resizedBitmap));
+
+                mMap.addMarker(treeMarker);
+
+                CustomInfoWindowAdapter adapter = new CustomInfoWindowAdapter(MapActivity.this);
+                mMap.setInfoWindowAdapter(adapter);
+            }
         }
     }
 
@@ -164,6 +174,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         String longitude = response.getJSONObject(i).getString("longitude");
                         String latitude = response.getJSONObject(i).getString("latitude");
                         String status = response.getJSONObject(i).getString("status");
+                        String id = response.getJSONObject(i).getString("id");
                         //String municipality = response.getJSONObject(i).getString("municipality");
 
                         treeInfo.add(species);
@@ -174,6 +185,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                         treeInfo.add(longitude);
                         treeInfo.add(latitude);
                         treeInfo.add(status);
+                        treeInfo.add(id);
                         //treeInfo.add(municipality);
 
                         myMap.put(i, treeInfo);
@@ -211,9 +223,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         builder.setPositiveButton(R.string.cut, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
+                String snippetInfo[] = splitSnippets(lastMarkerClicked.getSnippet());
+
+                httpMarkCutDownTree(snippetInfo[3]);
                 Toast.makeText(getApplicationContext(), "Your tree has been marked for cutdown",
                         Toast.LENGTH_LONG).show();
-                //httpMarkCutDownTree();
                 dialog.cancel();
 
                 //httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
@@ -231,8 +245,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         dialog.show();
     }
 
-    public void httpMarkCutDownTree(){
-        HttpUtils.get("E", new RequestParams(), new JsonHttpResponseHandler() {
+    public void httpMarkCutDownTree(String treeID){
+        HttpUtils.post("markCutDown/tree/" + treeID, new RequestParams(), new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -259,30 +273,33 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
+
+
         final View mView = inflater.inflate(R.layout.planttree_dialog, null);
         builder.setView(mView);
+
+        final Spinner mySpinner=(Spinner) mView.findViewById(R.id.speciesSpinner);
+        mySpinner.setPrompt("Tree Species");
+        List<String> species = Arrays.asList(getResources().getStringArray(R.array.spinnerItems));
+        Collections.sort(species);
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, species);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        mySpinner.setAdapter(adapter);
+
 
         builder.setCancelable(true);
 
         builder.setPositiveButton(R.string.plant, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 EditText ownerTextView = (EditText) mView.findViewById(R.id.ownername);
-                EditText speciesTextView = (EditText) mView.findViewById(R.id.treespecies);
                 EditText heightTextView = (EditText) mView.findViewById(R.id.treeheight);
                 EditText diameterTextiew = (EditText) mView.findViewById(R.id.treediameter);
-                EditText longitudeTextView = (EditText) mView.findViewById(R.id.treelongitude);
-                EditText latitudeTextView = (EditText) mView.findViewById(R.id.treelatitude);
+                String species = mySpinner.getSelectedItem().toString();
 
-                longitudeTextView.setText(String.valueOf(latLng.longitude), TextView.BufferType.EDITABLE);
-                longitudeTextView.setText(String.valueOf(latLng.latitude), TextView.BufferType.EDITABLE);
-
-                longitudeTextView.setHint(String.valueOf(latLng.longitude));
-                latitudeTextView.setHint(String.valueOf(latLng.latitude));
-
-                longitudeTextView.setEnabled(false);
-                latitudeTextView.setEnabled(false);
-
-                httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
+                httpPostTree(String.valueOf(ownerTextView.getText()), species, String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
                         String.valueOf(latLng.longitude), String.valueOf(latLng.latitude));
                 refreshLists(treeMap, "trees");
                 dialog.cancel();
@@ -325,5 +342,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 //refreshErrorMessage();
             }
         });
+    }
+
+    public static String[] splitSnippets(String snippet){
+        String[] arr=snippet.split("\\^");
+        return arr;
     }
 }
