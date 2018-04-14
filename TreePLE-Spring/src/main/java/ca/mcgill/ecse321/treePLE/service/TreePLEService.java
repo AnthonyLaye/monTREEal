@@ -89,10 +89,10 @@ public class TreePLEService {
 	    p = new Person(name,email,password,tm);
 		tm.addPerson(p);
 		
-		if(role == "Resident") {
+		if(role.equals("Resident")) {
 			p.setRole(Role.Resident);
 		}
-		else if(role=="Scientist") {
+		else if(role.equals("Scientist")) {
 			p.setRole(Role.Scientist);
 		}
 		}else {
