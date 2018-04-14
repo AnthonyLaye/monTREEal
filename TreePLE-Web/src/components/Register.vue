@@ -1,10 +1,15 @@
 <template>
-  <div id="Login">
+  <div id="Register">
 
     <h1> Register </h1>
 
-    <label for="email"><b>Email</b></label>
+    <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <br> </br>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
     <br> </br>
 
@@ -12,6 +17,15 @@
     <input type="password" placeholder="Enter Password" name="psw" required>
 
     <br> </br>
+
+    <label for="type"><b>Type of User: </b></label>
+
+    <input type="radio" name="usertype" value="Scientist"> Scientist
+    <input type="radio" name="usertype" value="Resident"> Resident<br>
+
+    <br> </br>
+
+
 
     <button type="submit">Register</button>
     <br> </br>

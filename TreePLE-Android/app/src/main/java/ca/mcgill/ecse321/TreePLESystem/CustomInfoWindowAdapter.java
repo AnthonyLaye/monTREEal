@@ -57,7 +57,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         ownertv.setText(ownername);
 
         heighttv.setTypeface(quickRegular);
-        heighttv.setText(height + "meters");
+        heighttv.setText(height + "cm");
 
         statustv.setTypeface(quickRegular);
         statustv.setText(status);
