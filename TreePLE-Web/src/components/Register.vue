@@ -4,7 +4,7 @@
     <h1> Register </h1>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="name" required>
 
     <br> </br>
 
@@ -18,14 +18,14 @@
 
     <br> </br>
 
-    <label for="type"><b>Type of User: </b></label>
+    <label for="usertype"><b>Type of User: </b></label>
 
     <input type="radio" name="usertype" value="Scientist"> Scientist
     <input type="radio" name="usertype" value="Resident" checked="checked"> Resident<br>
 
     <br> </br>
 
-    <button type="submit">register(uname, email, pwd, usertype)</button>
+    <button @click="register(name, email, psw, usertype)"> Register </button>
     <br> </br>
 
   </div>

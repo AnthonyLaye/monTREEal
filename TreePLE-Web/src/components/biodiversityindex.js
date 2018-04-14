@@ -39,7 +39,7 @@ export default {
       this.$router.push('bioindex')
     },
     exitForecasting: function () {
-      this.$router.push('trep')
+      this.$router.push('dashboard')
     },
     startCarbonSequestration: function () {
       this.$router.push('carbonsequestration')

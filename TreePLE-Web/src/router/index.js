@@ -19,7 +19,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/trep',
+      path: '/dashboard',
       name: 'TreePLE',
       component: TreePLE
     },

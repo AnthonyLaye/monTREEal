@@ -26,7 +26,7 @@ export default {
       this.$router.push('carbonsequestration')
     },
     exitForecasting: function () {
-      this.$router.push('trep')
+      this.$router.push('dashboard')
     },
     startWaterIndex: function () {
       this.$router.push('waterindex')
