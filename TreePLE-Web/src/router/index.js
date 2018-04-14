@@ -7,11 +7,17 @@ import Forecast from '@/components/Forecast'
 import BioIndex from '@/components/BioIndex'
 import CarbonSequestration from '@/components/CarbonSequestration'
 import WaterIndex from '@/components/WaterIndex'
+import Home from '@/components/Home'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
     {
       path: '/trep',
       name: 'TreePLE',
