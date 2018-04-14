@@ -98,7 +98,7 @@ public class TestGetTreesByArea {
 		Float longitude = 44.01f;
 		Float latitude = 44.01f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"student@mail.ca","the321", tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		String aSpecies1 = "oak";
@@ -109,7 +109,7 @@ public class TestGetTreesByArea {
 		Float longitude1 = 44.015f;
 		Float latitude1 = 44.015f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1, "student@mail.ca","the321",tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 
 		try {
@@ -160,7 +160,7 @@ public class TestGetTreesByArea {
 		Float longitude = 44.01f;
 		Float latitude = 44.01f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name, "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		String aSpecies1 = "oak";
@@ -171,7 +171,7 @@ public class TestGetTreesByArea {
 		Float longitude1 = 44.015f;
 		Float latitude1 = 44.015f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1, "student@mail.ca","the321",tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 
 		try {

@@ -43,7 +43,7 @@ import junit.framework.Assert;
 			Float longitude = 3f;
 			Float latitude = 4f;
 			String municipality = "NDG";
-			Person p = new Person(name, tm);
+			Person p = new Person(name,"joe.bob@mail.ca","des",tm);
 			Location l = new Location(longitude,latitude,municipality);
 
 			//create Tree2
@@ -55,7 +55,7 @@ import junit.framework.Assert;
 			Float longitude1 = 4f;
 			Float latitude1 = 5f;
 			String municipality1 = "Outremont";
-			Person p1 = new Person(name1, tm);
+			Person p1 = new Person(name1,"jack.pot@des.com","allo", tm);
 			Location l1 = new Location(longitude1,latitude1,municipality1);
 
 			//create Tree3
@@ -67,7 +67,7 @@ import junit.framework.Assert;
 			Float longitude2 = 4f;
 			Float latitude2 = 5f;
 			String municipality2 = "MontRoyal";
-			Person p2 = new Person(name1, tm);
+			Person p2 = new Person(name1,"","", tm);
 			Location l2 = new Location(longitude1,latitude1,municipality1);
 
 			//create Tree4
@@ -79,7 +79,7 @@ import junit.framework.Assert;
 			Float longitude3 = 2f;
 			Float latitude3 = 5f;
 			String municipality3 = "DT";
-			Person p3 = new Person(name, tm);
+			Person p3 = new Person(name, "margo1@allo.ca", "desd",tm);
 			Location l3 = new Location(longitude,latitude,municipality);
 
 			//create Tree5
@@ -91,7 +91,7 @@ import junit.framework.Assert;
 			Float longitude4 = 2f;
 			Float latitude4 = 5f;
 			String municipality4 = "DT";
-			Person p4 = new Person(name, tm);
+			Person p4 = new Person(name, "margo@allo.ca", "desd",tm);
 			Location l4 = new Location(longitude,latitude,municipality);
 
 			try {
@@ -135,7 +135,7 @@ import junit.framework.Assert;
 			Float longitude = 3f;
 			Float latitude = 4f;
 			String municipality = "NDG";
-			Person p = new Person(name, tm);
+			Person p = new Person(name,"joe.bob@mail.ca","des",tm);
 			Location l = new Location(longitude,latitude,municipality);
 
 			//create Tree2
@@ -147,7 +147,7 @@ import junit.framework.Assert;
 			Float longitude1 = 4f;
 			Float latitude1 = 5f;
 			String municipality1 = "Outremont";
-			Person p1 = new Person(name1, tm);
+			Person p1 = new Person(name1,"jack.pot@des.com","allo", tm);
 			Location l1 = new Location(longitude1,latitude1,municipality1);
 
 			//create Tree3
@@ -159,7 +159,7 @@ import junit.framework.Assert;
 			Float longitude2 = 4f;
 			Float latitude2 = 5f;
 			String municipality2 = "MontRoyal";
-			Person p2 = new Person(name1, tm);
+			Person p2 = new Person(name1,"","", tm);
 			Location l2 = new Location(longitude2,latitude2,municipality2);
 
 			try {

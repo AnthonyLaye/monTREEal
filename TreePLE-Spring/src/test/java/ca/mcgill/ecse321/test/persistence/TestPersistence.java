@@ -27,8 +27,8 @@ public class TestPersistence {
 		tm = new TreePLEManager();
 
 		// plant trees
-		Tree t1 = new Tree("oak", new Date(2018,02,04) ,21 , new Person("Jeff",tm), tm, new Location(2.00f,2.00f,"NDG"));
-		Tree t2 = new Tree("maple", new Date(2018,02,03) ,22 , new Person("George",tm), tm, new Location(3.05f,9.00f,"Outremont"));
+		Tree t1 = new Tree("oak", new Date(2018,02,04) ,21 , new Person("Jeff", "jeff@mcgill.ca", "boghi839",tm), tm, new Location(2.00f,2.00f,"NDG"));
+		Tree t2 = new Tree("maple", new Date(2018,02,03) ,22 , new Person("George","george@mcgill.ca", "fsfs", tm), tm, new Location(3.05f,9.00f,"Outremont"));
 
 		tm.addTree(t1);
 		tm.addTree(t2);
@@ -69,8 +69,8 @@ public class TestPersistence {
 		Assert.assertEquals(21,tm.getTree(0).getId());
 		Assert.assertEquals(22,tm.getTree(1).getId());
 
-		Assert.assertEquals(new Person("Jeff",tm),tm.getTree(0).getPerson());
-		Assert.assertEquals(new Person("George",tm),tm.getTree(1).getPerson());
+		Assert.assertEquals(new Person("Jeff","jeff@mcgill.ca", "boghi839", tm),tm.getTree(0).getPerson());
+		Assert.assertEquals(new Person("George","george@mcgill.ca", "fsfs",tm),tm.getTree(1).getPerson());
 
 		Assert.assertEquals(tm,tm.getTree(0).getTreePLEManager());
 		Assert.assertEquals(tm,tm.getTree(1).getTreePLEManager());

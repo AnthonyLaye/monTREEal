@@ -76,7 +76,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name, "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		String aSpecies1 = "oak";
@@ -87,7 +87,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude1 = 4f;
 		Float latitude1 = 5f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1, "student@mail.ca","the321",tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 		
 		String aSpecies2 = "oak";
@@ -98,7 +98,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude2 = 6f;
 		Float latitude3 = 7f;
 		String municipality2 = "Outremont";
-		Person p2 = new Person(name1, tm);
+		Person p2 = new Person(name1,"student@mail.ca","the321", tm);
 		Location l2 = new Location(longitude1,latitude1,municipality1);
 
 		try {
@@ -151,7 +151,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"student@mail.ca","the321", tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		String aSpecies1 = "oak";
@@ -162,7 +162,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude1 = 4f;
 		Float latitude1 = 5f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1,"student@mail.ca","the321", tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 		
 		String aSpecies2 = "oak";
@@ -173,7 +173,7 @@ public class TestGetAllTreesByMunicipality {
 		Float longitude2 = 6f;
 		Float latitude3 = 7f;
 		String municipality2 = "Outremont";
-		Person p2 = new Person(name1, tm);
+		Person p2 = new Person(name1, "student@mail.ca","the321",tm);
 		Location l2 = new Location(longitude1,latitude1,municipality1);
 
 		try {

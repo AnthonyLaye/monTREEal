@@ -14,6 +14,8 @@ class Tree {
 
 class Person{
   String name;
+  String email;
+  String password;
 }
 
 class TreePLEManager{

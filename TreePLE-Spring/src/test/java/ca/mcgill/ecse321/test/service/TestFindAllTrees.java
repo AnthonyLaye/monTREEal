@@ -64,7 +64,7 @@ public class TestFindAllTrees {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"", "", tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		String aSpecies1 = "oak";
@@ -75,7 +75,7 @@ public class TestFindAllTrees {
 		Float longitude1 = 4f;
 		Float latitude1 = 5f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1, "", "", tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 
 		try {

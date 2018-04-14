@@ -55,7 +55,7 @@ public class TestCarbonSequestration {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name,"student@mail.ca","the321", tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		//create Tree2
@@ -67,7 +67,7 @@ public class TestCarbonSequestration {
 		Float longitude1 = 4f;
 		Float latitude1 = 5f;
 		String municipality1 = "Outremont";
-		Person p1 = new Person(name1, tm);
+		Person p1 = new Person(name1, "student@mail.ca","the321",tm);
 		Location l1 = new Location(longitude1,latitude1,municipality1);
 
 		//create Tree3
@@ -79,7 +79,7 @@ public class TestCarbonSequestration {
 		Float longitude2 = 4f;
 		Float latitude2 = 5f;
 		String municipality2 = "MontRoyal";
-		Person p2 = new Person(name1, tm);
+		Person p2 = new Person(name1,"student@mail.ca","the321", tm);
 		Location l2 = new Location(longitude1,latitude1,municipality1);
 		
 		try {

@@ -52,7 +52,7 @@ public class TestGetStatus {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name, "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 
 		try {
@@ -77,7 +77,7 @@ public class TestGetStatus {
 		Float longitude = 3f;
 		Float latitude = 4f;
 		String municipality = "NDG";
-		Person p = new Person(name, tm);
+		Person p = new Person(name, "student@mail.ca","the321",tm);
 		Location l = new Location(longitude,latitude,municipality);
 		
 		Tree t1;

@@ -1,11 +1,13 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.26.1-f40f105-3613 modeling language!*/
+/*This code was generated using the UMPLE 1.27.1.3862.7e232c4b4 modeling language!*/
 
 package ca.mcgill.ecse321.treePLE.model;
 import java.util.*;
+
 import java.sql.Date;
 
-// line 15 "../../../../../TreePLEModel.ump"
+// line 16 "../../../../../../../../ump/tmp273475/model.ump"
+// line 75 "../../../../../../../../ump/tmp273475/model.ump"
 public class Person
 {
 
@@ -15,6 +17,15 @@ public class Person
 
   //Person Attributes
   private String name;
+  private String email;
+  private String password;
+  private Role role;
+  
+  //------------------------
+  // ENUMERATION
+  //------------------------
+  
+  public enum Role { UnSpecified, Resident, Scientist }
 
   //Person Associations
   private List<Tree> tree;
@@ -24,9 +35,12 @@ public class Person
   // CONSTRUCTOR
   //------------------------
 
-  public Person(String aName, TreePLEManager aTreePLEManager)
+  public Person(String aName, String aEmail, String aPassword, TreePLEManager aTreePLEManager)
   {
     name = aName;
+    email = aEmail;
+    password = aPassword;
+    role = Role.UnSpecified;
     tree = new ArrayList<Tree>();
     boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
     if (!didAddTreePLEManager)
@@ -38,6 +52,20 @@ public class Person
   //------------------------
   // INTERFACE
   //------------------------
+  
+  
+  public void setRole(Role aRole) {
+	  role = aRole;
+  }
+  
+  public Role getRole() {
+	  return role;
+  }
+  
+  public String getRoleName() {
+	  String roleName = role.toString();
+	  return roleName;
+}
 
   public boolean setName(String aName)
   {
@@ -47,11 +75,37 @@ public class Person
     return wasSet;
   }
 
+  public boolean setEmail(String aEmail)
+  {
+    boolean wasSet = false;
+    email = aEmail;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setPassword(String aPassword)
+  {
+    boolean wasSet = false;
+    password = aPassword;
+    wasSet = true;
+    return wasSet;
+  }
+
   public String getName()
   {
     return name;
   }
 
+  public String getEmail()
+  {
+    return email;
+  }
+
+  public String getPassword()
+  {
+    return password;
+  }
+  /* Code from template association_GetMany */
   public Tree getTree(int index)
   {
     Tree aTree = tree.get(index);
@@ -81,17 +135,17 @@ public class Person
     int index = tree.indexOf(aTree);
     return index;
   }
-
+  /* Code from template association_GetOne */
   public TreePLEManager getTreePLEManager()
   {
     return treePLEManager;
   }
-
+  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfTree()
   {
     return 0;
   }
-
+  /* Code from template association_AddManyToOne */
   public Tree addTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, TreePLEManager aTreePLEManager, Location aLocation)
   {
     return new Tree(aSpecies, aHeight, aAge, aDate, aDiameter, aId, this, aTreePLEManager, aLocation);
@@ -126,7 +180,7 @@ public class Person
     }
     return wasRemoved;
   }
-
+  /* Code from template association_AddIndexControlFunctions */
   public boolean addTreeAt(Tree aTree, int index)
   {  
     boolean wasAdded = false;
@@ -158,7 +212,7 @@ public class Person
     }
     return wasAdded;
   }
-
+  /* Code from template association_SetOneToMany */
   public boolean setTreePLEManager(TreePLEManager aTreePLEManager)
   {
     boolean wasSet = false;
@@ -187,14 +241,19 @@ public class Person
     }
     TreePLEManager placeholderTreePLEManager = treePLEManager;
     this.treePLEManager = null;
-    placeholderTreePLEManager.removePerson(this);
+    if(placeholderTreePLEManager != null)
+    {
+      placeholderTreePLEManager.removePerson(this);
+    }
   }
 
 
   public String toString()
   {
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + System.getProperties().getProperty("line.separator") +
+            "name" + ":" + getName()+ "," +
+            "email" + ":" + getEmail()+ "," +
+            "password" + ":" + getPassword()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "treePLEManager = "+(getTreePLEManager()!=null?Integer.toHexString(System.identityHashCode(getTreePLEManager())):"null");
   }
 }

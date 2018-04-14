@@ -88,7 +88,8 @@ public class TreePLERestController {
             @RequestParam double latitude,
             @RequestParam String municipality) throws InvalidInputException {
 
-        Person treeOwner = new Person(personName, service.tm);
+        //Person treeOwner = new Person(personName, service.tm);
+        Person treeOwner = new Person(personName, "", "", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         Location location = new Location((float) longitude, (float) latitude, municipality);
 
@@ -105,7 +106,8 @@ public class TreePLERestController {
             @RequestParam float latitude,
             @RequestParam String municipality) throws InvalidInputException {
 
-        Person treeOwner = new Person(personName, service.tm);
+        //Person treeOwner = new Person(personName, service.tm);
+        Person treeOwner = new Person(personName, "", "", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         Location location = new Location(longitude, latitude, municipality);
 
@@ -150,7 +152,8 @@ public class TreePLERestController {
             @RequestParam float diameter,
             @RequestParam String status) {//throws InvalidInputException {
 
-        Person observer = new Person(personName, service.tm);
+        //Person observer = new Person(personName, service.tm);
+        Person observer = new Person(personName,"","", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
         
         //boolean wasAdded = false;
@@ -160,7 +163,17 @@ public class TreePLERestController {
 
     //----------------------------------
     //   GET Methods
-    //----------------------------------   
+    //---------------------------------- 
+    
+    @GetMapping(value = {"login/", "login"})
+    public PersonDto login(@RequestParam String email, @RequestParam String password) 
+    		throws InvalidInputException{
+    	Person user;
+    	user=service.login(email, password);
+    	PersonDto person = convertToDto(user);
+    	return person;
+    }
+    
     @GetMapping(value = { "/trees", "/trees/" })
     public List<TreeDto> findAllTrees() throws InvalidInputException{
         List<TreeDto> trees = Lists.newArrayList();
