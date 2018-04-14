@@ -36,7 +36,7 @@ public class TreePLEService {
 			throw new InvalidInputException("Something is empty!");
 		}
 
-		if(aHeight<201 && aHeight>0) {
+		if(aHeight<20001 && aHeight>0) {
 			
 			if (aSpecies.chars().allMatch(Character::isLetter)) {
 				String nameWithout = aSpecies.replace("\\s", "");
@@ -207,7 +207,7 @@ public class TreePLEService {
 			throw new InvalidInputException("Distance cannot be negative!");
 		}
 
-		if(-180>lat || lat>180 || -180>lon || lon>180) {
+		if(-90>lat || lat>90 || -180>lon || lon>180) {
 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
 		}
 		
@@ -246,7 +246,7 @@ public class TreePLEService {
 			throw new InvalidInputException("Radius cannot be negative!");
 		}
 
-		if(-180>lat || lat>180 || -180>lon || lon>180) {
+		if(-90>lat || lat>90 || -180>lon || lon>180) {
 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
 		}
 
@@ -578,4 +578,6 @@ public class TreePLEService {
 		}
 		return treeStatus;
 	}
+
+
 }

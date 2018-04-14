@@ -14,33 +14,41 @@ var AXIOS = axios.create({
   headers: { 'Access-Control-Allow-Origin': frontendUrl }
 })
 
-function TreeDto(species, height, age, date, diameter, id) {
+function TreeDto(species, height, age, date, diameter, id, status, latitude, longitude) {
   this.species = species;
   this.height = height;
   this.age = age;
   this.date = date;
   this.diameter = diameter;
   this.id = id;
+  this.status = status;
+  this.latitude = latitude;
+  this.longitude = longitude;
 }
+
 export default {
   name: 'treePLEsystem',
   data() {
     return {
+      center: {lat: 45.5017, lng: -73.5673},
       trees: [],
-      errorTrees: ''
+      errorTrees: '',
     }
   },
-  created: function() {
+
+  created: function () {
     AXIOS.get('/treePLE/trees')
     .then(response => {
       this.trees = response.data
+      this.errorTrees = ''
     })
     .catch(e => {
-      this.errorEvent = e;
+      this.errorEvent = e
     });
   },
+
   methods: {
-    listAllTrees: function() {
+    listAllTrees: function () {
       AXIOS.get('/treePLE/trees')
       .then(response => {
         // JSON responses are automatically parsed.
@@ -53,8 +61,7 @@ export default {
         this.errorTrees = errorMsg
       })
     },
-    startForecastPage: function(){
-
+    startForecastPage: function () {
       this.$router.push('forecast')
     }
   }

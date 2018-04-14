@@ -2,10 +2,8 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view></router-view>
-  <!--  <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 100%; height: 500px">
-
-      </gmap-map>
-      -->
+ <!-- <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 100%; height: 500px">
+      </gmap-map> -->
   </div>
 </template>
 
