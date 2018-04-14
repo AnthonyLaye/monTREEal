@@ -217,6 +217,12 @@ public class TreePLEManager
     wasAdded = true;
     return wasAdded;
   }
+  
+  /* Code from template association_AddManyToOne */
+  public Person addPerson(String aName, String aEmail, String aPassword)
+  {
+    return new Person(aName, aEmail, aPassword, this);
+  }
 
   public boolean removePerson(Person aPerson)
   {
@@ -335,7 +341,7 @@ public class TreePLEManager
   }
   
   /* Code from template association_AddManyToOne */
-  public Person addPerson(String aName, String aEmail, String aPassword)
+  public Person person(String aName, String aEmail, String aPassword)
   {
     return new Person(aName, aEmail, aPassword, this);
   }

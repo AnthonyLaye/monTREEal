@@ -160,18 +160,26 @@ public class TreePLERestController {
         Tree treeAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
         return convertToDto(treeAdded);
     }
+    
+    @PostMapping(value= {"register/{name}/", "register/{name}"})
+    public PersonDto register(@PathVariable("name")String name,
+    		@RequestParam String email, @RequestParam String password, 
+    		@RequestParam String role) throws InvalidInputException {
+    	Person p = service.register(name, email, password, role);
+    	PersonDto person = convertToDto(p);
+    	return person;
+    }
 
     //----------------------------------
     //   GET Methods
     //---------------------------------- 
     
     @GetMapping(value = {"login/", "login"})
-    public PersonDto login(@RequestParam String email, @RequestParam String password) 
+    public String login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
-    	Person user;
-    	user=service.login(email, password);
-    	PersonDto person = convertToDto(user);
-    	return person;
+    	String role;
+    	role=service.login(email, password);
+    	return role;
     }
     
     @GetMapping(value = { "/trees", "/trees/" })

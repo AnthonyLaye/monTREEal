@@ -25,7 +25,7 @@ public class Person
   // ENUMERATION
   //------------------------
   
-  public enum Role { UnSpecified, Resident, Scientist }
+  public enum Role { Unspecified, Resident, Scientist }
 
   //Person Associations
   private List<Tree> tree;
@@ -40,7 +40,7 @@ public class Person
     name = aName;
     email = aEmail;
     password = aPassword;
-    role = Role.UnSpecified;
+    role = Role.Unspecified;
     tree = new ArrayList<Tree>();
     boolean didAddTreePLEManager = setTreePLEManager(aTreePLEManager);
     if (!didAddTreePLEManager)
