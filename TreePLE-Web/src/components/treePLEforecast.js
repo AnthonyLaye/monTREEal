@@ -10,6 +10,9 @@ export default {
 
       this.$router.push('bioindex');
     },
+    exitForecasting: function () {
+      this.$router.push('trep')
+    },
     startCarbonSequestration: function() {
 
       this.$router.push('carbonsequestration');

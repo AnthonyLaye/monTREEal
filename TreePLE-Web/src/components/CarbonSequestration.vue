@@ -71,6 +71,11 @@
     <button @click="calculateSequestration(latitude, longitude, radius)" style="margin:15px" > Calculate!
     </button>
 
+    <br> </br>
+
+    <button @click="exitForecasting" style="margin:15px" >Exit Forecasting
+    </button>
+
   </div>
 </template>
 

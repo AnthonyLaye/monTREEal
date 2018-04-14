@@ -21,11 +21,9 @@
     <label for="type"><b>Type of User: </b></label>
 
     <input type="radio" name="usertype" value="Scientist"> Scientist
-    <input type="radio" name="usertype" value="Resident"> Resident<br>
+    <input type="radio" name="usertype" value="Resident" checked="checked"> Resident<br>
 
     <br> </br>
-
-
 
     <button type="submit">Register</button>
     <br> </br>
