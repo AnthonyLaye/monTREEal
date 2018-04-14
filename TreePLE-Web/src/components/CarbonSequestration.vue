@@ -31,40 +31,53 @@
           <input type="text" v-model="longitude" placeholder = "Area Longitude:">
         </td>
         <td>
-          <input type="text" v-model="radius" placeholder = "Radius:">
-        </td>
-      </tr>
-    </table>
-
-    <table align="center">
-      <tr>
-        <td>
-          <input type="text" v-model="treeSpecies" placeholder = "Tree Species">
+          <input type="text" v-model="radius" placeholder = "Radius(km):">
         </td>
         <td>
-          <button @click="addToForecast(treeSpecies)" style="margin:15px" >Add Tree To Forecast
+          <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
           </button>
         </td>
       </tr>
     </table>
 
-    <table>
+    <table align = "center" style = "width:60%">
       <tr>
+        <th> ID </th>
         <th> Species </th>
-      <tr v-for="tree in newForecastTrees" >
-        <td> {{tree}} </td>
+        <th> Height </th>
+        <th> Diameter </th>
+        <th> Age </th>
+        <th> Date Planted </th>
+      <tr v-for="tree in treesinArea" >
+        <td> {{tree.id}} </td>
+        <td> {{tree.species}} </td>
+        <td> {{tree.height}} </td>
+        <td> {{tree.diameter}} </td>
+        <td> {{tree.age}} </td>
+        <td> {{tree.date}} </td>
         </td>
+        <button @click="removeFromForecast(tree.id)" style="margin:15px" >Remove Tree from Forecast
+        </button>
       </tr>
     </table>
 
-    <select v-model="removedTreesFromForecast">
-        <option disabled value="">Please select a Tree to remove</option>
-        <option v-for="tree in totalTrees">
-          {{tree}} </option>
-      </select>
+    <br> </br>
 
-    <button @click="removeFromForecast(removedTreesFromForecast)" style="margin:15px" >Remove Tree From Forecast
-    </button>
+    <br> </br>
+
+    <table align="center">
+      <tr>
+        <td>
+          <input type="text" v-model="treeSpecies" placeholder = "Tree Species">
+          <input type="text" v-model="treeHeight" placeholder = "Tree Height (cm)">
+          <input type="text" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+        </td>
+        <td>
+          <button @click="addToForecast(treeSpecies, treeHeight, treeDiameter)" style="margin:15px" >Add Tree To Forecast
+          </button>
+        </td>
+      </tr>
+    </table>
 
     <br> </br>
 
