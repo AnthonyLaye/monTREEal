@@ -20,7 +20,7 @@
           <forecast id="40"/>
         </treePLEManager>
       </person>
-      <surveies id="41"/>
+      <surveys id="41"/>
       <treePLEManager reference="1"/>
       <location id="42">
         <longitude>251.0</longitude>
@@ -45,7 +45,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="67"/>
+      <surveys id="67"/>
       <treePLEManager reference="1"/>
       <location id="68">
         <longitude>999.9</longitude>
@@ -71,7 +71,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="74">
+      <surveys id="74">
         <ca.mcgill.ecse321.treePLE.model.Survey id="75">
           <date id="76">2018-02-02</date>
           <id>6906360</id>
@@ -82,7 +82,7 @@
           </observer>
           <tree reference="70"/>
         </ca.mcgill.ecse321.treePLE.model.Survey>
-      </surveies>
+      </surveys>
       <treePLEManager reference="1"/>
       <location id="79">
         <longitude>999.9</longitude>
@@ -108,7 +108,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="85"/>
+      <surveys id="85"/>
       <treePLEManager reference="1"/>
       <location id="86">
         <longitude>6.4372988E7</longitude>
@@ -134,7 +134,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="115"/>
+      <surveys id="115"/>
       <treePLEManager reference="1"/>
       <location id="116">
         <longitude>1.23</longitude>
@@ -160,7 +160,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="122"/>
+      <surveys id="122"/>
       <treePLEManager reference="1"/>
       <location id="123">
         <longitude>1.23</longitude>
@@ -186,7 +186,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="129"/>
+      <surveys id="129"/>
       <treePLEManager reference="1"/>
       <location id="130">
         <longitude>1.23</longitude>
@@ -212,7 +212,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="136"/>
+      <surveys id="136"/>
       <treePLEManager reference="1"/>
       <location id="137">
         <longitude>1.23</longitude>
@@ -238,7 +238,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="143"/>
+      <surveys id="143"/>
       <treePLEManager reference="1"/>
       <location id="144">
         <longitude>43.5</longitude>
@@ -264,7 +264,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="150"/>
+      <surveys id="150"/>
       <treePLEManager reference="1"/>
       <location id="151">
         <longitude>43.5</longitude>
@@ -290,7 +290,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="157"/>
+      <surveys id="157"/>
       <treePLEManager reference="1"/>
       <location id="158">
         <longitude>43.0</longitude>
@@ -316,7 +316,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="164"/>
+      <surveys id="164"/>
       <treePLEManager reference="1"/>
       <location id="165">
         <longitude>43.0</longitude>
@@ -342,7 +342,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="171"/>
+      <surveys id="171"/>
       <treePLEManager reference="1"/>
       <location id="172">
         <longitude>43.0</longitude>
@@ -368,7 +368,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="178"/>
+      <surveys id="178"/>
       <treePLEManager reference="1"/>
       <location id="179">
         <longitude>43.0</longitude>
@@ -394,7 +394,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="185"/>
+      <surveys id="185"/>
       <treePLEManager reference="1"/>
       <location id="186">
         <longitude>43.0</longitude>
@@ -420,7 +420,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="192"/>
+      <surveys id="192"/>
       <treePLEManager reference="1"/>
       <location id="193">
         <longitude>43.0</longitude>
@@ -446,7 +446,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="199"/>
+      <surveys id="199"/>
       <treePLEManager reference="1"/>
       <location id="200">
         <longitude>43.0</longitude>
@@ -472,7 +472,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="234"/>
+      <surveys id="234"/>
       <treePLEManager reference="1"/>
       <location id="235">
         <longitude>1.23</longitude>
@@ -498,7 +498,7 @@
         </tree>
         <treePLEManager reference="1"/>
       </person>
-      <surveies id="241"/>
+      <surveys id="241"/>
       <treePLEManager reference="1"/>
       <location id="242">
         <longitude>122.23</longitude>
