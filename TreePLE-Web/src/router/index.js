@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-import Register from '@/components/Register'
+
 import TreePLE from '@/components/TreePLE'
 import Forecast from '@/components/Forecast'
 import BioIndex from '@/components/BioIndex'
@@ -31,7 +31,7 @@ export default new Router({
     {
       path: '/register',
       name: 'Register',
-      component: Register
+      component: require('../components/Register.vue').default
     },
     {
       path: '/forecast',

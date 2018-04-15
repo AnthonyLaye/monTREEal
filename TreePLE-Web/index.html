@@ -4,8 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TreePLEWeb</title>
+
+    <style type="text/css">
+    	.outer-div {
+  			height: 20vh;
+  			overflow: hidden; 
+		}
+		.inner-div {
+  			height: 100%;
+  			width: 100%;
+  			background-size: cover;
+  			background-position: center;
+  			transition: all 0.5s ease;
+  			background-image: url("montreal4.jpg");
+		}
+		.inner-div:hover {
+  			transform: scale(1.2);
+		}
+    </style>
+
   </head>
   <body>
+  	<div class="outer-div"><div class="inner-div"></div></div>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
