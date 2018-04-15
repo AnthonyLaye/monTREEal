@@ -15,6 +15,10 @@ import com.google.android.gms.maps.model.Marker;
 
 public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
+    /* This class implements Google Map's info window so that when a user clicks on a tree, they can
+        view important information. For now, it optains the snippet of information from the marker,
+        and displays the species name, owner name, height of the tree(cm) and status
+    */
     private Activity context;
     public Bitmap imageBitmap;
     public Bitmap resizedBitmap;
@@ -33,8 +37,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     @Override
     public View getInfoContents(Marker marker) {
-        //for now, clicking on a session marker will make user+time go to desc
-        //because i was only focusing on gym markers
+
         View view = context.getLayoutInflater().inflate(R.layout.custominfowindow, null);
 
         String species = marker.getTitle();
@@ -72,6 +75,9 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
     }
 
+    /*
+        This method separates the snippets into an array so that we can extract the important information
+    */
     public static String[] splitSnippets(String snippet){
         String[] arr=snippet.split("\\^");
         return arr;
