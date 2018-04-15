@@ -55,21 +55,15 @@ public class TreePLEService {
 					String userEmail = user.getEmail();
 					if(userEmail.contentEquals(email)) {
 						String userPassword = user.getPassword();
-						if(userPassword.contentEquals(password)) {
-							String role =user.getRoleName();
+						if (userPassword.contentEquals(password)) {
+							String role = user.getRoleName();
 							return role;
 						}
-						else {
-							throw new InvalidInputException ("incorrect password");
-						}
-					}
-					else {
-						throw new InvalidInputException("This email address is not registered in the system. You may want to register below.");
 					}
 				}
 			}
 			else {
-				throw new InvalidInputException("The email address passed does not have the correct extension. Ex: .com, .ca, .org or .fr");
+				throw new InvalidInputException("The email address passed does not have the correct extension, is not in the system, or you have the wrong password");
 			}
 		}
 		else {
