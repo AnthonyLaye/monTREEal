@@ -25,13 +25,13 @@
         <th> Set Range for Calculation: </th>
         <br> </br>
         <td>
-          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+          <input type="number" min="-85" max="85" v-model="latitude" placeholder = "Area Latitude:" >
         </td>
         <td>
-          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+          <input type="number" min="-180" max="180" v-model="longitude" placeholder = "Area Longitude:">
         </td>
         <td>
-          <input type="text" v-model="radius" placeholder = "Radius(km):">
+          <input type="number" min="0.1" max="200" v-model="radius" placeholder = "Radius(km):">
         </td>
         <td>
           <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
@@ -68,7 +68,7 @@
     <table align="center">
       <tr>
         <td>
-          <input type="number" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <input type="number" min="1" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
         </td>
         <td>
           <button @click="addToForecast(treeDiameter)" style="margin:15px" >Add Tree To Forecast
