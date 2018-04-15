@@ -15,7 +15,9 @@ export default {
       latitude: 0,
       longitude: 0,
       radius: 0,
-      treesinArea: []
+      treesinArea: [],
+      errorLocation: '',
+      errorAddTree: ''
     }
   },
 
@@ -33,10 +35,23 @@ export default {
       this.$router.push('waterindex')
     },
     getTreesInArea: function (latitude, longitude, radius) {
+      if (latitude > 85 || latitude < -85) {
+        this.errorLocation = 'Latitude must be between -85 and 85! '
+        return
+      }
+      if (longitude > 180 || longitude < -180) {
+        this.errorLocation = 'Longitude must be between -180 and 180! '
+        return
+      }
+      if (radius > 500 || radius <= 0) {
+        this.errorLocation = 'Please keep the radius between 1 and 500 km!'
+        return
+      }
       AXIOS.get('/treePLE/trees/position' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.treesinArea = response.data
+        this.errorLocation = ''
       })
       .catch(e => {
         var errorMsg = e.message
@@ -44,6 +59,9 @@ export default {
       })
     },
     addToForecast: function (diameter) {
+      if (diameter <= 0 || diameter >= 3500) {
+        this.errorAddTree = 'Diameter must be greater than 0 and less than 3500 cm'
+      }
       var temp = {
         'species': 'FORECAST TREE',
         'id': Math.floor((Math.random() * 99999999) + 10000000),
@@ -58,6 +76,7 @@ export default {
       }
 
       this.treesinArea.push(temp)
+      this.errorAddTree = ''
     },
     removeFromForecast: function (treeID) {
       for (var i = 0; i < Object.keys(this.treesinArea).length; i++) {

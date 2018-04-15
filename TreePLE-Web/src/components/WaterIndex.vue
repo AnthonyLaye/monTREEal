@@ -40,6 +40,12 @@
       </tr>
     </table>
 
+    <br> </br>
+
+    <p>
+      <span style="color:red">{{errorLocation}} </span>
+    </p>
+
     <table align = "center" style = "width:60%">
       <tr>
         <th> ID </th>
@@ -78,6 +84,10 @@
     </table>
 
     <br> </br>
+
+    <p>
+      <span style="color:red">{{errorAddTree}} </span>
+    </p>
 
     <button @click="calculateWaterIndex()" style="margin:15px" > Calculate!
     </button>
