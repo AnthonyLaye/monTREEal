@@ -21,7 +21,8 @@ export default {
       treesinArea: [],
       tree: Object,
       treeSpecies: [],
-      addedTrees: []
+      addedTrees: [],
+      errorLocation: ''
     }
   },
   created: function() {
@@ -59,10 +60,23 @@ export default {
       })
     },
     getTreesInArea: function (latitude, longitude, radius) {
+      if (latitude > 85 || latitude < -85) {
+        this.errorLocation = 'Latitude must be between -85 and 85! '
+        return
+      }
+      if (longitude > 180 || longitude < -180) {
+        this.errorLocation = 'Longitude must be between -180 and 180! '
+        return
+      }
+      if (radius > 500 || radius <= 0) {
+        this.errorLocation = 'Please keep the radius between 1 and 500 km!'
+        return
+      }
       AXIOS.get('/treePLE/trees/position' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.treesinArea = response.data
+        this.errorLocation = ''
       })
       .catch(e => {
         var errorMsg = e.message
@@ -70,6 +84,9 @@ export default {
       })
     },
     addToForecast: function (species){
+      if (species.length === 0) {
+        return
+      }
         var temp = new Object();
                 temp["species"] = species;
                 temp["id"] = Math.floor((Math.random() * 99999999) + 10000000);
@@ -93,6 +110,9 @@ export default {
         }
     },
     calculateIndex: function (){
+      if (Object.keys(this.treesinArea).length == 0) {
+        return
+      }
       var treeSpecies = []
       for(var i = 0; i < Object.keys(this.treesinArea).length; i++){
         treeSpecies.push(this.treesinArea[i].species)
