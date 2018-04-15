@@ -581,6 +581,17 @@ public class TreePLEService {
 		return water;
 	}
 
+	public double calculateWaterNeededFromTrees(List<String> diameters) {
+		double water=0;
+		double diameter;
+		double totalDiameter=0;
+		for(String t: diameters) {
+			totalDiameter = totalDiameter + Double.parseDouble(t);
+		}
+		water = totalDiameter/2.54*10*3.78541;
+		return water;
+	}
+
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
 	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
