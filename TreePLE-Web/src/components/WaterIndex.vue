@@ -22,7 +22,7 @@
 
     <table align="center">
       <tr>
-        <th> Set Range for Calculation: </th>
+        <th> Set Range for Calculation (latitude, longitude, radius): </th>
         <br> </br>
         <td>
           <input type="number" min="-85" max="85" v-model="latitude" placeholder = "Area Latitude:" >
@@ -68,7 +68,7 @@
     <table align="center">
       <tr>
         <td>
-          <input type="number" min="1" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <input type="number" min="1" width="60" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
         </td>
         <td>
           <button @click="addToForecast(treeDiameter)" style="margin:15px" >Add Tree To Forecast

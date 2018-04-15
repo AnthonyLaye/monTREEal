@@ -117,8 +117,8 @@
             <option value="silvermaple"> Silver Maple </option>
             <option value="sugarmaple"> Sugar Maple </option>
           </select>
-          <input type="number" min="1" max="20000" v-model="treeHeight" placeholder = "Tree Height (cm)">
-          <input type="number" min"1" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <input type="number" width="60" min="1" max="20000" v-model="treeHeight" placeholder = "Tree Height (cm)">
+          <input type="number" width="60" min="1" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
         </td>
         <td>
           <button @click="addToForecast(treeSpecies, treeHeight, treeDiameter)" style="margin:15px" >Add Tree To Forecast
