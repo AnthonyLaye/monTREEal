@@ -14,7 +14,8 @@ export default {
       waterindex: 0,
       latitude: 0,
       longitude: 0,
-      radius: 0
+      radius: 0,
+      treesinArea: []
     }
   },
 
@@ -31,8 +32,47 @@ export default {
     startWaterIndex: function () {
       this.$router.push('waterindex')
     },
-    calculateWaterIndex: function (latitude, longitude, radius) {
-      AXIOS.get('/treePLE/trees/forecast/water' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
+    getTreesInArea: function (latitude, longitude, radius) {
+      AXIOS.get('/treePLE/trees/position' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
+      .then(response => {
+        // JSON responses are automatically parsed.
+        this.treesinArea = response.data
+      })
+      .catch(e => {
+        var errorMsg = e.message
+        console.log(errorMsg)
+      })
+    },
+    addToForecast: function (diameter) {
+      var temp = {
+        'species': 'FORECAST TREE',
+        'id': Math.floor((Math.random() * 99999999) + 10000000),
+        'height': 0,
+        'diameter': diameter,
+        'age': 0,
+        'date': '2018-04-12',
+        'latitude': 0,
+        'longitude': 0,
+        'status': 'Healthy',
+        'name': 'Test'
+      }
+
+      this.treesinArea.push(temp)
+    },
+    removeFromForecast: function (treeID) {
+      for (var i = 0; i < Object.keys(this.treesinArea).length; i++) {
+        if (this.treesinArea[i].id === treeID) {
+          this.treesinArea.splice(i, 1)
+          break
+        }
+      }
+    },
+    calculateWaterIndex: function () {
+      var treeDiameter = []
+      for (var i = 0; i < Object.keys(this.treesinArea).length; i++) {
+        treeDiameter.push(this.treesinArea[i].diameter)
+      }
+      AXIOS.get('/treePLE/trees/forecast/water' + '?treeDiameter=' + treeDiameter, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.waterindex = response.data

@@ -282,6 +282,14 @@ public class TreePLERestController {
     	water= service.calculateWaterNeeded(treesInArea);
     	return water;	
     }
+
+    @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
+    public double getWaterNeededFromTrees(@RequestParam List<String> treeDiameter) throws InvalidInputException{
+        double water;
+        //treesInArea = service.getTreesByArea(latitude, longitude, distance);
+        water= service.calculateWaterNeededFromTrees(treeDiameter);
+        return water;
+    }
     
     @GetMapping(value = {"/status/tree/{id}", "/status/tree"})
     public Status getTreeStatus(@PathVariable ("id") int id) {
