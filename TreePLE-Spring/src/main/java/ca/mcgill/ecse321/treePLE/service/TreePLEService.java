@@ -43,11 +43,11 @@ public class TreePLEService {
 	 * does not exist in the system.
 	 */
 	//public String login(String email, String password) throws InvalidInputException{
-	public boolean login(String email, String password) throws InvalidInputException {
-		//List<Person> AllUsers=tm.getPerson();
+	public String login(String email, String password) throws InvalidInputException {
+		List<Person> AllUsers=tm.getPerson();
 
 		boolean wasLoggedIn = false;
-		
+
 		if(email.isEmpty() || password.isEmpty()) {
 			throw new InvalidInputException("Nothing is entered. You may want to register below");
 		}
@@ -57,20 +57,26 @@ public class TreePLEService {
 		else if(!email.contains(".com") && !email.contains(".ca") && !email.contains(".org") && !email.contains(".fr")) {
 			throw new InvalidInputException("The email address passed does not have the correct extension");
 		}
-		//for (Person user: AllUsers) {
-		for(Person user: tm.getPerson()) {
+		for (Person user: AllUsers) {
+			//for(Person user: tm.getPerson()) {
 			String userEmail = user.getEmail();
-			if (userEmail.contentEquals(email)) {
-				String userPassword = user.getPassword();
-				if (userPassword.contentEquals(password)) {
-					String role = user.getRoleName();
-					
-					wasLoggedIn = true;
-					//return role;
+			//if(!(userEmail.isEmpty())) {
+			if(userEmail!=null) {	
+				if (userEmail.contentEquals(email)) {
+					String userPassword = user.getPassword();
+					//if(!(userPassword.isEmpty())) {
+						if(userPassword!=null) {
+						if (userPassword.contentEquals(password)) {
+							String role = user.getRoleName();
+							return role;
+							//wasLoggedIn = true;
+						}
+					}
 				}
 			}
 		}
-		return wasLoggedIn; //"None";
+		return "None";
+		//return wasLoggedIn; 
 	}
 
 	/**
@@ -90,16 +96,16 @@ public class TreePLEService {
 			throw new InvalidInputException("This is not a valid email address. It does not contain an asperand (@)");
 		}
 		if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
-		
-	    p = new Person(name,email,password,tm);
-		tm.addPerson(p);
-		
-		if(role.equals("Resident")) {
-			p.setRole(Role.Resident);
-		}
-		else if(role.equals("Scientist")) {
-			p.setRole(Role.Scientist);
-		}
+
+			p = new Person(name,email,password,tm);
+			tm.addPerson(p);
+
+			if(role.equals("Resident")) {
+				p.setRole(Role.Resident);
+			}
+			else if(role.equals("Scientist")) {
+				p.setRole(Role.Scientist);
+			}
 		}else {
 			throw new InvalidInputException("Does not contain a valid extension supported by this country. Valid: .com, .ca, .org, .fr");
 		}
@@ -275,37 +281,37 @@ public class TreePLEService {
 	 * @return a list of trees that are contained inside this area
 	 * @throws InvalidInputException, when 
 	 */
-// 	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
-// 			throws InvalidInputException  {
-// 		List<Tree> treesByArea=new ArrayList<Tree>();
-// 		float latitude, longitude;
-// 		float lowerlat, lowerlon, higherlat, higherlon;
-// 		if(distance <= 0 ) {
-// 			throw new InvalidInputException("Distance cannot be negative!");
-// 		}
+	// 	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
+	// 			throws InvalidInputException  {
+	// 		List<Tree> treesByArea=new ArrayList<Tree>();
+	// 		float latitude, longitude;
+	// 		float lowerlat, lowerlon, higherlat, higherlon;
+	// 		if(distance <= 0 ) {
+	// 			throw new InvalidInputException("Distance cannot be negative!");
+	// 		}
 
-// 		if(-90>lat || lat>90 || -180>lon || lon>180) {
-// 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
-// 		}
+	// 		if(-90>lat || lat>90 || -180>lon || lon>180) {
+	// 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
+	// 		}
 
-// 		higherlat = lat+distance;
-// 		higherlon = lon+distance;
-// 		lowerlat = lat-distance;
-// 		lowerlon = lat-distance;
+	// 		higherlat = lat+distance;
+	// 		higherlon = lon+distance;
+	// 		lowerlat = lat-distance;
+	// 		lowerlon = lat-distance;
 
-// 		for(Tree t: tm.getTrees()) {
-// 			Location location = t.getLocation();
-// 			latitude = location.getLatitude();
-// 			longitude = location.getLongitude();
+	// 		for(Tree t: tm.getTrees()) {
+	// 			Location location = t.getLocation();
+	// 			latitude = location.getLatitude();
+	// 			longitude = location.getLongitude();
 
-// 			if((lowerlat<latitude) && (higherlat>latitude)) {
-// 				if((lowerlon<longitude) && (higherlon>longitude)) {
-// 					treesByArea.add(t);
-// 				}
-// 			}
-// 		}
-// 		return treesByArea;
-// 	}
+	// 			if((lowerlat<latitude) && (higherlat>latitude)) {
+	// 				if((lowerlon<longitude) && (higherlon>longitude)) {
+	// 					treesByArea.add(t);
+	// 				}
+	// 			}
+	// 		}
+	// 		return treesByArea;
+	// 	}
 
 	/**
 	 * This method searches for trees that is within a specific area (circular) with
@@ -543,7 +549,7 @@ public class TreePLEService {
 		}
 		return index;
 	}
-	
+
 	/**
 	 * This method calculates a sustainability attribute called carbon sequestration. Carbon sequestration
 	 * is the amount of CO2 in kg absorbed by the trees in an area
