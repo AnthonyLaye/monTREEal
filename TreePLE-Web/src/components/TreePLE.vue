@@ -36,12 +36,51 @@
       </gmap-marker>
     </gmap-map>
 
-    <button @click="startForecastPage()" style="margin:15px" >Forecasting
-    </button>
+    <br> </br>
+
+    <h2><b> Surveys </b></h2>
+
+    <table align="center">
+      <tr>
+        <th> Survey a Tree: </th>
+        <br> </br>
+        <td>
+          <select name="id" v-model="id" placeholder = "Tree ID">
+            <option v-for="tree in trees"> {{tree.id}} </option>
+          </select>
+        </td>
+        <td>
+          <input type="text" v-model="name" placeholder = "Scientist's Name: ">
+        </td>
+        <td>
+          <input type="number" min="0.1" max="20000" v-model="height" placeholder = "Height of Tree: ">
+        </td>
+        <td>
+          <input type="number" min="0.1" max="3500" v-model="diameter" placeholder = "Diameter of Tree: ">
+        </td>
+        <td>
+          <select selected="Healthy" name="status" v-model="status">
+            <option value="Healthy" selected> Healthy </option>
+            <option value="CutDown"> CutDown </option>
+            <option value="Diseased"> Diseased </option>
+            <option value="MarkedForCutDown"> MarkedForCutDown </option>
+          </select>
+        </td>
+        <td>
+          <button @click="survey(id, name, height, diameter, status)" style="margin:15px" > Modify Tree
+          </button>
+        </td>
+      </tr>
+    </table>
 
     <p>
-      <!-- <span style="color:red">Error: Message text comes here</span> -->
+      <span style="color:red"> {{surveyError}} </span>
     </p>
+
+    <br> </br>
+
+    <button @click="startForecastPage()" style="margin:15px" >Forecasting
+    </button>
 
   </div>
 </template>
