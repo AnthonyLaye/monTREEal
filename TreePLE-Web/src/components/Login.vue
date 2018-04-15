@@ -148,17 +148,12 @@
             <form class="form-horizontal">
                 <span class="heading">WelCome to monTREEal</span>
                 <div class="form-group">
-                    <input for="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input class="form-control" id="inputEmail3" name="email" placeholder="Email">
                 </div>
                 <div class="form-group help">
-                    <input for="psd" class="form-control" id="inputPassword3" placeholder="Password">
+                    <input class="form-control" id="inputPassword3" name="password" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <div class="main-checkbox">
-                        <input type="checkbox" value="None" id="checkbox1" name="check"/>
-                        <label for="checkbox1"></label>
-                    </div>
-                    <span class="text">Remember me</span>
                     <button class="btn btn-default" @click="login(email,psw)">Login</button>
                 </div>
                 <br></br>
@@ -268,12 +263,7 @@
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-.form-horizontal .main-checkbox input[type=checkbox]{
-    visibility: hidden;
-}
-.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{
-    opacity: 1;
-}
+
 .form-horizontal .text{
     float: left;
     margin-left: 7px;vb 

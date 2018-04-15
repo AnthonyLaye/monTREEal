@@ -11,13 +11,14 @@ export default {
   name: 'treePLElogin',
   data () {
     return {
+      email: {},
+      password: {},
       status: 'Null'
     }
   },
 
   methods: {
     register: function() {
-
       this.$router.push('register');
     },
     login: function(email, password) {
