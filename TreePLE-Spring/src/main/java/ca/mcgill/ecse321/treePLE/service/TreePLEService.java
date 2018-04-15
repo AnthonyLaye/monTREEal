@@ -45,8 +45,6 @@ public class TreePLEService {
 	public String login(String email, String password) throws InvalidInputException {
 		List<Person> AllUsers=tm.getPerson();
 
-		boolean wasLoggedIn = false;
-
 		if(email.isEmpty() || password.isEmpty()) {
 			throw new InvalidInputException("Nothing is entered. You may want to register below");
 		}
@@ -57,25 +55,20 @@ public class TreePLEService {
 			throw new InvalidInputException("The email address passed does not have the correct extension");
 		}
 		for (Person user: AllUsers) {
-			//for(Person user: tm.getPerson()) {
 			String userEmail = user.getEmail();
-			//if(!(userEmail.isEmpty())) {
 			if(userEmail!=null) {	
 				if (userEmail.contentEquals(email)) {
 					String userPassword = user.getPassword();
-					//if(!(userPassword.isEmpty())) {
 						if(userPassword!=null) {
 						if (userPassword.contentEquals(password)) {
 							String role = user.getRoleName();
 							return role;
-							//wasLoggedIn = true;
 						}
 					}
 				}
 			}
 		}
 		return "None";
-
 	}
 
 	/**
@@ -95,10 +88,8 @@ public class TreePLEService {
 			throw new InvalidInputException("This is not a valid email address. It does not contain an asperand (@)");
 		}
 		if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
-
 			p = new Person(name,email,password,tm);
 			tm.addPerson(p);
-
 			if(role.equals("Resident")) {
 				p.setRole(Role.Resident);
 			}
@@ -132,10 +123,8 @@ public class TreePLEService {
 		if(aSpecies == null || aHeight == 0 || aAge == 0 || aDate == null || aDiameter == 0){
 			throw new InvalidInputException("Something is empty!");
 		}
-
 		if(aDiameter<20001 && aDiameter>0) {
 			if(aHeight<3501 && aHeight>0) {
-
 				if (aSpecies.chars().allMatch(Character::isLetter)) {
 					String nameWithout = aSpecies.replace("\\s", "");
 					String speciesReadable = nameWithout.toLowerCase();
@@ -178,7 +167,6 @@ public class TreePLEService {
 	 * @return A tree, as it has been added to the system
 	 * @throws InvalidInputException when the species entered contains characters that are not letters
 	 */
-
 	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name = "";
@@ -209,14 +197,12 @@ public class TreePLEService {
 		return null;
 	}
 
-
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
 	 * @return a list of trees (all the trees registered)
 	 * @throws InvalidInputException, when no trees are registered
 	 */
 	public List<Tree> findAllTrees() throws InvalidInputException {
-
 		List<Tree> treelist = new ArrayList<Tree>();
 
 		for (Tree t: tm.getTrees()) {
@@ -236,7 +222,6 @@ public class TreePLEService {
 	 * @return a list of all the trees that belong to this resident
 	 */
 	public List<Tree> findTreesForResident(String name) {
-
 		List<Tree> residentTrees = new ArrayList<Tree>();
 
 		for (Tree t: tm.getTrees()) {
@@ -268,49 +253,6 @@ public class TreePLEService {
 		}
 		return treesByMunicipality;
 	}
-
-	/**
-	 * This is a revised method for getTreesByArea that will list all the trees 
-	 * in a given area, specified by the parameters in entry
-	 * @param lat, this is the position of the latitude we want to look around
-	 * @param lon, this is the position of the longitude we want to look around
-	 * @param distance, this is how far on each side of the point (latitude, longitude) 
-	 * we want to cover up. It is important to note that the area will be a square
-	 * with that specified point at its center
-	 * @return a list of trees that are contained inside this area
-	 * @throws InvalidInputException, when 
-	 */
-	// 	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
-	// 			throws InvalidInputException  {
-	// 		List<Tree> treesByArea=new ArrayList<Tree>();
-	// 		float latitude, longitude;
-	// 		float lowerlat, lowerlon, higherlat, higherlon;
-	// 		if(distance <= 0 ) {
-	// 			throw new InvalidInputException("Distance cannot be negative!");
-	// 		}
-
-	// 		if(-90>lat || lat>90 || -180>lon || lon>180) {
-	// 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
-	// 		}
-
-	// 		higherlat = lat+distance;
-	// 		higherlon = lon+distance;
-	// 		lowerlat = lat-distance;
-	// 		lowerlon = lat-distance;
-
-	// 		for(Tree t: tm.getTrees()) {
-	// 			Location location = t.getLocation();
-	// 			latitude = location.getLatitude();
-	// 			longitude = location.getLongitude();
-
-	// 			if((lowerlat<latitude) && (higherlat>latitude)) {
-	// 				if((lowerlon<longitude) && (higherlon>longitude)) {
-	// 					treesByArea.add(t);
-	// 				}
-	// 			}
-	// 		}
-	// 		return treesByArea;
-	// 	}
 
 	/**
 	 * This method searches for trees that is within a specific area (circular) with
@@ -497,7 +439,7 @@ public class TreePLEService {
 		double index=0;
 		double counterSpecies=0;
 		double nbTrees=0;
-		List<String> diffSpecies = new ArrayList<String>();		//initially empty and add elements
+		List<String> diffSpecies = new ArrayList<String>();
 		int i=0;
 		for(Tree t: trees) {
 			String speciesName=t.getSpecies();
@@ -506,7 +448,7 @@ public class TreePLEService {
 			if(!(containsString(diffSpecies, speciesName))) {
 				diffSpecies.add(i, speciesName);
 				counterSpecies=counterSpecies+1;
-				i=i+1;		//increment the index to add elements
+				i=i+1;
 			}
 		}
 		if(trees==null) {
@@ -528,7 +470,7 @@ public class TreePLEService {
 		double index=0;
 		double counterSpecies=0;
 		double nbTrees=0;
-		List<String> diffSpecies = new ArrayList<String>();		//initially empty and add elements
+		List<String> diffSpecies = new ArrayList<String>();
 		int i=0;
 		for(String t: treesInArea) {
 			String speciesName= t;
@@ -537,7 +479,7 @@ public class TreePLEService {
 			if(!(containsString(diffSpecies, speciesName))) {
 				diffSpecies.add(i, speciesName);
 				counterSpecies=counterSpecies+1;
-				i=i+1;		//increment the index to add elements
+				i=i+1;
 			}
 		}
 		if(treesInArea==null) {
@@ -604,7 +546,6 @@ public class TreePLEService {
 		List<SpeciesDensities> listSpeciesDensities=null;
 		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
 		for (String t: treeSpecies) {
-			//String speciesName=t.getSpecies();
 			//compare the speciesName with the file to get the density
 			listSpeciesDensities = csm.getSpeciesDensities();
 			for(SpeciesDensities sd: listSpeciesDensities) {
@@ -652,7 +593,6 @@ public class TreePLEService {
 	 */
 	public double calculateWaterNeededFromTrees(List<String> diameters) {
 		double water=0;
-		double diameter;
 		double totalDiameter=0;
 		for(String t: diameters) {
 			totalDiameter = totalDiameter + Double.parseDouble(t);
@@ -689,10 +629,8 @@ public class TreePLEService {
 	 * @throws InvalidInputException
 	 */
 	public Tree createSurvey(Date aDate, int surveyId, Person aObserver, int treeId, float height, float diameter, String status) 
-	{	//throws InvalidInputException {
+	{
 		Tree t1= null;
-
-		//boolean surveyWasAdded = false;
 		Status s = Status.Healthy;
 
 		if (status.contentEquals("Healthy")){
@@ -704,9 +642,6 @@ public class TreePLEService {
 		} else if (status.contentEquals("Diseased")) {
 			s = Status.Diseased;
 		}
-		//} else {
-		//	throw new InvalidInputException("The status you have inputted does not exist!");
-		//}
 
 		for(Tree t: tm.getTrees()) {
 			if(t.getId() == treeId) {
@@ -716,16 +651,13 @@ public class TreePLEService {
 				t.setStatus(s);
 				t.addSurvey(aDate, surveyId, aObserver);
 				t1 = t;
-				//surveyWasAdded = true;
 				break;
 			}
 		}
-
 		PersistenceXStream.saveToXMLwithXStream(tm);
 		return t1;
 	}
 
-	//needs testing
 	/**
 	 * This is a method that find the status of a given tree from its ID
 	 * @param id number a specified tree
@@ -742,6 +674,5 @@ public class TreePLEService {
 		}
 		return treeStatus;
 	}
-
-
+	
 }
