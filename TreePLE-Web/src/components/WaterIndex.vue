@@ -79,7 +79,7 @@
 
     <br> </br>
 
-    <button @click="calculateSequestration()" style="margin:15px" > Calculate!
+    <button @click="calculateWaterIndex()" style="margin:15px" > Calculate!
     </button>
 
     <br> </br>
