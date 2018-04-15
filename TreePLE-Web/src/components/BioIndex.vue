@@ -22,16 +22,16 @@
 
     <table align="center">
       <tr>
-        <th> Set Range for Calculation: </th>
+        <th> Set Range for Calculation (latitude, longitude, radius): </th>
         <br> </br>
         <td>
-          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+          <input type="number" min="-85" max="85" v-model="latitude" placeholder = "Area Latitude:" >
         </td>
         <td>
-          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+          <input type="number" min="-180" max="180" v-model="longitude" placeholder = "Area Longitude:">
         </td>
         <td>
-          <input type="text" v-model="radius" placeholder = "Radius(km):">
+          <input type="number" min="0.1" max="200" v-model="radius" placeholder = "Radius(km):">
         </td>
         <td>
           <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
@@ -86,6 +86,7 @@
             <option value="hemlock"> Hemlock </option>
             <option value="tamarack"> Tamarack </option>
             <option value="larch"> Larch </option>
+            <option value="oak"> Oak </option>
             <option value="westernlarch"> Western Larch </option>
             <option value="whitepine"> White Pine </option>
             <option value="jackpine"> Jack Pine</option>
@@ -97,7 +98,7 @@
             <option value="redspruce"> Red Spruce </option>
             <option value="sitkaspruce"> Sitka Spruce </option>
             <option value="whitespruce"> White Spruce </option>
-            <option value="spruce"> Spruc e</option>
+            <option value="spruce"> Spruce </option>
             <option value="redalder"> Red Alder </option>
             <option value="blackash"> Black Ash </option>
             <option value="whiteash"> White Ash </option>
@@ -136,9 +137,6 @@
     <br> </br>
 
     <button @click="calculateIndex()" style="margin:15px" > Calculate!
-    </button>
-
-    <button @click="getAllTrees()" style="margin:15px" > Refresh Tree List
     </button>
 
     <br> </br>
