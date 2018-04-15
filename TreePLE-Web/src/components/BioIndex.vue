@@ -40,6 +40,12 @@
       </tr>
     </table>
 
+    <br> </br>
+
+    <p>
+      <span style="color:red">{{errorLocation}} </span>
+    </p>
+
     <table align = "center" style = "width:60%">
       <tr>
         <th> ID </th>
@@ -68,8 +74,8 @@
     <table align="center">
       <tr>
         <td>
-          <select name="treeSpecies" v-model="treeSpecies" placeholder = "Tree Species">
-            <option value="blackwalnut">Black Walnut</option>
+          <select selected="blackwalnut" name="treeSpecies" v-model="treeSpecies">
+            <option value="blackwalnut" selected> Black Walnut</option>
             <option value="butternut">Butternut</option>
             <option value="redmaple">Red Maple</option>
             <option value="westernredcedar"> Western Cedar</option>
@@ -124,6 +130,7 @@
         </td>
       </tr>
     </table>
+
 <!--
     <table>
       <tr>

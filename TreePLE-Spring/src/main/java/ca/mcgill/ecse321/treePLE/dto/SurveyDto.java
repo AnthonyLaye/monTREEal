@@ -35,4 +35,6 @@ public class SurveyDto {
 		return observer;
 	}
 
+	public Tree getTree() { return tree;}
+
 }

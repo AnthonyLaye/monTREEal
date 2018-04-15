@@ -193,6 +193,7 @@ public class TreePLERestController {
     		throws InvalidInputException{
     	String role;
     	role=service.login(email, password);
+
     	//JSONParser parser = new JSONParser();
     	//JSONObject role1 = (JSONObject) parser.parse(role);
     	//return role;
@@ -207,6 +208,20 @@ public class TreePLERestController {
             trees.add(convertToDto(tree));
         }
         return trees;
+    }
+
+    @GetMapping(value = {"/surveys", "/surveys/"})
+    public List<SurveyDto> findAllSurveys() throws  InvalidInputException{
+        List<SurveyDto> surveys = Lists.newArrayList();
+        //Survey surv = null;
+        for(Tree tree : service.findAllTrees()){
+           // int j = tree.numberOfSurveys();
+
+            for(int i = 0; i < tree.numberOfSurveys(); i++) {
+                surveys.add(convertToDto(tree.getSurvey(i)));
+            }
+        }
+        return surveys;
     }
    
     @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}/" })

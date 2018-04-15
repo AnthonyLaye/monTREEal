@@ -42,7 +42,6 @@ public class TreePLEService {
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
 	 */
-	//public String login(String email, String password) throws InvalidInputException{
 	public String login(String email, String password) throws InvalidInputException {
 		List<Person> AllUsers=tm.getPerson();
 
@@ -76,7 +75,7 @@ public class TreePLEService {
 			}
 		}
 		return "None";
-		//return wasLoggedIn; 
+
 	}
 
 	/**

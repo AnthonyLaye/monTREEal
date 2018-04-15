@@ -36,7 +36,7 @@ public class TestLogin {
 		tm.delete();
 	}
 
-	/*
+	
 	@Test
 	public void testUserExistsInSystem() {
 		TreePLEManager tm = new TreePLEManager();
@@ -152,5 +152,5 @@ public class TestLogin {
 		}
 		assertEquals("Nothing is entered. You may want to register below", error);
 	}
-	*/
+	
 }
