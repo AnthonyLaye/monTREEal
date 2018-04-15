@@ -168,7 +168,7 @@ public class TreePLEService {
 	 * @return A tree, as it has been added to the system
 	 * @throws InvalidInputException when the species entered contains characters that are not letters
 	 */
-	/*
+
 	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name = "";
@@ -198,7 +198,7 @@ public class TreePLEService {
 		}
 		return null;
 	}
-	*/
+
 
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
