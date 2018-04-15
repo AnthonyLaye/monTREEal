@@ -424,6 +424,13 @@ public class TreePLEService {
 		return markedDiseased;
 	}
 
+	/**
+	 * Method that tells if the tree specified by ID is marked as healthy
+	 * @param aId the id of the tree we want information on his status
+	 * @return markedHealthy
+	 * true, if the tree is marked as healthy
+	 * false, if the tree is not marked as healthy
+	 */
 	public boolean markTreeHealthy(int aId) {
 		boolean markedHealthy = false;
 		for (Tree tree : tm.getTrees()) {
@@ -442,6 +449,12 @@ public class TreePLEService {
 		return markedHealthy;
 	}
 
+	/**
+	 * This method calculates a sustainability attribute called carbon sequestration. Carbon sequestration
+	 * is the amount of CO2 in kg absorbed by the trees in an area
+	 * @param trees is a list of trees where we want to calculate that amount of CO2
+	 * @return a number that is the amount of CO2 in kg
+	 */
 	public double calculateCarbonSequestration(List<Tree> trees) {
 		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
 		int density=0;
@@ -537,6 +550,12 @@ public class TreePLEService {
 		return index;
 	}
 
+	/**
+	 * This method calculates the biodiversity of a given list of Strings
+	 * @param treesInArea is the list of trees we want to fin the biodiversity on
+	 * @return a double that is a ratio between the number of different species over the number
+	 * of trees
+	 */
 	public double calculateBiodiversityIndexFromTrees(List<String> treesInArea) {
 		double index=0;
 		double counterSpecies=0;
