@@ -68,7 +68,7 @@
     <table align="center">
       <tr>
         <td>
-          <select name="species" v-model="treeSpecies" placeholder = "Tree Species">
+          <select name="treeSpecies" v-model="treeSpecies" placeholder = "Tree Species">
             <option value="blackwalnut">Black Walnut</option>
             <option value="butternut">Butternut</option>
             <option value="redmaple">Red Maple</option>

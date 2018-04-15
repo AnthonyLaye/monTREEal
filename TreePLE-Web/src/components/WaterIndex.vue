@@ -17,7 +17,7 @@
 
     <br> </br>
     <table align="center">
-      <th> Water Index = {{waterindex}} </th>
+      <th> Water Index = {{waterindex}} litres of water per month </th>
     </table>
 
     <table align="center">
