@@ -63,11 +63,11 @@ export default {
         this.errorAddTree = 'Please select a species'
         return
       }
-      if (!(height > 0) || !(height < 20000)) {
+      if (!((height > 0) && (height < 20000)) === true) {
         this.errorAddTree = 'Height must be greater than 0 and less than 20000 cm'
         return
       }
-      if (!(diameter <= 0) || !(diameter >= 3500)) {
+      if (!((diameter > 0) && (diameter < 3500)) === true) {
         this.errorAddTree = 'Diameter must be greater than 0 and less than 3500 cm'
         return
       }
