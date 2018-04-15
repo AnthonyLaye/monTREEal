@@ -176,11 +176,13 @@ public class TreePLERestController {
     //---------------------------------- 
     
     @GetMapping(value = { "/login", "/login/" })
-    public String login(@RequestParam String email, @RequestParam String password) 
+    public boolean login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
-    	String role;
-    	role=service.login(email, password);
-    	return role;
+    	//String role;
+    	//role=service.login(email, password);
+    	//return role;
+    	boolean wasLoggedIn = service.login(email, password);
+    	return wasLoggedIn;
     }
     
     @GetMapping(value = { "/trees", "/trees/" })
