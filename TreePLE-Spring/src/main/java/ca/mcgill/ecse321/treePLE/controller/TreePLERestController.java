@@ -195,12 +195,12 @@ public class TreePLERestController {
     @GetMapping(value = {"/surveys", "/surveys/"})
     public List<SurveyDto> findAllSurveys() throws  InvalidInputException{
         List<SurveyDto> surveys = Lists.newArrayList();
-        List<Survey> surveys1 = Lists.newArrayList();
+        //Survey surv = null;
         for(Tree tree : service.findAllTrees()){
+           // int j = tree.numberOfSurveys();
 
-            surveys1 = tree.getSurveys();
-            for(int i = 0; i< surveys1.size(); i++) {
-                surveys.add(convertToDto(surveys1.get(i)));
+            for(int i = 0; i < tree.numberOfSurveys(); i++) {
+                surveys.add(convertToDto(tree.getSurvey(i)));
             }
         }
         return surveys;
