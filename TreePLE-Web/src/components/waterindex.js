@@ -59,7 +59,7 @@ export default {
       })
     },
     addToForecast: function (diameter) {
-      if (diameter <= 0 || diameter >= 3500) {
+      if (!(diameter <= 0) || (diameter >= 3500)) {
         this.errorAddTree = 'Diameter must be greater than 0 and less than 3500 cm'
         return
       }
