@@ -32,6 +32,9 @@ export default {
         else if(this.status === 'Scientist'){
           this.$router.push('dashboard')
         }
+        else{
+          alert("Failed to Login!")
+        }
       })
       .catch(e => {
         var errorMsg = e.message
