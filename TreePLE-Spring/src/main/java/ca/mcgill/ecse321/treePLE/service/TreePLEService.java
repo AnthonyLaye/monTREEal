@@ -49,25 +49,21 @@ public class TreePLEService {
 		if(email.isEmpty() || password.isEmpty()) {
 			throw new InvalidInputException("Nothing is entered. You may want to register below");
 		}
-		else if(email.contains("@")) {
-			if(email.contains(".com")||email.contains(".ca")||email.contains(".org")||email.contains(".fr")) {
-				for (Person user: AllUsers) {
-					String userEmail = user.getEmail();
-					if(userEmail.contentEquals(email)) {
-						String userPassword = user.getPassword();
-						if (userPassword.contentEquals(password)) {
-							String role = user.getRoleName();
-							return role;
-						}
-					}
+		else if(!email.contains("@")) {
+			throw new InvalidInputException("The email passed is not an email, does not contain @. You may want to register below.");
+		}
+		else if(!email.contains(".com") && !email.contains(".ca") && !email.contains(".org") && !email.contains(".fr")) {
+			throw new InvalidInputException("The email address passed does not have the correct extension");
+		}
+		for (Person user: AllUsers) {
+			String userEmail = user.getEmail();
+			if (userEmail.contentEquals(email)) {
+				String userPassword = user.getPassword();
+				if (userPassword.contentEquals(password)) {
+					String role = user.getRoleName();
+					return role;
 				}
 			}
-			else {
-				throw new InvalidInputException("The email address passed does not have the correct extension, is not in the system, or you have the wrong password");
-			}
-		}
-		else {
-			throw new InvalidInputException("The email passed is not an email, does not contain @. You may want to register below.");
 		}
 		return "None";
 	}
