@@ -267,37 +267,37 @@ public class TreePLEService {
 	 * @return a list of trees that are contained inside this area
 	 * @throws InvalidInputException, when 
 	 */
-	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
-			throws InvalidInputException  {
-		List<Tree> treesByArea=new ArrayList<Tree>();
-		float latitude, longitude;
-		float lowerlat, lowerlon, higherlat, higherlon;
-		if(distance <= 0 ) {
-			throw new InvalidInputException("Distance cannot be negative!");
-		}
+// 	public List<Tree> getTreesByAreaRevised(float lat, float lon, float distance) 
+// 			throws InvalidInputException  {
+// 		List<Tree> treesByArea=new ArrayList<Tree>();
+// 		float latitude, longitude;
+// 		float lowerlat, lowerlon, higherlat, higherlon;
+// 		if(distance <= 0 ) {
+// 			throw new InvalidInputException("Distance cannot be negative!");
+// 		}
 
-		if(-90>lat || lat>90 || -180>lon || lon>180) {
-			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
-		}
+// 		if(-90>lat || lat>90 || -180>lon || lon>180) {
+// 			throw new InvalidInputException("Invalid geo coordinate! Latitude and longitude only can only be set to range from -180 to 180!");
+// 		}
 
-		higherlat = lat+distance;
-		higherlon = lon+distance;
-		lowerlat = lat-distance;
-		lowerlon = lat-distance;
+// 		higherlat = lat+distance;
+// 		higherlon = lon+distance;
+// 		lowerlat = lat-distance;
+// 		lowerlon = lat-distance;
 
-		for(Tree t: tm.getTrees()) {
-			Location location = t.getLocation();
-			latitude = location.getLatitude();
-			longitude = location.getLongitude();
+// 		for(Tree t: tm.getTrees()) {
+// 			Location location = t.getLocation();
+// 			latitude = location.getLatitude();
+// 			longitude = location.getLongitude();
 
-			if((lowerlat<latitude) && (higherlat>latitude)) {
-				if((lowerlon<longitude) && (higherlon>longitude)) {
-					treesByArea.add(t);
-				}
-			}
-		}
-		return treesByArea;
-	}
+// 			if((lowerlat<latitude) && (higherlat>latitude)) {
+// 				if((lowerlon<longitude) && (higherlon>longitude)) {
+// 					treesByArea.add(t);
+// 				}
+// 			}
+// 		}
+// 		return treesByArea;
+// 	}
 
 	/**
 	 * This method searches for trees that is within a specific area (circular) with
