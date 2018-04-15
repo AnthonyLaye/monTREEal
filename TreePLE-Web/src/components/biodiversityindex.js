@@ -97,7 +97,7 @@ export default {
       for(var i = 0; i < Object.keys(this.treesinArea).length; i++){
         treeSpecies.push(this.treesinArea[i].species)
       }
-      AXIOS.get('/treePLE/trees/forecast/biodiversityindex' + '?trees=' + treeSpecies, {}, {})
+      AXIOS.get('/treePLE/trees/forecast/biodiversityindex' + '?treesInArea=' + treeSpecies, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.biodiversityindex = response.data

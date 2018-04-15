@@ -66,8 +66,8 @@ export default {
         }
       }
     },
-    calculateSequestration: function (latitude, longitude, radius) {
-      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?latitude=' + latitude + '&longitude=' + longitude + '&distance=' + radius, {}, {})
+    calculateSequestration: function () {
+      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?treesInArea' + this.treesInArea, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.carbonsequestration = response.data

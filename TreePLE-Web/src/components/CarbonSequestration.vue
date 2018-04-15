@@ -81,7 +81,7 @@
 
     <br> </br>
 
-    <button @click="calculateSequestration(latitude, longitude, radius)" style="margin:15px" > Calculate!
+    <button @click="calculateSequestration()" style="margin:15px" > Calculate!
     </button>
 
     <br> </br>

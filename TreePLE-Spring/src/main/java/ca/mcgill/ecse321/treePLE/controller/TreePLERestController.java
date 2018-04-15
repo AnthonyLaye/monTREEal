@@ -251,12 +251,10 @@ public class TreePLERestController {
     }
     
     @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
-    public double getCarbonSequestrationIndex(@RequestParam float latitude, 
-    		@RequestParam float longitude, @RequestParam float distance) 
+    public double getCarbonSequestrationIndex(@RequestParam List<Tree> treesInArea)
     				throws InvalidInputException{
     	double carbonSequestration=0;
-    	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
+    	//treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
     }
