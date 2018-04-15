@@ -111,19 +111,6 @@ public class MainActivity extends AppCompatActivity {
         return rtn;
     }
 
-    private void refreshErrorMessage() {
-        // set the error message
-        //TextView tvError = (TextView) findViewById(R.id.error);
-        //tvError.setText(error);
-
-        //if (error == null || error.length() == 0) {
-        //    tvError.setVisibility(View.GONE);
-        //} else {
-        //    tvError.setVisibility(View.VISIBLE);
-        //}
-
-    }
-
     public void setTime(int id, int h, int m) {
         TextView tv = (TextView) findViewById(id);
         tv.setText(String.format("%02d:%02d", h, m));
@@ -134,91 +121,12 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(String.format("%02d-%02d-%04d", d, m + 1, y));
     }
 
-    public void httpPostTree(String owner, String species, String height, String diameter,  String longitude, String latitude){
-
-        RequestParams rp = new RequestParams();
-        int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
-        java.util.Date c = Calendar.getInstance().getTime();
-        java.sql.Date sqlDate = new java.sql.Date(c.getTime());
-
-        HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
-                + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)
-                + "&longitude=" + Float.valueOf(longitude) + "&municipality=NDG" , new RequestParams(), new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                refreshErrorMessage();
-                Toast.makeText(getApplicationContext(), "Your tree has been Planted!",
-                        Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
-                refreshErrorMessage();
-            }
-        });
-    }
-
     public void onMap(View view) {
+
+        //Start the map class
 
         Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
 
-        /*
-        AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-
-        builder.setView(inflater.inflate(R.layout.cuttree_dialog, null));
-
-        builder.setCancelable(true);
-
-        builder.setPositiveButton(R.string.cut, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                TextView idTextView = (TextView) findViewById(R.id.treeid);
-                httpRemoveTree(idTextView.toString());
-                dialog.cancel();
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-        */
-
     }
-
-    public void httpRemoveTree(String id){
-
-        /*
-        error = "";
-        HttpUtils.("trees/", new RequestParams(), new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                refreshErrorMessage();
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                try {
-                    error += errorResponse.get("message").toString();
-                } catch (JSONException e) {
-                    error += e.getMessage();
-                }
-                refreshErrorMessage();
-            }
-        });
-        */
-
-    }
-
-    /*
-    public void listTrees(View view) {
-    }
-    */
 }

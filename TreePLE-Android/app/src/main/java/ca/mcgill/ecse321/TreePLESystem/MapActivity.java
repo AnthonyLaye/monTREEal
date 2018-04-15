@@ -87,8 +87,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             public boolean onMarkerClick(Marker marker) {
 
                 cutButton.setClickable(true);
-                cutButton.setVisibility(View.VISIBLE);
-                lastMarkerClicked = marker;
+                cutButton.setVisibility(View.VISIBLE);  //Show the cut down tree button when a tree is pressed
+                lastMarkerClicked = marker; //Get the marker ID incase we want to cut it down
                 return false;
             }
         });
@@ -97,7 +97,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onInfoWindowClose(Marker marker) {
 
-                cutButton.setClickable(false);
+                cutButton.setClickable(false);  //Hide cut tree button when no tree is pressed
                 cutButton.setVisibility(View.INVISIBLE);
             }
         });
@@ -119,6 +119,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         refreshLists(treeMap, "trees");
         showTrees(treeMap);
     }
+
+    /*
+    This function loops through our HashMap of trees. It extracts all the relevant information
+    to show it in the info window on the Google map.
+     */
 
     private void showTrees(HashMap<Integer, ArrayList<String>> treeMap) {
 
@@ -157,6 +162,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         }
     }
 
+
+    /*
+    This function calls the getAllTrees function in the backend. It then stores the information for individual trees
+    in an arraylist, which is then placed in a unique index in a HashMap. Each index in the hashmap
+    has a key (integer), and an arraylist with all the information for a specific tree!
+     */
     private void refreshLists(final HashMap<Integer, ArrayList<String>> myMap, String restFunctionName) {
         HttpUtils.get(restFunctionName, new RequestParams(), new JsonHttpResponseHandler() {
 
@@ -210,6 +221,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         });
     }
 
+    /*
+    This method opens when the cut tree button is pressed. It allows a user to confirm if they wish
+    to cut down a tree or not.
+     */
     public void requestCutTree(View v){
 
         AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
@@ -226,13 +241,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 String snippetInfo[] = splitSnippets(lastMarkerClicked.getSnippet());
 
                 httpMarkCutDownTree(snippetInfo[3]);
-                Toast.makeText(getApplicationContext(), "Your tree has been marked for cutdown",
-                        Toast.LENGTH_LONG).show();
                 dialog.cancel();
-
-                //httpPostTree(String.valueOf(ownerTextView.getText()), String.valueOf(speciesTextView.getText()), String.valueOf(heightTextView.getText()), String.valueOf(diameterTextiew.getText()),
-                  //      String.valueOf(longitudeTextView.getText()), String.valueOf(latitudeTextView.getText()));
-                //dialog.cancel();
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -245,13 +254,18 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         dialog.show();
     }
 
+
+    /*
+    This method executes when a user has confirmed to cut down a tree.  It calls the backend method of
+    markTreeForCutDown. It displays a popup "toast" if it was succesful.
+     */
     public void httpMarkCutDownTree(String treeID){
         HttpUtils.post("markCutDown/tree/" + treeID, new RequestParams(), new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-
-
+                Toast.makeText(getApplicationContext(), "Your tree has been marked for cutdown",
+                        Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -268,6 +282,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     }
 
+    /*
+    This method executes once a user has tapped twice slowly on the map to open the dialog.
+    It allows the user to input information about the tree they wish to plant.
+     */
     public void plantTree(final LatLng latLng) {
 
         AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
@@ -316,6 +334,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     }
 
+    /*
+    This method executes once a user has clicked "plant tree". It performs checks to see if data is
+    appropriate, and then calls the backend method to plant tree with the data passed.
+     */
+
     public void httpPostTree(String owner, String species, String height, String diameter,  String longitude, String latitude){
 
         RequestParams rp = new RequestParams();
@@ -325,6 +348,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         if(Double.parseDouble(height) > 20000 && !(Double.parseDouble(height) > 0)){
             Toast.makeText(getApplicationContext(),  "Height must be between 0 and 20000 cm",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(Double.parseDouble(diameter) > 3500 && !(Double.parseDouble(diameter) > 0)){
+            Toast.makeText(getApplicationContext(),  "Height must be between 0 and 3500 cm",
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -349,6 +377,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         });
     }
 
+    /*
+    This method separates the snippet for the google map marker so that we can easily extract information
+     */
     public static String[] splitSnippets(String snippet){
         String[] arr=snippet.split("\\^");
         return arr;

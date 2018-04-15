@@ -96,7 +96,7 @@ public class TreePLERestController {
         Tree tree = service.createTree(species, height, age, date, diameter, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
-      
+
     @PostMapping(value = { "/base/trees/{species}", "/base/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
@@ -114,6 +114,7 @@ public class TreePLERestController {
         Tree tree = service.createTree(species, date, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
+
        
     @PostMapping(value = { "cutDown/tree/{id}", "/tree/{id}/" })
     public boolean cutDownTree(@PathVariable("id") int id) throws InvalidInputException {
@@ -175,11 +176,13 @@ public class TreePLERestController {
     //---------------------------------- 
     
     @GetMapping(value = { "/login", "/login/" })
-    public String login(@RequestParam String email, @RequestParam String password) 
+    public boolean login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
-    	String role;
-    	role=service.login(email, password);
-    	return role;
+    	//String role;
+    	//role=service.login(email, password);
+    	//return role;
+    	boolean wasLoggedIn = service.login(email, password);
+    	return wasLoggedIn;
     }
     
     @GetMapping(value = { "/trees", "/trees/" })
@@ -270,7 +273,7 @@ public class TreePLERestController {
         carbonSequestration=service.calculateCarbonSequestrationFromTrees(treeSpecies, treeHeight, treeDiameter);
         return carbonSequestration;
     }
-    
+    /*
         //status: not tested
     @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
     public double getWaterNeeded(@RequestParam float latitude, 
@@ -282,6 +285,7 @@ public class TreePLERestController {
     	water= service.calculateWaterNeeded(treesInArea);
     	return water;	
     }
+    */
 
     @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
     public double getWaterNeededFromTrees(@RequestParam List<String> treeDiameter) throws InvalidInputException{

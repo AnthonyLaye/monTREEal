@@ -22,16 +22,16 @@
 
     <table align="center">
       <tr>
-        <th> Set Range for Calculation: </th>
+        <th> Set Range for Calculation (latitude, longitude, radius): </th>
         <br> </br>
         <td>
-          <input type="text" v-model="latitude" placeholder = "Area Latitude:" >
+          <input type="number" min="-85" max="85" v-model="latitude" placeholder = "Area Latitude:" >
         </td>
         <td>
-          <input type="text" v-model="longitude" placeholder = "Area Longitude:">
+          <input type="number" min="-180" max="180" v-model="longitude" placeholder = "Area Longitude:">
         </td>
         <td>
-          <input type="text" v-model="radius" placeholder = "Radius(km):">
+          <input type="number" min="0.1" max="200" v-model="radius" placeholder = "Radius(km):">
         </td>
         <td>
           <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
@@ -68,7 +68,55 @@
     <table align="center">
       <tr>
         <td>
-          <input type="text" v-model="treeSpecies" placeholder = "Tree Species">
+          <select name="treeSpecies" v-model="treeSpecies" placeholder = "Tree Species">
+            <option value="blackwalnut">Black Walnut</option>
+            <option value="butternut">Butternut</option>
+            <option value="redmaple">Red Maple</option>
+            <option value="westernredcedar"> Western Cedar</option>
+            <option value="whitecedar"> White Cedar </option>
+            <option value="easternredcedar"> Eastern Red Cedar </option>
+            <option value="douglasfir"> Douglas Fir </option>
+            <option value="fir"> Fir </option>
+            <option value="amabilisfir"> Amabilis Fir </option>
+            <option value="balsamfir"> Balsam Fir</option>
+            <option value="subalpinefir"> Subalpine Fir</option>
+            <option value="grandfir"> Grand Fir</option>
+            <option value="easternhemlock"> Eastern Hemlock</option>
+            <option value="westernhemlock"> Western Hemlock</option>
+            <option value="hemlock"> Hemlock </option>
+            <option value="tamarack"> Tamarack </option>
+            <option value="larch"> Larch </option>
+            <option value="oak"> Oak </option>
+            <option value="westernlarch"> Western Larch </option>
+            <option value="whitepine"> White Pine </option>
+            <option value="jackpine"> Jack Pine</option>
+            <option value="lodgepolepine"> Lodgepole Pine </option>
+            <option value="redpine"> Red Pine </option>
+            <option value="pine"> Pine </option>
+            <option value="maple"> Maple </option>
+            <option value="blackspruce"> Black Spruce </option>
+            <option value="redspruce"> Red Spruce </option>
+            <option value="sitkaspruce"> Sitka Spruce </option>
+            <option value="whitespruce"> White Spruce </option>
+            <option value="spruce"> Spruce </option>
+            <option value="redalder"> Red Alder </option>
+            <option value="blackash"> Black Ash </option>
+            <option value="whiteash"> White Ash </option>
+            <option value="redash"> Red Ash </option>
+            <option value="greenash"> Green Ash </option>
+            <option value="ash"> Ash </option>
+            <option value="basswood"> Basswood </option>
+            <option value="beech"> Beech </option>
+            <option value="whitebirch"> White Birch </option>
+            <option value="yellowbirch"> Yellow Birch </option>
+            <option value="birch"> Birch </option>
+            <option value="blackcherry"> Black Cherry </option>
+            <option value="whiteelm"> White Elm </option>
+            <option value="elm"> Elm </option>
+            <option value="hickory"> Hickory </option>
+            <option value="silvermaple"> Silver Maple </option>
+            <option value="sugarmaple"> Sugar Maple </option>
+          </select>
         </td>
         <td>
           <button @click="addToForecast(treeSpecies)" style="margin:15px" >Add Tree To Forecast
@@ -89,9 +137,6 @@
     <br> </br>
 
     <button @click="calculateIndex()" style="margin:15px" > Calculate!
-    </button>
-
-    <button @click="getAllTrees()" style="margin:15px" > Refresh Tree List
     </button>
 
     <br> </br>
