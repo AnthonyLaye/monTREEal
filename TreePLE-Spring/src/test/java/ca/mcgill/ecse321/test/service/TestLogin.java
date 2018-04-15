@@ -42,7 +42,7 @@ public class TestLogin {
 		String role;
 		List<Person> loggedIn=null;
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("marcus@mail.mcgill.ca", "allo123");
@@ -52,24 +52,24 @@ public class TestLogin {
 			String error = e.getMessage();
 		}
 	}
-	
+
 	@Test
 	public void testEmailNotInSystem() {
 		TreePLEManager tm = new TreePLEManager();
 		String role;
 		String error="";
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("m@mail.mcgill.ca", "allo123");
+			assertEquals("None", role);
 		} catch (InvalidInputException e) {
 			error = e.getMessage();
-
 		}
-		assertEquals("This email address is not registered in the system. You may want to register below.", error);
+
 	}
-	
+
 	@Test
 	public void testIncorrectPassword() {
 		TreePLEManager tm = new TreePLEManager();
@@ -80,19 +80,20 @@ public class TestLogin {
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("marcus@mail.mcgill.ca", "alloesfd3");
+			assertEquals("None", role);
 		} catch (InvalidInputException e) {
 			error = e.getMessage();
 		}
-		assertEquals("incorrect password", error);
+
 	}
-	
+
 	@Test
 	public void testWithoutAsperand() {
 		TreePLEManager tm = new TreePLEManager();
 		String role;
 		String error="";
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("marcus.ca", "allo123");
@@ -101,30 +102,30 @@ public class TestLogin {
 		}
 		assertEquals("The email passed is not an email, does not contain @. You may want to register below.", error);
 	}
-	
-		@Test
+
+	@Test
 	public void testWithoutExtension() {
 		TreePLEManager tm = new TreePLEManager();
 		String role;
 		String error="";
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("marcus@mail.mcgill.sedf", "allo123");
 		} catch (InvalidInputException e) {
 			error = e.getMessage();
 		}
-		assertEquals("The email address passed does not have the correct extension. Ex: .com, .ca, .org or .fr", error);
+		assertEquals("The email address passed does not have the correct extension", error);
 	}
-	
-		@Test
+
+	@Test
 	public void testEmptyEmail() {
 		TreePLEManager tm = new TreePLEManager();
 		String role;
 		String error="";
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("", "allo123");
@@ -133,14 +134,14 @@ public class TestLogin {
 		}
 		assertEquals("Nothing is entered. You may want to register below", error);
 	}
-	
-		@Test
+
+	@Test
 	public void testEmptyPassword() {
 		TreePLEManager tm = new TreePLEManager();
 		String role;
 		String error="";
 		tm.addPerson("Marcus", "marcus@mail.mcgill.ca", "allo123");
-		
+
 		TreePLEService ts = new TreePLEService(tm);
 		try {
 			role=ts.login("m@mail.mcgill.ca", "");
@@ -150,5 +151,4 @@ public class TestLogin {
 		}
 		assertEquals("Nothing is entered. You may want to register below", error);
 	}
-
 }

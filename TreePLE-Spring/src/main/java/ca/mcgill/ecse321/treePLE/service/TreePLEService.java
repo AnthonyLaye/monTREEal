@@ -68,7 +68,17 @@ public class TreePLEService {
 		return "None";
 	}
 
-	
+	/**
+	 * This method permits a user to sign in, in the system of treePLE. Few informations are needed to successfully create an account
+	 * @param name, name of the user
+	 * @param email, email address of the user to whom we can reach to
+	 * @param password, a private password that is specific for this account
+	 * @param role, a choice between signing in as a Resident or as a Scientist
+	 * @return, will return an Object of type Person
+	 * @throws InvalidInputException if there is no @ in the email, if the email does not end with one of the following extension
+	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
+	 * does not exist in the system.
+	 */
 	public Person register(String name, String email, String password, String role) throws InvalidInputException {
 		Person p=null;
 		if(!email.contains("@")) {
@@ -88,10 +98,23 @@ public class TreePLEService {
 		}else {
 			throw new InvalidInputException("Does not contain a valid extension supported by this country. Valid: .com, .ca, .org, .fr");
 		}
-		
+		PersistenceXStream.saveToXMLwithXStream(tm);
 		return p;
 	}
 
+	/**
+	 * This method is to successfully plant a tree in the system
+	 * @param aSpecies, species of tree that can only grow on the land of Canada
+	 * @param aHeight, the height of the tree, that has a current maximum of 20 000cm
+	 * @param aAge, the age of the tree
+	 * @param aDate, the date it has been planted
+	 * @param aDiameter, the diameter of the tree in cm
+	 * @param aId, an ID to trace the tree in the system
+	 * @param aPerson, the object of a Person to whom the tree belongs to
+	 * @param aLocation, a location, specified with longitude, latitude and the municipality where the tree is planted
+	 * @return a new Tree Object
+	 * @throws InvalidInputException when any of these parameters is entered wrongly. or if one is not set
+	 */
 	public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name="";
@@ -450,74 +473,6 @@ public class TreePLEService {
 	}
 
 	/**
-	 * This method calculates a sustainability attribute called carbon sequestration. Carbon sequestration
-	 * is the amount of CO2 in kg absorbed by the trees in an area
-	 * @param trees is a list of trees where we want to calculate that amount of CO2
-	 * @return a number that is the amount of CO2 in kg
-	 */
-	public double calculateCarbonSequestration(List<Tree> trees) {
-		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
-		int density=0;
-		double index=0;
-		double volume=0;
-		double biomass=0;
-		double result=0;
-		List<SpeciesDensities> listSpeciesDensities=null;
-		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
-		for (Tree t: trees) {
-			String speciesName=t.getSpecies();
-			//compare the speciesName with the file to get the density
-			listSpeciesDensities = csm.getSpeciesDensities();
-			for(SpeciesDensities sd: listSpeciesDensities) {
-				String species= sd.getSpecies();
-				if(speciesName.equalsIgnoreCase(species)) {
-					density=sd.getDensity();
-					break;
-				}
-			}
-			//calculate the volume occupied by the tree
-			volume= (double)Math.PI*((t.getDiameter()/2)/100)*((t.getDiameter()/2)/100)*(t.getHeight()/3)/100;
-			//biomass in kilograms
-			biomass = density*volume;
-			index=biomass*tonneOfCO2/1000;
-			result=result+index;
-		}
-		return result;
-	}
-
-	public double calculateCarbonSequestrationFromTrees(List<String> treeSpecies, List<String> treeHeight, List<String> treeDiameter) {
-		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
-		int density=0;
-		double index=0;
-		double volume=0;
-		double biomass=0;
-		double result=0;
-		int indexarray =0;
-		List<SpeciesDensities> listSpeciesDensities=null;
-		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
-		for (String t: treeSpecies) {
-			//String speciesName=t.getSpecies();
-			//compare the speciesName with the file to get the density
-			listSpeciesDensities = csm.getSpeciesDensities();
-			for(SpeciesDensities sd: listSpeciesDensities) {
-				String species= sd.getSpecies();
-				if(t.equalsIgnoreCase(species)) {
-					density=sd.getDensity();
-					indexarray = treeSpecies.indexOf(t);
-					break;
-				}
-			}
-			//calculate the volume occupied by the tree
-			volume= (double)Math.PI*(((Double.valueOf(treeDiameter.get(indexarray))) /2)/100)*((Double.valueOf(treeDiameter.get(indexarray))/2)/100)*((Double.valueOf(treeHeight.get(indexarray)))/3)/100;
-			//biomass in kilograms
-			biomass = density*volume;
-			index=biomass*tonneOfCO2/1000;
-			result=result+index;
-		}
-		return result;
-	}
-
-	/**
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is
 	 * relative to the number of individuals (trees)
@@ -580,6 +535,82 @@ public class TreePLEService {
 		}
 		return index;
 	}
+	
+	/**
+	 * This method calculates a sustainability attribute called carbon sequestration. Carbon sequestration
+	 * is the amount of CO2 in kg absorbed by the trees in an area
+	 * @param trees is a list of trees where we want to calculate that amount of CO2
+	 * @return a number that is the amount of CO2 in kg
+	 */
+	public double calculateCarbonSequestration(List<Tree> trees) {
+		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
+		int density=0;
+		double index=0;
+		double volume=0;
+		double biomass=0;
+		double result=0;
+		List<SpeciesDensities> listSpeciesDensities=null;
+		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+		for (Tree t: trees) {
+			String speciesName=t.getSpecies();
+			//compare the speciesName with the file to get the density
+			listSpeciesDensities = csm.getSpeciesDensities();
+			for(SpeciesDensities sd: listSpeciesDensities) {
+				String species= sd.getSpecies();
+				if(speciesName.equalsIgnoreCase(species)) {
+					density=sd.getDensity();
+					break;
+				}
+			}
+			//calculate the volume occupied by the tree
+			volume= (double)Math.PI*((t.getDiameter()/2)/100)*((t.getDiameter()/2)/100)*(t.getHeight()/3)/100;
+			//biomass in kilograms
+			biomass = density*volume;
+			index=biomass*tonneOfCO2/1000;
+			result=result+index;
+		}
+		return result;
+	}
+
+	/**
+	 * This method calculates a sustainability attribute called carbon sequestration given different types of lists. 
+	 * Carbon sequestration is the amount of CO2 in kg absorbed by the trees in an area
+	 * @param treeSpecies, list of tree species
+	 * @param treeHeight, list of their associated height
+	 * @param treeDiameter, list of their associated diameter
+	 * @return a number that is the amount of CO2 in kg
+	 */
+	public double calculateCarbonSequestrationFromTrees(List<String> treeSpecies, List<String> treeHeight, List<String> treeDiameter) {
+		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
+		int density=0;
+		double index=0;
+		double volume=0;
+		double biomass=0;
+		double result=0;
+		int indexarray =0;
+		List<SpeciesDensities> listSpeciesDensities=null;
+		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+		for (String t: treeSpecies) {
+			//String speciesName=t.getSpecies();
+			//compare the speciesName with the file to get the density
+			listSpeciesDensities = csm.getSpeciesDensities();
+			for(SpeciesDensities sd: listSpeciesDensities) {
+				String species= sd.getSpecies();
+				if(t.equalsIgnoreCase(species)) {
+					density=sd.getDensity();
+					indexarray = treeSpecies.indexOf(t);
+					break;
+				}
+			}
+			//calculate the volume occupied by the tree
+			volume= (double)Math.PI*(((Double.valueOf(treeDiameter.get(indexarray))) /2)/100)*((Double.valueOf(treeDiameter.get(indexarray))/2)/100)*((Double.valueOf(treeHeight.get(indexarray)))/3)/100;
+			//biomass in kilograms
+			biomass = density*volume;
+			index=biomass*tonneOfCO2/1000;
+			result=result+index;
+		}
+		return result;
+	}
 
 	/**
 	 * This method is a sustainability attribute to know what is the required amount of water we should
@@ -600,6 +631,12 @@ public class TreePLEService {
 		return water;
 	}
 
+	/**
+	 * This method is a sustainability attribute to know what is the required amount of water we should
+	 * water the trees of a given area
+	 * @param diameters, a list of all the diameters of the trees in the given area
+	 * @return the amount of water recommended in Liters
+	 */
 	public double calculateWaterNeededFromTrees(List<String> diameters) {
 		double water=0;
 		double diameter;
@@ -675,9 +712,13 @@ public class TreePLEService {
 		return t1;
 	}
 
-
 	//needs testing
-	public Status getStatus(int id) {//throws InvalidInputException {
+	/**
+	 * This is a method that find the status of a given tree from its ID
+	 * @param id number a specified tree
+	 * @return the status of that tree
+	 */
+	public Status getStatus(int id) {
 		Status treeStatus = Status.Healthy;
 		for (Tree tree : tm.getTrees()) {
 			int treeID = tree.getId();
