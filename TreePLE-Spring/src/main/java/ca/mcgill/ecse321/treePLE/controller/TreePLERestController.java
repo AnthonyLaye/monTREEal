@@ -161,7 +161,7 @@ public class TreePLERestController {
         return convertToDto(treeAdded);
     }
     
-    @PostMapping(value= {"/register/{name}/", "/register/{name}"})
+    @PostMapping(value= { "/register/{name}", "/register/{name}/" })
     public PersonDto register(@PathVariable("name")String name,
     		@RequestParam String email, @RequestParam String password, 
     		@RequestParam String role) throws InvalidInputException {
@@ -174,7 +174,7 @@ public class TreePLERestController {
     //   GET Methods
     //---------------------------------- 
     
-    @GetMapping(value = {"/login/", "/login"})
+    @GetMapping(value = { "/login", "/login/" })
     public String login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
     	String role;
