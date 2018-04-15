@@ -1,0 +1,17 @@
+.outer-div{
+	height: 100vh;
+	overflow: hidden;
+}
+
+.inner-div{
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: all 0.5s ease;
+	background-image: url("./background.png");
+}
+
+.inner-div: hover{
+	transform: scale(1.2);
+}

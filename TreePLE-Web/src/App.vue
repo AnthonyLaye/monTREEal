@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <ul>
+      <li><a class="active" <router-link to="login">Sign In</router-link></a></li>
+      <li><a <router-link to="register">Register</router-link></a></li>
+      <li><a <router-link to="contact">Contact</router-link></a></li>
+      <li style="float:right"><a <router-link to="aboutus">About Us</router-link></a></li>
+    </ul>
     <router-view></router-view>
- <!-- <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 100%; height: 500px">
-      </gmap-map> -->
   </div>
 </template>
 
@@ -24,6 +27,40 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+    border-right:0.5px solid #bbb;
+  }
+
+  li:last-child {
+    border-right: none;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #009933
+;
+  }
+
+  .active {
+    background-color: #ff3300;
+  }
 </style>
