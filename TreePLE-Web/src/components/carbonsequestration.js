@@ -79,7 +79,7 @@ export default {
       for (var k = 0; k < Object.keys(this.treesinArea).length; k++) {
         treeDiameter.push(this.treesinArea[k].diameter)
       }
-      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?treeSpecies' + treeSpecies + '&treeHeight' + treeHeight + '&treeDiameter' + treeDiameter, {}, {})
+      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?treeSpecies=' + treeSpecies + '&treeHeight=' + treeHeight + '&treeDiameter=' + treeDiameter, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.carbonsequestration = response.data
