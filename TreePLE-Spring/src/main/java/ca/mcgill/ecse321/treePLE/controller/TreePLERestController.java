@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +26,6 @@ import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
-import net.minidev.json.parser.JSONParser;
 
 @RestController
 public class TreePLERestController {
