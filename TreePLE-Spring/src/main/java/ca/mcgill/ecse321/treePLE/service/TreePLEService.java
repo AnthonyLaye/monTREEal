@@ -120,6 +120,7 @@ public class TreePLEService {
 	 * @return a new Tree Object
 	 * @throws InvalidInputException when any of these parameters is entered wrongly. or if one is not set
 	 */
+
 	public Tree createTree(String aSpecies, float aHeight, int aAge, Date aDate, float aDiameter, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name="";
@@ -127,8 +128,8 @@ public class TreePLEService {
 			throw new InvalidInputException("Something is empty!");
 		}
 
-		if(aHeight<20001 && aHeight>0) {
-			if(aHeight<35001 && aHeight>0) {
+		if(aDiameter<20001 && aDiameter>0) {
+			if(aHeight<3501 && aHeight>0) {
 
 				if (aSpecies.chars().allMatch(Character::isLetter)) {
 					String nameWithout = aSpecies.replace("\\s", "");
@@ -140,7 +141,7 @@ public class TreePLEService {
 						name = s.getSpecies();
 						if(name.equals(speciesReadable)) {
 							String nameOut = s.getUISpecies();
-							Tree tree= new Tree(nameOut, aDate, aId, aPerson, tm, aLocation);
+							Tree tree= new Tree(nameOut, aHeight, aAge, aDate, aDiameter, aId, aPerson, tm, aLocation);
 							tm.addTree(tree);
 							PersistenceXStream.saveToXMLwithXStream(tm);
 							return tree;
@@ -150,7 +151,7 @@ public class TreePLEService {
 					throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
 				}
 			}else {
-				throw new InvalidInputException("The diameter is not between 1 cm and 35 000 cm");
+				throw new InvalidInputException("The diameter is not between 1 cm and 3501 cm");
 			}
 		} else {
 			throw new InvalidInputException("Enter a height between 1 and 200 meters");
@@ -172,6 +173,7 @@ public class TreePLEService {
 	 * @return A tree, as it has been added to the system
 	 * @throws InvalidInputException when the species entered contains characters that are not letters
 	 */
+
 	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
 			throws InvalidInputException{
 		String name = "";
@@ -201,6 +203,7 @@ public class TreePLEService {
 		}
 		return null;
 	}
+
 
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System

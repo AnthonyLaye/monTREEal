@@ -96,7 +96,7 @@ public class TreePLERestController {
         Tree tree = service.createTree(species, height, age, date, diameter, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
-      
+
     @PostMapping(value = { "/base/trees/{species}", "/base/trees/{species}/" })
     public TreeDto createTree(
             @PathVariable("species") String species,
@@ -114,6 +114,7 @@ public class TreePLERestController {
         Tree tree = service.createTree(species, date, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
+
        
     @PostMapping(value = { "cutDown/tree/{id}", "/tree/{id}/" })
     public boolean cutDownTree(@PathVariable("id") int id) throws InvalidInputException {
