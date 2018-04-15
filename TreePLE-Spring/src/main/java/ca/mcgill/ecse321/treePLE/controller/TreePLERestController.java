@@ -4,8 +4,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ import ca.mcgill.ecse321.treePLE.model.Tree;
 import ca.mcgill.ecse321.treePLE.model.Tree.Status;
 import ca.mcgill.ecse321.treePLE.service.InvalidInputException;
 import ca.mcgill.ecse321.treePLE.service.TreePLEService;
+import net.minidev.json.parser.JSONParser;
 
 @RestController
 public class TreePLERestController {
@@ -48,6 +51,13 @@ public class TreePLERestController {
     	PersonDto personDto = modelMapper.map(p, PersonDto.class);
     	return personDto;
     }
+    
+//    private RoleDto convertToDto(Role role) {
+//    	RoleDto roleDto = modelMapper
+//    }
+    
+    
+  
 
 //    private MunicipalityDto convertToDto(Municipality m) {
 //    	return modelMapper.map(m, MunicipalityDto.class);
@@ -175,12 +185,20 @@ public class TreePLERestController {
     //   GET Methods
     //---------------------------------- 
     
-    @GetMapping(value = { "/login", "/login/" })
+    @GetMapping(value = { "/login", "/login/" }, produces = "application/json")
+    //produces = MediaType.APPLICATION_JSON_VALUE
+    //@Produces
+    //(MediaType.TEXT_PLAIN)
     public String login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
     	String role;
     	role=service.login(email, password);
-    	return role;
+
+    	//JSONParser parser = new JSONParser();
+    	//JSONObject role1 = (JSONObject) parser.parse(role);
+    	//return role;
+    	//return "coucou";
+    	return JSONObject.quote(role);
     }
     
     @GetMapping(value = { "/trees", "/trees/" })
