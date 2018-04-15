@@ -69,8 +69,8 @@
       <tr>
         <td>
           <input type="text" v-model="treeSpecies" placeholder = "Tree Species">
-          <input type="text" v-model="treeHeight" placeholder = "Tree Height (cm)">
-          <input type="text" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <input type="number" v-model="treeHeight" placeholder = "Tree Height (cm)">
+          <input type="number" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
         </td>
         <td>
           <button @click="addToForecast(treeSpecies, treeHeight, treeDiameter)" style="margin:15px" >Add Tree To Forecast
