@@ -17,7 +17,7 @@
 
     <br> </br>
     <table align="center">
-      <th> Water Index = {{waterindex}} </th>
+      <th> Water Index = {{waterindex}} litres of water per month </th>
     </table>
 
     <table align="center">
@@ -68,7 +68,7 @@
     <table align="center">
       <tr>
         <td>
-          <input type="text" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <input type="number" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
         </td>
         <td>
           <button @click="addToForecast(treeDiameter)" style="margin:15px" >Add Tree To Forecast
