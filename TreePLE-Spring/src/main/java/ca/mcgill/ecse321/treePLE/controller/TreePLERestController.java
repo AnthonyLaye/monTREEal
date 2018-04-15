@@ -249,7 +249,7 @@ public class TreePLERestController {
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }
-    
+    /*
     @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
     public double getCarbonSequestrationIndex(@RequestParam List<Tree> treesInArea)
     				throws InvalidInputException{
@@ -257,6 +257,18 @@ public class TreePLERestController {
     	//treesInArea = service.getTreesByArea(latitude, longitude, distance);
     	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
     	return carbonSequestration;
+    }
+    */
+
+    @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
+    public double getCarbonSequestrationIndexFromTrees(@RequestParam List<String> treeSpecies,
+                                                       @RequestParam List<String> treeHeight,
+                                                       @RequestParam List<String> treeDiameter)
+            throws InvalidInputException{
+        double carbonSequestration=0;
+        //treesInArea = service.getTreesByArea(latitude, longitude, distance);
+        carbonSequestration=service.calculateCarbonSequestrationFromTrees(treeSpecies, treeHeight, treeDiameter);
+        return carbonSequestration;
     }
     
         //status: not tested

@@ -472,6 +472,38 @@ public class TreePLEService {
 		return result;
 	}
 
+	public double calculateCarbonSequestrationFromTrees(List<String> treeSpecies, List<String> treeHeight, List<String> treeDiameter) {
+		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
+		int density=0;
+		double index=0;
+		double volume=0;
+		double biomass=0;
+		double result=0;
+		int indexarray =0;
+		List<SpeciesDensities> listSpeciesDensities=null;
+		csm=(CarbonSequestrationManager)PersistenceDensity.loadFromXMLwithXStream();
+		for (String t: treeSpecies) {
+			//String speciesName=t.getSpecies();
+			//compare the speciesName with the file to get the density
+			listSpeciesDensities = csm.getSpeciesDensities();
+			for(SpeciesDensities sd: listSpeciesDensities) {
+				String species= sd.getSpecies();
+				if(t.equalsIgnoreCase(species)) {
+					density=sd.getDensity();
+					indexarray = treeSpecies.indexOf(t);
+					break;
+				}
+			}
+			//calculate the volume occupied by the tree
+			volume= (double)Math.PI*(((Double.valueOf(treeDiameter.get(indexarray))) /2)/100)*((Double.valueOf(treeDiameter.get(indexarray))/2)/100)*((Double.valueOf(treeHeight.get(indexarray)))/3)/100;
+			//biomass in kilograms
+			biomass = density*volume;
+			index=biomass*tonneOfCO2/1000;
+			result=result+index;
+		}
+		return result;
+	}
+
 	/**
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is

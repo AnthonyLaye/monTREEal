@@ -67,7 +67,19 @@ export default {
       }
     },
     calculateSequestration: function () {
-      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?treesInArea' + this.treesInArea, {}, {})
+      var treeSpecies = []
+      for (var i = 0; i < Object.keys(this.treesinArea).length; i++) {
+        treeSpecies.push(this.treesinArea[i].species)
+      }
+      var treeHeight = []
+      for (var j = 0; j < Object.keys(this.treesinArea).length; j++) {
+        treeHeight.push(this.treesinArea[j].height)
+      }
+      var treeDiameter = []
+      for (var k = 0; k < Object.keys(this.treesinArea).length; k++) {
+        treeDiameter.push(this.treesinArea[k].diameter)
+      }
+      AXIOS.get('/treePLE/trees/forecast/carbonsequestration' + '?treeSpecies' + treeSpecies + '&treeHeight' + treeHeight + '&treeDiameter' + treeDiameter, {}, {})
       .then(response => {
         // JSON responses are automatically parsed.
         this.carbonsequestration = response.data
