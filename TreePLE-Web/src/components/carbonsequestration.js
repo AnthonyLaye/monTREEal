@@ -61,12 +61,15 @@ export default {
     addToForecast: function (species, height, diameter) {
       if (species.length === 0) {
         this.errorAddTree = 'Please select a species'
+        return
       }
       if (height <= 0 || height >= 20000) {
         this.errorAddTree = 'Height must be greater than 0 and less than 20000 cm'
+        return
       }
       if (diameter <= 0 || diameter >= 3500) {
         this.errorAddTree = 'Diameter must be greater than 0 and less than 3500 cm'
+        return
       }
       var temp = {
         'species': species,
