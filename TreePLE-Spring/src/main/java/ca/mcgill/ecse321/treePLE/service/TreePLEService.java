@@ -42,8 +42,8 @@ public class TreePLEService {
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
 	 */
-	//public String login(String email, String password) throws InvalidInputException{
-	public boolean login(String email, String password) throws InvalidInputException {
+	public String login(String email, String password) throws InvalidInputException{
+
 		//List<Person> AllUsers=tm.getPerson();
 
 		boolean wasLoggedIn = false;
@@ -65,12 +65,11 @@ public class TreePLEService {
 				if (userPassword.contentEquals(password)) {
 					String role = user.getRoleName();
 					
-					wasLoggedIn = true;
-					//return role;
+					return role;
 				}
 			}
 		}
-		return wasLoggedIn; //"None";
+		return "None";
 	}
 
 	/**
