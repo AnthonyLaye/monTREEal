@@ -351,6 +351,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     Toast.LENGTH_LONG).show();
             return;
         }
+        if(Double.parseDouble(diameter) > 3500 && !(Double.parseDouble(diameter) > 0)){
+            Toast.makeText(getApplicationContext(),  "Height must be between 0 and 3500 cm",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
 
         HttpUtils.post("trees/" + species +"?" + "height=" + height +"&age=" + 1 + "&date=" + sqlDate
                 + "&diameter=" + Float.valueOf(diameter) + "&id=" + randomNum + "&personName=" + owner + "&latitude=" + Float.valueOf(latitude)

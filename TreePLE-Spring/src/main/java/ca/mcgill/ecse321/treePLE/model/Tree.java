@@ -64,7 +64,7 @@ public class Tree
       throw new RuntimeException("Unable to create tree due to location");
     }
   }
-
+/*
   public Tree(String aSpecies, Date aDate, int aId, Person aPerson, TreePLEManager aTreePLEManager, Location aLocation)
   {
     species = aSpecies;
@@ -91,6 +91,7 @@ public class Tree
       throw new RuntimeException("Unable to create tree due to location");
     }
   }
+  */
   
   //------------------------
   // INTERFACE

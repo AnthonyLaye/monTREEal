@@ -122,8 +122,8 @@ public class TreePLEService {
 			throw new InvalidInputException("Something is empty!");
 		}
 
-		if(aHeight<20001 && aHeight>0) {
-			if(aHeight<35001 && aHeight>0) {
+		if(aDiameter<20001 && aDiameter>0) {
+			if(aHeight<3501 && aHeight>0) {
 
 				if (aSpecies.chars().allMatch(Character::isLetter)) {
 					String nameWithout = aSpecies.replace("\\s", "");
@@ -145,7 +145,7 @@ public class TreePLEService {
 					throw new InvalidInputException("The species passed as argument is not a valid tree that can grow on the land of Canada");
 				}
 			}else {
-				throw new InvalidInputException("The diameter is not between 1 cm and 35 000 cm");
+				throw new InvalidInputException("The diameter is not between 1 cm and 3501 cm");
 			}
 		} else {
 			throw new InvalidInputException("Enter a height between 1 and 200 meters");
