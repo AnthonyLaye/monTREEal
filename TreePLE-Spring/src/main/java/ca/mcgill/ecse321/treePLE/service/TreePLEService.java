@@ -75,7 +75,7 @@ public class TreePLEService {
 		else {
 			throw new InvalidInputException("The email passed is not an email, does not contain @. You may want to register below.");
 		}
-		return null;
+		return "None";
 	}
 
 	
