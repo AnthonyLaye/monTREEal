@@ -2,7 +2,7 @@
 <module external.linked.project.id="TreePLE-Spring" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="ca.mcgill.ecse321" external.system.module.version="0.0.1-SNAPSHOT" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration spring_boot_spring_config_custom_files="file://$MODULE_DIR$/../../gradle/wrapper/gradle-wrapper.properties">
+      <configuration>
         <fileset id="spring_boot_ca.mcgill.ecse321.treePLE.TreePLESpringApplication" name="TreePLESpringApplication" removed="true">
           <file>file://$MODULE_DIR$/../../src/main/java/ca/mcgill/ecse321/treePLE/TreePLESpringApplication.java</file>
           <file>file://$MODULE_DIR$/../../src/main/resources/application.properties</file>
@@ -38,7 +38,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/../../out/production/classes" />
     <output-test url="file://$MODULE_DIR$/../../out/test/classes" />
     <exclude-output />
