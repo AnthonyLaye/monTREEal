@@ -231,8 +231,8 @@ public class TreePLERestController {
     	return treesInArea;
     }
 
-    @GetMapping(value = {"/trees/forecast/biodiversityindex/{treesInArea}", "/trees/forecast/biodiversityindex/{treesInArea}"})
-    public double getBiodiversityIndexFromTrees(@PathVariable ("treesInArea") List<String> treesInArea)
+    @GetMapping(value = {"/trees/forecast/biodiversityindex", "/trees/forecast/biodiversityindex/"})
+    public double getBiodiversityIndexFromTrees(@RequestParam List<String> treesInArea)
             throws InvalidInputException{
         double biodiversityIndex=0;
         biodiversityIndex=service.calculateBiodiversityIndexFromTrees(treesInArea);
