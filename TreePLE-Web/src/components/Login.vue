@@ -148,13 +148,13 @@
             <form class="form-horizontal">
                 <span class="heading">WelCome to monTREEal</span>
                 <div class="form-group">
-                    <input class="form-control" id="inputEmail3" name="email" placeholder="Email">
+                    <input v-model="useremail" class="form-control"  placeholder="Email">
                 </div>
                 <div class="form-group help">
-                    <input class="form-control" id="inputPassword3" name="password" placeholder="Password">
+                    <input v-model="userpsw" type="password" class="form-control"  placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-default" @click="login(email,psw)">Login</button>
+                    <button class="btn btn-default" @click="login(useremail,userpsw)">Login</button>
                 </div>
                 <br></br>
             </form>
@@ -164,6 +164,8 @@
     <br></br>
 </div>
 </div>
+
+
 </template>
 
 <script src="./treePLElogin.js">

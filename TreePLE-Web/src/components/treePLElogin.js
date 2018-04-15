@@ -11,8 +11,8 @@ export default {
   name: 'treePLElogin',
   data () {
     return {
-      email: {},
-      password: {},
+      useremail:'',
+      userpsw:'',
       status: 'Null'
     }
   },
@@ -27,20 +27,21 @@ export default {
         // JSON responses are automatically parsed.
         this.status = response.data
         if(this.status === 'Resident'){
+          alert("You have successfully logged in as a Resident!")
           this.$router.push('residentdashboard')
         }
         else if(this.status === 'Scientist'){
+          alert("You have successfully logged in as a Scientist!")
           this.$router.push('dashboard')
         }
         else{
-          alert("Failed to Login!")
+          alert("Failed to Login! Check your login information!")
         }
       })
       .catch(e => {
         var errorMsg = e.message
         console.log(errorMsg)
       })
-    //  this.$router.push('trep');
     },
   }
 }
