@@ -42,10 +42,12 @@ public class TreePLEService {
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
 	 */
-	public String login(String email, String password) throws InvalidInputException{
+	//public String login(String email, String password) throws InvalidInputException{
+	public boolean login(String email, String password) throws InvalidInputException {
+		//List<Person> AllUsers=tm.getPerson();
 
-		List<Person> AllUsers=tm.getPerson();
-
+		boolean wasLoggedIn = false;
+		
 		if(email.isEmpty() || password.isEmpty()) {
 			throw new InvalidInputException("Nothing is entered. You may want to register below");
 		}
@@ -55,17 +57,20 @@ public class TreePLEService {
 		else if(!email.contains(".com") && !email.contains(".ca") && !email.contains(".org") && !email.contains(".fr")) {
 			throw new InvalidInputException("The email address passed does not have the correct extension");
 		}
-		for (Person user: AllUsers) {
+		//for (Person user: AllUsers) {
+		for(Person user: tm.getPerson()) {
 			String userEmail = user.getEmail();
 			if (userEmail.contentEquals(email)) {
 				String userPassword = user.getPassword();
 				if (userPassword.contentEquals(password)) {
 					String role = user.getRoleName();
-					return role;
+					
+					wasLoggedIn = true;
+					//return role;
 				}
 			}
 		}
-		return "None";
+		return wasLoggedIn; //"None";
 	}
 
 	/**
