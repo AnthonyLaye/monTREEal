@@ -37,6 +37,14 @@
           <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
           </button>
         </td>
+        <tr>
+          <button @click="addToForecast(treeDiameter)" style="margin:15px" >Add Tree To Forecast
+          </button>
+          <input type="number" min="1" width="60" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
+          <b></b>
+          <button @click="calculateWaterIndex()" style="margin:15px" > Calculate!
+          </button>
+        </tr>
       </tr>
     </table>
 
@@ -71,33 +79,23 @@
 
     <br> </br>
 
-    <table align="center">
-      <tr>
-        <td>
-          <input type="number" min="1" width="60" max="2000" v-model="treeDiameter" placeholder = "Tree Diameter (cm)">
-        </td>
-        <td>
-          <button @click="addToForecast(treeDiameter)" style="margin:15px" >Add Tree To Forecast
-          </button>
-        </td>
-      </tr>
-    </table>
-
-    <br> </br>
 
     <p>
       <span style="color:red">{{errorAddTree}} </span>
     </p>
 
-    <button @click="calculateWaterIndex()" style="margin:15px" > Calculate!
-    </button>
+    <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 1000px; height: 500px; margin: auto">
+      <gmap-marker v-for="tree in treesinArea" :key="tree.id" :position="getLocation(tree)">
+      </gmap-marker>
+    </gmap-map>
 
     <br> </br>
 
     <button @click="exitForecasting" style="margin:15px" >Exit Forecasting
     </button>
+    <br> </br>
 
-
+    <br> </br>
   </div>
 </template>
 
@@ -105,7 +103,7 @@
 </script>
 
 <style>
-  #treePLE {
+  #WaterIndex {
     background: #f4efeb;
     font-family: 'Avenir', sans-serif;
     color: #27472e;

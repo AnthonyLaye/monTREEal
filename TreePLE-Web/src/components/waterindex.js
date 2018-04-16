@@ -12,12 +12,14 @@ export default {
   data () {
     return {
       waterindex: 0,
+      treeDiameter: '',
       latitude: 0,
       longitude: 0,
       radius: 0,
       treesinArea: [],
       errorLocation: '',
-      errorAddTree: ''
+      errorAddTree: '',
+      center: {lat: 45.5017, lng: -73.5673}
     }
   },
 
@@ -85,6 +87,12 @@ export default {
           this.treesinArea.splice(i, 1)
           break
         }
+      }
+    },
+    getLocation: function (tree) {
+      return {
+        lat: tree.latitude,
+        lng: tree.longitude
       }
     },
     calculateWaterIndex: function () {

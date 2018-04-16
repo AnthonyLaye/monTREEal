@@ -1,9 +1,8 @@
 <template>
   <div id="BiodiversityIndex">
-    <h1><b>monTREEal Forecasting </b></h1>
-
     <br> </br>
-
+    <h1><b>monTREEal Forecasting </b></h1>
+    <br> </br>
     <h2><b>Biodiversity Index </b></h2>
 
     <button @click="startBiodiversityIndex" style="margin:15px" >Biodiversity Index
@@ -17,7 +16,7 @@
 
     <br> </br>
     <table align="center">
-      <th> Biodiversity Index = {{biodiversityindex}} </th>
+      <th> Biodiversity Index = <strong>{{biodiversityindex}}</strong></th>
     </table>
 
     <table align="center">
@@ -37,39 +36,13 @@
           <button @click="getTreesInArea(latitude, longitude, radius)" style="margin:15px" >Get Trees in Area
           </button>
         </td>
-      </tr>
-    </table>
 
-    <br> </br>
-
-    <p>
-      <span style="color:red">{{errorLocation}} </span>
-    </p>
-
-    <table align = "center" style = "width:60%">
-      <tr>
-        <th> ID </th>
-        <th> Species </th>
-        <th> Height </th>
-        <th> Diameter </th>
-        <th> Age </th>
-        <th> Date Planted </th>
-      <tr v-for="tree in treesinArea" >
-        <td> {{tree.id}} </td>
-        <td> {{tree.species}} </td>
-        <td> {{tree.height}} </td>
-        <td> {{tree.diameter}} </td>
-        <td> {{tree.age}} </td>
-        <td> {{tree.date}} </td>
-        </td>
-        <button @click="removeFromForecast(tree.id)" style="margin:15px" >Remove Tree from Forecast
-        </button>
-      </tr>
-    </table>
-
-    <br> </br>
-
-    <br> </br>
+            <button @click="calculateIndex()" style="margin:15px" > Calculate!
+           </button>
+          <tr>
+            
+            <button @click="addToForecast(treeSpecies)" style="margin:15px" >Add Tree To Forecast
+            </button>
 
     <table align="center">
       <tr>
@@ -124,27 +97,49 @@
             <option value="Sugar Maple"> Sugar Maple </option>
           </select>
         </td>
-        <td>
-          <button @click="addToForecast(treeSpecies)" style="margin:15px" >Add Tree To Forecast
-          </button>
-        </td>
       </tr>
     </table>
+  </tr>
 
-<!--
-    <table>
-      <tr>
-      <tr v-for="tree in trees" >
-        <td> {{tree}} </td>
-        </td>
       </tr>
     </table>
--->
 
     <br> </br>
 
-    <button @click="calculateIndex()" style="margin:15px" > Calculate!
-    </button>
+    <p>
+      <span style="color:red">{{errorLocation}} </span>
+    </p>
+
+    <table align = "center" style = "width:60%">
+      <tr>
+        <th> ID </th>
+        <th> Species </th>
+        <th> Height </th>
+        <th> Diameter </th>
+        <th> Age </th>
+        <th> Date Planted </th>
+      <tr v-for="tree in treesinArea" >
+        <td> {{tree.id}} </td>
+        <td> {{tree.species}} </td>
+        <td> {{tree.height}} </td>
+        <td> {{tree.diameter}} </td>
+        <td> {{tree.age}} </td>
+        <td> {{tree.date}} </td>
+        </td>
+        <button @click="removeFromForecast(tree.id)" style="margin:15px" >Remove Tree from Forecast
+        </button>
+      </tr>
+    </table>
+
+    <br> </br>
+    <br> </br>
+
+    <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 1000px; height: 500px; margin: auto">
+      <gmap-marker v-for="tree in trees" :key="tree.id" :position="getLocation(tree)">
+      </gmap-marker>
+    </gmap-map>
+
+    <br> </br>
 
     <br> </br>
 
@@ -158,8 +153,8 @@
 </script>
 
 <style>
-  #treePLE {
-    background: #f4efeb;
+  #BiodiversityIndex {
+    background-color: #E5EFE3;
     font-family: 'Avenir', sans-serif;
     color: #27472e;
   }

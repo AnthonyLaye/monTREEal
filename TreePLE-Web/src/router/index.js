@@ -5,8 +5,6 @@ import Login from '@/components/Login'
 import TreePLE from '@/components/TreePLE'
 import Forecast from '@/components/Forecast'
 import BioIndex from '@/components/BioIndex'
-import CarbonSequestration from '@/components/CarbonSequestration'
-import WaterIndex from '@/components/WaterIndex'
 import Home from '@/components/Home'
 
 Vue.use(Router)
@@ -46,12 +44,12 @@ export default new Router({
     {
       path: '/carbonsequestration',
       name: 'CarbonSequestration',
-      component: CarbonSequestration
+      component: require('../components/CarbonSequestration.vue').default
     },
     {
       path: '/waterindex',
       name: 'WaterIndex',
-      component: WaterIndex
+      component: require('../components/WaterIndex.vue').default
     }
   ]
 })

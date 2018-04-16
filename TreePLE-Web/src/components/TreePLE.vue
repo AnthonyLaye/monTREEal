@@ -3,6 +3,8 @@
     <h1><b>Welcome to monTREEal! </b></h1>
     <button @click="listAllTrees()" style="margin:15px" >List All Trees
     </button>
+    <button @click="startForecastPage()" style="margin:15px" >Forecasting
+    </button>
     <table align = "center" style = "width:60%">
       <tr>
       	<th> ID </th>
@@ -29,12 +31,6 @@
     </table>
 
     <br> </br>
-
-    <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 1000px; height: 500px">
-
-      <gmap-marker v-for="tree in trees" :key="tree.id" :position="getLocation(tree)">
-      </gmap-marker>
-    </gmap-map>
 
     <br> </br>
 
@@ -79,17 +75,21 @@
 
     <br> </br>
 
-    <button @click="startForecastPage()" style="margin:15px" >Forecasting
-    </button>
+    <gmap-map v-bind:center="center" v-bind:zoom="7" style="width: 1000px; height: 500px; margin: auto">
 
+      <gmap-marker v-for="tree in trees" :key="tree.id" :position="getLocation(tree)">
+      </gmap-marker>
+    </gmap-map>
+    <br> </br>
+    <br> </br>
   </div>
 </template>
 <script src="./treePLEsystem.js">
 </script>
 
 <style>
-  #treePLE {
-    background: #f4efeb;
+  #TreePLE {
+    background: #E5EFE3;
     font-family: 'Avenir', sans-serif;
     color: #27472e;
   }
@@ -135,7 +135,10 @@
   }
   gmap-map {
     width: 100%;
-    height: 600px;
+    height: 800px;
     display: block;
+    position: fixed;
+    margin: auto;
+
   }
 </style>

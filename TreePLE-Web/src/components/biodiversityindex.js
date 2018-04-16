@@ -22,7 +22,8 @@ export default {
       tree: Object,
       treeSpecies: [],
       addedTrees: [],
-      errorLocation: ''
+      errorLocation: '',
+      center: {lat: 45.5017, lng: -73.5673},
     }
   },
   created: function() {
@@ -109,9 +110,18 @@ export default {
           }
         }
     },
+
+    getLocation: function (tree) {
+      return {
+        lat: tree.latitude,
+        lng: tree.longitude
+      }
+    },
+
     calculateIndex: function (){
       if (Object.keys(this.treesinArea).length == 0) {
-        return
+        return{
+        }
       }
       var treeSpecies = []
       for(var i = 0; i < Object.keys(this.treesinArea).length; i++){
