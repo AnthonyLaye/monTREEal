@@ -50,27 +50,6 @@ public class TreePLERestController {
     	return personDto;
     }
     
-//    private RoleDto convertToDto(Role role) {
-//    	RoleDto roleDto = modelMapper
-//    }
-    
-    
-  
-
-//    private MunicipalityDto convertToDto(Municipality m) {
-//    	return modelMapper.map(m, MunicipalityDto.class);
-//    }
-//    
-//    private ResidentDto convertToDto(Resident r) {
-//        ResidentDto residentDto = modelMapper.map(r, ResidentDto.class);
-//        return residentDto;
-//    }
-//
-//    private ScientistDto convertToDto(Scientist s) {
-//        ScientistDto scientistDto = modelMapper.map(s, ScientistDto.class);
-//        return scientistDto;
-//    }
-    
     private SurveyDto convertToDto(Survey s) {
     	SurveyDto surveyDto = modelMapper.map(s, SurveyDto.class);
     	return surveyDto;
@@ -96,11 +75,9 @@ public class TreePLERestController {
             @RequestParam double latitude,
             @RequestParam String municipality) throws InvalidInputException {
 
-        //Person treeOwner = new Person(personName, service.tm);
         Person treeOwner = new Person(personName, "", "", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         Location location = new Location((float) longitude, (float) latitude, municipality);
-
         Tree tree = service.createTree(species, height, age, date, diameter, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
@@ -114,16 +91,13 @@ public class TreePLERestController {
             @RequestParam float latitude,
             @RequestParam String municipality) throws InvalidInputException {
 
-        //Person treeOwner = new Person(personName, service.tm);
         Person treeOwner = new Person(personName, "", "", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(10000000, 99999998 + 1);
         Location location = new Location(longitude, latitude, municipality);
-
         Tree tree = service.createTree(species, date, randomNum, treeOwner, location);
         return convertToDto(tree);
     }
-
-       
+    
     @PostMapping(value = { "cutDown/tree/{id}", "/tree/{id}/" })
     public boolean cutDownTree(@PathVariable("id") int id) throws InvalidInputException {
     	boolean wasCutDown = false;
@@ -159,13 +133,9 @@ public class TreePLERestController {
             @RequestParam String personName,
             @RequestParam float height,
             @RequestParam float diameter,
-            @RequestParam String status) {//throws InvalidInputException {
-
-        //Person observer = new Person(personName, service.tm);
+            @RequestParam String status) {
         Person observer = new Person(personName,"","", service.tm);
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 9999998 + 1);
-        
-        //boolean wasAdded = false;
         Tree treeAdded = service.createSurvey(date, randomNum, observer, treeId, height, diameter, status);
         return convertToDto(treeAdded);
     }
@@ -184,18 +154,9 @@ public class TreePLERestController {
     //---------------------------------- 
     
     @GetMapping(value = { "/login", "/login/" }, produces = "application/json")
-    //produces = MediaType.APPLICATION_JSON_VALUE
-    //@Produces
-    //(MediaType.TEXT_PLAIN)
     public String login(@RequestParam String email, @RequestParam String password) 
     		throws InvalidInputException{
-    	String role;
-    	role=service.login(email, password);
-
-    	//JSONParser parser = new JSONParser();
-    	//JSONObject role1 = (JSONObject) parser.parse(role);
-    	//return role;
-    	//return "coucou";
+    	String role=service.login(email, password);
     	return JSONObject.quote(role);
     }
     
@@ -206,8 +167,7 @@ public class TreePLERestController {
             trees.add(convertToDto(tree));
         }
         return trees;
-    }
-    
+    }  
    
     @GetMapping(value = { "/trees/resident/{name}", "/trees/resident/{name}/" })
     public List<TreeDto> findTreesForResident(@PathVariable ("name") String name) {
@@ -242,7 +202,6 @@ public class TreePLERestController {
     		@RequestParam float longitude, 
     		@RequestParam float distance) throws InvalidInputException{
     	List<TreeDto> treesInArea = Lists.newArrayList();
-    	//for (Tree tree: service.getTreesByAreaRevised(latitude, longitude, distance)) {
     	for (Tree tree: service.getTreesByArea(latitude, longitude, distance)) {
     		treesInArea.add(convertToDto(tree));
     	}
@@ -267,16 +226,6 @@ public class TreePLERestController {
     	biodiversityIndex=service.calculateBiodiversityIndex(treesInArea);
     	return biodiversityIndex;
     }
-    /*
-    @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
-    public double getCarbonSequestrationIndex(@RequestParam List<Tree> treesInArea)
-    				throws InvalidInputException{
-    	double carbonSequestration=0;
-    	//treesInArea = service.getTreesByArea(latitude, longitude, distance);
-    	carbonSequestration=service.calculateCarbonSequestration(treesInArea);
-    	return carbonSequestration;
-    }
-    */
 
     @GetMapping(value = {"/trees/forecast/carbonsequestration", "/trees/forecast/carbonsequestration/"})
     public double getCarbonSequestrationIndexFromTrees(@RequestParam List<String> treeSpecies,
@@ -284,28 +233,13 @@ public class TreePLERestController {
                                                        @RequestParam List<String> treeDiameter)
             throws InvalidInputException{
         double carbonSequestration=0;
-        //treesInArea = service.getTreesByArea(latitude, longitude, distance);
         carbonSequestration=service.calculateCarbonSequestrationFromTrees(treeSpecies, treeHeight, treeDiameter);
         return carbonSequestration;
     }
-    /*
-        //status: not tested
-    @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
-    public double getWaterNeeded(@RequestParam float latitude, 
-    		@RequestParam float longitude, 
-    		@RequestParam float distance) throws InvalidInputException{
-    	double water;
-    	List<Tree> treesInArea;
-    	treesInArea = service.getTreesByArea(latitude, longitude, distance);
-    	water= service.calculateWaterNeeded(treesInArea);
-    	return water;	
-    }
-    */
 
     @GetMapping(value = {"/trees/forecast/water", "/trees/forecast/water/"})
     public double getWaterNeededFromTrees(@RequestParam List<String> treeDiameter) throws InvalidInputException{
         double water;
-        //treesInArea = service.getTreesByArea(latitude, longitude, distance);
         water= service.calculateWaterNeededFromTrees(treeDiameter);
         return water;
     }
