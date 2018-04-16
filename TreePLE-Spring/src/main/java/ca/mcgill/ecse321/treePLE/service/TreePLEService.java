@@ -34,10 +34,10 @@ public class TreePLEService {
 	 * This method that checks if a user is already registered in the system
 	 * and can access by logging in the system. This will eventually be used to let
 	 * different access depending on the user. If it is either a Resident or a Scientist
-	 * @param email, Is a string value that needs to contain the specific character "@" and
+	 * @param email Is a string value that needs to contain the specific character "@" and
 	 * one of the following extension .ca, .com, .org, .fr
-	 * @param password, is an input string chosen by the user
-	 * @return a user of type Person with its attribute for name, email address, password, and role
+	 * @param password is an input string chosen by the user
+	 * @return role a user of type Person with its attribute for name, email address, password, and role
 	 * @throws InvalidInputException if there is no @ in the email, if the email does not end with one of the following extension
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
@@ -73,11 +73,11 @@ public class TreePLEService {
 
 	/**
 	 * This method permits a user to sign in, in the system of treePLE. Few informations are needed to successfully create an account
-	 * @param name, name of the user
-	 * @param email, email address of the user to whom we can reach to
-	 * @param password, a private password that is specific for this account
-	 * @param role, a choice between signing in as a Resident or as a Scientist
-	 * @return, will return an Object of type Person
+	 * @param name name of the user
+	 * @param email email address of the user to whom we can reach to
+	 * @param password a private password that is specific for this account
+	 * @param role a choice between signing in as a Resident or as a Scientist
+	 * @return p will return an Object of type Person
 	 * @throws InvalidInputException if there is no @ in the email, if the email does not end with one of the following extension
 	 * .com, .ca, .org, or .fr., if the password does not match the email address, and lastly if the email address
 	 * does not exist in the system.
@@ -105,15 +105,15 @@ public class TreePLEService {
 
 	/**
 	 * This method is to successfully plant a tree in the system
-	 * @param aSpecies, species of tree that can only grow on the land of Canada
-	 * @param aHeight, the height of the tree, that has a current maximum of 20 000cm
-	 * @param aAge, the age of the tree
-	 * @param aDate, the date it has been planted
-	 * @param aDiameter, the diameter of the tree in cm
-	 * @param aId, an ID to trace the tree in the system
-	 * @param aPerson, the object of a Person to whom the tree belongs to
-	 * @param aLocation, a location, specified with longitude, latitude and the municipality where the tree is planted
-	 * @return a new Tree Object
+	 * @param aSpecies species of tree that can only grow on the land of Canada
+	 * @param aHeight the height of the tree, that has a current maximum of 20 000cm
+	 * @param aAge the age of the tree
+	 * @param aDate the date it has been planted
+	 * @param aDiameter the diameter of the tree in cm
+	 * @param aId an ID to trace the tree in the system
+	 * @param aPerson the object of a Person to whom the tree belongs to
+	 * @param aLocation a location, specified with longitude, latitude and the municipality where the tree is planted
+	 * @return tree a new Tree Object
 	 * @throws InvalidInputException when any of these parameters is entered wrongly. or if one is not set
 	 */
 
@@ -155,16 +155,15 @@ public class TreePLEService {
 
 	/**
 	 * This method is the short version for adding a tree in the system when it has been planted
-	 * If the person who is adding the tree does not know the measurements for the age, the height or the diameter
-	 * he/she can still plant the tree, and these data will eventually be filled by a scientist
+	 * This was created for developers to facilitate the implementation and testing
 	 * One feature of this method, is that a client can write a species name with Capitals or spaces
 	 * and will look into the file if this trees can grow on the lands of Canada
-	 * @param aSpecies, the species of tree planted
-	 * @param aDate, the current date it has been planted
-	 * @param aId, the random id number to track the tree
-	 * @param aPerson, the person it belongs too
-	 * @param aLocation, its position on the map
-	 * @return A tree, as it has been added to the system
+	 * @param aSpecies the species of tree planted
+	 * @param aDate the current date it has been planted
+	 * @param aId the random id number to track the tree
+	 * @param aPerson the person it belongs too
+	 * @param aLocation its position on the map
+	 * @return tree as it has been added to the system
 	 * @throws InvalidInputException when the species entered contains characters that are not letters
 	 */
 	public Tree createTree(String aSpecies, Date aDate, int aId, Person aPerson, Location aLocation)
@@ -199,8 +198,8 @@ public class TreePLEService {
 
 	/**
 	 * This method lists ALL the trees registered in the TreePLE System
-	 * @return a list of trees (all the trees registered)
-	 * @throws InvalidInputException, when no trees are registered
+	 * @return treeList a list of trees (all the trees registered)
+	 * @throws InvalidInputException when no trees are registered
 	 */
 	public List<Tree> findAllTrees() throws InvalidInputException {
 		List<Tree> treelist = new ArrayList<Tree>();
@@ -218,8 +217,8 @@ public class TreePLEService {
 
 	/**
 	 * This method returns the list of trees that belong to a specific resident
-	 * @param The name of the resident is passed as argument, the name is of type String
-	 * @return a list of all the trees that belong to this resident
+	 * @param name The name of the resident is passed as argument, the name is of type String
+	 * @return residentTres a list of all the trees that belong to this resident
 	 */
 	public List<Tree> findTreesForResident(String name) {
 		List<Tree> residentTrees = new ArrayList<Tree>();
@@ -234,8 +233,8 @@ public class TreePLEService {
 
 	/**
 	 * This method searches for trees that is within a specified municipality
-	 * @param a string a municipality
-	 * @return a list of corresponding trees
+	 * @param municipality 	is the municipality is belongs to
+	 * @return treesByMunicipality is a list of trees
 	 * @throws InvalidInputException
 	 */
 	public List<Tree> getTreesByMunicipality(String municipality) 
@@ -257,10 +256,10 @@ public class TreePLEService {
 	/**
 	 * This method searches for trees that is within a specific area (circular) with
 	 * center at the location specified by longitude and latitude
-	 * @param a float longitude
-	 * @param a float latitude
-	 * @param a float diagonal
-	 * @return a list of corresponding trees
+	 * @param lat is the latitude of the point on a map
+	 * @param lon is the longitude of the point on a map
+	 * @param radius is the radius to determine the region 
+	 * @return treesByArea a list of corresponding trees
 	 * @throws InvalidInputException
 	 */
 	public List<Tree> getTreesByArea(float lat, float lon, float radius) 
@@ -291,7 +290,7 @@ public class TreePLEService {
 	 * @param long1
 	 * @param lat2
 	 * @param long2
-	 * @return float distance of two coordinates
+	 * @return d float distance of two coordinates
 	 */
 	public float haversineKm(float lat1, float long1, float lat2, float long2) {
 		float dr2 = (float)Math.PI / 180;
@@ -305,8 +304,8 @@ public class TreePLEService {
 
 	/**
 	 * This method searches for trees that belongs to the same species
-	 * @param a string species
-	 * @return a list of trees belong to the species
+	 * @param species the name of a species of tree
+	 * @return treesBySpecies a list of trees belong to the species
 	 */
 	public List<Tree> getAllTreesBySpecies(String species) 
 			throws InvalidInputException {
@@ -327,7 +326,7 @@ public class TreePLEService {
 	/**
 	 * Method that tells if the tree specified by ID is cutdown
 	 * @param aId the id of the tree we want information on his status
-	 * @return  wasCutDown 
+	 * @return wasCutDown 
 	 * true, if the status of the tree was cut down, does not exist in reality
 	 * false, if the tree is not cut down, exist in reality
 	 * @throws InvalidInputException
@@ -431,8 +430,8 @@ public class TreePLEService {
 	 * This method is to calculate the biodiversity index of a list of given trees. 
 	 * the index is a sustainability attribute to see how many different species there is
 	 * relative to the number of individuals (trees)
-	 * @param a list of trees of type Tree
-	 * @return a double that is a ratio between the number of different species over the number
+	 * @param trees a list of trees of type Tree
+	 * @return index a double that is a ratio between the number of different species over the number
 	 * of trees
 	 */
 	public double calculateBiodiversityIndex(List<Tree> trees) {
@@ -463,7 +462,7 @@ public class TreePLEService {
 	/**
 	 * This method calculates the biodiversity of a given list of Strings
 	 * @param treesInArea is the list of trees we want to fin the biodiversity on
-	 * @return a double that is a ratio between the number of different species over the number
+	 * @return index a double that is a ratio between the number of different species over the number
 	 * of trees
 	 */
 	public double calculateBiodiversityIndexFromTrees(List<String> treesInArea) {
@@ -495,7 +494,7 @@ public class TreePLEService {
 	 * This method calculates a sustainability attribute called carbon sequestration. Carbon sequestration
 	 * is the amount of CO2 in kg absorbed by the trees in an area
 	 * @param trees is a list of trees where we want to calculate that amount of CO2
-	 * @return a number that is the amount of CO2 in kg
+	 * @return result a number that is the amount of CO2 in kg
 	 */
 	public double calculateCarbonSequestration(List<Tree> trees) {
 		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
@@ -530,10 +529,10 @@ public class TreePLEService {
 	/**
 	 * This method calculates a sustainability attribute called carbon sequestration given different types of lists. 
 	 * Carbon sequestration is the amount of CO2 in kg absorbed by the trees in an area
-	 * @param treeSpecies, list of tree species
-	 * @param treeHeight, list of their associated height
-	 * @param treeDiameter, list of their associated diameter
-	 * @return a number that is the amount of CO2 in kg
+	 * @param treeSpecies list of tree species
+	 * @param treeHeight list of their associated height
+	 * @param treeDiameter list of their associated diameter
+	 * @return result a number that is the amount of CO2 in kg
 	 */
 	public double calculateCarbonSequestrationFromTrees(List<String> treeSpecies, List<String> treeHeight, List<String> treeDiameter) {
 		int tonneOfCO2=3670;	//this value is set for 1000kg of carbon
@@ -569,9 +568,9 @@ public class TreePLEService {
 	/**
 	 * This method is a sustainability attribute to know what is the required amount of water we should
 	 * water the trees in a specific area each month. 
-	 * @param Takes in a list of trees, to be able to get the diameters in cm of each tree to make 
+	 * @param trees a list of trees, to be able to get the diameters in cm of each tree to make 
 	 * the calculations on it
-	 * @return water, which is a double that is the amount of water required in Liters
+	 * @return water which is a double that is the amount of water required in Liters
 	 */
 	public double calculateWaterNeeded(List<Tree> trees) {
 		double water=0;
@@ -588,8 +587,8 @@ public class TreePLEService {
 	/**
 	 * This method is a sustainability attribute to know what is the required amount of water we should
 	 * water the trees of a given area
-	 * @param diameters, a list of all the diameters of the trees in the given area
-	 * @return the amount of water recommended in Liters
+	 * @param diameters a list of all the diameters of the trees in the given area
+	 * @return water the amount of water recommended in Liters
 	 */
 	public double calculateWaterNeededFromTrees(List<String> diameters) {
 		double water=0;
@@ -603,9 +602,8 @@ public class TreePLEService {
 
 	/**
 	 * The method containsString is to check if a string is present in a list of strings
-	 * @param a List of Strings: here the list is a list of different species of trees diffSpecies
-	 * @param a string name that needs to be compared to the ones inside the list
-	 * @return a boolean value
+	 * @param diffSpecies a List of Strings: here the list is a list of different species of trees diffSpecies
+	 * @param name a string name that needs to be compared to the ones inside the list
 	 * @return true, if the string passed is already in the list
 	 * @return false, if the string passed is NOT in the list
 	 */
@@ -621,11 +619,11 @@ public class TreePLEService {
 	/**
 	 * Method to create a survey on a tree, this will permit to change data of a current tree 
 	 * in the system
-	 * @param aDate, the date when the survey has been conducted
-	 * @param surveyId, the id to trace the survey
-	 * @param aObserver, the name of the scientist conducting the survey
-	 * @param treeId, the tree the survey is done on
-	 * @return return a survey of type Survey with all the information 
+	 * @param aDate the date when the survey has been conducted
+	 * @param surveyId the id to trace the survey
+	 * @param aObserver the name of the scientist conducting the survey
+	 * @param treeId the tree the survey is done on
+	 * @return t1 return a survey of type Survey with all the information 
 	 * @throws InvalidInputException
 	 */
 	public Tree createSurvey(Date aDate, int surveyId, Person aObserver, int treeId, float height, float diameter, String status) 
@@ -661,7 +659,7 @@ public class TreePLEService {
 	/**
 	 * This is a method that find the status of a given tree from its ID
 	 * @param id number a specified tree
-	 * @return the status of that tree
+	 * @return treeStatus the status of that tree
 	 */
 	public Status getStatus(int id) {
 		Status treeStatus = Status.Healthy;
