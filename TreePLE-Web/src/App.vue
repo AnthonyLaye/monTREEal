@@ -3,7 +3,6 @@
     <ul>
       <li><a class="active" <router-link to="login">Sign In</router-link></a></li>
       <li><a <router-link to="register">Register</router-link></a></li>
-      <li><a <router-link to="contact">Contact</router-link></a></li>
       <li style="float:right"><a <router-link to="aboutus">About Us</router-link></a></li>
     </ul>
     <router-view></router-view>
