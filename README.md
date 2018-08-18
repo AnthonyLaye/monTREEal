@@ -1,4 +1,4 @@
-# Project-14
+# monTREEal
 
 This project aimed to build resourceful Web and Android applications to manage trees in the city of Montreal by designing a Tree Planning Environment (TreePLE). Tools, such as Eclipse, Android Studio, Vue.js for the development part, as well as many others for testing and organizing the project have been used for the success of this application.
 
